@@ -1,0 +1,1265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 04: Linked Lists &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../test.html">
+   test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../start_here.html">
+   Start Here
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/cpp_cc.html">
+     C++ Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/big-o.html">
+     Big-O Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_08.html">
+   Week 8
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_13.html">
+   Week 13
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/graphs.html">
+     Introduction to Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/depth_first_search.html">
+     Depth-First Search
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a1/readme.html">
+   A1: Binarization &amp; Thresholding
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/a1/examples/readme.html">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a2/readme.html">
+   A2: Maze Generation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/a4/readme.html">
+   A4: Recursion &amp; Stacks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flabs/lab-04/readme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/lab-04/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pointers-references">
+   Pointers &amp; References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linked-lists">
+   Linked Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-node-class">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Node
+    </span>
+   </code>
+   Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-linked-list-class">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Linked
+    </span>
+    <span class="pre">
+     List
+    </span>
+   </code>
+   Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linked-list-traversal">
+     Linked List Traversal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singly-linked-list">
+     Singly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doubly-linked-list">
+     Doubly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circularly-singly-linked-list">
+     Circularly Singly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
+     Circularly Doubly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
+     Visualizing Singly-Linked List Operations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-front">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         push_front
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-back">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         push_back
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#insert">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         insert
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         delete
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-task-task">
+   Your Task {#task}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-reqs">
+   Requirements {#reqs}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   Submission
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 04: Linked Lists</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pointers-references">
+   Pointers &amp; References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linked-lists">
+   Linked Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-node-class">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Node
+    </span>
+   </code>
+   Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-linked-list-class">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Linked
+    </span>
+    <span class="pre">
+     List
+    </span>
+   </code>
+   Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linked-list-traversal">
+     Linked List Traversal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singly-linked-list">
+     Singly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doubly-linked-list">
+     Doubly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circularly-singly-linked-list">
+     Circularly Singly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
+     Circularly Doubly Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
+     Visualizing Singly-Linked List Operations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-front">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         push_front
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-back">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         push_back
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#insert">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         insert
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         delete
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-task-task">
+   Your Task {#task}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-reqs">
+   Requirements {#reqs}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   Submission
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-04-linked-lists">
+<h1>Lab 04: Linked Lists<a class="headerlink" href="#lab-04-linked-lists" title="Permalink to this headline">#</a></h1>
+<section id="pointers-references">
+<h2>Pointers &amp; References<a class="headerlink" href="#pointers-references" title="Permalink to this headline">#</a></h2>
+<p>Pointers &amp; references can be a bit confusing at first in C++ as the language uses the same symbols for multiple operations. For example, the <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol can be used to create a pointer, or to de-reference a pointer. Similarly, the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> symbol can be used to create a reference or to obtain the memory address of an existing variable. Hopefully by the end of this lab we will de-mystify this concept and will all be comfortable with using them.</p>
+<p>To be more efficient, the code we’ll be writing passes the vector of elements to be sorted by <strong>reference</strong>. This makes it so we do not need to make multiple copies of the vector (a mistake some of you made on assignment one), as copying a vector is an expensive operation. There are three ways in C++ to pass by reference:</p>
+<ul class="simple">
+<li><p>A pointer <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*my_ptr;</span></code></p>
+<ul>
+<li><p>This will create a pointer (memory address) to “point” to the memory address given to it. This pointer can be re-assigned, and pointer arithmetic can be performed on it. To access the data stored in a pointer (de-reference), use the * operator again.</p></li>
+</ul>
+</li>
+<li><p>A constant pointer <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">const</span> <span class="pre">my_const_ptr;</span></code></p></li>
+<li><p>This will create a constant pointer (memory address) to “point” to the memory address given to it. This pointer can NOT be re-assigned &amp; pointer arithmetic can be performed on it. To access the data stored in a pointer (de-reference), use the * operator again.</p></li>
+<li><p>A reference <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">&amp;my_reference</span></code>. This creates a “constant pointer” as above, but with automatic indirection. In other words, it automatically de-references for you when needed which means when accessing the value inside of the memory address you do not need to explicitly dereference.</p></li>
+</ul>
+<p>When you pass a variable by reference, you pass the memory address that this variable is located. This makes it so any change made in the function affects the data directly, instead of affecting a copy. In this way no return is necessary to operate on information sent from the main. No copy is needed so both memory and time creating the copy is saved.</p>
+<p>Below is a brief piece of code that showcases a simple usage of a pointer to modify a variable. Feel free to put this into <a class="reference external" href="http://www.pythontutor.com/cpp.html#mode=edit">PythonTutor</a> to view a visualization.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints 5</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Create a &quot;pointer to an integer&quot; called &#39;ptr&#39;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Obtain the memory address of &#39;my_var&#39; and store it into &#39;ptr&#39;</span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">my_var</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// De-reference &#39;ptr&#39; and change the value stored in that memory address (5) to 10</span>
+<span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints 10</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Taking that same concept, we can use a pointer to modify a variable even if we are out of scope.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;5&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">AddFive</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_var</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;10&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here is this same code with a “constant pointer”.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;5&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">AddFive</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_var</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;10&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>And once more with a “reference”. Note here because my_var was passed by reference, no explicit dereferencing using the * symbol was needed to operate on it in the AddFive function.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;5&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">AddFive</span><span class="p">(</span><span class="n">my_var</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &#39;10&#39;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">my_var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">AddFive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ptr</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Take a look at <a class="reference external" href="https://www.geeksforgeeks.org/pointers-vs-references-cpp/">this article</a> for a little more reading on pointers and references, then answer these questions.</p>
+</section>
+<section id="linked-lists">
+<h2>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h2>
+<p>We’ll start with a brief introduction to Linked Lists &amp; a brief description of the types of Linked Lists.</p>
+</section>
+<section id="the-node-class">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Node</span></code> Class<a class="headerlink" href="#the-node-class" title="Permalink to this headline">#</a></h2>
+<p>Linked Lists are your first introduction to a dynamically resizing data structure that does <strong>not</strong> involve a copy operation. A Linked List is only ever as large as it needs to be. Unlike an array, data does not get stored directly into any primitive storage container. Instead, we utilize a second concept called the <code class="docutils literal notranslate"><span class="pre">Node</span></code>. Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> contains the data it is storing, as well as a pointer(s) to neighboring nodes, with the amount of pointers depending on the type of Linked List being implemented. This class is meant to be very simple: each <code class="docutils literal notranslate"><span class="pre">Node</span></code> object holds: the datum and pointer(s) to other <code class="docutils literal notranslate"><span class="pre">Node</span></code> objects. Aside from constructors, getters, and setters are all you need to add to the <code class="docutils literal notranslate"><span class="pre">Node</span></code> class.</p>
+<p><img alt="image" src="../../_images/node.png" /></p>
+</section>
+<section id="the-linked-list-class">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Linked</span> <span class="pre">List</span></code> Class<a class="headerlink" href="#the-linked-list-class" title="Permalink to this headline">#</a></h2>
+<p>In a Linked List,<code class="docutils literal notranslate"><span class="pre">Nodes</span></code> are <em>linked</em> together to form a data structure, hence the name. The primary goals of the LinkedList class are to provide an entry point into the data structure (the <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">pointer</span></code>) and facilitate traversal, insertion, deletion, etc. The Linked List class contains a <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">pointer</span></code>, as well as any utility functions that should operate on the structure (some are listed below.)</p>
+<p><img alt="image" src="../../_images/linked-list.png" /></p>
+<section id="linked-list-traversal">
+<h3>Linked List Traversal<a class="headerlink" href="#linked-list-traversal" title="Permalink to this headline">#</a></h3>
+<p>For many operations, we will be required to traverse the Linked List in order to get to the location we plan to perform an operation on. A quick reminder on going about this task; <strong>you cannot move the head pointer!</strong> If you do, you will lose access to all of the data in your list. Instead, we make use of a temporary pointer.</p>
+<p><img alt="image" src="../../_images/linked-list-traversal-1.png" /></p>
+<p>We start by creating a temporary pointer and making the assignment <code class="docutils literal notranslate"><span class="pre">temp</span> <span class="pre">=</span> <span class="pre">head</span></code>, so both <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code> point to the same location in memory (the first <code class="docutils literal notranslate"><span class="pre">Node</span></code>.)</p>
+<p><img alt="image" src="../../_images/linked-list-traversal-2.png" /></p>
+<p>To advance our temporary pointer, we use <code class="docutils literal notranslate"><span class="pre">temp</span> <span class="pre">=</span> <span class="pre">temp.next</span></code>. <code class="docutils literal notranslate"><span class="pre">temp.next</span></code> obtains the memory address of the <code class="docutils literal notranslate"><span class="pre">Node</span></code> pointed to by <code class="docutils literal notranslate"><span class="pre">temp</span></code>, and the assignment operator makes <code class="docutils literal notranslate"><span class="pre">temp</span></code> point to it.</p>
+<p><img alt="image" src="../../_images/linked-list-traversal-3.png" /></p>
+<p>This process repeats until some terminating condition is met. This condition will depend on the operation you are performing.</p>
+</section>
+<section id="singly-linked-list">
+<h3>Singly Linked List<a class="headerlink" href="#singly-linked-list" title="Permalink to this headline">#</a></h3>
+<p><img alt="image" src="../../_images/singly-linked-list.png" /></p>
+<ul class="simple">
+<li><p>Each node (pair of boxes) contains data (in this case integers), and a pointer to the next node.</p></li>
+<li><p>There is also a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer, which should always point to the first node in the linked list as long as operations are not currently being performed on it (i.e, “the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer points to the first node” is an <em>invariant</em> of a singly linked list).</p></li>
+</ul>
+</section>
+<section id="doubly-linked-list">
+<h3>Doubly Linked List<a class="headerlink" href="#doubly-linked-list" title="Permalink to this headline">#</a></h3>
+<p><img alt="image" src="../../_images/doubly-linked-list.png" /></p>
+<ul class="simple">
+<li><p>Each node (triad of boxes) contains data (in this case integers), a pointer to the next node, <em>and</em> a pointer to the previous node.</p></li>
+<li><p>There is also a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer, which should always point to the first node in the linked list as long as operations are not currently being performed on it (i.e, “the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer points to the first node” is an <em>invariant</em> of a doubly linked list).</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">head</span></code> node’s <code class="docutils literal notranslate"><span class="pre">prev</span></code> points to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="circularly-singly-linked-list">
+<h3>Circularly Singly Linked List<a class="headerlink" href="#circularly-singly-linked-list" title="Permalink to this headline">#</a></h3>
+<p><img alt="image" src="../../_images/circularly-singly-linked-list.png" /></p>
+<ul class="simple">
+<li><p>Each node (pair of boxes) contains data (in this case integers), and a pointer to the next node. This time, the final node points back to the head node.</p></li>
+<li><p>There is also a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer, which should always point to the first node in the linked list as long as operations are not currently being performed on it (i.e, “the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer points to the first node” is an <em>invariant</em> of a circularly singly linked list).</p></li>
+</ul>
+</section>
+<section id="circularly-doubly-linked-list">
+<h3>Circularly Doubly Linked List<a class="headerlink" href="#circularly-doubly-linked-list" title="Permalink to this headline">#</a></h3>
+<p><img alt="image" src="../../_images/circularly-double-linked-list.png" /></p>
+<ul class="simple">
+<li><p>Each node (triad of boxes) contains data (in this case integers), a pointer to the next node, <em>and</em> a pointer to the previous node.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> node’s <code class="docutils literal notranslate"><span class="pre">prev</span></code> points to the last element, and the last element’s <code class="docutils literal notranslate"><span class="pre">next</span></code> points to <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p></li>
+<li><p>There is also a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer, which should always point to the first node in the linked list as long as operations are not currently being performed on it (i.e, “the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer points to the first node” is an <em>invariant</em> of a circularly doubly linked list).</p></li>
+</ul>
+</section>
+<section id="visualizing-singly-linked-list-operations">
+<h3>Visualizing Singly-Linked List Operations<a class="headerlink" href="#visualizing-singly-linked-list-operations" title="Permalink to this headline">#</a></h3>
+<p>To begin our journey of fully understanding the inner-workings of linked lists, we will start by coding the simplest of the bunch: the singly linked list. Below are some visual representations for basic operations.</p>
+<section id="push-front">
+<h4><code class="docutils literal notranslate"><span class="pre">push_front</span></code><a class="headerlink" href="#push-front" title="Permalink to this headline">#</a></h4>
+<p><img alt="image" src="../../_images/linked-list-push-front.png" /></p>
+<p>As we already have access to the head of the list, push_front is rather easy to implement. Simply create a new node, assign its ‘next’ to head, and assign head to the new node!</p>
+</section>
+<section id="push-back">
+<h4><code class="docutils literal notranslate"><span class="pre">push_back</span></code><a class="headerlink" href="#push-back" title="Permalink to this headline">#</a></h4>
+<p><img alt="image" src="../../_images/linked-list-push-back.png" /></p>
+<p>We’ll need to do a bit more work to insert at the end of the list. Seeing as we only have access to ‘head’, we’ll need to create a temp pointer that points to ‘head’, then traverse until we reach the end of the list.</p>
+</section>
+<section id="insert">
+<h4><code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#insert" title="Permalink to this headline">#</a></h4>
+<p><img alt="image" src="../../_images/linked-list-insert.png" /></p>
+<p>Similar to push_back, we need to traverse the list until we arrive at a particular location. Except this time, we don’t just traverse until the end; we need to keep count of what “index” we are at in order for the function to work as intended.</p>
+</section>
+<section id="delete">
+<h4><code class="docutils literal notranslate"><span class="pre">delete</span></code><a class="headerlink" href="#delete" title="Permalink to this headline">#</a></h4>
+<p><img alt="image" src="../../_images/linked-list-deletion.png" /></p>
+<p>Deletion is a trickier operation than any of the inserts, as you’ll need to use <em>two temp pointers</em> to complete this operation. Their final state is given above if ‘C’ were being deleted. You’ll need to move the pointers together, and <code class="docutils literal notranslate"><span class="pre">prev</span></code> should trail <code class="docutils literal notranslate"><span class="pre">tmp</span></code></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="your-task-task">
+<h2>Your Task {#task}<a class="headerlink" href="#your-task-task" title="Permalink to this headline">#</a></h2>
+<p>Your task is to create both a <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class that utilizes a <code class="docutils literal notranslate"><span class="pre">Node</span></code> class that stores integers, and performs the following tasks:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">push_front</span></code></p>
+<ul>
+<li><p>Adds an integer to the front of the list</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">push_back</span></code></p>
+<ul>
+<li><p>Adds an integer to the end of the list</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insert</span></code></p>
+<ul>
+<li><p>Adds an integer to the list at a specific index</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete</span></code></p>
+<ul>
+<li><p>Searches for &amp; removes a specific element in the list</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contains</span></code></p>
+<ul>
+<li><p>Returns true if the given value exists in the list. False otherwise.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p>
+<ul>
+<li><p>Returns the # of elements in the list</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_string</span></code></p>
+<ul>
+<li><p>Returns all elements in the list concatenated into a single string.
+The list 5 -&gt; 3 -&gt; 4 -&gt; 2 would return “5 3 4 2”</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p>You’re welcome to either make a Node class (in which case, the <a class="reference external" href="https://www.educative.io/edpresso/what-is-the-friend-keyword-in-cpp">friend keyword</a> might come in handy) or make your Node a <a class="reference external" href="https://www.educative.io/edpresso/what-is-a-cpp-struct">struct</a>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="requirements-reqs">
+<h2>Requirements {#reqs}<a class="headerlink" href="#requirements-reqs" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">to_string</span></code>, <code class="docutils literal notranslate"><span class="pre">push_front</span></code>, and <code class="docutils literal notranslate"><span class="pre">push_back</span></code></p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">contains</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code></p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">insert</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="submission">
+<h2><a class="reference external" href="#1-introduction">Submission</a><a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
+<p>You should submit the following files:</p>
+<ul class="simple">
+<li><p>linked-list.h</p></li>
+<li><p>linked-list.cpp</p></li>
+<li><p>node.hp</p></li>
+<li><p>node.cpp</p></li>
+<li><p>main.cpp</p></li>
+<li><p>answers.txt (this file contains any answers to non-coding questions in this lab)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/lab-04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
