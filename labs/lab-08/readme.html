@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 8: Binary Search Trees &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../test.html">
+   test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../start_here.html">
+   Start Here
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/cpp_cc.html">
+     C++ Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/big-o.html">
+     Big-O Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_08.html">
+   Week 8
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_13.html">
+   Week 13
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/graphs.html">
+     Introduction to Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../lectures/depth_first_search.html">
+     Depth-First Search
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a1/readme.html">
+   A1: Binarization &amp; Thresholding
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/a1/examples/readme.html">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a2/readme.html">
+   A2: Maze Generation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/a4/readme.html">
+   A4: Recursion &amp; Stacks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flabs/lab-08/readme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/lab-08/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search-trees">
+   2. Binary Search Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-starter-code">
+   3. The Starter Code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-bst-header">
+     The BST Header
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-makefile">
+     The Makefile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-unit-tests">
+     The Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-doctest-header">
+     The Doctest Header
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructions">
+   4. Instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-contents">
+     4.1 Class Contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     4.2 Methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructor-and-destructor">
+       Constructor and Destructor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#insert">
+       Insert
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#height">
+       Height
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traversals">
+       Traversals
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#destroy">
+       Destroy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#search">
+       Search
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hints">
+     4.3 Hints
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   5. Submission
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 8: Binary Search Trees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search-trees">
+   2. Binary Search Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-starter-code">
+   3. The Starter Code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-bst-header">
+     The BST Header
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-makefile">
+     The Makefile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-unit-tests">
+     The Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-doctest-header">
+     The Doctest Header
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructions">
+   4. Instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-contents">
+     4.1 Class Contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     4.2 Methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructor-and-destructor">
+       Constructor and Destructor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#insert">
+       Insert
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#height">
+       Height
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traversals">
+       Traversals
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#destroy">
+       Destroy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#search">
+       Search
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hints">
+     4.3 Hints
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   5. Submission
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8-binary-search-trees">
+<h1>Lab 8: Binary Search Trees<a class="headerlink" href="#lab-8-binary-search-trees" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Today you will be creating and implementing a Binary Search Tree given just a header file and a strict specification for each component of the class.
+This may sound intimidating, but do not be alarmed, for as long as you take each part bit-by-bit you should have no trouble getting through at least the majority of the lab.
+On the bright side, you don’t have to write any code to test your implementations, since we’re giving you unit tests using doctest for all of the methods you will need to implement.
+That being said, <strong>you must adhere to the specifications, otherwise the unit tests will not work. This includes method names.</strong></p>
+<p>The purpose of this lab is not only to help you understand the binary search tree data structure, but to give you experience with creating implementations given a specification, which is an invaluable tool to have in your arsenal.
+Not only will you be required to solve a problem or implement a task based on specifications in later classes, but also in virtually any software engineering job and likely most other jobs which involve programming.</p>
+</section>
+<section id="binary-search-trees">
+<h2>2. Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this headline">#</a></h2>
+<p>A binary search tree is a data structure to store arbitrary “items” in a way that allows extremely rapid searches, insertion, and removal.
+They rely on sortable “keys” which are used to store and look up a given node.
+These “keys” and the way they are stored means that during a lookup, at each step, up to half of the entire tree can be discarded from the search.</p>
+<img alt="../../_images/bst.gif" class="align-center" src="../../_images/bst.gif" />
+<p>As you can see from the image above, a Binary Search Tree is ordered in the following way:</p>
+<ul class="simple">
+<li><p>A root node pointer which always points to the initial value</p></li>
+<li><p>Each node has a left pointer and a right pointer</p>
+<ul>
+<li><p>The <strong>left</strong> pointer points to a node whose key is <strong>less</strong> than the parent node’s key</p></li>
+<li><p>The <strong>right</strong> pointer points to a node whose key is <strong>greater</strong> than the parent node’s key</p></li>
+</ul>
+</li>
+<li><p>This pattern continues throughout the BST</p></li>
+</ul>
+<p>The resulting tree will have two subtrees stemming from the root node. The left-hand subtree will have key values which are all less than the root node’s key. The right-hand subtree will have key values which are all greater than the root node’s key.</p>
+<p>Check out this binary search tree visualization from USFCA: <a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/BST.html">Visualization</a></p>
+</section>
+<section id="the-starter-code">
+<h2>3. The Starter Code<a class="headerlink" href="#the-starter-code" title="Permalink to this headline">#</a></h2>
+<p>This lab is a bit different compared to previous labs in that you will be exposed to some new concepts.
+To be more specific, we give you a makefile, a unit test file, a doctest header file and a header file with class definitions for <code class="docutils literal notranslate"><span class="pre">BSTNode</span></code> and <code class="docutils literal notranslate"><span class="pre">BSTree</span></code> classes (plus a couple other things).
+We have supplied <code class="docutils literal notranslate"><span class="pre">bst.cpp</span></code> to house your class definitions, and <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code> will serve as your main file.
+Thus you will need to follow the specifications in the next section very closely in order to complete the lab correctly.</p>
+<section id="the-bst-header">
+<h3>The BST Header<a class="headerlink" href="#the-bst-header" title="Permalink to this headline">#</a></h3>
+<p>If you take a look into <code class="docutils literal notranslate"><span class="pre">bst.h</span></code>, you will notice that it has been pre-written for you. It also contains some code you’ve likely never seen before, like the following:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MAX</span>
+<span class="cp">#define MAX(a,b) ((a &gt; b) ? a : b)</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>Similarly to the preprocessor directive defining <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, this statement defines a macro which actually takes arguments.
+This allows the preprocessor to replace any instance of <code class="docutils literal notranslate"><span class="pre">MAX(a,b)</span></code> with <code class="docutils literal notranslate"><span class="pre">((a</span> <span class="pre">&gt;</span> <span class="pre">b)</span> <span class="pre">?</span> <span class="pre">a</span> <span class="pre">:</span> <span class="pre">b)</span></code>, which is just a convenient way of getting the max of two numbers, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, without even needing to create a function.</p>
+<p>All that remains then is the class definitions.
+For the sake of completeness, <code class="docutils literal notranslate"><span class="pre">BSTNode</span></code> is the class which will be used for each node of the tree, and <code class="docutils literal notranslate"><span class="pre">BSTree</span></code> is the class for the tree itself.
+What you actually need to do with these classes will be explained in the next section.</p>
+</section>
+<section id="the-makefile">
+<h3>The Makefile<a class="headerlink" href="#the-makefile" title="Permalink to this headline">#</a></h3>
+<p>While you don’t necessarily need to know how it works, this file is what you will use for both compiling <em>and</em> running your code.
+The nice thing about a makefile is that if it is created correctly, all you need to do to compile your code is run the command <code class="docutils literal notranslate"><span class="pre">make</span></code>, no arguments needed.
+While this is the typical, most basic usage of a makefile, the makefile you are given goes one step further and runs your program immediately after compiling and then removes the binary it created.</p>
+<p>Again, all you need to do is run <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<p>However, do be aware that until you have filled in your header file properly, your program will fail to compile and run.
+You should only concern yourself with trying to compile the program after implementing the contents of your header.
+Once you do, your program will compile, but it will still fail all of the tests.
+This is the point at which you should move on to implementing the methods.</p>
+</section>
+<section id="the-unit-tests">
+<h3>The Unit Tests<a class="headerlink" href="#the-unit-tests" title="Permalink to this headline">#</a></h3>
+<p>The unit tests for this lab, found in <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code> will perform various tests on each of your method implementations, giving you some feedback if a test fails.
+You shouldn’t need to do anything with this file, but you’re welcome to create additional test cases.</p>
+</section>
+<section id="the-doctest-header">
+<h3>The Doctest Header<a class="headerlink" href="#the-doctest-header" title="Permalink to this headline">#</a></h3>
+<p>Don’t worry about <code class="docutils literal notranslate"><span class="pre">doctest.h</span></code>; for our purposes, it is magic.</p>
+</section>
+</section>
+<section id="instructions">
+<h2>4. Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">#</a></h2>
+<p><strong>Be sure to read Sections 4.1 and 4.2 before starting</strong></p>
+<p>Your goal for this lab is to complete the following tasks <strong>in order</strong>:</p>
+<ol class="simple">
+<li><p>Implement the first method you haven’t implemented yet</p>
+<ol class="simple">
+<li><p>If you are working on <code class="docutils literal notranslate"><span class="pre">insert()</span></code> you should implement <code class="docutils literal notranslate"><span class="pre">height()</span></code> as well before moving on</p></li>
+</ol>
+</li>
+<li><p>Compile and run your program. If it does not pass all the tests for that specific method, debug your implementation. If it does, continue on</p></li>
+<li><p>If there are methods still remaining, go back to step 1</p></li>
+</ol>
+<section id="class-contents">
+<h3>4.1 Class Contents<a class="headerlink" href="#class-contents" title="Permalink to this headline">#</a></h3>
+<p>Aside from putting in the methods declarations, which will be explained in more detail below, you have the following to make your classes work properly:</p>
+<p>In BSTNode:</p>
+<ul class="simple">
+<li><p>An integer for storing the node’s data (private)</p></li>
+<li><p>A pointer to the node’s left child (private)</p></li>
+<li><p>A pointer to the node’s right child (private)</p></li>
+<li><p>A constructor that takes an integer to be stored in the data variable (public)</p></li>
+<li><p>An empty destructor (public)</p></li>
+<li><p>The BSTNode should also give the BSTree class permission to modify its private data members</p></li>
+</ul>
+<p>In BSTree:</p>
+<ul class="simple">
+<li><p>A pointer to the root node (private)</p></li>
+<li><p>All of the methods specified in Section 4.2 below</p></li>
+</ul>
+</section>
+<section id="methods">
+<h3>4.2 Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<section id="constructor-and-destructor">
+<h4>Constructor and Destructor<a class="headerlink" href="#constructor-and-destructor" title="Permalink to this headline">#</a></h4>
+<p>The constructor should take no parameters and initialize the root variable with an appropriate value. In other words, it should create an empty tree.</p>
+<p>The destructor should delete the entire tree, which is an operation best performed recursively.
+However, destructors in C++ cannot be recursive.
+The solution to this predicament is to use a private helper method, <code class="docutils literal notranslate"><span class="pre">destroy()</span></code>, which will be described in further detail below.
+The destructor should just call <code class="docutils literal notranslate"><span class="pre">destroy()</span></code>, passing in the root node pointer.</p>
+<blockquote>
+<div><p>Note: A common theme in many of these methods is to have a public, non-recursive method which simply calls a private, recursive function on the root node.
+This is because a binary search tree can be traversed or searched easily by calling a recursive method on a node’s left child, right child or both.
+In fact, due to a concept called <em>function overloading</em>, these methods can have the same name so long as they have different parameters.</p>
+</div></blockquote>
+<p>It is recommended to work on these methods in order and test them using <code class="docutils literal notranslate"><span class="pre">make</span></code> before moving on to the next.</p>
+</section>
+<section id="insert">
+<h4>Insert<a class="headerlink" href="#insert" title="Permalink to this headline">#</a></h4>
+<p>You should create two methods named <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, one which takes an integer and returns nothing, and the other which takes a <code class="docutils literal notranslate"><span class="pre">BSTNode</span> <span class="pre">*</span></code> and an integer and returns a <code class="docutils literal notranslate"><span class="pre">BSTNode</span> <span class="pre">*</span></code>.
+The first method is the public method, which the user will be able to call, and the second method is the private recursive method which actually inserts the node in the correct place in the tree.</p>
+</section>
+<section id="height">
+<h4>Height<a class="headerlink" href="#height" title="Permalink to this headline">#</a></h4>
+<p>Again, create two methods named <code class="docutils literal notranslate"><span class="pre">height()</span></code>, one private and one public.
+The public method should take no parameters, call the private method on the root, and return the resulting integer representing the height of the tree.
+The private method should take a <code class="docutils literal notranslate"><span class="pre">BSTNode</span> <span class="pre">*</span></code> parameter and return an integer representing the height of the subtree rooted at the node passed in.</p>
+<blockquote>
+<div><p>Note: Calling the height method on an empty tree should return -1 as a tree with one node is of height 0. This is meant to distinguish between the two.</p>
+</div></blockquote>
+</section>
+<section id="traversals">
+<h4>Traversals<a class="headerlink" href="#traversals" title="Permalink to this headline">#</a></h4>
+<p>Here you will need six methods in total:</p>
+<ol class="simple">
+<li><p>Two <code class="docutils literal notranslate"><span class="pre">preorder()</span></code> methods: one private and one public</p></li>
+<li><p>Two <code class="docutils literal notranslate"><span class="pre">inorder()</span></code> methods: one private and one public</p></li>
+<li><p>Two <code class="docutils literal notranslate"><span class="pre">postorder()</span></code> methods: one private and one public</p></li>
+</ol>
+<p>Each public method should take the line <code class="docutils literal notranslate"><span class="pre">std::ostream&amp;</span> <span class="pre">os</span> <span class="pre">=</span> <span class="pre">std::cout</span></code> as a parameter and return <code class="docutils literal notranslate"><span class="pre">void</span></code>, simply calling the private counterpart with the root node pointer and the <code class="docutils literal notranslate"><span class="pre">ostream</span></code>.</p>
+<p>Each private method should take a <code class="docutils literal notranslate"><span class="pre">BSTNode</span> <span class="pre">*</span></code> and a <code class="docutils literal notranslate"><span class="pre">std::ostream&amp;</span></code> as parameters and return <code class="docutils literal notranslate"><span class="pre">void</span></code>, performing the traversal specified by its name.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ostream</span></code> is needed solely for testing, but you can also think of it as a generalization of printing.
+Instead of writing data to STDOUT using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, you will instead write to the <code class="docutils literal notranslate"><span class="pre">ostream</span></code> passed in as an argument.
+Thus, when you visit each node, you should write its data to the <code class="docutils literal notranslate"><span class="pre">ostream</span></code> just as you would with <code class="docutils literal notranslate"><span class="pre">cout</span></code>, including the <code class="docutils literal notranslate"><span class="pre">std::endl</span></code>.</p>
+<p>As for the parameter <code class="docutils literal notranslate"><span class="pre">std::ostream&amp;</span> <span class="pre">os</span> <span class="pre">=</span> <span class="pre">std::cout</span></code>, this allows you to call the method without passing in an <code class="docutils literal notranslate"><span class="pre">ostream</span></code>, in which case the method will use <code class="docutils literal notranslate"><span class="pre">cout</span></code> by default.</p>
+<p>Essentially, calling the method as <code class="docutils literal notranslate"><span class="pre">traversal()</span></code> will default to using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, and outputting as <code class="docutils literal notranslate"><span class="pre">os</span> <span class="pre">&lt;&lt;</span> <span class="pre">&quot;anything&quot;</span></code> will work exactly as you’d expect <code class="docutils literal notranslate"><span class="pre">std::cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">&quot;anything&quot;</span></code> to work.</p>
+</section>
+<section id="destroy">
+<h4>Destroy<a class="headerlink" href="#destroy" title="Permalink to this headline">#</a></h4>
+<p>You should create a destroy function which is private and takes a node and returns void.
+It should destroy the entire subtree starting at node recursively.</p>
+<blockquote>
+<div><p>Ensure that you only delete your current node after all subtrees have been freed.
+Think about which type of traversal would be best to implement this method.</p>
+</div></blockquote>
+</section>
+<section id="search">
+<h4>Search<a class="headerlink" href="#search" title="Permalink to this headline">#</a></h4>
+<p>You should create a public search method which takes an integer and returns a boolean indicating whether or not the node was found.
+It should search the tree recursively and return true if and only if the value is found, false otherwise.</p>
+</section>
+</section>
+<section id="hints">
+<h3>4.3 Hints<a class="headerlink" href="#hints" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The unit tests for <code class="docutils literal notranslate"><span class="pre">insert()</span></code> and <code class="docutils literal notranslate"><span class="pre">height()</span></code> rely on one another, so they both need to be implemented correctly before you can pass either method’s test cases.</p></li>
+</ul>
+</section>
+</section>
+<section id="submission">
+<h2>5. Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
+<p>Your submission to this lab will be the code that you create. In particular the <code class="docutils literal notranslate"><span class="pre">bst.h</span></code> and <code class="docutils literal notranslate"><span class="pre">bst.cpp</span></code> files.
+You can also submit your test file if you make any additions, but you shouldn’t remove any tests.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/lab-08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
