@@ -1,0 +1,1639 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mergesort &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quicksort" href="quicksort.html" />
+    <link rel="prev" title="Week 7" href="lec_w_07.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../test.html">
+   test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start_here.html">
+   Start Here
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_cc.html">
+     C++ Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="big-o.html">
+     Big-O Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="lec_w_07.html">
+   Week 7
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_08.html">
+   Week 8
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_13.html">
+   Week 13
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="depth_first_search.html">
+     Depth-First Search
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a1/readme.html">
+   A1: Binarization &amp; Thresholding
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a1/examples/readme.html">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a2/readme.html">
+   A2: Maze Generation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/a4/readme.html">
+   A4: Recursion &amp; Stacks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lectures/mergesort.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/mergesort.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lectures/mergesort.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/lectures/mergesort.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#divide-conquer">
+   Divide &amp; Conquer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge-sort">
+   Merge Sort
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Divide &amp; Conquer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Merge Sort
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-two-sorted-arrays">
+     Merging two sorted arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-recurrence">
+   Analysis (recurrence)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion-tree-trace">
+   Recursion Tree (trace)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-visualizer">
+   Sorting Visualizer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments-on-merge-sort">
+   Comments on Merge Sort
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-place-sorting">
+   In-place sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stable-sorting">
+   Stable Sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   Stability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-algorithms">
+   Sorting Algorithms
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mergesort</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#divide-conquer">
+   Divide &amp; Conquer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge-sort">
+   Merge Sort
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Divide &amp; Conquer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Merge Sort
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-two-sorted-arrays">
+     Merging two sorted arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-recurrence">
+   Analysis (recurrence)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion-tree-trace">
+   Recursion Tree (trace)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-visualizer">
+   Sorting Visualizer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments-on-merge-sort">
+   Comments on Merge Sort
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-place-sorting">
+   In-place sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stable-sorting">
+   Stable Sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   Stability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-algorithms">
+   Sorting Algorithms
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <style>
+  .red {color:red}
+  .blue {color:#7cc7f9}
+  .dblue {color:#011636}
+  .green {color:green}
+  .orange {color:orangered}
+  .purple {color:purple}
+  .brown {color:brown}
+  summary {align: center}
+  iframe {width: 100%; height: 800px}
+</style>
+<section class="tex2jax_ignore mathjax_ignore" id="mergesort">
+<h1>Mergesort<a class="headerlink" href="#mergesort" title="Permalink to this headline">#</a></h1>
+<div class="full-width docutils">
+<img alt="https://gifimage.net/wp-content/uploads/2017/10/merge-sort-gif-5.gif" class="align-center" src="https://gifimage.net/wp-content/uploads/2017/10/merge-sort-gif-5.gif" />
+</div>
+<section id="divide-conquer">
+<h2><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms">Divide &amp; Conquer</a><a class="headerlink" href="#divide-conquer" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b class="orange">Divide</b> the problem into <u>smaller</u> subproblems</p>
+<p class="sd-card-text"><b class="orange">Conquer</b> recursively</p>
+<ul class="simple">
+<li><p class="sd-card-text">… each subproblem</p></li>
+</ul>
+<p class="sd-card-text"><b class="orange">Combine</b> Solutions</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<img alt="../_images/11_s04_1.png" src="../_images/11_s04_1.png" />
+<ul class="simple">
+<li><p class="sd-card-text">sorting with insertion sort is <span class="math notranslate nohighlight">\(n^2\)</span></p></li>
+<li><p class="sd-card-text">we can divide the array into two halves and sort them separately</p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<img alt="../_images/11_s04_2.png" src="../_images/11_s04_2.png" />
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<img alt="../_images/11_s04_3.png" src="../_images/11_s04_3.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">each subproblem could be sorted in <span class="math notranslate nohighlight">\(≈\frac{n^2}{4}\)</span></p></li>
+<li><p class="sd-card-text">sorting both halves will require <span class="math notranslate nohighlight">\(≈2\frac{n^2}{4}\)</span> 🤔</p></li>
+<li><p class="sd-card-text">we need an additional operation to combine both solutions</p></li>
+</ul>
+<p class="sd-card-text"><em><em>Time “reduced” from <span class="math notranslate nohighlight">\(≈n^2\)</span> to\ <span class="math notranslate nohighlight">\(≈\frac{n^2}{2}+n\)</span></em></em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="merge-sort">
+<h2><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/overview-of-merge-sort">Merge Sort</a><a class="headerlink" href="#merge-sort" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><span class="orange">Divide</span> the array into two halves</p>
+<ul class="simple">
+<li><p class="sd-card-text">just need to calculate the midpoint</p></li>
+</ul>
+<p class="sd-card-text">Conquer <span class="orange">Recursively</span> each half</p>
+<ul class="simple">
+<li><p class="sd-card-text">call Merge Sort on each half (i.e. solve 2 smaller problems)</p></li>
+</ul>
+<p class="sd-card-text"><span class="orange">Merge</span> Solutions</p>
+<ul class="simple">
+<li><p class="sd-card-text">after both calls are finished, proceed to <em><em>merge</em></em> the solutions</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Divide &amp; Conquer<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Consider how this breaks out…</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<img alt="image" src="../_images/11_s06_before.png" /><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<img alt="../_images/11_s06_after.png" src="../_images/11_s06_after.png" />
+<img alt="../_images/11_s06_2.png" src="../_images/11_s06_2.png" />
+</div>
+</details></div>
+</div>
+</div>
+<section id="id2">
+<h3><a class="reference external" href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="8820454e-17e4-4ce6-9222-953dd0a9d9cc" name="6869ed05-0457-4e22-8952-76ff5ea84afd" type="radio">
+</input><label class="sd-tab-label" for="8820454e-17e4-4ce6-9222-953dd0a9d9cc">
+pseudocode</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="n">mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">8</span>
+<span class="linenos">9</span><span class="n">merge</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort: pseudocode</a></p>
+</div>
+<input id="02f8972c-41a8-42cf-96f4-a141c7b4f774" name="6869ed05-0457-4e22-8952-76ff5ea84afd" type="radio">
+</input><label class="sd-tab-label" for="02f8972c-41a8-42cf-96f4-a141c7b4f774">
+mergesort</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">  </span>
+<span class="linenos">3</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">4</span><span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">aux</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">5</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="3f4c4f91-9291-45d4-b520-d3d5497cf725" name="6869ed05-0457-4e22-8952-76ff5ea84afd" type="radio">
+</input><label class="sd-tab-label" for="3f4c4f91-9291-45d4-b520-d3d5497cf725">
+r_mergesort</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">r_mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 2</span><span class="w">  </span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="c1">//basecase(single element or empty list)</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="c1">//divide</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="c1">//recursively sort halves  </span>
+<span class="linenos">10</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c1">//merge results </span>
+<span class="linenos">14</span><span class="w">  </span><span class="n">merge</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">15</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="00c8634d-1d03-4c51-b2a0-86833968765d" name="6869ed05-0457-4e22-8952-76ff5ea84afd" type="radio">
+</input><label class="sd-tab-label" for="00c8634d-1d03-4c51-b2a0-86833968765d">
+merge</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="c1">// copy array</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">aux</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">A</span><span class="p">)));</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="w">    </span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1">// merge </span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">aux</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span><span class="w">  </span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">aux</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">19</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="merging-two-sorted-arrays">
+<h3><a class="reference external" href="https://www.geeksforgeeks.org/merge-two-sorted-arrays/">Merging two sorted arrays</a><a class="headerlink" href="#merging-two-sorted-arrays" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<img alt="../_images/11_s09.png" src="../_images/11_s09.png" />
+<p class="sd-card-text"><em><em>A secondary array is necessary</em></em></p>
+<p class="sd-card-text"><em><em>to guarantee a</em></em> <strong><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/linear-time-merging">lineartime</a></strong> <em><em>operation</em></em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analysis-recurrence">
+<h2><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/analysis-of-merge-sort">Analysis (recurrence)</a><a class="headerlink" href="#analysis-recurrence" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<table class="table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Worst Case</p></th>
+<th class="head"><p>Average Case</p></th>
+<th class="head"><p>Best Case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time Complexity</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Breakdown (generalization)</div>
+<p class="sd-card-text">A merge sort consists of several passes over the input.</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(1^{st}\)</span> Pass: merges segments of size 1<br />
+<span class="math notranslate nohighlight">\(2^{nd}\)</span> Pass: merges segments of size 2<br />
+<span class="math notranslate nohighlight">\(i^{th}\)</span> Pass: merges segments of size <span class="math notranslate nohighlight">\(2^{i-1}\)</span>.<br />
+Total number of passes: <span class="math notranslate nohighlight">\(log_2 n\)</span></p>
+<p class="sd-card-text">As merge showed, we can merge two sorted segments in linear time, which means that each pass takes <span class="math notranslate nohighlight">\(O(n)\)</span> time.
+Since there are <span class="math notranslate nohighlight">\(log_2\ n\)</span> passes, the total computing time is <span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span>, or expressed as:</p>
+<div class="math notranslate nohighlight">
+\[T(n) = 2T(\frac{n}{2}) + O(n)\]</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recursion-tree-trace">
+<h2><a class="reference external" href="https://youtu.be/C4JjXc0htp0">Recursion Tree (trace)</a><a class="headerlink" href="#recursion-tree-trace" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://cdn.kastatic.org/ka-perseus-images/5fcbebf66560d8fc490de2a0d8a0e5b1d65c5c54.png" src="https://cdn.kastatic.org/ka-perseus-images/5fcbebf66560d8fc490de2a0d8a0e5b1d65c5c54.png" />
+</figure>
+<div class="admonition-code admonition">
+<p class="admonition-title">code</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="ef146c7b-1241-4059-a684-bf4c8c20ba9d" name="9f9f6174-ae4a-4487-a898-092b2f0dfeac" type="radio">
+</input><label class="sd-tab-label" for="ef146c7b-1241-4059-a684-bf4c8c20ba9d">
+mergesort</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">  </span>
+<span class="linenos">3</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">4</span><span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">aux</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">5</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="69614295-4eaf-429c-ad1a-00e309c7bff5" name="9f9f6174-ae4a-4487-a898-092b2f0dfeac" type="radio">
+</input><label class="sd-tab-label" for="69614295-4eaf-429c-ad1a-00e309c7bff5">
+r_mergesort</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">r_mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">     </span>
+<span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">4</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">5</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">6</span><span class="w">  </span><span class="n">merge</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">7</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Total time for <span class="math notranslate nohighlight">\(mergeSort\)</span> is: the sum of the merging times for all the levels</p>
+<ul class="simple">
+<li><p class="sd-card-text">If there are <span class="math notranslate nohighlight">\(l\)</span> levels in the tree, then the total merging time is <span class="math notranslate nohighlight">\(l * cn\)</span></p></li>
+<li><p class="sd-card-text">Where <span class="math notranslate nohighlight">\(l\)</span> is the number of subproblem levels until subproblems reach size <span class="math notranslate nohighlight">\(n\)</span><br />
+For total time, we end up with:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[cn(log_2 n + 1)\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">Discard the low-order term (constant) and the coefficient</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[O(n\ log_2\ n)\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-visualizer">
+<h2><a class="reference external" href="https://clementmihailescu.github.io/Sorting-Visualizer/">Sorting Visualizer</a><a class="headerlink" href="#sorting-visualizer" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><em>Click to open in new tab/window</em></p>
+<img alt="../_images/w7_mergesort.png" src="../_images/w7_mergesort.png" />
+<p class="sd-card-text">KEY: Blue - element, Green - Sequential, Red - Swap, Purple - placed</p>
+</div>
+<a class="sd-stretched-link reference external" href="https://clementmihailescu.github.io/Sorting-Visualizer/"></a></div>
+</div>
+</section>
+<section id="comments-on-merge-sort">
+<h2>Comments on Merge Sort<a class="headerlink" href="#comments-on-merge-sort" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Major disadvantage</div>
+<ul class="simple">
+<li><p class="sd-card-text">it is <em>not</em> <strong>in-place</strong></p></li>
+<li><p class="sd-card-text">in-place algorithm exists but it is complex and inefficient</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Improvements</div>
+<ul class="simple">
+<li><p class="sd-card-text">use insertion sort for small arrays</p>
+<ul>
+<li><p class="sd-card-text">avoid overhead on small instances (~10 elements)</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">stop if already sorted</p>
+<ul>
+<li><p class="sd-card-text">avoids unnecessary merge</p></li>
+<li><p class="sd-card-text">works well with partially sorted arrays</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p class="sd-card-text"><em><em>In-place Sorting</em></em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Think about reversing an array or string</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<em><em>solution 1:</em></em> use an additional array of equal size</div>
+<ul class="simple">
+<li><p class="sd-card-text">what is the required extra memory?</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<em><em>solution 2:</em></em> exchange first and last and work recursively on the inner part</div>
+<ul class="simple">
+<li><p class="sd-card-text">can do it iteratively as well</p></li>
+<li><p class="sd-card-text">what is the required extra memory?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="in-place-sorting">
+<h2><a class="reference external" href="https://www.geeksforgeeks.org/in-place-algorithm/">In-place sorting</a><a class="headerlink" href="#in-place-sorting" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A sorting algorithm is <em><em>in-place</em></em> if it uses <em><em><span class="math notranslate nohighlight">\(O(log\ n)\)</span></em></em> extra memory</p>
+<p class="sd-card-text">Are selection and insertion sorts <em><em>in-place</em></em>?</p>
+</div>
+</div>
+<div class="admonition-selection-sort admonition">
+<p class="admonition-title">selection sort</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">min_idx</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="w"> </span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="c1">// One by one move boundary of unsorted subarray</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="w">       </span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="c1">// Find the minimum element in unsorted array</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="n">min_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">            </span>
+<span class="linenos">12</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">])</span><span class="w"> </span><span class="n">min_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w">        </span><span class="c1">// Swap the found minimum element with the first element</span>
+<span class="linenos">15</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">min_idx</span><span class="o">!=</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">18</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-insertion-sort admonition">
+<p class="admonition-title">insertion sort</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos"> 2</span><span class="p">{</span><span class="w"> </span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos"> 4</span><span class="w">    </span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos"> 9</span><span class="w">  </span>
+<span class="linenos">10</span><span class="w">        </span><span class="c1">// Move elements of arr[0..i-1],  </span>
+<span class="linenos">11</span><span class="w">        </span><span class="c1">// that are greater than key, to one </span>
+<span class="linenos">12</span><span class="w">        </span><span class="c1">// position ahead of their </span>
+<span class="linenos">13</span><span class="w">        </span><span class="c1">// current position</span>
+<span class="linenos">14</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="linenos">16</span><span class="w">            </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"> </span>
+<span class="linenos">17</span><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">18</span><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="linenos">21</span><span class="p">}</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="stable-sorting">
+<h2>Stable Sorting<a class="headerlink" href="#stable-sorting" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="admonition-stability admonition">
+<p class="admonition-title">Stability</p>
+<p class="sd-card-text">A sorting algorithm is <em><em>stable</em></em> if it preserves the order of equal elements</p>
+<p class="sd-card-text">Consider sorting (in ascending order) a list <span class="math notranslate nohighlight">\(A\)</span> into a sorted list <span class="math notranslate nohighlight">\(B\)</span>. Let <span class="math notranslate nohighlight">\(f(i)\)</span> be the index of element <span class="math notranslate nohighlight">\(A[i]\)</span> in <span class="math notranslate nohighlight">\(B\)</span>. The sorting algorithm is stable if:</p>
+<p class="sd-card-text">for any pair <span class="math notranslate nohighlight">\((i,j)\)</span> such that <span class="math notranslate nohighlight">\(A[i] = A[j]\)</span> and <span class="math notranslate nohighlight">\(i &lt; j\)</span>, then <span class="math notranslate nohighlight">\(f(i) &lt; f(j)\)</span></p>
+<a class="reference internal image-reference" href="../_images/11_s19.png"><img alt="../_images/11_s19.png" src="../_images/11_s19.png" style="width: 92%;" /></a>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Stable?</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/11_s20_1.png"><img alt="../_images/11_s20_1.png" src="../_images/11_s20_1.png" style="width: 375px;" /></a>
+<p class="sd-card-text">unsorted</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/11_s20_2.png"><img alt="../_images/11_s20_2.png" src="../_images/11_s20_2.png" style="width: 375px;" /></a>
+<p class="sd-card-text">sorted</p>
+</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Stable?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><b class="red">NOT STABLE</b></p>
+</div>
+</details></div>
+<div class="tip admonition">
+<p class="admonition-title">How about now?</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/11_s20_1.png"><img alt="../_images/11_s20_1.png" src="../_images/11_s20_1.png" style="width: 400px;" /></a>
+<p class="sd-card-text">unsorted</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/11_s20_3.png"><img alt="../_images/11_s20_3.png" src="../_images/11_s20_3.png" style="width: 400px;" /></a>
+<p class="sd-card-text">sorted</p>
+</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Stable?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><b class="green">STABLE</b></p>
+</div>
+</details></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stability">
+<h2>Stability<a class="headerlink" href="#stability" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Is selection sort stable?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Selection sort algorithm picks the minimum and swaps it with the element at current position.</p>
+<p class="sd-card-text">Suppose the array is:</p>
+<div class="math notranslate nohighlight">
+\[[5,\ 2,\ 3,\ 8,\ 4,\ 5,\ 6]\]</div>
+<div class="math notranslate nohighlight">
+\[[5_a,\ 3,\ 4,\ 5_b,\ 2,\ 6,\ 8]\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">After iteration 1:</p>
+<ul>
+<li><p class="sd-card-text">2 will be swapped with the element in 1st position:</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">So our array becomes:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[2,\ 3,\ 4,\ 5_b,\ 5_a,\ 6,\ 8]\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">Since now our array is in sorted order and we clearly see that <span class="math notranslate nohighlight">\(5_a\)</span> comes before <span class="math notranslate nohighlight">\(5_b\)</span> in initial array but not in the sorted array.</p></li>
+<li><p class="sd-card-text">Therefore, selection sort is not stable.</p></li>
+</ul>
+<p class="sd-card-text"><b class="red">NOT</b> STABLE</p>
+</div>
+</details><ul class="simple">
+<li><p class="sd-card-text">long distance swaps</p></li>
+<li><p class="sd-card-text">try: 5 2 3 8 4 5 6</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Is insertion sort stable?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><b class="green">STABLE</b></p>
+</div>
+</details><ul class="simple">
+<li><p class="sd-card-text">equal items never pass each other (depends on correct implementation)</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-algorithms">
+<h2>Sorting Algorithms<a class="headerlink" href="#sorting-algorithms" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="c64d436c-9185-4a01-b623-961535292455" name="0ed6f5a4-da8f-4d36-86fb-23a7f7fd5161" type="radio">
+</input><label class="sd-tab-label" for="c64d436c-9185-4a01-b623-961535292455">
+incomplete</label><div class="sd-tab-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">Best-Case</p></th>
+<th class="head"><p class="sd-card-text">Average-Case</p></th>
+<th class="head"><p class="sd-card-text">Worst-Case</p></th>
+<th class="head"><p class="sd-card-text">Stable</p></th>
+<th class="head"><p class="sd-card-text">In-place</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Selection Sort</p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Insertion Sort</p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Merge Sort</p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+<td><p class="sd-card-text"><b contenteditable></b></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f4cc54d0-6257-41e5-b167-9fa5de269a12" name="0ed6f5a4-da8f-4d36-86fb-23a7f7fd5161" type="radio">
+</input><label class="sd-tab-label" for="f4cc54d0-6257-41e5-b167-9fa5de269a12">
+complete</label><div class="sd-tab-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">Best-Case</p></th>
+<th class="head"><p class="sd-card-text">Average-Case</p></th>
+<th class="head"><p class="sd-card-text">Worst-Case</p></th>
+<th class="head"><p class="sd-card-text">Stable</p></th>
+<th class="head"><p class="sd-card-text">In-place</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Selection Sort</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></td>
+<td><p class="sd-card-text">No</p></td>
+<td><p class="sd-card-text">Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Insertion Sort</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></td>
+<td><p class="sd-card-text">Yes</p></td>
+<td><p class="sd-card-text">Yes</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Merge Sort</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n\ log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n\ log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Theta(n\ log\ n)\)</span></p></td>
+<td><p class="sd-card-text">Yes</p></td>
+<td><p class="sd-card-text">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lec_w_07.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 7</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="quicksort.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quicksort</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

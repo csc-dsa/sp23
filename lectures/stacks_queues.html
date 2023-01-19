@@ -1,0 +1,1618 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Stacks and Queues &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Binary Search" href="binary_search.html" />
+    <link rel="prev" title="Week 5" href="lec_w_05.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../test.html">
+   test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start_here.html">
+   Start Here
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_cc.html">
+     C++ Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="big-o.html">
+     Big-O Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="lec_w_05.html">
+   Week 5
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_08.html">
+   Week 8
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_12.html">
+   Week 12
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_13.html">
+   Week 13
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="depth_first_search.html">
+     Depth-First Search
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a1/readme.html">
+   A1: Binarization &amp; Thresholding
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a1/examples/readme.html">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a2/readme.html">
+   A2: Maze Generation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/a4/readme.html">
+   A4: Recursion &amp; Stacks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lectures/stacks_queues.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/stacks_queues.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lectures/stacks_queues.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/lectures/stacks_queues.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stacks">
+   Stacks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-operations">
+     Basic Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation">
+     Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considerations">
+     Considerations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applications">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#queues">
+   Queues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Basic Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Considerations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Stacks and Queues</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stacks">
+   Stacks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-operations">
+     Basic Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation">
+     Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considerations">
+     Considerations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applications">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#queues">
+   Queues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Basic Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Considerations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <style>
+  .red {color:red}
+  .blue {color:#7cc7f9}
+  .dblue {color:#011636}
+  .green {color:green}
+  .orange {color:orangered}
+  .purple {color:purple}
+  .brown {color:brown}
+  iframe {width: 100%; height: 800px}
+</style>
+<section class="tex2jax_ignore mathjax_ignore" id="stacks-and-queues">
+<h1>Stacks and Queues<a class="headerlink" href="#stacks-and-queues" title="Permalink to this headline">#</a></h1>
+<div class="full-width docutils">
+<img alt="https://techcrunch.com/wp-content/uploads/2014/11/stacks.jpg" class="align-center" src="https://techcrunch.com/wp-content/uploads/2014/11/stacks.jpg" />
+</div>
+<section id="stacks">
+<h2>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LIFO: Last In, First Out</div>
+<figure class="align-default">
+<img alt="../_images/08_s02.png" src="../_images/08_s02.png" />
+</figure>
+</div>
+</div>
+</div>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<iframe src="https://en.cppreference.com/w/cpp/container/stack" frameborder="0"></iframe>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; elements on stack</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Top element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; elements on stack</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; elements on stack</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Top element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-operations">
+<h3>Basic Operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" src="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" />
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+push<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">inserts one element onto the stack</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+pop<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">returns the element at the top of the stack (and removes it)</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+isEmpty<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">not necessary, but sometimes useful</p></li>
+</ul>
+</div>
+</details></div>
+</div>
+</div>
+</section>
+<section id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="admonition-arrays admonition">
+<p class="admonition-title">Arrays</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>push</strong> and <strong>pop</strong> at the end of the array (easier and efficient)</p></li>
+<li><p class="sd-card-text">can be <span class="blue">fixed-length</span></p></li>
+<li><p class="sd-card-text">can also use a <span class="blue">dynamic array</span> (grows overtime)</p>
+<ul>
+<li><p class="sd-card-text">additional cost for dynamic arrays</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/08_s05.png"><img alt="../_images/08_s05.png" src="../_images/08_s05.png" style="width: 92%;" /></a>
+</figure>
+</div>
+<div class="admonition-stack admonition">
+<p class="admonition-title">Stack</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">top_idx</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Stack</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="o">~</span><span class="n">Stack</span><span class="p">();</span><span class="w"></span>
+<span class="w">          </span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">peek</span><span class="p">();</span><span class="w">        </span><span class="c1">// returns top</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">pop</span><span class="p">();</span><span class="w">        </span><span class="c1">// removes top</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-stack-array-sample admonition">
+<p class="admonition-title">Stack: Array Sample</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// CPP program to illustrate</span>
+<span class="c1">// Implementation of push() function      </span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Empty stack</span>
+<span class="w">    </span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mystack</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">mystack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">mystack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">mystack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Printing content of stack</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mystack</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mystack</span><span class="p">.</span><span class="n">top</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="n">mystack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/stack-push-and-pop-in-c-stl/?ref=rp">https://www.geeksforgeeks.org/stack-push-and-pop-in-c-stl/?ref=rp</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Stack Array (general premise)</p>
+<p class="sd-card-text"><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/StackArray.html">https://www.cs.usfca.edu/~galles/visualization/StackArray.html</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Stack Array (in Memory)</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Click to interact…</p>
+<figure class="align-center">
+<img alt="../_images/w5_stack_array.png" src="../_images/w5_stack_array.png" />
+</figure>
+<p class="sd-card-text"><em>Note: may need a few seconds to execute code…</em></p>
+</div>
+<a class="sd-stretched-link reference external" href="https://pythontutor.com/visualize.html#code=/*%20C%2B%2B%20program%20to%20implement%20basic%20stack%0Aoperations%20*/%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0A%0Ausing%20namespace%20std%3B%0A%0A%23define%20MAX%203%0A%0Aclass%20Stack%20%7B%0A%20%20%20%20int%20top%3B%0A%0Apublic%3A%0A%20%20%20%20int%20a%5BMAX%5D%3B%20//%20Maximum%20size%20of%20Stack%0A%0A%20%20%20%20Stack%28%29%20%7B%20top%20%3D%20-1%3B%20%7D%0A%20%20%20%20bool%20push%28int%20x%29%3B%0A%20%20%20%20int%20pop%28%29%3B%0A%20%20%20%20int%20peek%28%29%3B%0A%20%20%20%20bool%20isEmpty%28%29%3B%0A%7D%3B%0A%0Abool%20Stack%3A%3Apush%28int%20x%29%0A%7B%0A%20%20%20%20if%20%28top%20%3E%3D%20%28MAX%20-%201%29%29%20%7B%0A%20%20%20%20%20%20%20%20cout%20%3C%3C%20%22Stack%20Overflow%22%3B%0A%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%7D%0A%20%20%20%20else%20%7B%0A%20%20%20%20%20%20%20%20a%5B%2B%2Btop%5D%20%3D%20x%3B%0A%20%20%20%20%20%20%20%20cout%20%3C%3C%20x%20%3C%3C%20%22%20pushed%20into%20stack%5Cn%22%3B%0A%20%20%20%20%20%20%20%20return%20true%3B%0A%20%20%20%20%7D%0A%7D%0A%0Aint%20Stack%3A%3Apop%28%29%0A%7B%0A%20%20%20%20if%20%28top%20%3C%200%29%20%7B%0A%20%20%20%20%20%20%20%20cout%20%3C%3C%20%22Stack%20Underflow%22%3B%0A%20%20%20%20%20%20%20%20return%200%3B%0A%20%20%20%20%7D%0A%20%20%20%20else%20%7B%0A%20%20%20%20%20%20%20%20int%20x%20%3D%20a%5Btop--%5D%3B%0A%20%20%20%20%20%20%20%20return%20x%3B%0A%20%20%20%20%7D%0A%7D%0Aint%20Stack%3A%3Apeek%28%29%0A%7B%0A%20%20%20%20if%20%28top%20%3C%200%29%20%7B%0A%20%20%20%20%20%20%20%20cout%20%3C%3C%20%22Stack%20is%20Empty%22%3B%0A%20%20%20%20%20%20%20%20return%200%3B%0A%20%20%20%20%7D%0A%20%20%20%20else%20%7B%0A%20%20%20%20%20%20%20%20int%20x%20%3D%20a%5Btop%5D%3B%0A%20%20%20%20%20%20%20%20return%20x%3B%0A%20%20%20%20%7D%0A%7D%0A%0Abool%20Stack%3A%3AisEmpty%28%29%0A%7B%0A%20%20%20%20return%20%28top%20%3C%200%29%3B%0A%7D%0A%0A//%20Driver%20program%20to%20test%20above%20functions%0Aint%20main%28%29%0A%7B%0A%20%20%20%20class%20Stack%20s%3B%0A%20%20%20%20s.push%2810%29%3B%0A%20%20%20%20s.push%2820%29%3B%0A%20%20%20%20s.push%2830%29%3B%0A%20%20%20%20cout%20%3C%3C%20s.pop%28%29%20%3C%3C%20%22%20Popped%20from%20stack%5Cn%22%3B%0A%0A%20%20%20%20//%20//print%20top%20element%20of%20stack%20after%20popping%0A%20%20%20%20//%20cout%20%3C%3C%20%22Top%20element%20is%20%3A%20%22%20%3C%3C%20s.peek%28%29%20%3C%3C%20endl%3B%0A%0A%20%20%20%20//%20//print%20all%20elements%20in%20stack%20%3A%0A%20%20%20%20//%20cout%20%3C%3C%22Elements%20present%20in%20stack%20%3A%20%22%3B%0A%20%20%20%20//%20while%28!s.isEmpty%28%29%29%0A%20%20%20%20//%20%7B%0A%20%20%20%20//%20%20%20%20%20//%20print%20top%20element%20in%20stack%0A%20%20%20%20//%20%20%20%20%20cout%20%3C%3C%20s.peek%28%29%20%3C%3C%22%20%22%3B%0A%20%20%20%20//%20%20%20%20%20//%20remove%20top%20element%20in%20stack%0A%20%20%20%20//%20%20%20%20%20s.pop%28%29%3B%0A%20%20%20%20//%20%7D%0A%0A%20%20%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false"></a></div>
+</div>
+<div class="admonition-linked-lists admonition">
+<p class="admonition-title">Linked Lists</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>push</strong> and <strong>pop</strong> at front (could use the other end as well)</p></li>
+</ul>
+<figure class="align-default">
+<img alt="https://i1.faceprep.in/Companies-1/stack%20linked%20list.png" src="https://i1.faceprep.in/Companies-1/stack%20linked%20list.png" />
+</figure>
+</div>
+<div class="admonition-stack-ll-sample admonition">
+<p class="admonition-title">Stack: LL Sample</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="3fe47e13-31b1-41cd-ac35-50325e57d240" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="3fe47e13-31b1-41cd-ac35-50325e57d240">
+Altogether</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// stack is empty</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">popped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">popped</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// stack is empty</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="ebc8b9fc-d7fc-4217-8042-b87d6e6b7011" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="ebc8b9fc-d7fc-4217-8042-b87d6e6b7011">
+Node</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="7d022511-d867-4def-bec8-334441744e71" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="7d022511-d867-4def-bec8-334441744e71">
+Stack</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Stack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="2b0f30c1-6037-4513-9f88-bc1b091c2a6a" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="2b0f30c1-6037-4513-9f88-bc1b091c2a6a">
+push()</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="668c7e15-ff02-4c43-abc9-082344d2da17" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="668c7e15-ff02-4c43-abc9-082344d2da17">
+pop()</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// stack is empty</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">popped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">popped</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="25db158a-8b1b-408e-bd71-b0e422a4a299" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="25db158a-8b1b-408e-bd71-b0e422a4a299">
+peek()</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// stack is empty</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<input id="efb9161e-848e-4032-8eee-fed3222f2ed5" name="e30fe2f8-bc68-4eb3-970e-296ef9f068eb" type="radio">
+</input><label class="sd-tab-label" for="efb9161e-848e-4032-8eee-fed3222f2ed5">
+isEmpty()</label><div class="sd-tab-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/implement-a-stack-using-singly-linked-list/">https://www.geeksforgeeks.org/implement-a-stack-using-singly-linked-list/</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Stack Array (general premise)</p>
+<!-- <iframe src="https://www.cs.usfca.edu/~galles/visualization/StackLL.html" width="1000" height="600" frameborder="0"> -->
+<p class="sd-card-text"><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/StackLL.html">https://www.cs.usfca.edu/~galles/visualization/StackLL.html</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Stack LL (in Memory)</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Click to interact…</p>
+<figure class="align-center">
+<img alt="../_images/w5_stack_ll.png" src="../_images/w5_stack_ll.png" />
+</figure>
+<p class="sd-card-text"><em>Note: may need a few seconds to execute code…</em></p>
+</div>
+<a class="sd-stretched-link reference external" href="https://pythontutor.com/iframe-embed.html#code=//%20C%2B%2B%20program%20for%20linked%20list%20implementation%20of%20stack%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0A//%20A%20structure%20to%20represent%20a%20stack%0Aclass%20StackNode%20%7B%0Apublic%3A%0A%20%20%20%20int%20data%3B%0A%20%20%20%20StackNode*%20next%3B%0A%7D%3B%0A%0AStackNode*%20newNode%28int%20data%29%0A%7B%0A%20%20%20%20StackNode*%20stackNode%20%3D%20new%20StackNode%28%29%3B%0A%20%20%20%20stackNode-%3Edata%20%3D%20data%3B%0A%20%20%20%20stackNode-%3Enext%20%3D%20NULL%3B%0A%20%20%20%20return%20stackNode%3B%0A%7D%0A%0Aint%20isEmpty%28StackNode*%20root%29%0A%7B%0A%20%20%20%20return%20!root%3B%0A%7D%0A%0Avoid%20push%28StackNode**%20root,%20int%20data%29%0A%7B%0A%20%20%20%20StackNode*%20stackNode%20%3D%20newNode%28data%29%3B%0A%20%20%20%20stackNode-%3Enext%20%3D%20*root%3B%0A%20%20%20%20*root%20%3D%20stackNode%3B%0A%20%20%20%20cout%20%3C%3C%20data%20%3C%3C%20%22%20pushed%20to%20stack%5Cn%22%3B%0A%7D%0A%0Aint%20pop%28StackNode**%20root%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28*root%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20StackNode*%20temp%20%3D%20*root%3B%0A%20%20%20%20*root%20%3D%20%28*root%29-%3Enext%3B%0A%20%20%20%20int%20popped%20%3D%20temp-%3Edata%3B%0A%20%20%20%20delete%20temp%3B%0A%0A%20%20%20%20return%20popped%3B%0A%7D%0A%0A//%20Driver%20code%0Aint%20main%28%29%0A%7B%0A%20%20%20%20StackNode*%20root%20%3D%20NULL%3B%0A%0A%20%20%20%20push%28%26root,%2010%29%3B%0A%20%20%20%20push%28%26root,%2020%29%3B%0A%20%20%20%20push%28%26root,%2030%29%3B%0A%0A%20%20%20%20cout%20%3C%3C%20pop%28%26root%29%20%3C%3C%20%22%20popped%20from%20stack%5Cn%22%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false"></a></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="considerations">
+<h3>Considerations<a class="headerlink" href="#considerations" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20(55)-27856afe-5df2-45ee-afdb-59af2e1629c1.jpg" src="https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20(55)-27856afe-5df2-45ee-afdb-59af2e1629c1.jpg" />
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Underflow<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">error can be thrown when calling <em><em>pop</em></em> on an empty stack</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Overflow<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">error can be thrown when calling <em><em>push</em></em> on a full stack  (especially in fixed-length implementations)</p>
+</div>
+</details></div>
+</div>
+</div>
+</section>
+<section id="applications">
+<h3>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Undo in software applications…</strong></p>
+<p class="sd-card-text"><strong>Stack in compilers/programming languages…</strong></p>
+<p class="sd-card-text"><strong>Parsing expressions…</strong></p>
+<p class="sd-card-text"><strong>etc…</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="queues">
+<h2>Queues<a class="headerlink" href="#queues" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="admonition-fifo-first-in-first-out admonition">
+<p class="admonition-title">FIFO: First In First Out</p>
+<figure class="align-default">
+<img alt="https://airpix.io/assets/images/queue-management/airport-queue.png" src="https://airpix.io/assets/images/queue-management/airport-queue.png" />
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Basic Operations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" src="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" />
+</figure>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" src="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" />
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+enqueue<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">inserts one element onto the queue</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+dequeue<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">returns the element at the top of the queue (and removes it)</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+isEmpty<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">not necessary, but sometimes useful</p>
+</div>
+</details></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Documentation<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<div class="sd-card-body docutils">
+<iframe src="https://en.cppreference.com/w/cpp/container/queue" frameborder="0"></iframe>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">q1</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q2</span><span class="p">(</span><span class="n">q1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deq</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q3</span><span class="p">(</span><span class="n">deq</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">https://en.cppreference.com/w/cpp/container/queue</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Implementation<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="admonition-arrays admonition">
+<p class="admonition-title">Arrays</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>enqueue</strong> and <strong>dequeue</strong> at <u>different</u> ends of the array (easier and efficient)</p></li>
+<li><p class="sd-card-text">can be <span class="blue">fixed-length</span></p></li>
+<li><p class="sd-card-text">can also use a <span class="blue">dynamic array</span> (grows over time)</p>
+<ul>
+<li><p class="sd-card-text">additional cost for dynamic arrays</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/08_s05.png"><img alt="../_images/08_s05.png" src="../_images/08_s05.png" style="width: 92%;" /></a>
+</figure>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Queue Array (general premise)</p>
+<p class="sd-card-text"><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/QueueArray.html">https://www.cs.usfca.edu/~galles/visualization/QueueArray.html</a></p>
+</div>
+<div class="admonition-queue-array-sample admonition">
+<p class="admonition-title">Queue: Array Sample</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span><span class="n">Queue</span><span class="o">*</span><span class="w"> </span><span class="n">queue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isFull</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">rear</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="o">%</span><span class="w"> </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">rear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; enqueued to queue</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(</span><span class="n">Queue</span><span class="o">*</span><span class="w"> </span><span class="n">queue</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">INT_MIN</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">front</span><span class="p">];</span><span class="w">  </span>
+<span class="w">  </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="o">%</span><span class="w"> </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="https://examradar.com/wp-content/uploads/2016/10/Figure-4.6.-Basic-operations-on-deque.png" src="https://examradar.com/wp-content/uploads/2016/10/Figure-4.6.-Basic-operations-on-deque.png" />
+</figure>
+<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/">https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Queue Array (in Memory)</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Click to interact…</p>
+<figure class="align-center">
+<img alt="../_images/w5_queue_array.png" src="../_images/w5_queue_array.png" />
+</figure>
+<p class="sd-card-text"><em>Note: may need a few seconds to execute code…</em></p>
+</div>
+<a class="sd-stretched-link reference external" href="https://pythontutor.com/iframe-embed.html#code=//%20CPP%20program%20for%20array%0A//%20implementation%20of%20queue%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0A//%20A%20structure%20to%20represent%20a%20queue%0Aclass%20Queue%20%7B%0Apublic%3A%0A%20%20%20%20int%20front,%20rear,%20size%3B%0A%20%20%20%20unsigned%20capacity%3B%0A%20%20%20%20int*%20array%3B%0A%7D%3B%0A%0A//%20function%20to%20create%20a%20queue%0A//%20of%20given%20capacity.%0A//%20It%20initializes%20size%20of%20queue%20as%200%0AQueue*%20createQueue%28unsigned%20capacity%29%0A%7B%0A%20%20%20%20Queue*%20queue%20%3D%20new%20Queue%28%29%3B%0A%20%20%20%20queue-%3Ecapacity%20%3D%20capacity%3B%0A%20%20%20%20queue-%3Efront%20%3D%20queue-%3Esize%20%3D%200%3B%0A%0A%20%20%20%20//%20This%20is%20important,%20see%20the%20enqueue%0A%20%20%20%20queue-%3Erear%20%3D%20capacity%20-%201%3B%0A%20%20%20%20queue-%3Earray%20%3D%20new%20int%5Bqueue-%3Ecapacity%5D%3B%0A%20%20%20%20return%20queue%3B%0A%7D%0A%0A//%20Queue%20is%20full%20when%20size%0A//%20becomes%20equal%20to%20the%20capacity%0Aint%20isFull%28Queue*%20queue%29%0A%7B%0A%20%20%20%20return%20%28queue-%3Esize%20%3D%3D%20queue-%3Ecapacity%29%3B%0A%7D%0A%0A//%20Queue%20is%20empty%20when%20size%20is%200%0Aint%20isEmpty%28Queue*%20queue%29%0A%7B%0A%20%20%20%20return%20%28queue-%3Esize%20%3D%3D%200%29%3B%0A%7D%0A%0A//%20Function%20to%20add%20an%20item%20to%20the%20queue.%0A//%20It%20changes%20rear%20and%20size%0Avoid%20enqueue%28Queue*%20queue,%20int%20item%29%0A%7B%0A%20%20%20%20if%20%28isFull%28queue%29%29%0A%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20queue-%3Erear%20%3D%20%28queue-%3Erear%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%25%20queue-%3Ecapacity%3B%0A%20%20%20%20queue-%3Earray%5Bqueue-%3Erear%5D%20%3D%20item%3B%0A%20%20%20%20queue-%3Esize%20%3D%20queue-%3Esize%20%2B%201%3B%0A%20%20%20%20cout%20%3C%3C%20item%20%3C%3C%20%22%20enqueued%20to%20queue%5Cn%22%3B%0A%7D%0A%0A//%20Function%20to%20remove%20an%20item%20from%20queue.%0A//%20It%20changes%20front%20and%20size%0Aint%20dequeue%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20int%20item%20%3D%20queue-%3Earray%5Bqueue-%3Efront%5D%3B%0A%20%20%20%20queue-%3Efront%20%3D%20%28queue-%3Efront%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%25%20queue-%3Ecapacity%3B%0A%20%20%20%20queue-%3Esize%20%3D%20queue-%3Esize%20-%201%3B%0A%20%20%20%20return%20item%3B%0A%7D%0A%0A//%20Function%20to%20get%20front%20of%20queue%0Aint%20front%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20return%20queue-%3Earray%5Bqueue-%3Efront%5D%3B%0A%7D%0A%0A//%20Function%20to%20get%20rear%20of%20queue%0Aint%20rear%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20return%20queue-%3Earray%5Bqueue-%3Erear%5D%3B%0A%7D%0A%0A//%20Driver%20code%0Aint%20main%28%29%0A%7B%0A%20%20%20%20Queue*%20queue%20%3D%20createQueue%285%29%3B%0A%0A%20%20%20%20enqueue%28queue,%2010%29%3B%0A%20%20%20%20enqueue%28queue,%2020%29%3B%0A%20%20%20%20enqueue%28queue,%2030%29%3B%0A%20%20%20%20enqueue%28queue,%2040%29%3B%0A%0A%20%20%20%20cout%20%3C%3C%20dequeue%28queue%29%0A%20%20%20%20%20%20%20%20%3C%3C%20%22%20dequeued%20from%20queue%5Cn%22%3B%0A%0A%20%20%20%20cout%20%3C%3C%20%22Front%20item%20is%20%22%0A%20%20%20%20%20%20%20%20%3C%3C%20front%28queue%29%20%3C%3C%20endl%3B%0A%20%20%20%20cout%20%3C%3C%20%22Rear%20item%20is%20%22%0A%20%20%20%20%20%20%20%20%3C%3C%20rear%28queue%29%20%3C%3C%20endl%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A%0A//%20This%20code%20is%20contributed%20by%20rathbhupendra&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false"></a></div>
+</div>
+<div class="admonition-arrays-linked-lists admonition">
+<p class="admonition-title">Arrays Linked Lists</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>enqueue</strong> and <strong>dequeue</strong> at <u>different</u> ends</p></li>
+</ul>
+<figure class="align-default">
+<img alt="../_images/08_s15.png" src="../_images/08_s15.png" />
+</figure>
+<p class="sd-card-text"><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/QueueLL.html">https://www.cs.usfca.edu/~galles/visualization/QueueArray.html</a></p>
+</div>
+<div class="admonition-queue-ll-sample admonition">
+<p class="admonition-title">Queue: LL Sample</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">enQueue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">QNode</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QNode</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">     </span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rear</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">rear</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">deQueue</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">QNode</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">front</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">front</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/queue-linked-list-implementation/">https://www.geeksforgeeks.org/queue-linked-list-implementation/</a></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visualize: Queue LL (in Memory)</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Click to interact…</p>
+<figure class="align-default">
+<img alt="../_images/w5_queue_ll.png" src="../_images/w5_queue_ll.png" />
+</figure>
+<p class="sd-card-text"><em>Note: may need a few seconds to execute code…</em></p>
+</div>
+<a class="sd-stretched-link reference external" href="https://pythontutor.com/visualize.html#code=//%20C%2B%2B%20program%20for%20the%20above%20approach%0A%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0Astruct%20QNode%20%7B%0A%20%20%20%20int%20data%3B%0A%20%20%20%20QNode*%20next%3B%0A%20%20%20%20QNode%28int%20d%29%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%20%3D%20d%3B%0A%20%20%20%20%20%20%20%20next%20%3D%20NULL%3B%0A%20%20%20%20%7D%0A%7D%3B%0A%0Astruct%20Queue%20%7B%0A%20%20%20%20QNode%20*front,%20*rear%3B%0A%20%20%20%20Queue%28%29%20%7B%20front%20%3D%20rear%20%3D%20NULL%3B%20%7D%0A%0A%20%20%20%20void%20enQueue%28int%20x%29%0A%20%20%20%20%7B%0A%0A%20%20%20%20%20%20%20%20//%20Create%20a%20new%20LL%20node%0A%20%20%20%20%20%20%20%20QNode*%20temp%20%3D%20new%20QNode%28x%29%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20queue%20is%20empty,%20then%0A%20%20%20%20%20%20%20%20//%20new%20node%20is%20front%20and%20rear%20both%0A%20%20%20%20%20%20%20%20if%20%28rear%20%3D%3D%20NULL%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20front%20%3D%20rear%20%3D%20temp%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20//%20Add%20the%20new%20node%20at%0A%20%20%20%20%20%20%20%20//%20the%20end%20of%20queue%20and%20change%20rear%0A%20%20%20%20%20%20%20%20rear-%3Enext%20%3D%20temp%3B%0A%20%20%20%20%20%20%20%20rear%20%3D%20temp%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20//%20Function%20to%20remove%0A%20%20%20%20//%20a%20key%20from%20given%20queue%20q%0A%20%20%20%20void%20deQueue%28%29%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20//%20If%20queue%20is%20empty,%20return%20NULL.%0A%20%20%20%20%20%20%20%20if%20%28front%20%3D%3D%20NULL%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%3B%0A%0A%20%20%20%20%20%20%20%20//%20Store%20previous%20front%20and%0A%20%20%20%20%20%20%20%20//%20move%20front%20one%20node%20ahead%0A%20%20%20%20%20%20%20%20QNode*%20temp%20%3D%20front%3B%0A%20%20%20%20%20%20%20%20front%20%3D%20front-%3Enext%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20front%20becomes%20NULL,%20then%0A%20%20%20%20%20%20%20%20//%20change%20rear%20also%20as%20NULL%0A%20%20%20%20%20%20%20%20if%20%28front%20%3D%3D%20NULL%29%0A%20%20%20%20%20%20%20%20%20%20%20%20rear%20%3D%20NULL%3B%0A%0A%20%20%20%20%20%20%20%20delete%20%28temp%29%3B%0A%20%20%20%20%7D%0A%7D%3B%0A%0A//%20Driver%20code%0Aint%20main%28%29%0A%7B%0A%0A%20%20%20%20Queue%20q%3B%0A%20%20%20%20q.enQueue%2810%29%3B%0A%20%20%20%20q.enQueue%2820%29%3B%0A%20%20%20%20q.deQueue%28%29%3B%0A%20%20%20%20q.deQueue%28%29%3B%0A%20%20%20%20q.enQueue%2830%29%3B%0A%20%20%20%20q.enQueue%2840%29%3B%0A%20%20%20%20q.enQueue%2850%29%3B%0A%20%20%20%20q.deQueue%28%29%3B%0A%20%20%20%20cout%20%3C%3C%20%22Queue%20Front%20%3A%20%22%20%3C%3C%20%28q.front%29-%3Edata%20%3C%3C%20endl%3B%0A%20%20%20%20cout%20%3C%3C%20%22Queue%20Rear%20%3A%20%22%20%3C%3C%20%28q.rear%29-%3Edata%3B%0A%7D%0A//%20This%20code%20is%20contributed%20by%20rathbhupendra&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false"></a></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Considerations<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<img alt="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprepinsta.com%2Fwp-content%2Fuploads%2F2020%2F06%2FCircular-Queues-in-DSA-Limitations-with-Linear-Queues.png&amp;f=1&amp;nofb=1&amp;ipt=cc9c379ca83596886121fd079623ed7fd0afb84c302ce5dabac536a1d1401366&amp;ipo=images" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprepinsta.com%2Fwp-content%2Fuploads%2F2020%2F06%2FCircular-Queues-in-DSA-Limitations-with-Linear-Queues.png&amp;f=1&amp;nofb=1&amp;ipt=cc9c379ca83596886121fd079623ed7fd0afb84c302ce5dabac536a1d1401366&amp;ipo=images" />
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Underflow<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">error can be thrown when calling <strong>dequeue</strong> on an empty queue</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Overflow<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">error can be thrown when calling <strong>enqueue</strong> on a full queue (especially in fixed-length implementations)</p>
+</div>
+</details></div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Applications<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Media Playlists (Youtube, Spotify, Music,etc.)</strong></p>
+<p class="sd-card-text"><strong>Process management in Operating Systems</strong></p>
+<p class="sd-card-text"><strong>Simulations</strong></p>
+<p class="sd-card-text"><strong>Used in other algorithms</strong></p>
+<p class="sd-card-text"><strong>etc…</strong></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lec_w_05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 5</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="binary_search.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Binary Search</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
