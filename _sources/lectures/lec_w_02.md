@@ -23,8 +23,8 @@ kernelspec:
 
 * - Tuesday
   - Thursday
-* - [Analysis of Algorithms](algo_analysis.md)
-  - [Computational Cost](computational_cost.md) <br> [Big-Oh Notation](big-o.md)
+* - [Computational Cost](computational_cost.md)
+  - [Big-Oh Notation](big-o.md)
 
 ```
 

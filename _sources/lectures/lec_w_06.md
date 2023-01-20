@@ -52,6 +52,9 @@ kernelspec:
 :::: {admonition} Projects
 :class: notes
 
+- {bdg-danger}`Due` [Gradebook](../projects/review_project_sp23.md)  
+{octicon}`calendar;1em;sd-text-danger`  _Week 6_
+
 - [DSA](projects/tp_rubric.md)  
 {octicon}`calendar;1em;sd-text-info`  _Week 14_
 

@@ -23,7 +23,7 @@ kernelspec:
   .brown {color:brown}
 </style>
 
-# Big-O Notation
+# Big-O Notiation
 
 `````````` {div} full-width
 ```` {card}

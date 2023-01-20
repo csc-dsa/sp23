@@ -23,8 +23,8 @@ kernelspec:
 
 * - Tuesday
   - Thursday
-* - [Basic Sorts (Analysis)]()
-  - [Dynamic Arrays]()
+* - [Basic Sorts (Analysis)](algo_analysis.md)
+  - [Dynamic Arrays](dynamic_arrays.md)
 
 ```
 
@@ -41,11 +41,11 @@ kernelspec:
 :::: {admonition} Assignment
 :class: tip
 
-- {bdg-danger}`Due` [A1: Binarization & Threshholding](assignments/a1/readme.md)  
+- {bdg-danger}`Due` [A2: Maze Generation](../assignments/a2/readme.md)  
 {octicon}`calendar;1em;sd-text-danger` _Monday, 11:59p_
 
-- [A2: Maze Generation](../assignments/a2/readme.md)  
-{octicon}`calendar;1em;sd-text-info`  _Week 6_
+- [A3: Conceptualization I](https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf)  
+{octicon}`calendar;1em;sd-text-info`  _Week 7_
 
 ::::
 

@@ -23,7 +23,7 @@ kernelspec:
 
 * - Tuesday
   - Thursday
-* - [Binary Search]()
+* - [Binary Search](binary_search.md)
   - [Analyzing Recursive Algorithms]()
 
 ```
@@ -41,15 +41,15 @@ kernelspec:
 :::: {admonition} Assignment
 :class: tip
 
-- [A2: Maze Generation](../assignments/a2/readme.md)  
-{octicon}`calendar;1em;sd-text-info`  _Week 6_
+- [A3: Conceptualization I](https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf)  
+{octicon}`calendar;1em;sd-text-info`  _Week 7_
 
 ::::
 
 :::: {admonition} Projects
 :class: notes
 
-- {bdg-danger}`Due` [Gradebook](../projects/review_project_sp23.md)  
-{octicon}`calendar;1em;sd-text-danger`  _Week 5_
+- [Gradebook](../projects/review_project_sp23.md)  
+{octicon}`calendar;1em;sd-text-info`  _Week 6_
 
 ::::

@@ -24,7 +24,7 @@ kernelspec:
 * - Tuesday
   - Thursday
 * - [Introduction](introduction.md)
-  - [C++ Review](cpp_cc.md)
+  - [Analysis of Algorithms](algo_analysis.md)
 ```
 
 ::::

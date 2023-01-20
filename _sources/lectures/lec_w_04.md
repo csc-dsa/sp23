@@ -24,7 +24,7 @@ kernelspec:
 * - Tuesday
   - Thursday
 * - [Linked Lists (Analysis)](linked_lists.md)
-  - [Stacks and Queues](stacks_queues.md)
+  - Review Project Wrap-up / No Lecture
 
 ```
 
@@ -41,8 +41,8 @@ kernelspec:
 :::: {admonition} Assignment
 :class: tip
 
-- [A2: Maze Generation](../assignments/a2/readme.md)  
-{octicon}`calendar;1em;sd-text-info`  _Week 6_
+- [A3: Conceptualization I](https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf)
+{octicon}`calendar;1em;sd-text-info`  _Week 7_
 
 ::::
 
