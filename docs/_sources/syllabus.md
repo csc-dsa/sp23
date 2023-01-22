@@ -2,14 +2,17 @@
 
 ## CSC 212: Data Structures & Algorithms
 
+````````` {div} full-width
 ```` {card}
 ``` {image} https://i.ytimg.com/vi/tJQC0HCv8yg/maxresdefault.jpg
 :align: center
 ```
 ````
+`````````
 
 ## Course Description
 
+````````` {div} full-width
 ``` {card}
 
 CSC 212 introduces fundamental concepts in data structures and algorithms, and their role in organizing and processing information efficiently. The course explores theoretical, implementation, and application aspects of important data structures and algorithms in use on modern computers. Particular emphasis is given to algorithms for searching and sorting. The course also covers basic concepts for analyzing space and time requirements of algorithms, critical for understanding their performance characteristics. C/C++ is the programming language required for programming assignments and lab sessions.
@@ -17,9 +20,11 @@ CSC 212 introduces fundamental concepts in data structures and algorithms, and t
 _Prerequisites: C- or better in CSC 211; and MTH 180 or Computer Engineering major, and understanding the basics of programming in a higher level language such as C, Java, or Python. You should be familiar with classes, objects, methods, functions, loops, conditionals, arrays._
 
 ```
+`````````
 
 ## Course Staff
 
+````````` {div} full-width
 ```` {card}
 
 ``` {admonition} Lecture & Administrative
@@ -50,9 +55,11 @@ Office Hours scheduled and by appointment _[via EdStem]_
 ```
 
 ````
+`````````
 
 ### Office Hours
 
+````````` {div} full-width
 ```` {card}
 
 ```{list-table}
@@ -64,56 +71,81 @@ Office Hours scheduled and by appointment _[via EdStem]_
   - Wednesday
   - Thursday
   - Friday
-* - **10a**
-  - Vincent
-  - 
-  - Vincent
-  - 
-  - Lab 2
-* - **11a**
-  - Vincent
-  - Lecture
-  - Vincent
-  - Lecture
-  - Lab 2
 * - **12p**
-  - Christian
-  - Lecture/Daniel
-  - Lab 1
-  - 
-  - Christian
-* - **1p**
-  - Christian
-  - Daniel
-  - Lab 1
   - Calvin
-  - Christian/Calvin
+  - 
+  - 
+  - 
+  - 
+* - **1p**
+  - Calvin
+  - 
+  - 
+  - 
+  - Calvin
 * - **2p**
-  - Daniel
+  - Christian
   -
   - Christian
-  - Calvin
+  - 
   - Calvin
 * - **3p**
-  - Daniel
+  - Christian & Stephanie
   -
-  - Christian
+  - Cameron
   - 
   -
+* - **4p**
+  - 
+  -
+  - Cameron
+  - 
+  -
+* - **5p**
+  - 
+  -
+  - Cameron
+  - 
+  -
+* - **6p**
+  - Cameron
+  - 
+  - 
+  -
+  - Cameron
+* - **7p**
+  - Cameron
+  - 
+  -
+  - Cameron [Live Code]
+  - Cameron
 ```
-
+_Lab TA's: Christian, Stephanie, Daniel, Calvin_  
 ````
 
 _Instructor Note: The syllabus is a living document and alterations may be made to the course as deemed necessary throughout the term..._
 
 ## Support Tools and Technology
 
-``` {card}
-Please see "Support Tools and Technology" in Brightspace for information and details.
+````````` {div} full-width
+``` {card} Tools
+- Brightspace : Official Grades
+- EdStem : Course Communications
+- Gradescope : Actionable Submissions
+- GitHub : Project Work
+
+_Invitations/instructions will be provided to the tools above..._
 ```
+``` {card} Technology
+- A laptop with a full OS [iOS/Android devices not recommended]
+- JetBreains CLion [**supported** IDE]
+```
+
+`````````
 
 ## Student Learning Outcomes
 
+````````` {div} full-width
 ``` {card}
 
 Upon successful completion of this course, each student will be able to:
@@ -127,17 +159,23 @@ Upon successful completion of this course, each student will be able to:
 - implement and use containers such as sets, maps, and hash tables.
 
 ```
+`````````
 
 ## Recommended Textbooks
 
+````````` {div} full-width
+``` {card}
 - [Data Structures & Algorithm Analysis in C++, 4th Ed., M. A. Weiss](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Books/Data%20Structures%20And%20Algorithm%20Analysis%20In%20C%2B%2B%20-%20Mark%20Allen%20Weiss%204th%20Edition.pdf)
 - [Introduction to Algorithms, 4rd Ed., T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein](https://github.com/GenoWong/IntroductionToAlgorithms/blob/main/Introduction.to.Algorithms.4th.pdf)
 - [Algorithms, 4th Ed., R. Sedgewick, K. Wayne](https://github.com/Igors78/Books/blob/master/Algorithms%2C%204th%20edition%20(2011).pdf)
 - [Algorithm Design and Applications, 1st Ed, M. T. Goodrich, R. Tamassia](https://github.com/Igors78/Books/blob/master/Algorithm%20Design%20and%20Applications.pdf)
 - [Open Data Structures and Algorithms](https://opendatastructures.org), open source hypertextbook
+```
+`````````
 
 ## Course Components
 
+````````` {div} full-width
 ``` {card} Lectures
 
 Discussion based sessions used to confirm understanding through reading and self-paced research.
@@ -171,9 +209,11 @@ Two practicum projects will be completed. The first a review of concepts necessa
 There is only one exam for this course: the final exam. The exam will be cumulative, timed, and consist of multiple choice questions.
 
 ```
+`````````
 
 ## Grading
 
+````````` {div} full-width
 ```` {card}
 
 ```{list-table}
@@ -209,6 +249,7 @@ There is only one exam for this course: the final exam. The exam will be cumulat
 
 _Final letter grades are calculated using the cutoffs below. A 'curve' will not be applied to final course grades. However, those who make extrodinary effort to contribute to the overall flow and learning environment of the classroom, may be given additional consideration._
 
+```` {card}
 ```{list-table}
 :header-rows: 1
 
@@ -237,11 +278,14 @@ _Final letter grades are calculated using the cutoffs below. A 'curve' will not 
   - 60
   - 0
 ```
+````
 
 _Note: Semester grading will be complete by the Sunday evening following your project presentations. Those with a weighted grade 90, will be exempt from the exam and granted an $A$ for the term..._
+`````````
 
 ### Submission & Late Policy
 
+````````` {div} full-width
 ``` {card}
 
 All submission must be properly submitted to Gradescope no later than 11:59p on the respective Monday it is due. Late submissions will not be accepted.
@@ -249,9 +293,11 @@ All submission must be properly submitted to Gradescope no later than 11:59p on 
 Extensions will be assessed on a case-by-case basis. Please have proper documentation on-hand at time of request.
 
 ```
+`````````
 
 ## Attendance Policy
 
+````````` {div} full-width
 ``` {card}
 
 **Lecture**
@@ -263,9 +309,11 @@ There is no formal lecture attendance policy for this course. You may attend at 
 Must be actively attended live to earn credit.
 
 ```
+`````````
 
 ## Administrative
 
+````````` {div} full-width
 ``` {card} Academic Enhancement Center
 
 Nearly all students recognize that regardless of how well or poorly they are doing in a given class, there are ways to improve their learning and studying. The Academic Enhancement Center (AEC) and Writing Center (WC), located in Roosevelt Hall, offers several kinds of support that help students improve their learning and academic performance in this class as well as other classes. For information on any of these programs, visit the AEC website or call the AEC’s main number at (401) 874-2367.
@@ -289,3 +337,4 @@ Any student with a documented disability is welcome to contact me as early in th
 It is the policy of the University of Rhode Island to accord students, on an individual basis, the opportunity to observe their traditional religious holidays. Students desiring to observe a holiday of special importance must provide written notification to each instructor.
 
 ```
+`````````
