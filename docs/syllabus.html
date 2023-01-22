@@ -1,0 +1,1231 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Syllabus &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tips for Success" href="tips_for_success.html" />
+    <link rel="prev" title="Start Here" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/cpp_cc.html">
+   C++ Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add_rss.html">
+   Additional Resources
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/big-o.html">
+     Big-O Notiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lec_w_08.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lec_w_12.html">
+   Week 12
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lec_w_13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/presentations.html">
+     Presentations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="assignments/a2/readme.html">
+   A2: Practical I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/a2/read_write.html">
+     Read / Write
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/a4/readme.html">
+   A4: Practical II
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/syllabus.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csc-212-data-structures-algorithms">
+   CSC 212: Data Structures &amp; Algorithms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-description">
+   Course Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-staff">
+   Course Staff
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#office-hours">
+     Office Hours
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-tools-and-technology">
+   Support Tools and Technology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#student-learning-outcomes">
+   Student Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-textbooks">
+   Recommended Textbooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-components">
+   Course Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading">
+   Grading
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission-late-policy">
+     Submission &amp; Late Policy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attendance-policy">
+   Attendance Policy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#administrative">
+   Administrative
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Syllabus</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csc-212-data-structures-algorithms">
+   CSC 212: Data Structures &amp; Algorithms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-description">
+   Course Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-staff">
+   Course Staff
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#office-hours">
+     Office Hours
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-tools-and-technology">
+   Support Tools and Technology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#student-learning-outcomes">
+   Student Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-textbooks">
+   Recommended Textbooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-components">
+   Course Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading">
+   Grading
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#submission-late-policy">
+     Submission &amp; Late Policy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attendance-policy">
+   Attendance Policy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#administrative">
+   Administrative
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="syllabus">
+<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">#</a></h1>
+<section id="csc-212-data-structures-algorithms">
+<h2>CSC 212: Data Structures &amp; Algorithms<a class="headerlink" href="#csc-212-data-structures-algorithms" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<img alt="https://i.ytimg.com/vi/tJQC0HCv8yg/maxresdefault.jpg" class="align-center" src="https://i.ytimg.com/vi/tJQC0HCv8yg/maxresdefault.jpg" />
+</div>
+</div>
+</div>
+</section>
+<section id="course-description">
+<h2>Course Description<a class="headerlink" href="#course-description" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">CSC 212 introduces fundamental concepts in data structures and algorithms, and their role in organizing and processing information efficiently. The course explores theoretical, implementation, and application aspects of important data structures and algorithms in use on modern computers. Particular emphasis is given to algorithms for searching and sorting. The course also covers basic concepts for analyzing space and time requirements of algorithms, critical for understanding their performance characteristics. C/C++ is the programming language required for programming assignments and lab sessions.</p>
+<p class="sd-card-text"><em>Prerequisites: C- or better in CSC 211; and MTH 180 or Computer Engineering major, and understanding the basics of programming in a higher level language such as C, Java, or Python. You should be familiar with classes, objects, methods, functions, loops, conditionals, arrays.</em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="course-staff">
+<h2>Course Staff<a class="headerlink" href="#course-staff" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="tip admonition">
+<p class="admonition-title">Lecture &amp; Administrative</p>
+<p class="sd-card-text"><strong>Professor</strong><br />
+Jonathan Schrader, MS, MA<br />
+Office Hours By Appointment <em>[via EdStem]</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Lab</p>
+<p class="sd-card-text"><strong>Graduate Teaching Assistant</strong><br />
+Christian Esteves, MS<br />
+Office Hours scheduled and by appointment <em>[via EdStem]</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Course / Lab Aides</p>
+<p class="sd-card-text"><strong>Undergraduate Teaching Assistants</strong><br />
+Calvin Higgins, Daniel Diaz Pereyra, Stephanie Poncin<br />
+Office Hours scheduled and by appointment <em>[via EdStem]</em></p>
+</div>
+</div>
+</div>
+</div>
+<section id="office-hours">
+<h3>Office Hours<a class="headerlink" href="#office-hours" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">Monday</p></th>
+<th class="head"><p class="sd-card-text">Tuesday</p></th>
+<th class="head"><p class="sd-card-text">Wednesday</p></th>
+<th class="head"><p class="sd-card-text">Thursday</p></th>
+<th class="head"><p class="sd-card-text">Friday</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><strong>12p</strong></p></td>
+<td><p class="sd-card-text">Calvin</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>1p</strong></p></td>
+<td><p class="sd-card-text">Calvin</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">Calvin</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>2p</strong></p></td>
+<td><p class="sd-card-text">Christian</p></td>
+<td></td>
+<td><p class="sd-card-text">Christian</p></td>
+<td></td>
+<td><p class="sd-card-text">Calvin</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>3p</strong></p></td>
+<td><p class="sd-card-text">Christian &amp; Stephanie</p></td>
+<td></td>
+<td><p class="sd-card-text">Cameron</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>4p</strong></p></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">Cameron</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>5p</strong></p></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">Cameron</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>6p</strong></p></td>
+<td><p class="sd-card-text">Cameron</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">Cameron</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>7p</strong></p></td>
+<td><p class="sd-card-text">Cameron</p></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">Cameron [Live Code]</p></td>
+<td><p class="sd-card-text">Cameron</p></td>
+</tr>
+</tbody>
+</table>
+<p class="sd-card-text"><em>Lab TA’s: Christian, Stephanie, Daniel, Calvin</em></p>
+</div>
+</div>
+<p><em>Instructor Note: The syllabus is a living document and alterations may be made to the course as deemed necessary throughout the term…</em></p>
+</div>
+</section>
+</section>
+<section id="support-tools-and-technology">
+<h2>Support Tools and Technology<a class="headerlink" href="#support-tools-and-technology" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tools</div>
+<ul class="simple">
+<li><p class="sd-card-text">Brightspace : Official Grades</p></li>
+<li><p class="sd-card-text">EdStem : Course Communications</p></li>
+<li><p class="sd-card-text">Gradescope : Actionable Submissions</p></li>
+<li><p class="sd-card-text">GitHub : Project Work</p></li>
+</ul>
+<p class="sd-card-text"><em>Invitations/instructions will be provided to the tools above…</em></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Technology</div>
+<ul class="simple">
+<li><p class="sd-card-text">A laptop with a full OS [iOS/Android devices not recommended]</p></li>
+<li><p class="sd-card-text">JetBreains CLion [<strong>supported</strong> IDE]</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="student-learning-outcomes">
+<h2>Student Learning Outcomes<a class="headerlink" href="#student-learning-outcomes" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Upon successful completion of this course, each student will be able to:</p>
+<ul class="simple">
+<li><p class="sd-card-text">implement code using pointers and dynamic memory allocation;</p></li>
+<li><p class="sd-card-text">implement solutions that involve recursive functions;</p></li>
+<li><p class="sd-card-text">compare different algorithms and data structures based on efficiency, using empirical and theoretical algorithm analysis techniques;</p></li>
+<li><p class="sd-card-text">choose appropriate data structures and algorithms to solve a problem;</p></li>
+<li><p class="sd-card-text">implement sorting algorithms and understand their performance under different scenarios;</p></li>
+<li><p class="sd-card-text">implement and use basic data structures, including linked lists, stacks, queues, priority queues, trees, balanced trees, and graphs;</p></li>
+<li><p class="sd-card-text">implement and use containers such as sets, maps, and hash tables.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="recommended-textbooks">
+<h2>Recommended Textbooks<a class="headerlink" href="#recommended-textbooks" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Books/Data%20Structures%20And%20Algorithm%20Analysis%20In%20C%2B%2B%20-%20Mark%20Allen%20Weiss%204th%20Edition.pdf">Data Structures &amp; Algorithm Analysis in C++, 4th Ed., M. A. Weiss</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://github.com/GenoWong/IntroductionToAlgorithms/blob/main/Introduction.to.Algorithms.4th.pdf">Introduction to Algorithms, 4rd Ed., T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://github.com/Igors78/Books/blob/master/Algorithms%2C%204th%20edition%20(2011).pdf">Algorithms, 4th Ed., R. Sedgewick, K. Wayne</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://github.com/Igors78/Books/blob/master/Algorithm%20Design%20and%20Applications.pdf">Algorithm Design and Applications, 1st Ed, M. T. Goodrich, R. Tamassia</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://opendatastructures.org">Open Data Structures and Algorithms</a>, open source hypertextbook</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="course-components">
+<h2>Course Components<a class="headerlink" href="#course-components" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lectures</div>
+<p class="sd-card-text">Discussion based sessions used to confirm understanding through reading and self-paced research.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Labs</div>
+<p class="sd-card-text">Practicum based sessions to confirm what you know and begin implemention of the material.</p>
+<p class="sd-card-text"><em>Note: to recieve credit for lab, you must attend your respective section regardless of whether you are able to complete the lab within the session window.</em></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Assignments</div>
+<p class="sd-card-text">Assignments are individual work, unless stated otherwise stated used to implement broader-scoped pracicum outcomes.</p>
+<p class="sd-card-text"><em>While you are free to use any IDE for working on programming assignments and during the lab sessions, only Clion from JetBrains will be officially supported for this course. As well, source code submitted to the autograder must compile without any errors utilizing the g++ compiler.</em></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Projects</div>
+<p class="sd-card-text">Two practicum projects will be completed. The first a review of concepts necessary to successfully complete the course, and the second a wide-ranged insight piece with a unique imlementation of the data structure[s] and/or alogorithm[s] with a formal presentation to your peers.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exam</div>
+<p class="sd-card-text">There is only one exam for this course: the final exam. The exam will be cumulative, timed, and consist of multiple choice questions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Task</p></th>
+<th class="head"><p class="sd-card-text">Quantity</p></th>
+<th class="head"><p class="sd-card-text">Course Points</p></th>
+<th class="head"><p class="sd-card-text">Total Points</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Labs</p></td>
+<td><p class="sd-card-text">10</p></td>
+<td><p class="sd-card-text">20</p></td>
+<td><p class="sd-card-text">200</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Assignments</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">50</p></td>
+<td><p class="sd-card-text">200</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Projects</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">150 &amp; 350</p></td>
+<td><p class="sd-card-text">500</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Exam (Cumulative)</p></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">100</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Course Total</p></td>
+<td></td>
+<td></td>
+<td><p class="sd-card-text">1000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><em>Final letter grades are calculated using the cutoffs below. A ‘curve’ will not be applied to final course grades. However, those who make extrodinary effort to contribute to the overall flow and learning environment of the classroom, may be given additional consideration.</em></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">A</p></th>
+<th class="head"><p class="sd-card-text">A-</p></th>
+<th class="head"><p class="sd-card-text">B+</p></th>
+<th class="head"><p class="sd-card-text">B</p></th>
+<th class="head"><p class="sd-card-text">B-</p></th>
+<th class="head"><p class="sd-card-text">C+</p></th>
+<th class="head"><p class="sd-card-text">C</p></th>
+<th class="head"><p class="sd-card-text">C-</p></th>
+<th class="head"><p class="sd-card-text">D+</p></th>
+<th class="head"><p class="sd-card-text">D</p></th>
+<th class="head"><p class="sd-card-text">D-</p></th>
+<th class="head"><p class="sd-card-text">F</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">94</p></td>
+<td><p class="sd-card-text">90</p></td>
+<td><p class="sd-card-text">87</p></td>
+<td><p class="sd-card-text">83</p></td>
+<td><p class="sd-card-text">80</p></td>
+<td><p class="sd-card-text">77</p></td>
+<td><p class="sd-card-text">73</p></td>
+<td><p class="sd-card-text">70</p></td>
+<td><p class="sd-card-text">67</p></td>
+<td><p class="sd-card-text">63</p></td>
+<td><p class="sd-card-text">60</p></td>
+<td><p class="sd-card-text">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><em>Note: Semester grading will be complete by the Sunday evening following your project presentations. Those with a weighted grade 90, will be exempt from the exam and granted an <span class="math notranslate nohighlight">\(A\)</span> for the term…</em></p>
+</div>
+<section id="submission-late-policy">
+<h3>Submission &amp; Late Policy<a class="headerlink" href="#submission-late-policy" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">All submission must be properly submitted to Gradescope no later than 11:59p on the respective Monday it is due. Late submissions will not be accepted.</p>
+<p class="sd-card-text">Extensions will be assessed on a case-by-case basis. Please have proper documentation on-hand at time of request.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="attendance-policy">
+<h2>Attendance Policy<a class="headerlink" href="#attendance-policy" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture</strong></p>
+<p class="sd-card-text">There is no formal lecture attendance policy for this course. You may attend at your leisure. Please bear in mind, most who choose not to attend, end up repeating the course in a another semester.</p>
+<p class="sd-card-text"><strong>Lab &amp; Project Presentations</strong></p>
+<p class="sd-card-text">Must be actively attended live to earn credit.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="administrative">
+<h2>Administrative<a class="headerlink" href="#administrative" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Academic Enhancement Center</div>
+<p class="sd-card-text">Nearly all students recognize that regardless of how well or poorly they are doing in a given class, there are ways to improve their learning and studying. The Academic Enhancement Center (AEC) and Writing Center (WC), located in Roosevelt Hall, offers several kinds of support that help students improve their learning and academic performance in this class as well as other classes. For information on any of these programs, visit the AEC website or call the AEC’s main number at (401) 874-2367.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Academic Honesty</div>
+<p class="sd-card-text">Discussions with peers to gain more insights on coursework and lectures is strongly encouraged. However, when working on assignments, all written work and source code must be original. Students might not look at anyone’s written solution. Copying another individual solution is plagiarism, a serious offense, and the one most common in computer science courses. Anyone that provides homework answers, source code for a programming assignment to another individual is also guilty of academic dishonesty. Students caught plagiarizing will be prosecuted in accordance with the University’s Policy of Academic Honesty.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Disability Accommodations</div>
+<p class="sd-card-text">Any student with a documented disability is welcome to contact me as early in the semester as possible, so that we may arrange reasonable accommodations. As part of this process, please be in touch with Disability, Access, and Inclusion Office.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Religious Holidays</div>
+<p class="sd-card-text">It is the policy of the University of Rhode Island to accord students, on an individual basis, the opportunity to observe their traditional religious holidays. Students desiring to observe a holiday of special importance must provide written notification to each instructor.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Start Here</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tips_for_success.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tips for Success</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
