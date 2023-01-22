@@ -13,6 +13,5 @@ kernelspec:
   name: python3
 ---
 
-# Stacks and Queues
+# Analysis of Algorithms
 
-what the fuck?

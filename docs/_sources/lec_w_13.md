@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Week 3
+# Week 13
 
 :::: {admonition} Agenda
 :class: attention
@@ -23,8 +23,8 @@ kernelspec:
 
 * - Tuesday
   - Thursday
-* - [Basic Sorts (Analysis)]()
-  - [Dynamic Arrays]()
+* - [Syllabus](assignment-3.pdf)
+  - C++ Overview
 
 ```
 
@@ -33,7 +33,7 @@ kernelspec:
 :::: {admonition} Lab
 :class: warning
 
-- [Dynamic Arrays](labs/lab-03/readme.md)  
+- [Graphs](labs/lab-12/readme.md)  
 {octicon}`calendar;1em;sd-text-info` Due before next lab...
 
 ::::
@@ -41,18 +41,15 @@ kernelspec:
 :::: {admonition} Assignment
 :class: tip
 
-- {bdg-danger}`Due` [A1: Binarization & Threshholding](assignments/a1/readme.md)  
-{octicon}`calendar;1em;sd-text-danger` _Monday, 11:59p_
-
-- [A2: Maze Generation](../assignments/a2/readme.md)  
-{octicon}`calendar;1em;sd-text-info`  _Week 6_
+- [A5: Conceptualization II](assignments/a5/readme.md)  
+{octicon}`calendar;1em;sd-text-info` _Week 14_
 
 ::::
 
 :::: {admonition} Projects
 :class: notes
 
-- [Gradebook](projects/review_project_sp23.md)  
-{octicon}`calendar;1em;sd-text-info`  _Week 5_
+- [DSA](projects/tp_rubric.md)  
+{octicon}`calendar;1em;sd-text-info`  _Week 14_
 
 ::::
