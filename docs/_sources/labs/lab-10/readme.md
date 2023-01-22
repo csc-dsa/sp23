@@ -1,4 +1,19 @@
-# Lab-10 Hash Tables
+---
+jupytext:
+  cell_metadata_filter: -all
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+# Lab 10 : Hash Tables
 
 ## 1. Introduction
 
@@ -24,49 +39,98 @@ But how do we store values? We need a Hash Function!
 
 A Hash Function is (surprise) a function that generates some Hash out of the value to be stored. This is an entire field of research, so we'll keep it simple for now. Let's use the following function:
 
-<center>f(x) = x % n </center>
+$$f(x) = x \% n$$
 
 Let's use it to store the following values: 1, 14, 13, 16
 
-1 % 5 = 1
+`````` {tab-set}
+```` {tab-item} 1
+```{card}
+:text-align: center
+$1 \% 5 = 1$
+```
+``` {list-table}
 
-| Index | Value |
-| ----- | ----- |
-| 0     |       |
-| 1     | 1     |
-| 2     |       |
-| 3     |       |
-| 4     |       |
+* - Index
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+* - Value
+  - 
+  - 1
+  - 
+  - 
+  - 
+```
+````
 
-14 % 5 = 4
+```` {tab-item} 14
+```{card}
+:text-align: center
+$$14 \% 5 = 4$$
+```
+``` {list-table}
 
-| Index | Value |
-| ----- | ----- |
-| 0     |       |
-| 1     | 1     |
-| 2     |       |
-| 3     |       |
-| 4     | 14    |
+* - Index
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+* - Value
+  - 
+  - 1
+  - 
+  - 
+  - 14
+```
+````
 
-13 % 5 = 3
+```` {tab-item} 13
+```{card}
+:text-align: center
+$$13 \% 5 = 3$$
+```
+``` {list-table}
 
-| Index | Value |
-| ----- | ----- |
-| 0     |       |
-| 1     | 1     |
-| 2     |       |
-| 3     | 13    |
-| 4     | 14    |
+* - Index
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+* - Value
+  - 
+  - 1
+  - 
+  - 13
+  - 14
+```
+````
+```` {tab-item} 16
+```{card}
+:text-align: center
+$$16 \% 5 = 1$$
+```
+``` {list-table}
 
-16 % 5 = 1
-
-| Index | Value                  |
-| ----- | ---------------------- |
-| 0     |                        |
-| 1     | 1 <-- already a value! |
-| 2     |                        |
-| 3     | 13                     |
-| 4     | 14                     |
+* - Index
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+* - Value
+  - 
+  - 1 <br> already a value!
+  - 
+  - 13
+  - 14
+```
+````
+``````
 
 We've found an issue with our new Data Structure! This is known as a Hash Collision. Let's look at methods to combat this.
 
@@ -92,16 +156,17 @@ Since the very next spot was open, 16 gets placed at index 2.
 
 Another open addressing method is to use double hashing. In this strategy, a second hash function is utilized to re-hash a value that has collisions. Let's view that example from above again using this new definition:
 
-<center>f(x, i) = [(x % n) + (i * f'(x))] % n</center>
+$$f(x, i) = [(x % n) + (i * f'(x))] % n$$
+$$f'(x) = x+3$$
+$$Where `i` is the number of collisions so far$$
 
-<center>f'(x) = x+3</center>
-<center>Where i is the number of collisions so far</center>
+At the first attempt there are no recorded collisions yet for the input 16 so `i` is 0
 
-At the first attempt there are no recorded collisions yet for the input 16 so i is 0
-f(16, 0) = [(16 % n) + (0 * 19)] % n = 1
+$$f(16, 0) = [(16 % n) + (0 * 19)] % n = 1$$
 
-After encountering a collision on the first pass, i will now be 1
-f(16, 1) = [(16 % n) + (1 * 19)] % n = [(1) + 19] % n = 0
+After encountering a collision on the first pass, `i` will now be 1
+
+$$f(16, 1) = [(16 % n) + (1 * 19)] % n = [(1) + 19] % n = 0$$
 
 | Index | Value |
 | ----- | ----- |

@@ -2,6 +2,7 @@
 
 ## Breakdown
 
+```` {card}
 In groups of 3-4 members you will research and evaluate a data structure / algorithm not covered in the course material. It will be your task to find a meaningful, unique application for your project.
 
 The project is broken out into three separate aspects:
@@ -11,28 +12,35 @@ The project is broken out into three separate aspects:
 - Project Report
 
 Each aspect will have specific requirements to meet to successfully complete the project overall.
+````
 
 ## Source Code
 
-### Code Repository
+```` {card} Code Repository
 
 - Your code from start to finish will live on GitHub.
   - Each group member must be connect via their own github account to a primary account which will be used for submission.
   - Individual contributions must be clear within the '[commits](https://docs.github.com/en/rest/commits?apiVersion=2022-11-28)' of the repo.
 
-### Code Organization
+````
+
+```` {card} Code Organization
 
 - Your code must adhere to a [best practice standard of programming](https://codesigningstore.com/ultimate-programming-best-practices-guide)...
 - All code to be evaluated must be included in the repo prior to final submission and saved with appropriate file extentions.
 
-### Code Compiliation
+````
+
+```` {card} Code Compiliation
 
 - EXPLICIT DEPENDENCIES AND INSTRUCTIONS HOW TO COMPILE YOUR CODE ARE REQUIRED!! Your code will not be graded without these directly outlined in a README within your repo
 - Incomplete and or non-working project code may still earn partial credit
 
+````
+
 ## Presentation
 
-### ~15 Minutes
+```` {card} ~15 Minutes
 
 - Each group will be alotted 15 minutes to present. Working as a group it will be your responsibility to keep track of your time. Groups will be cut off at exactly 15 minutes. So please practice your presentations to maximize your time. A possible breakout of time may be:
   - explain your topic, structure / algorithm {~8 mins}
@@ -41,13 +49,17 @@ Each aspect will have specific requirements to meet to successfully complete the
 - Slides should be used to express key points and give the audience a focal point for conceptual information
 - Your project code should be used for practical demostration
 
-### Partial Credit
+````
+
+```` {card} Partial Credit
 
 - May be recieved for incomplete/non-working projects where deep understanding of the data structure / algorithm is proven
 
+````
+
 ## Report
 
-### Substance
+```` {card} Substance
 
 Must include the following:
 
@@ -84,28 +96,35 @@ Must include the following:
   - wrap up findings from your programming
   - formalize any other conclusions or predictions you can make relative to the topic and ways it may be used in the world
 
-### Partial Credit
+````
+
+```` {card} Partial Credit
 
 - May be granted to incomplete projects if the report includes sound, relevant information regardless of progress
+````
 
 ## Submission
 
+```` {card}
+
 Source Code
-- Gradescope: submit only the link to your group's primary project repository
+: Gradescope: submit only the link to your group's primary project repository
 
 Presentation
-- Gradescope: slides (must be converted to PDF prior to submission)
+: Gradescope: slides (must be converted to PDF prior to submission)
 
 Report
-- Gradescope: submit as a PDF
+: Gradescope: submit as a PDF
 
 **_Note: any portion missing from the Gradescope submission will not be graded..._**
 
+````
+
 ## Grading
 
-### Rubric
+```` {card} Rubric
 
-#### Presentation
+Presentation
 
 Group #  
 
@@ -143,6 +162,8 @@ Group #
   - Within two minutes of allotted time +/-.
 
 ```
+
+````
 
 ## Topics
 

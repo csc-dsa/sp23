@@ -1,4 +1,4 @@
-# A4: Recursion & Stacks
+# A4: Practical II
 
 The goal of this assignment is to practice recursion and stacks.  The assignment is worth a total of 120 points, from which 20 are extra/bonus points.  The assignment can be completed individually or in teams of 2 students.  If you have any questions or need any help, please visit us during office hours and/or post questions on Piazza.
 

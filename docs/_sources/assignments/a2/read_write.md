@@ -1,4 +1,108 @@
-# Examples
+# Read / Write
+
+`````` {div} full-width
+``` {image} http://momitforward.com/wp-content/uploads/2014/01/ReadWrite-24049939_m.jpg
+:align: center
+```
+
+<br>
+
+``` {card}
+As some students had failed to recall and/or struggled to implement read write functionality in prior terms, the teaching staff thought this would be helpful to have upfront. If you understand this functionality and/or have a different way to implement it, feel free to do so.
+```
+
+````` {admonition} Read from a File
+```` {card} 1st Approach
+``` {code-block} cpp
+ void ReadFile(std::string file_name, std::vector<std::vector<double>> * image_data){
+    // Opens the file for reading
+    std::ifstream file(file_name);
+
+    // Creates a string to hold each line in temporarily
+    std::string str;
+
+    // Iterates over the file, storing one line at a time into `str`
+    while (std::getline(file, str)) {
+        // Create a temporary 1D Vector of doubles
+       std::vector<double> new_row;
+
+       // Create a stringstream object with our line of integers from the file
+       std::istringstream ss(str);
+
+       // Create a double that will hold our extracted value from the string
+       double token;
+
+        // While there are still numbers in this string, extract them as doubles
+        while(ss >> token){
+            // Push these doubles into our temp vector
+            new_row.push_back(token);
+        }
+
+        // The line is empty, push our completed row into our 2D vector
+        image_data->push_back(new_row);
+    }
+}
+```
+````
+```` {card} 2nd Approach
+``` {code-block} cpp
+void readFile(std::vector<std::vector<double>> &image2DSpace, std::string &fileName){
+
+    std::ifstream inFile(fileName);
+    std::string line;
+
+    while (std::getline(inFile, line)) {
+        std::vector <double> temp;
+        std::istringstream stream(line);
+        double val;
+        while(stream >> val) {
+            temp.push_back(val);
+        }
+        image2DSpace.push_back(temp);
+    }
+}
+```
+````
+`````
+````` {admonition} Write to a File
+```` {card} 1st Approach
+``` {code-block} cpp
+void WriteFile(std::string file_name, std::vector<std::vector<double>> * const image_data){
+    // Open our file with write permissions
+    std::ofstream output_file(file_name);
+
+    // Use an iterator to traverse the outer dimension
+    for(std::vector<std::vector<double>>::const_iterator i = (*image_data).begin(); i != (*image_data).end(); ++i){
+        // Use an interator to traverse the inner dimention
+        for(std::vector<double>::const_iterator j = i->begin(); j != i->end(); ++j){
+            // Output each element to the file with a space at the end
+            output_file << *j << " ";
+        }
+        // Output a newline symbol to the file
+        output_file << "\n";
+    }
+}
+```
+````
+```` {card} 2nd Approach
+``` {code-block} cpp
+void writeFile(std::string outPutFile, std::vector<std::vector<double>> &processImage) {
+
+    std::ofstream output_file(outPutFile);
+
+    for (std::vector<std::vector<double>>::const_iterator i = (processImage).begin(); i != (processImage).end(); ++i) {
+        for (std::vector<double>::const_iterator j = i->begin(); j != i->end(); ++j) {
+            output_file << *j << " ";
+        }
+        output_file << "\n";
+    }
+}
+```
+````
+`````
+``````
+
+Examples
 
 Here we provide a few examples that will be used by the autograder. Folder `./imgs` contains a few sample images in common formats such as `png` or `jpg`.  
 
@@ -103,10 +207,10 @@ Use thes files to complete the lab...
 
 ````` {card} Cow
 ``` {card} input: png
-<img src="assignments/../imgs/cow.png" alt="cow.png" download>
+<img src="../assignments/../imgs/cow.png" alt="cow.png" download>
 ```
 ``` {card} input: jpg
-<img src="assignments/../imgs/cow.png" alt="cow.jpg" download>
+<img src="../assignments/../imgs/cow.png" alt="cow.jpg" download>
 ```
 ```` {card} output: img (this will be represented in txt format)
 ``` {code-block}
@@ -179,29 +283,50 @@ Use thes files to complete the lab...
 `````
 
 ```` {card} dog.jpg
-<img src="assignments/../imgs/dog.jpg" alt="dog.jpg" download>
+``` {figure} ../a1/examples/imgs/dog.jpg
+:alt: dog.jpg
+Right click to download
+```
 ````
 
 ```` {card} drawing.png
-<img src="assignments/../imgs/drawing.png" alt="drawing.png" download>
+``` {figure} ../a1/imgs/drawing.png
+:alt: drawing.png
+Right click to download
+```
 ````
 
 ```` {card} f-1.jpg
-<img src="assignments/../imgs/f-1.jpg" alt="f-1.jpg" download>
+``` {figure} ../a1/imgs/f-1.jpg
+:alt: f-1.jpg
+Right click to download
+```
 ````
 
 ```` {card} ferrari.jpg
-<img src="assignments/../imgs/ferrari.jpg" alt="ferrari.jpg" download>
+``` {figure} ../a1/imgs/ferrari.jpg
+:alt: ferrari.jpg
+Right click to download
+```
 ````
 
 ```` {card} newimage.png
-<img src="assignments/../imgs/newimage.png" alt="newimage.png" download>
+``` {figure} ../a1/imgs/newimage.png
+:alt: newimage.png
+Right click to download
+```
 ````
 
 ```` {card} old-city.jpg
-<img src="assignments/../imgs/old-city.jpg" alt="old-city.jpg" download>
+``` {figure} ../a1/imgs/old-city.jpg
+:alt: old-city.jpg
+Right click to download
+```
 ````
 
 ```` {card} vercelli.png
-<img src="assignments/../imgs/vercelli.png" alt="vercelli.png" download>
+``` {figure} ../a1/imgs/vercelli.png
+:alt: vercelli.png
+Right click to download
+```
 ````

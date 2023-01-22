@@ -1,4 +1,4 @@
-# A2: Maze Generation
+# A2: Practical I
 
 The goal of this assignment is to review the use of *classes* and *dynamic arrays* in `C++`, both in the context of a *maze generation* application.  The assignment is worth a total of 120 points. If you have any questions or need any help, please visit us during office hours and/or post questions on EdStem.
 

@@ -46,20 +46,15 @@ Lets compare the performance of a Queue with a Priority Queue:
 
 |         | Queue | Enqueue |
 | :-----: | :---: | :-----: |
-| Enqueue | O(1)  |  O(n)   |   <----
-| Dequeue | O(1)  |  O(1)   |
-|  Peek   | O(1)  |  O(1)   |
+| Enqueue | $O(1)$  |  $O(n)$   |   <----
+| Dequeue | $O(1)$  |  $O(1)$   |
+|  Peek   | $O(1)$  |  $O(1)$   |
 
 They are very similar, but Enqueue jumps from a constant time operation to a linear time operation. Yikes!
 
-**Why might this be?**
-
-<details>
-    <summary>Click here to reveal the answer!</summary>
-
-    To insert elements into a P-Queue, we must iterate over the queue until we find the proper location. Worst cast would be adding an element with the lowest priority, so we would need to traverse the entire list.
-
-</details>
+``` {dropdown} Why might this be?
+To insert elements into a P-Queue, we must iterate over the queue until we find the proper location. Worst cast would be adding an element with the lowest priority, so we would need to traverse the entire list.
+```
 
 But fret not, there is a better way to implement a Priority Queue! But we'll learn about those next week.
 

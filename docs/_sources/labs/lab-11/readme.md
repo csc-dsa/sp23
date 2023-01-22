@@ -1,4 +1,4 @@
-# Lab 11 - Sets and Maps
+# Lab 11 : Sets and Maps
 
 ## 1. Introduction
 
@@ -36,7 +36,7 @@ int main() {
 
 Today we'll be working with a real-world dataset. This dataset has 3,959 rows of data, each with 14 columns in the following format:
 
-``` FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths,Recovered,Active,Combined_Key,Incidence_Rate,Case-Fatality_Ratio```
+`FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths,Recovered,Active,Combined_Key,Incidence_Rate,Case-Fatality_Ratio`
 
 To handle the commas, we can use an overloaded version of ```std::getline()```. If you reference the manual page (http://www.cplusplus.com/reference/string/string/getline/) you'll see that there is a version of the function that accepts a delimiter. By passing an argument here, we specify how we want the string to be split up. Every call to ```std::getline()``` will read the data up to the next symbol set as the delimiter. You can place this in a loop to parse a delimited string. This would turn the code above into:
 

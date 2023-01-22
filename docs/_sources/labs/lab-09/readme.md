@@ -1,4 +1,4 @@
-# Lab-9 Balancing Act
+# Lab 9 : Balancing Act
 
 ## 1. Introduction
 
@@ -26,13 +26,17 @@ When to balance a BST is generally based on the height of it's sub-trees. A node
 
 **Example of unbalanced tree:**
 
-![Example](./images/unbalanced.png "Unbalanced Tree")
+``` {figure} images/unbalanced.png
+Unbalanced Tree
+```
 
 Notice how the node with value `76` in the right sub-tree has a left sub-tree of height 3, but a right sub-tree of height 0. Notice the same discrepancy in the left sub-tree at node with value `9`. Both of these problems are grounds for balancing.
 
 **Example of tree after balancing:**
 
-![Example](./images/balanced.png "Balanced Tree")
+``` {figure} images/balanced.png
+Balanced Tree
+```
 
 Notice the heights of the sub-trees in the balanced version above, they only ever differ by 1, thus they pass our height requirement. Also notice the differing arrangement of nodes: the node with value `12` is now the parent of nodes `9` and `14`, the node with value `72` is now the parent of nodes `54` and `76`. We performed swaps on nodes based on their values and the heights of sub-trees. 
 
@@ -58,15 +62,20 @@ RBTNode* RBTree::rotateLeft(RBTNode* root){
 ```
 The above `rotateLeft` method would turn this tree:
 
-![image](./images/before.png "before")
+``` {figure} images/before.png
+before
+```
 
 In to this tree:
 
-![image](./images/after.png "after")
+``` {figure} images/after.png
+after
+```
 
 ## 3.0 Red-Black Trees
 
-![image](./images/rb_tree1a.gif)
+``` {figure} images/rb_tree1a.gif
+```
 
 **Definition of a red-black tree**
 
@@ -96,7 +105,8 @@ If T is a non-empty tree, then we do the following:
 
 ## 3.1 Left-Leaning Red-Black Trees
 
-![image](./images/llrbt.png)
+``` {figure} images/llrbt.png
+```
 
 ### Definition of a left-leaning red-black tree
 
@@ -104,19 +114,23 @@ A left-leaning red-black tree is an easier variant of the red-black tree to impl
 
 The first insert works the same:
 
-![image](./images/llrbt-first-insert.png)
+``` {figure} images/llrbt-first-insert.png
+```
 
 - If a node has a BLACK LEFT child and a RED RIGHT child, left-rotate the Node & swap colors
 
-![image](./images/llrbt-rule-1.png)
+``` {figure} images/llrbt-rule-1.png
+```
 
 - If a node has a RED LEFT child and a RED LEFT grandchild, right rotate & swap colors
 
-![image](./images/llrbt-rule-2.png)
+``` {figure} images/llrbt-rule-2.png
+```
 
 - If both LEFT and RIGHT children are RED, invert colors of all 3 Nodes
 
-![image](./images/llrbt-rule-3.png)
+``` {figure} llrbt-rule-3.png
+```
 
 ## 4.0 Starter Code
 

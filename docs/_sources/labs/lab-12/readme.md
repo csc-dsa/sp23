@@ -1,4 +1,4 @@
-# Lab-12 Graphs
+# Lab 12 : Graphs
 
 ## 1. Introduction
 
@@ -8,7 +8,8 @@ Today you will be given code for a fully functioning graph. Your task will be to
 
 As we know, Graphs come in many forms. Today we will be dealing with a Directed Weighted graph. This type of Graph represents connections between Vertices that are unidirectional & have a weight. Here is an example:
 
-![image](./images/directed-weighted-graph.png)
+``` {figure} images/directed-weighted-graph.png
+```
 
 We have 4 Vertices (labeled 0 - 3) with each containing an outgoing Edge that points to another Vertex and has a weight attached to it. Notice the arrows on the outgoing edges. They represent the direction we can travel along this edge. We can go from 0 -> 1, but not from 1 -> 0. This graph also tells us that it costs us less to go from 0 -> 3 than it does to go from 0 -> 1.
 
@@ -20,7 +21,8 @@ We have 4 Vertices (labeled 0 - 3) with each containing an outgoing Edge that po
 
 Lets start with the easier of the two. An Adjacency Matrix represents a graph by storing weights in a VxV matrix. The first dimension represents the Source, while the second dimension resents the Destination.
 
-![image](./images/adjacency-matrix.png)
+``` {figure} images/adjacency-matrix.png
+```
 
 Looking at this image, we see a weighted directed graph as well as its Adjacency Matrix representation. From Vertex A, we can get to B at a cost of 4, and to C at a cost of 3. Under the matrix's 'A' row, we see the 4 in the 'B' column and the 3 in the 'C' column. All of the relationships given to us in the image is correctly portrayed in the Adjacency Matrix representation. Since these relationships are stored as an array, we can very quickly test for adjacency (a *very* common task.) However, a glaring problem is the amount of wasted space. Look at all of those 0's! While Adjacency Matrices are excellent for storing dense graphs, they unfortunately are not as good at storing sparse graphs.
 
@@ -28,7 +30,8 @@ Looking at this image, we see a weighted directed graph as well as its Adjacency
 
 Moving onto the Adjacency List, we now have a structure that stores each Vertex in a vector, and the edges are stored as a list inside of that vector. This saves space, as we do not have to waste memory storing an unknown number of 0s; making them superior in storing sparse graphs.
 
-<img src="./images/adjacency-list.jpg" alt="image" style="zoom:33%;" />
+``` {figure} images/adjacency-list.jpg
+```
 
 ## 4.0 Starter Code
 
@@ -99,19 +102,23 @@ Your job will be to solve the following problems for each of the two programs. M
 - Finish the 'isAdjacent' function
 - Add edge weights to the given visualization
 
-![image](./images/problem-1-sol.png)
+``` {figure} images/problem-1-sol.png
+```
 
 - Color all edges with even weights blue and odd weights red
 
-![image](./images/problem-2-sol.png)
+``` {figure} images/problem-2-sol.png
+```
 
 - Color all edges based on their position in a vertex's list
 
-![image](./images/problem-3-sol.png)
+``` {figure} images/problem-3-sol.png
+```
 
 - Color all edges based on their distance from the start (Hint: Use depth-first search!)
 
-![image](./images/problem-4-sol.png)
+``` {figure} images/problem-4-sol.png
+```
 
 ## 7.0 Submission
 

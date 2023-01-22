@@ -22,9 +22,9 @@ Let's take a look at an example; solving a game of Sujiko!
 
 The purpose of this game is to place the numbers 1-9 on the board such that the sum of the four numbers around a circle equal the number in a circle. How would you solve this puzzle?
 
-<p align="center">
-  <img src="./images/sujiko/sujiko.png" />
-</p>
+``` {image} images/sujiko/sujiko.png
+:align: center
+```
 
 Lets take a look at an algorithm:
 
@@ -57,17 +57,17 @@ This yields another dead end, so we would backtrack back to the 5th empty spot, 
 
 This process would repeat until we have a solution board:
 
-<p align="center">
-  <img src="./images/sujiko/sujiko_solved.png" />
-</p>
+``` {image} images/sujiko/sujiko_solved.png
+:align: center
+```
 
 ## 1. N-Queens Problem
 
 The N-Queens problem is the task of placing eight chess queens on an NxN chessboard such that no two queens can attack each other. Let's take a look at this empty 8x8 chess board:
 
-<p align="center">
-  <img src="./images/chessboard.png" />
-</p>
+``` {image} images/chessboard.png
+:align: center
+```
 
 How would you solve the problem? Let's take a look at pseudocode for the strategy you would probably use.
 
@@ -86,7 +86,7 @@ How would you solve the problem? Let's take a look at pseudocode for the strateg
     c) If placing queen doesn't lead to a solution then
        unmark this [row, column] (Backtrack) and go to
        step (a) to try other rows.
-3) If all rows have been tried and nothing worked,
+4) If all rows have been tried and nothing worked,
    return false to trigger backtracking.
 ```
 
@@ -94,9 +94,9 @@ How would you solve the problem? Let's take a look at pseudocode for the strateg
 
 The following is the result of the recursive call tree for solving a 4x4 puzzle.
 
-<p align="center">
-  <img src="./images/n-queens-4x4-solved.png" />
-</p>
+``` {image} images/n-queens-4x4-solved.png
+:align: center
+```
 
 The code to solve the N-Queens problem is given in this lab. Download the code & work to understand how the backtracking is working to solve the problem. After you can follow the code, move on to the next section.
 

@@ -96,8 +96,8 @@ Fractals are geometric figures in which each part has the same statistical chara
 
 ### Sierpinski Triangle
 
-<video width="960" height="540" controls>
-  <source src="./images/sierpinski-triangle-3.mp4" type="video/mp4">
+<video width="800" height="600" controls>
+  <source src="images/sierpinski-triangle-3.mp4" type="video/mp4">
 </video>
 
 ::: {admonition} Koch Snowflake

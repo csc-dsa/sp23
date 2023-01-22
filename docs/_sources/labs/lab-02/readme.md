@@ -115,11 +115,19 @@ Welcome to the second Data Structures Lab! The goal of this lab will be to famil
  
  ```
 
- Put the above functions into your ide and answer the questions that follow:
+ Put the above functions into your ide and answer the questions that follow:  
 
- :white_check_mark: Question 1. Play around with some small values of n. What is the first value of n that causes notably slower runtime for euler1?
+``` {admonition} Question 1
+:class: warning
+Play around with some small values of n. 
+- What is the first value of n that causes notably slower runtime for euler1?
+```
 
- :white_check_mark: Question 2. What is the first value of n that causes notably slower runtime for euler2?
+``` {admonition} Question 2
+:class: warning
+What is the first value of n that causes notably slower runtime for euler2? 
+```
+ 
 
  ### Euler Runtime up to X numbers
 
@@ -186,7 +194,12 @@ Welcome to the second Data Structures Lab! The goal of this lab will be to famil
  }
  ```
 
- :white_check_mark: Question 3. Use the above code to compare the two Euler functions. Which function is faster? Why is it faster than the other?
+``` {admonition} Question 3
+:class: warning
+Use the above code to compare the two Euler functions. 
+- Which function is faster? 
+- Why is it faster than the other?
+```
 
  ## 2.2 Fibonacci
 
@@ -234,7 +247,11 @@ Welcome to the second Data Structures Lab! The goal of this lab will be to famil
  }
  ```
 
- :white_check_mark: Question 4. Which function do you expect to run faster? Why?
+``` {admonition} Question 4
+:class: warning
+Which function do you expect to run faster?  
+Why?
+```
 
  **Function for Timing**
  In order to be able to use the clock function you will **need to include ctime** in your program. This will allow for you to input the number you would like to calculate and the algorithm you would like to check. This code will not automatically create a file for you to submit to the plotting website. It is meant to allow you to compare the runtimes for a specific number between algorithms. 
@@ -285,7 +302,12 @@ Welcome to the second Data Structures Lab! The goal of this lab will be to famil
  
  ```
 
- :white_check_mark: Question 5. Use the above code to compare the two Fibonacci functions on similar inputs. Which function was faster? Why do you think it is faster than the other?
+``` {admonition} Question 5
+:class: warning
+Use the above code to compare the two Fibonacci functions on similar inputs. 
+- Which function was faster? 
+- Why do you think it is faster than the other?
+```
 
  ### Fibonacci Runtime up to X numbers 
 
@@ -357,7 +379,11 @@ Welcome to the second Data Structures Lab! The goal of this lab will be to famil
 
   The code above can be used to generate a csv for upload to the plot.ly website.
 
-  :white_check_mark: Question 6.Modify the above code to work for the Euler functions from the previous program. 
+``` {admonition} Question 6
+:class: warning
+Modify the above code to work for the Euler functions from the previous program.
+```
+
 
  # Part 3. Line Graphs
 
@@ -465,7 +491,11 @@ The 'Max Subsequence Sum' problem is the task of finding a contiguous subsequenc
  }
  ```
 
- :white_check_mark: Question 7. Modify again your timing code to work for each of these functions, and graph them on https://chart-studio.plot.ly/create/#/. Do your graphs match what you expected?
+``` {admonition} Question 7
+:class: warning
+Modify again your timing code to work for each of these functions, and graph them on https://chart-studio.plot.ly/create/#/. 
+- Do your graphs match what you expected?
+```
 
  # What to submit
 
