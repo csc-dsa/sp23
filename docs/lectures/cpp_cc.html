@@ -1,0 +1,2402 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>C++ Review &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Additional Resources" href="../add_rss.html" />
+    <link rel="prev" title="Tips for Success" href="../tips_for_success.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   C++ Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../add_rss.html">
+   Additional Resources
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="big-o.html">
+     Big-O Notiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_08.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_12.html">
+   Week 12
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="presentations.html">
+     Presentations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a2/readme.html">
+   A2: Practical I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/read_write.html">
+     Read / Write
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/a4/readme.html">
+   A4: Practical II
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lectures/cpp_cc.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lectures/cpp_cc.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/lectures/cpp_cc.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-cheat-sheet">
+   Syntax Cheat Sheet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preface">
+   Preface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-classes">
+   1.0 C++ Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-syntax">
+     1.1 Class Syntax
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-declaration-h-file">
+       1.1.1 Class Declaration (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .h
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-definition-cpp-file">
+       1.1.2 Class Definition (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-utilization-another-cpp-file">
+       1.1.3 Class Utilization (Another
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getters-and-setters">
+       1.1.4 Getters and Setters
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inheritance">
+     1.2 Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-declaration-h-file">
+       1.2.1
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Declaration (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .h
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-definition-cpp-file">
+       1.2.2
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Definition (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-utilization-another-cpp-file">
+       1.2.3
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Utilization (Another
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-polymorphism">
+     1.3 Class Polymorphism
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#motivation">
+       1.3.1 Motivation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#virtual-methods">
+       1.3.2 Virtual Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-methods">
+     1.4 Special Methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructor-and-destructor">
+       1.4.1 Constructor and Destructor
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#use-of-explicit-in-constructors">
+         1.4.1.1 Use of
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           explicit
+          </span>
+         </code>
+         in Constructors
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#member-initializer-lists">
+         1.4.1.2 Member Initializer Lists
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-and-delete">
+       1.4.2
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         new
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         delete
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copy-constructor-and-copy-assignment">
+       1.4.3 Copy Constructor and Copy Assignment
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#move-constructor-and-move-assignment">
+       1.4.4 Move Constructor and Move Assignment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operator-overloading">
+     1.5 Operator Overloading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#templates">
+     1.6 Templates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-c-syntax">
+   2.0 General C++ Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespaces">
+     2.1 Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references-and-pointers">
+     2.2 References and Pointers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keywords">
+     2.3 Keywords
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general-keywords">
+       2.3.1 General Keywords
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#storage-class-specifiers">
+       2.3.2 Storage Class Specifiers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#const-and-dynamic-cast-conversion">
+       2.3.3
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         const
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         dynamic
+        </span>
+       </code>
+       Cast Conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessor-tokens">
+     2.4 Preprocessor Tokens
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-std-string">
+     2.5 Strings (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       std::string
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators-std-iterator">
+     2.6 Iterators (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       std::iterator&lt;...&gt;
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exceptions">
+     2.7 Exceptions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lambdas">
+     2.8 Lambdas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgement">
+   Acknowledgement
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributors">
+     Contributors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>C++ Review</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-cheat-sheet">
+   Syntax Cheat Sheet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preface">
+   Preface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-classes">
+   1.0 C++ Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-syntax">
+     1.1 Class Syntax
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-declaration-h-file">
+       1.1.1 Class Declaration (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .h
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-definition-cpp-file">
+       1.1.2 Class Definition (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-utilization-another-cpp-file">
+       1.1.3 Class Utilization (Another
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getters-and-setters">
+       1.1.4 Getters and Setters
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inheritance">
+     1.2 Inheritance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-declaration-h-file">
+       1.2.1
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Declaration (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .h
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-definition-cpp-file">
+       1.2.2
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Definition (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rectangle-utilization-another-cpp-file">
+       1.2.3
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Rectangle
+        </span>
+       </code>
+       Utilization (Another
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .cpp
+        </span>
+       </code>
+       file)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-polymorphism">
+     1.3 Class Polymorphism
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#motivation">
+       1.3.1 Motivation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#virtual-methods">
+       1.3.2 Virtual Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-methods">
+     1.4 Special Methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructor-and-destructor">
+       1.4.1 Constructor and Destructor
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#use-of-explicit-in-constructors">
+         1.4.1.1 Use of
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           explicit
+          </span>
+         </code>
+         in Constructors
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#member-initializer-lists">
+         1.4.1.2 Member Initializer Lists
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-and-delete">
+       1.4.2
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         new
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         delete
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copy-constructor-and-copy-assignment">
+       1.4.3 Copy Constructor and Copy Assignment
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#move-constructor-and-move-assignment">
+       1.4.4 Move Constructor and Move Assignment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operator-overloading">
+     1.5 Operator Overloading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#templates">
+     1.6 Templates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-c-syntax">
+   2.0 General C++ Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespaces">
+     2.1 Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references-and-pointers">
+     2.2 References and Pointers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keywords">
+     2.3 Keywords
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general-keywords">
+       2.3.1 General Keywords
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#storage-class-specifiers">
+       2.3.2 Storage Class Specifiers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#const-and-dynamic-cast-conversion">
+       2.3.3
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         const
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         dynamic
+        </span>
+       </code>
+       Cast Conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessor-tokens">
+     2.4 Preprocessor Tokens
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-std-string">
+     2.5 Strings (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       std::string
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators-std-iterator">
+     2.6 Iterators (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       std::iterator&lt;...&gt;
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exceptions">
+     2.7 Exceptions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lambdas">
+     2.8 Lambdas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgement">
+   Acknowledgement
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributors">
+     Contributors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="c-review">
+<h1>C++ Review<a class="headerlink" href="#c-review" title="Permalink to this headline">#</a></h1>
+<section id="syntax-cheat-sheet">
+<h2>Syntax Cheat Sheet<a class="headerlink" href="#syntax-cheat-sheet" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="preface">
+<h2>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">#</a></h2>
+<p>Since the C++ language varies so heavily between versions (e.g. C++0x, C++11, C++17, etc.), I will preface this cheat sheet by saying that the majority of the examples here target C++0x or c++11, as those are the versions that I am most familiar with. I come from the aerospace industry (embedded flight software) in which we purposefully don’t use the latest technologies for safety reasons, so most of the code I write is in C++0x and sometimes C++11. Nevertheless, the basic concepts of C++ and object oriented programming still generally apply to both past and future versions of the language.</p>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:0 orderedList:0 -->
+<ul class="simple">
+<li><p><a class="reference external" href="#c-review">C++ Review</a></p>
+<ul>
+<li><p><a class="reference external" href="#syntax-cheat-sheet">Syntax Cheat Sheet</a></p></li>
+<li><p><a class="reference external" href="#preface">Preface</a></p></li>
+<li><p><a class="reference external" href="#table-of-contents">Table of Contents</a></p></li>
+<li><p><a class="reference external" href="#10-c-classes">1.0 C++ Classes</a></p>
+<ul>
+<li><p><a class="reference external" href="#11-class-syntax">1.1 Class Syntax</a></p>
+<ul>
+<li><p><a class="reference external" href="#111-class-declaration-h-file">1.1.1 Class Declaration (<code class="docutils literal notranslate"><span class="pre">.h</span></code> file)</a></p></li>
+<li><p><a class="reference external" href="#112-class-definition-cpp-file">1.1.2 Class Definition (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)</a></p></li>
+<li><p><a class="reference external" href="#113-class-utilization-another-cpp-file">1.1.3 Class Utilization (Another <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)</a></p></li>
+<li><p><a class="reference external" href="#114-getters-and-setters">1.1.4 Getters and Setters</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#12-inheritance">1.2 Inheritance</a></p>
+<ul>
+<li><p><a class="reference external" href="#121-rectangle-declaration-h-file">1.2.1 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Declaration (<code class="docutils literal notranslate"><span class="pre">.h</span></code> file)</a></p></li>
+<li><p><a class="reference external" href="#122-rectangle-definition-cpp-file">1.2.2 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Definition (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)</a></p></li>
+<li><p><a class="reference external" href="#123-rectangle-utilization-another-cpp-file">1.2.3 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Utilization (Another <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#13-class-polymorphism">1.3 Class Polymorphism</a></p>
+<ul>
+<li><p><a class="reference external" href="#131-motivation">1.3.1 Motivation</a></p></li>
+<li><p><a class="reference external" href="#132-virtual-methods">1.3.2 Virtual Methods</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#14-special-methods">1.4 Special Methods</a></p>
+<ul>
+<li><p><a class="reference external" href="#141-constructor-and-destructor">1.4.1 Constructor and Destructor</a></p>
+<ul>
+<li><p><a class="reference external" href="#1411-use-of-explicit-in-constructors">1.4.1.1 Use of <code class="docutils literal notranslate"><span class="pre">explicit</span></code> in Constructors</a></p></li>
+<li><p><a class="reference external" href="#1412-member-initializer-lists">1.4.1.2 Member Initializer Lists</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#142-new-and-delete">1.4.2 <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code></a></p></li>
+<li><p><a class="reference external" href="#143-copy-constructor-and-copy-assignment">1.4.3 Copy Constructor and Copy Assignment</a></p></li>
+<li><p><a class="reference external" href="#144-move-constructor-and-move-assignment">1.4.4 Move Constructor and Move Assignment</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#15-operator-overloading">1.5 Operator Overloading</a></p></li>
+<li><p><a class="reference external" href="#16-templates">1.6 Templates</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#20-general-c-syntax">2.0 General C++ Syntax</a></p>
+<ul>
+<li><p><a class="reference external" href="#21-namespaces">2.1 Namespaces</a></p></li>
+<li><p><a class="reference external" href="#22-references-and-pointers">2.2 References and Pointers</a></p></li>
+<li><p><a class="reference external" href="#23-keywords">2.3 Keywords</a></p>
+<ul>
+<li><p><a class="reference external" href="#231-general-keywords">2.3.1 General Keywords</a></p></li>
+<li><p><a class="reference external" href="#232-storage-class-specifiers">2.3.2 Storage Class Specifiers</a></p></li>
+<li><p><a class="reference external" href="#233-const-and-dynamic-cast-conversion">2.3.3 <code class="docutils literal notranslate"><span class="pre">const</span></code> and <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> Cast Conversion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#24-preprocessor-tokens">2.4 Preprocessor Tokens</a></p></li>
+<li><p><a class="reference external" href="#25-strings-stdstring">2.5 Strings (<code class="docutils literal notranslate"><span class="pre">std::string</span></code>)</a></p></li>
+<li><p><a class="reference external" href="#26-iterators-stditerator">2.6 Iterators (<code class="docutils literal notranslate"><span class="pre">std::iterator&lt;...&gt;</span></code>)</a></p></li>
+<li><p><a class="reference external" href="#27-exceptions">2.7 Exceptions</a></p></li>
+<li><p><a class="reference external" href="#28-lambdas">2.8 Lambdas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#acknowledgement">Acknowledgement</a></p>
+<ul>
+<li><p><a class="reference external" href="#contributors">Contributors</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="c-classes">
+<h2>1.0 C++ Classes<a class="headerlink" href="#c-classes" title="Permalink to this headline">#</a></h2>
+<section id="class-syntax">
+<h3>1.1 Class Syntax<a class="headerlink" href="#class-syntax" title="Permalink to this headline">#</a></h3>
+<section id="class-declaration-h-file">
+<h4>1.1.1 Class Declaration (<code class="docutils literal notranslate"><span class="pre">.h</span></code> file)<a class="headerlink" href="#class-declaration-h-file" title="Permalink to this headline">#</a></h4>
+<p>Here’s a simple class representing a polygon, a shape with any number of sides.</p>
+<p>The class <em>declaration</em> typically goes in the header file, which has the extension <code class="docutils literal notranslate"><span class="pre">.h</span></code> (or, less commonly, <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> to distinguish from C headers). The <em>declaration</em> gives the class name, any classes it may extend, declares the members and methods, and declares which members/methods are public, private, or protected. You can think of the declaration as sort of saying: “there will be a thing and here’s how it will look like”. The declaration is used to inform the compiler about the future essence and use of a particular symbol.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: polygon.h</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Polygon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="c1">// Private members and methods are only accessible via methods in the class definition</span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num_sides</span><span class="p">;</span><span class="w">    	</span><span class="c1">// Number of sides</span>
+
+<span class="c1">// Protected members and methods are only accessible in the class definition or by classes who extend this class</span>
+<span class="k">protected</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">   </span><span class="c1">// Name of the polygon</span>
+
+<span class="c1">// Public members and methods are accessible to anyone who creates an instance of the class</span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Constructors</span>
+<span class="w">    </span><span class="n">Polygon</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_sides</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;--- This constructor takes the number of sides and name as arguments</span>
+
+<span class="w">    </span><span class="c1">// Getters and Setters</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetNumSides</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetNumSides</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_sides</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nf">GetName</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"> </span><span class="c1">// &lt;--- Don&#39;t forget the semicolon!</span>
+</pre></div>
+</div>
+</section>
+<section id="class-definition-cpp-file">
+<h4>1.1.2 Class Definition (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)<a class="headerlink" href="#class-definition-cpp-file" title="Permalink to this headline">#</a></h4>
+<p>The class <em>definition</em> typically goes in the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file. The <em>definition</em> extends the declaration by providing an actual implementation of whatever it is that you’re building. Continuing the example from the declaration, the definition can be thought of as saying: “Right, that thing I told you briefly about earlier? Here’s how it actually functions”. The definition thus provides the compileable implementation.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: polygon.cpp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="c1">	// &lt;--- Required for std::string</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;polygon.h&quot;</span><span class="c1">    // &lt;--- Obtains the class declaration</span><span class="cp"></span>
+
+<span class="c1">// Constructor</span>
+<span class="c1">// You must scope the method definitions with the class name (Polygon::)</span>
+<span class="c1">// Also, see the section on the &#39;explicit&#39; keyword for a warning about constructors with exactly one argument</span>
+<span class="n">Polygon</span><span class="o">::</span><span class="n">Polygon</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_sides</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">num_sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_sides</span><span class="p">;</span><span class="w">	</span><span class="c1">// &#39;this&#39; is a pointer to the instance of the class. Members are accessed via the -&gt; operator</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">			</span><span class="c1">// In this case you need to use &#39;this-&gt;...&#39; to avoid shadowing the member variable since the argument shares the same name</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Get the number of sides</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">Polygon</span><span class="o">::</span><span class="n">GetNumSides</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w">	</span><span class="c1">// The &#39;const&#39; here tells the compiler that you guarantee that you won&#39;t modify the object when this function is called. This allows it to perform optimizations that it otherwise may not be able to do</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">num_sides</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Set the number of sides</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">Polygon</span><span class="o">::</span><span class="n">SetNumSides</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_sides</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">num_sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_sides</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Get the polygon name</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Polygon</span><span class="o">::</span><span class="n">GetName</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Set the polygon name</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">Polygon</span><span class="o">::</span><span class="n">SetName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The getters and setters here don’t do much, but you could imagine limiting the number of sides such that it must have at least 3 sides to be a useful polygon, in which case you could enforce that in <code class="docutils literal notranslate"><span class="pre">Polygon::SetNumSides()</span></code>. Of course, you’d also need to modify the constructor, which could then call <code class="docutils literal notranslate"><span class="pre">SetNumSides()</span></code> instead of setting the variable directly.</p>
+<blockquote>
+<div><p>NOTE: Regarding the use of <code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> in a class definition, there are places where it’s strictly necessary for readability, e.g. when your method parameter shares the exact same name as a member variable, you use <code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> to avoid what’s called shadowing. However, some prefer to always use <code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> explicitly regardless of whether it’s necessary.</p>
+</div></blockquote>
+</section>
+<section id="class-utilization-another-cpp-file">
+<h4>1.1.3 Class Utilization (Another <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)<a class="headerlink" href="#class-utilization-another-cpp-file" title="Permalink to this headline">#</a></h4>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: main.cpp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Polygon.h&quot;</span><span class="c1">    // &lt;--- Obtains the class declaration</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Create a polygon with 4 sides and the name &quot;Rectangle&quot;</span>
+<span class="w">    </span><span class="n">Polygon</span><span class="w"> </span><span class="n">polygon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Polygon</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rectangle&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Check number of sides -- Prints &quot;Rectangle has 4 sides&quot;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">polygon</span><span class="p">.</span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; has &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">polygon</span><span class="p">.</span><span class="n">GetNumSides</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; sides&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Change number of sides to 3 and rename to &quot;Triangle&quot;</span>
+<span class="w">    </span><span class="n">polygon</span><span class="p">.</span><span class="n">SetNumSides</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">polygon</span><span class="p">.</span><span class="n">SetName</span><span class="p">(</span><span class="s">&quot;Triangle&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="getters-and-setters">
+<h4>1.1.4 Getters and Setters<a class="headerlink" href="#getters-and-setters" title="Permalink to this headline">#</a></h4>
+<p>A shortcut often used for Getters/Setters is to define them in the class declaration (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) file as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: car.h</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">make</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">GetYear</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">year</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetYear</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">GetMake</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">make</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetMake</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">make</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">make</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This is often used for very basic getters and setters, and also for basic constructors. In contrast, you’ll nearly always find more complex methods defined in the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file. One exception to this is with class templates, in which the entire templated class declaration and definition must reside in the header file.</p>
+<p>Another important consideration: If you have getters and setters for all of your members, you may want to reconsider the design of your class. Sometimes having getters and setters for every member is indicative of poor planning of the class design and interface. In particular, setters should be used more thoughtfully. Could a variable be set once in the constructor and left constant thereafter? Does it need to be modified at all? Is it set somewhere else in another method, perhaps even indirectly?</p>
+</section>
+</section>
+<section id="inheritance">
+<h3>1.2 Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">#</a></h3>
+<p>A class can extend another class, meaning that the new class inherits all of the data from the other class, and can also override its methods, add new members, etc. Inheritance is the key feature required for <a class="reference external" href="#13-class-polymorphism">polymorphism</a>.</p>
+<p>It is important to note that this feature is often overused by beginners and sometimes unnecessary hierarchies are created, adding to the overally complexity. There are some good alternatives such as <a class="reference external" href="https://en.wikipedia.org/wiki/Composition_over_inheritance">composition</a> and <a class="reference external" href="https://stackoverflow.com/a/269535">aggregation</a>, although, of course, sometimes inheritance is exactly what is needed.</p>
+<p><strong>Example:</strong> the class <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> can inherit from the class <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>. You would then say that a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> extends from a <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>, or that class <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> is a sub-class of <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>. In plain English, this means that a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> is a more specialized version of a <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>. Thus, all rectangles are polygons, but not all polygons are rectangles.</p>
+<section id="rectangle-declaration-h-file">
+<h4>1.2.1 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Declaration (<code class="docutils literal notranslate"><span class="pre">.h</span></code> file)<a class="headerlink" href="#rectangle-declaration-h-file" title="Permalink to this headline">#</a></h4>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: rectangle.h</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="c1">       // &lt;--- Explicitly include the string header, even though polygon.h also includes it</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;polygon.h&quot;</span><span class="c1">	// &lt;--- You must include the declaration in order to extend the class</span><span class="cp"></span>
+
+<span class="c1">// We extend from Polygon by using the colon (:) and specifying which type of inheritance</span>
+<span class="c1">// will be used (public inheritance, in this case)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Polygon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &lt;--- NOTE: The member variables &#39;num_sides&#39; and &#39;name&#39; are already inherited from Polygon</span>
+<span class="w">    </span><span class="c1">//            it&#39;s as if we sort of get them for free, since we are a sub-class</span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Constructors</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Rectangle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Getters and Setters</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetLength</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetLength</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetWidth</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &lt;--- NOTE: Again, the getters/setters for &#39;num_sides&#39; and &#39;name&#39; are already inherited from Polygon</span>
+
+<span class="w">    </span><span class="c1">// Other Methods</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Area</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: The inheritance access specifier (<code class="docutils literal notranslate"><span class="pre">public</span></code>, <code class="docutils literal notranslate"><span class="pre">protected</span></code>, or <code class="docutils literal notranslate"><span class="pre">private</span></code>) is used to determine the <a class="reference external" href="https://www.tutorialspoint.com/cplusplus/cpp_inheritance.htm">type of inheritance</a>. If this is omitted then <code class="docutils literal notranslate"><span class="pre">private</span></code> inheritance is used by default. <strong>Public inheritance is by far the most common type of inheritance</strong>.</p>
+</div></blockquote>
+</section>
+<section id="rectangle-definition-cpp-file">
+<h4>1.2.2 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Definition (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)<a class="headerlink" href="#rectangle-definition-cpp-file" title="Permalink to this headline">#</a></h4>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: rectangle.cpp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rectangle.h&quot;</span><span class="c1">	// &lt;--- Only need to include &#39;Rectangle&#39;, since &#39;Polygon&#39; is included in &#39;rectangle.h&#39;</span><span class="cp"></span>
+
+<span class="c1">// This constructor calls the superclass (Polygon) constructor and sets the name and number of sides to &#39;4&#39;, and then sets the length and width</span>
+<span class="n">Rectangle</span><span class="o">::</span><span class="n">Rectangle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Polygon</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// This constructor calls the superclass (Polygon) constructor, but sets the length and width to a constant value</span>
+<span class="c1">// The explicit keyword is used to restrict the use of the constructor. See section below for more detail</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">::</span><span class="n">Rectangle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Polygon</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Compute the area of the rectangle</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">		</span><span class="c1">// &lt;--- Note that you don&#39;t explicitly need &#39;this-&gt;&#39;, you can directly use the member variables</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="rectangle-utilization-another-cpp-file">
+<h4>1.2.3 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> Utilization (Another <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file)<a class="headerlink" href="#rectangle-utilization-another-cpp-file" title="Permalink to this headline">#</a></h4>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: main.cpp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Rectangle.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">rectangle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="s">&quot;Square&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Prints &quot;Square has 4 sides, and an area of 36&quot;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rectangle</span><span class="p">.</span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; has &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rectangle</span><span class="p">.</span><span class="n">GetNumSides</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; sides, and an area of &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rectangle</span><span class="p">.</span><span class="n">Area</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="class-polymorphism">
+<h3>1.3 Class Polymorphism<a class="headerlink" href="#class-polymorphism" title="Permalink to this headline">#</a></h3>
+<p>Polymorphism describes a system in which a common interface is used to manipulate objects of different types. In essence various classes can inherit from a common interface through which they make certain guarantees about which methods/variables are available for use. By adhering to this common interface, one can use a pointer to an object of the base interface type to call the methods of any number of extending classes. Using polymorphism one can say “I don’t care what type this really is; I know it implements <code class="docutils literal notranslate"><span class="pre">Foo()</span></code> and <code class="docutils literal notranslate"><span class="pre">Bar()</span></code> because it inherits from this interface”, which is a pretty nifty feature.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">virtual</span></code> keyword is used to ensure runtime polymorphism for class methods. Additionally, an overriding method can be forced by the compiler by not providing a default implementation in the interface, which is done by setting the method to <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">0</span></code>, as will be shown later.</p>
+<section id="motivation">
+<h4>1.3.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h4>
+<p>Let’s consider a similar class hierarchy using shapes as previously discussed. Considering a shape to be any 3 or more sided polygon from which we can compute certain attributes (like the shape’s area), let’s extend from it to create a rectangle class from which we can set the length/width and a circle class in which you can set the radius. <strong>In both cases, we want to be able to compute the area of the shape.</strong> This is a key observation that we will expand upon later.</p>
+<p>For now, this (poorly implemented) shape class will suffice:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: shape.h</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="c1"> 	// needed for M_PI constant</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We&#39;ll leave Shape empty for now... not very interesting yet</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Constructor using a member initializer list instead of assignment in the method body</span>
+<span class="w">    </span><span class="n">Rectangle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Compute the area of a rectangle</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">radius</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Compute the area of a circle</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w">  </span><span class="c1">// pi*r^2</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: As shown here, you can put multiple classes in a single header, although in practice unless you have a good reason for doing so it’s probably best to use a separate header file per class.</p>
+</div></blockquote>
+<blockquote>
+<div><p>NOTE: I’m not using default value initialization for member variables (i.e. <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">length</span> <span class="pre">=</span> <span class="pre">0;</span></code>) and I’m using parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> instead of braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> for the initializer list since older compilers (pre-C++11) may not support the new syntax.</p>
+</div></blockquote>
+<p>So, we have our two classes, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, but in this case inheriting from <code class="docutils literal notranslate"><span class="pre">Shape</span></code> isn’t really buying us anything. To make use of polymorphism we need to pull the common <code class="docutils literal notranslate"><span class="pre">Area()</span></code> method into the base class as follows, by using virtual methods.</p>
+</section>
+<section id="virtual-methods">
+<h4>1.3.2 Virtual Methods<a class="headerlink" href="#virtual-methods" title="Permalink to this headline">#</a></h4>
+<p>Imagine you want to have a pointer to a shape with which you want to compute the area of that shape. For example, maybe you want to hold shapes in some sort of data structure, but you don’t want to limit yourself to just rectangles or just circles; you want to support all objects that call themselves a ‘Shape’. Something like:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Rectangle</span><span class="w"> </span><span class="nf">rectangle</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">);</span><span class="w"></span>
+<span class="n">Circle</span><span class="w"> </span><span class="nf">circle</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Point to the rectangle</span>
+<span class="n">Shape</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unknown_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rectangle</span><span class="p">;</span><span class="w"> </span><span class="c1">// Could point to *any* shape, Rectangle, Circle, Triangle, Dodecagon, etc.</span>
+
+<span class="n">unknown_shape</span><span class="o">-&gt;</span><span class="n">Area</span><span class="p">();</span><span class="w">  </span><span class="c1">// Returns 10.0</span>
+
+<span class="c1">// Point to the circle</span>
+<span class="n">unknown_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">circle</span><span class="p">;</span><span class="w"></span>
+<span class="n">unknown</span><span class="o">-</span><span class="n">shape</span><span class="o">-&gt;</span><span class="n">Area</span><span class="p">();</span><span class="w">  </span><span class="c1">// Returns 3.14...</span>
+</pre></div>
+</div>
+<p>The way to achieve this is to use the <code class="docutils literal notranslate"><span class="pre">virtual</span></code> keyword on the base class methods, which specifies that when a pointer to a base class invokes the method of an object that it points to, it should determine, at runtime, the correct method to invoke. That is, when <code class="docutils literal notranslate"><span class="pre">unknown_shape</span></code> points to a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> it invokes <code class="docutils literal notranslate"><span class="pre">Rectangle::Area()</span></code> and if <code class="docutils literal notranslate"><span class="pre">unknown_shape</span></code> points to a <code class="docutils literal notranslate"><span class="pre">Circle</span></code> it invokes <code class="docutils literal notranslate"><span class="pre">Circle::Area()</span></code>.</p>
+<p>Virtual methods are employed as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Virtual destructor (VERY IMPORTANT, SEE NOTE BELOW)</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Shape</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Virtual area method</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Rectangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Override the Shape::Area() method with an implementation specific to Rectangle</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">radius</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Override the Shape::Area() method with an implementation specific to Circle</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// NOTE: there is an &#39;override&#39; keyword that was introduced in C++11 and is optional: it is used</span>
+<span class="w">    </span><span class="c1">// to enforce that the method is indeed an overriding method of a virtual base method at compile time</span>
+<span class="w">    </span><span class="c1">// and is used as follows:</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"> </span><span class="c1">// pi*r^2</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: It is very important that a default virtual destructor was included after adding the virtual <code class="docutils literal notranslate"><span class="pre">Area()</span></code> method to the base class. Whenever a base class includes even a single virtual method, it must include a virtual destructor so that the correct destructor(s) are called in the correct order when the object is eventually deleted.</p>
+</div></blockquote>
+<p>This is called runtime polymorphism because the decision of which implementation of the <code class="docutils literal notranslate"><span class="pre">Area()</span></code> method to use is determined during program execution based on the type that the base is pointing at. It is implemented using <a class="reference external" href="https://www.learncpp.com/cpp-tutorial/125-the-virtual-table/">the virtual table</a> mechanism. In a nutshell: it is a little more expensive to use but it can be immensely useful. There is also compile-time polymorphism. Here is more on the <a class="reference external" href="https://www.geeksforgeeks.org/polymorphism-in-c/">differences between them</a>.</p>
+<p>In the example above, if a class extends from <code class="docutils literal notranslate"><span class="pre">Shape</span></code> but does not include an override of <code class="docutils literal notranslate"><span class="pre">Area()</span></code> then calling the <code class="docutils literal notranslate"><span class="pre">Area()</span></code> method will invoke the base class method which (in the implementation above) returns <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p>
+<p>In some cases, you may want to <strong>enforce</strong> that sub-classes implement this method. This is done by not providing a default implementation, thus making it what is called a <em>pure virtual</em> method.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Shape</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Area</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In general a class with only pure virtual methods and a virtual destructor is called an <em>abstract class</em> or <em>interface</em> and is typically named as such (e.g. <code class="docutils literal notranslate"><span class="pre">ButtonInterface</span></code>, or similar). An interface class guarantees that all extending classes implement a specific method with a specific method signature.</p>
+</section>
+</section>
+<section id="special-methods">
+<h3>1.4 Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">#</a></h3>
+<section id="constructor-and-destructor">
+<h4>1.4.1 Constructor and Destructor<a class="headerlink" href="#constructor-and-destructor" title="Permalink to this headline">#</a></h4>
+<p>All classes have at least one constructor and a destructor, even if they are not explicitly defined. The constructor and destructor
+assist in managing the lifetime of the object. The constructor is invoked when an object is created and the destructor is invoked
+when an object is destroyed (either by going out of scope or explicitly using <code class="docutils literal notranslate"><span class="pre">delete</span></code>).</p>
+<p>The constructor establishes a <a class="reference external" href="https://softwareengineering.stackexchange.com/a/32755">class invariant</a>, a set of assertions guaranteed to be true during the lifetime of the object, which is then removed when the destructor is called.</p>
+<section id="use-of-explicit-in-constructors">
+<h5>1.4.1.1 Use of <code class="docutils literal notranslate"><span class="pre">explicit</span></code> in Constructors<a class="headerlink" href="#use-of-explicit-in-constructors" title="Permalink to this headline">#</a></h5>
+<p>The <code class="docutils literal notranslate"><span class="pre">explicit</span></code> keyword should be used in single-argument constructors to avoid a situation in which the constructor is implicitly invoked when a single argument is given in place of an object. Consider the following <code class="docutils literal notranslate"><span class="pre">Array</span></code> class:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Array</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Constructor</span>
+<span class="w">    </span><span class="n">Array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Destructor</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Array</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Print the contents of the array</span>
+<span class="w">    </span><span class="n">Print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The following is now legal but ambiguous:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Array</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It ends up being the equivalent of this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Array</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Perhaps that’s okay, but what about the following:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Uh-oh. That’s now legal, compileable code, but what does it mean? It is extremely unclear to the user.</p>
+<p>To fix this, declare the single-argument <code class="docutils literal notranslate"><span class="pre">Array</span></code> constructor as <code class="docutils literal notranslate"><span class="pre">explicit</span></code>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Array</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now you can only use the print method as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="n">Array</span><span class="p">(</span><span class="mi">12345</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>and the previous <code class="docutils literal notranslate"><span class="pre">array.Print(12345)</span></code> is now a syntax error.</p>
+</section>
+<section id="member-initializer-lists">
+<h5>1.4.1.2 Member Initializer Lists<a class="headerlink" href="#member-initializer-lists" title="Permalink to this headline">#</a></h5>
+<p>Member initializer lists allow you to initialize member variables in the definition of a method. This turns out to provide
+some performance benefits for class-type member variables, since a call to the default constructor is avoided. For POD (plain old data)
+like ints and floats, though, it is the same as initializing them in the body of the method.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">miles</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">make</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Car</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">miles</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">make</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">year</span><span class="p">),</span><span class="w"> </span><span class="n">miles</span><span class="p">(</span><span class="n">miles</span><span class="p">),</span><span class="w"> </span><span class="n">make</span><span class="p">(</span><span class="n">make</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Using the initializer list is basically the same as the following more verbose constructor implementation, notwithstanding the note above regarding performance:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Car</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">miles</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">make</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">miles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">miles</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">make</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Since C++11 initializer lists have some added functionality and curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> can be used instead of parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> in the
+initializer list, but to maintain compatibility with older compilers you may want to use parentheses. The same applies in general
+to initialization syntax when creating objects. Many people prefer braces, and in some cases it’s necessary (e.g. vector containing [100, 1] or a vector of one hundred 1s?), but to support older compilers you may consider using parentheses.</p>
+</section>
+</section>
+<section id="new-and-delete">
+<h4>1.4.2 <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code><a class="headerlink" href="#new-and-delete" title="Permalink to this headline">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code> operators (and their array counterparts, <code class="docutils literal notranslate"><span class="pre">new[]</span></code> and <code class="docutils literal notranslate"><span class="pre">delete[]</span></code>) are operators used to dynamically allocate
+memory for objects, much like C’s <code class="docutils literal notranslate"><span class="pre">malloc()</span></code> and <code class="docutils literal notranslate"><span class="pre">free()</span></code>.</p>
+<p>More on these operators can be found <a class="reference external" href="https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/">here</a>.</p>
+<p>When manually allocating memory dynamically, it is the responsibility of the programmer to manage the memory and properly
+delete objects that have been allocated.</p>
+</section>
+<section id="copy-constructor-and-copy-assignment">
+<h4>1.4.3 Copy Constructor and Copy Assignment<a class="headerlink" href="#copy-constructor-and-copy-assignment" title="Permalink to this headline">#</a></h4>
+<p>Copy constructors and copy assigment operators allow one object to be constructed or assigned a copy of another object directly:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Foo</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">Foo</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">   </span><span class="c1">// (1): Copy via constructor</span>
+<span class="n">Foo</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">	</span><span class="c1">// (2): Copy via assignment operator</span>
+</pre></div>
+</div>
+<p>This is accomplished by supplying a copy constructor and an assigment operator overload, both of which have a special syntax
+where they accept a const reference to an object of their same type.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Default (no argument) constructor</span>
+<span class="w">    </span><span class="n">Foo</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Single argument constructor</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Copy constructor</span>
+<span class="w">    </span><span class="n">Foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Copy assignment operator</span>
+<span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note that the compiler will always provide a default constructor, a default copy constructor, and a default copy assignment operator, so for simple cases (like this trivial example) you will not have to implement them yourself. More info on this can be found <a class="reference external" href="https://stackoverflow.com/questions/4172722/what-is-the-rule-of-three">here</a>.</p>
+</section>
+<section id="move-constructor-and-move-assignment">
+<h4>1.4.4 Move Constructor and Move Assignment<a class="headerlink" href="#move-constructor-and-move-assignment" title="Permalink to this headline">#</a></h4>
+<p>Sometimes instead of performing a copy you instead wish to completely move data from one object to another. This requires the use
+of a move constructor and move assignement operator.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Movable</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">data_ptr</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Movable</span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data_ptr</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Move constructor</span>
+<span class="w">    </span><span class="n">Movable</span><span class="p">(</span><span class="n">Movable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Point to the other object&#39;s data</span>
+<span class="w">        </span><span class="n">data_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">data_ptr</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Remove the other object&#39;s data pointer by</span>
+<span class="w">        </span><span class="c1">// setting it to nullptr</span>
+<span class="w">        </span><span class="n">m</span><span class="p">.</span><span class="n">data_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Move assignment operator</span>
+<span class="w">    </span><span class="n">Movable</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Movable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">data_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">data_ptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">m</span><span class="p">.</span><span class="n">data_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="o">~</span><span class="n">Movable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">data_ptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The move constructor and assignment operator can be used as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Movable</span><span class="w"> </span><span class="nf">Bar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Movable</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">Bar</span><span class="p">());</span><span class="w">       </span><span class="c1">// Using the move constructor</span>
+<span class="w">    </span><span class="n">Movable</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bar</span><span class="p">();</span><span class="w">		</span><span class="c1">// Using the move assignment operator</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">Bar()</span></code> creates an object that won’t be used elsewhere and is deleted after the call, we can use the move constructor or
+move assignment operator to move the data to our object.</p>
+<p>A programming idiom called <a class="reference external" href="https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom">‘copy and swap’</a> makes use of the move constructor and can be a useful idiom.</p>
+</section>
+</section>
+<section id="operator-overloading">
+<h3>1.5 Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">#</a></h3>
+<p>Operators such as <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, etc. are familiar and ubiquitous when working with simple data types like integers and floating point
+numbers. These operators as well as others can also be overloaded to provide a clear syntactic meaning to your own classes. For example,
+when working with linear algebra you can overload the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator to perform an element-wise addition of two vectors. Here’s a brief
+example using complex numbers that allows you to use the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> operators to easily add and subtract two complex numbers.</p>
+<p>There are two main ways to do operator overloading. The first is using normal member functions. The second uses the <code class="docutils literal notranslate"><span class="pre">friend</span></code> keyword and non-member methods that have access to the private member variables of the class.</p>
+<p>Using normal member functions (requires a getter method for the member variables):</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: complex.h</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Real part, defaults to 0.0</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Imaginary part, defaults to 0.0</span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Accessor methods</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">GetReal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">GetImaginary</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// + Operator</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">GetReal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">GetReal</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">GetImaginary</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">GetImaginary</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// - Operator</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">GetReal</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">GetReal</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">GetImaginary</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">GetImaginary</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">friend</span></code> methods:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: complex.h</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Real part, defaults to 0.0</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Imaginary part, defaults to 0.0</span>
+
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// + Operator (declaration only)</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// - Operator (declaration only)</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// These are NOT member functions</span>
+<span class="c1">// They can also be defined inside the class body but leaving them outside</span>
+<span class="c1">// is a clearer reminder that they are not part of the class</span>
+<span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In either case, the new operators can be used as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">    </span><span class="c1">//  1 + 2i</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">    </span><span class="c1">//  5 + 3i</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">	</span><span class="c1">//  6 + 5i</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">	</span><span class="c1">// -4 - 1i</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It’s also often useful to overload the output stream operator to provide a custom output string displaying the object’s
+internal state in a human-readable format. This is done by overloading the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator and requires using the <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code>
+functionality.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Definition</span>
+<span class="c1">// Again, this is NOT a member function!</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;i&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">     </span><span class="c1">// Prints: 1 + 2i</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// Prints: 6 + 5i</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You can also similiarly overload the input stream operator (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>), and can read more about the various operators <a class="reference external" href="http://en.cppreference.com/w/cpp/language/operators">here</a>.</p>
+</section>
+<section id="templates">
+<h3>1.6 Templates<a class="headerlink" href="#templates" title="Permalink to this headline">#</a></h3>
+<p>Templates are a very powerful abstraction allowing you to generate compile-time methods/classes/etc. for any number of types while
+writing only one implementation.</p>
+<p>Say you have a method that adds two floating point number together, and another to add two integers together:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>That’s great, but since both floating point numbers and integers implement the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator you can use a template to instead
+write one generic implementation of a method that can operate on doubles, ints, floats, and (in this case) any other type that
+implements the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+<p>A simple templatized version of <code class="docutils literal notranslate"><span class="pre">Add</span></code> would look something like this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w">   </span><span class="c1">// T becomes whatever type is used at compile-time</span>
+<span class="n">T</span><span class="w"> </span><span class="n">Add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// The type T must support the + operator</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Usages</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Add</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">		    </span><span class="c1">// int version</span>
+<span class="w">    </span><span class="n">Add</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.8</span><span class="p">);</span><span class="w">  </span><span class="c1">// double</span>
+<span class="w">    </span><span class="n">Add</span><span class="p">(</span><span class="mf">3.45f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0f</span><span class="p">);</span><span class="w">	    </span><span class="c1">// implicit float version: we leave off the &lt;float&gt; here, since it can deduce the type from the context</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w">	    </span><span class="c1">// Custom class</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">Add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">	            </span><span class="c1">// Works because we added support for the + operator!</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this simple example the compiler would generate four different methods, one for each type. Templating allows you to write more
+concise and modular code at the expense of generating a larger executable (code bloat).</p>
+<p>Templates are especially useful to create class templates. Class templates must be completely defined in a single header file.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: storage.h</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w">      </span><span class="c1">// &lt;--- &#39;class&#39; is synonymous with &#39;typename&#39;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Container</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Usage</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Container</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mf">10.0f</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Container</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: More coming soon on templates…</p>
+</div></blockquote>
+<p>Read more about templates <a class="reference external" href="https://www.geeksforgeeks.org/templates-cpp/">here</a> and <a class="reference external" href="http://en.cppreference.com/w/cpp/language/templates">here</a>.</p>
+</section>
+</section>
+<section id="general-c-syntax">
+<h2>2.0 General C++ Syntax<a class="headerlink" href="#general-c-syntax" title="Permalink to this headline">#</a></h2>
+<section id="namespaces">
+<h3>2.1 Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">#</a></h3>
+<p>In a large production project you may have thousands of symbols for various types, variables, methods, and so on. To avoid symbol names conflicting
+with one another you can use namespaces to logically separate symbol names in to broad categories. Namespaces are an inherent feature of C++; when you
+create a class and refer to a method as <code class="docutils literal notranslate"><span class="pre">ClassName::Method()</span></code> you are essentially using a namespace feature intrinsic to classes.</p>
+<p>For a brief namespace example, suppose that you have two data structures, both of which implement a <code class="docutils literal notranslate"><span class="pre">Node</span></code> class. In the following code, namespaces
+are used to allow the compiler (and the programmer) to distinguish between the two types.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: list.h</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">list</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"> </span><span class="c1">// namespace</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: bst.h</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">bst</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"> </span><span class="c1">// namespace</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// File: main.cpp</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;list.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;bst.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">list</span><span class="o">::</span><span class="n">Node</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">bst</span><span class="o">::</span><span class="n">Node</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The standard C++ library uses the namespace <code class="docutils literal notranslate"><span class="pre">std</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, <code class="docutils literal notranslate"><span class="pre">std::string</span></code>, <code class="docutils literal notranslate"><span class="pre">std::endl</span></code>, etc. While you can use a <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">foo;</span></code> directive to address
+symbols directly in the <code class="docutils literal notranslate"><span class="pre">foo</span></code> namespace without prefixing the <code class="docutils literal notranslate"><span class="pre">foo::</span></code> qualifier, this is generally considered bad practice as it pollutes the global namespace and
+sort of undermines the point of using namespaces in the first place.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w">             </span><span class="c1">// &lt;--- BAD: pollutes the global namespace</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">   </span><span class="c1">// &lt;--- GOOD: It&#39;s clear that you&#39;re using symbols from the standard namespace</span>
+</pre></div>
+</div>
+</section>
+<section id="references-and-pointers">
+<h3>2.2 References and Pointers<a class="headerlink" href="#references-and-pointers" title="Permalink to this headline">#</a></h3>
+<p>Those familiar with C will be very intimately acquainted with pointers. C++ adds the concept of references, which is a powerful way to have <em>some</em> of the features of
+pointers while avoiding some of the pitfalls. Later versions of C++ also add <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/cpp/smart-pointers-modern-cpp?view=vs-2019">smart pointers</a>,
+which allow for better memory management and scoping via <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>, <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>, and <code class="docutils literal notranslate"><span class="pre">std::weak_ptr</span></code>, as compared to traditional raw pointers.</p>
+<p>Raw pointers in C++ behave exactly the same way as they do in C: a pointer variable stores the address of whatever it is pointing to. You can think of pointers as
+essentially storing a link to another piece of data. You can access the data that the pointer points to with the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> operator, or dereference it with the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator.</p>
+<p>References are more akin to an alias. References cannot be <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, and references cannot be reassigned to reference something else after they have been created.
+Additionally, references do not take up extra memory; they share the same address as whatever they reference to. References cannot have multiple levels of indirection (pointers can),
+and there is no reference arithmetic like there is for pointers. You can access the underlying data of a reference directly by using the reference itself: that is, if it’s a reference
+to an integer it can be used as an integer. If it’s a reference to a class you can access the class members directly with the <code class="docutils literal notranslate"><span class="pre">.</span></code> operator.</p>
+<p>Although pointers are incredibly powerful, references are generally much safer, especially when passing objects to methods using pass-by-reference. It is very common in
+C++ code to pass an object as a <code class="docutils literal notranslate"><span class="pre">const</span></code> reference (if the data should be unmutable within the method) or a non-const reference rather than a raw pointer as is required in C.</p>
+<p>More on <a class="reference external" href="https://stackoverflow.com/a/57492">references vs pointers here</a>.</p>
+<p>In the following code, assume a 32-bit system, in which case the size of a pointer variable is 4 bytes, and that the stack grows towards higher memory addresses.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Pointers</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                         </span><span class="c1">// Ends up at memory address &#39;0x2A000084&#39;, for example</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w">                         </span><span class="c1">// Ends up at memory address &#39;0x2A000088&#39;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">                </span><span class="c1">// ptr is a separate variable whose type is &#39;pointer to int&#39; and whose value has been initialized to &#39;0x00000000&#39;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;ptr = %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w">               </span><span class="c1">// Prints: 0x0</span>
+
+<span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w">                           </span><span class="c1">// The value of ptr is now the address of the variable &#39;a&#39;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">      </span><span class="c1">// Prints: 0x2a000084</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">     </span><span class="c1">// Prints: 10</span>
+
+<span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span><span class="w">                           </span><span class="c1">// The value of ptr is now the address of the variable &#39;b&#39;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">      </span><span class="c1">// Prints: 0x2a000088</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">     </span><span class="c1">// Prints: 20</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// References</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                         </span><span class="c1">// Ends up at memory address &#39;0x2A000084&#39;, for example</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w">                         </span><span class="c1">// Ends up at memory address &#39;0x2A000088&#39;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ref_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">                    </span><span class="c1">// ref_a is an alias of (reference to) the variable a</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ref_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">                    </span><span class="c1">// ref_b is an alias of (reference to) the variable b</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ref_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">    </span><span class="c1">// Prints: 10</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ref_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">    </span><span class="c1">// Prints: 20</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ref_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">   </span><span class="c1">// Prints: 0x2a000084</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ref_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">   </span><span class="c1">// Prints: 0x2a000088</span>
+
+<span class="n">ref_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">                          </span><span class="c1">// SETS THE VALUE OF &#39;a&#39; TO THE VALUE OF &#39;b&#39;!</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ref_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">    </span><span class="c1">// Prints: 20</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">        </span><span class="c1">// ALSO PRINTS: 20 !</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ref_c</span><span class="p">;</span><span class="w">                        </span><span class="c1">// ERROR! References must be initialized at their declaration</span>
+</pre></div>
+</div>
+<p>Perhaps the most widely used aspect of references is to pass objects by reference (sometimes constant reference) to a method. To avoid hammering the stack with
+large objects when you pass them by value it is nearly always preferrable to pass by reference, which is the term used when using either a reference <em>or</em> a pointer.
+Using a reference allows you to pass any size object by reference, while still allowing you to access the object directly.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Pass by reference using a const reference</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Bar</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bar</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">bar</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="c1">// ERROR! Cannot modify a const reference!</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Pass by reference using a non-const reference</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Foo</span><span class="p">(</span><span class="n">Bar</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bar</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">bar</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="c1">// Modifies &#39;bar&#39; and thus whatever &#39;bar&#39; references</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>By passing an object by reference using a reference instead of a pointer you:</p>
+<ul class="simple">
+<li><p>Don’t need to check for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> since references cannot be null</p></li>
+<li><p>Can access the referenced object’s data directly instead of using the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> operator or dereferencing a pointer</p></li>
+<li><p>Make it clearer which parameters are meant to be <em>input</em> parameters and which are meant to be <em>output</em> parameters by using
+<code class="docutils literal notranslate"><span class="pre">const</span></code> to denote strictly input parameters</p></li>
+<li><p>Gain the benefits of both passing by value and passing by reference since you don’t need to use a lot of memory on the stack for your object</p></li>
+</ul>
+<p>Thus, passing by reference using a <code class="docutils literal notranslate"><span class="pre">const</span></code> reference is essentially the same as passing by value, but you avoid copying the object onto the stack. Passing by reference
+using a non-const reference is essentially the same as passing by reference using a pointer, but you are guaranteed that it is not null and it’s as if the pointer
+is effectively dereferenced.</p>
+</section>
+<section id="keywords">
+<h3>2.3 Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/keyword">Reference</a></p>
+<section id="general-keywords">
+<h4>2.3.1 General Keywords<a class="headerlink" href="#general-keywords" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/asm"><code class="docutils literal notranslate"><span class="pre">asm</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/auto"><code class="docutils literal notranslate"><span class="pre">auto</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/cv"><code class="docutils literal notranslate"><span class="pre">const</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/constexpr"><code class="docutils literal notranslate"><span class="pre">constexpr</span></code> (<em>since C++11</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/explicit"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/keyword/export"><code class="docutils literal notranslate"><span class="pre">export</span></code> (<em>until C++11</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/language_linkage"><code class="docutils literal notranslate"><span class="pre">extern</span></code> (<em>language linkage</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/friend"><code class="docutils literal notranslate"><span class="pre">friend</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/inline"><code class="docutils literal notranslate"><span class="pre">inline</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/cv"><code class="docutils literal notranslate"><span class="pre">mutable</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/noexcept"><code class="docutils literal notranslate"><span class="pre">noexcept</span></code> (<em>operator</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/noexcept_spec"><code class="docutils literal notranslate"><span class="pre">noexcept</span></code> (<em>function specifier</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/nullptr"><code class="docutils literal notranslate"><span class="pre">nullptr</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/override"><code class="docutils literal notranslate"><span class="pre">override</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/static"><code class="docutils literal notranslate"><span class="pre">static</span></code> (<em>class member specifier</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/templates"><code class="docutils literal notranslate"><span class="pre">template</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/this"><code class="docutils literal notranslate"><span class="pre">this</span></code></a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/virtual"><code class="docutils literal notranslate"><span class="pre">virtual</span></code> (<em>function specifier</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/derived_class"><code class="docutils literal notranslate"><span class="pre">virtual</span></code> (<em>base class specifier</em>)</a>
+<a class="reference external" href="http://en.cppreference.com/w/cpp/language/cv"><code class="docutils literal notranslate"><span class="pre">volatile</span></code></a></p>
+</section>
+<section id="storage-class-specifiers">
+<h4>2.3.2 Storage Class Specifiers<a class="headerlink" href="#storage-class-specifiers" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/storage_duration">Reference</a></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">auto</span></code> (<em>until C++11</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">register</span></code> (<em>until C++17</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">static</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thread_local</span></code> (<em>since C++11</em>)</p></li>
+</ul>
+</section>
+<section id="const-and-dynamic-cast-conversion">
+<h4>2.3.3 <code class="docutils literal notranslate"><span class="pre">const</span></code> and <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> Cast Conversion<a class="headerlink" href="#const-and-dynamic-cast-conversion" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/const_cast"><code class="docutils literal notranslate"><span class="pre">const_cast</span></code></a></p></li>
+<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/dynamic_cast"><code class="docutils literal notranslate"><span class="pre">dynamic_cast</span></code></a></p></li>
+</ul>
+</section>
+</section>
+<section id="preprocessor-tokens">
+<h3>2.4 Preprocessor Tokens<a class="headerlink" href="#preprocessor-tokens" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#if</span></code>: Preprocessor version of <code class="docutils literal notranslate"><span class="pre">if(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#elif</span></code>: Preprocessor version of <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#else</span></code>: Preprocessor version of <code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#endif</span></code>: Used to end an <code class="docutils literal notranslate"><span class="pre">#if</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>, or <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">defined()</span></code>: Returns true if the macro is defined</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>: Same as <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">defined(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ifndef</span></code>: Same as <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">!defined(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span></code>: Defines a text macro. See <a class="reference external" href="http://en.cppreference.com/w/cpp/preprocessor/replace">here</a> for full explanation, including macro functions and predefined macros.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#undef</span></code>: Un-defines a text macro</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#include</span></code>: Includes a source file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#line</span></code>: Changes the current file name and line number in the preprocessor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#error</span></code>: Prints an error message and stops compilation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#pragma</span></code>: Non-standard, can be used instead of header guards (<code class="docutils literal notranslate"><span class="pre">#ifndef</span> <span class="pre">HEADER_H</span></code> …)</p></li>
+</ul>
+</section>
+<section id="strings-std-string">
+<h3>2.5 Strings (<code class="docutils literal notranslate"><span class="pre">std::string</span></code>)<a class="headerlink" href="#strings-std-string" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/string/basic_string">Reference</a></p>
+</section>
+<section id="iterators-std-iterator">
+<h3>2.6 Iterators (<code class="docutils literal notranslate"><span class="pre">std::iterator&lt;...&gt;</span></code>)<a class="headerlink" href="#iterators-std-iterator" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/Iterator">Reference</a></p>
+</section>
+<section id="exceptions">
+<h3>2.7 Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="http://en.cppreference.com/w/cpp/error/exception">Reference</a></p>
+</section>
+<section id="lambdas">
+<h3>2.8 Lambdas<a class="headerlink" href="#lambdas" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/lambda">Reference</a></p>
+</section>
+</section>
+<section id="acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">#</a></h2>
+<p>These are two cheat sheets Joe Gibson (<a class="reference external" href="https://github.com/gibsjose">https://github.com/gibsjose</a>) put together describing both basic <span class="xref myst">C++ syntax</span> (mostly C++11) and many common <span class="xref myst">data structures and algorithms</span> in C++, which I’ve used to study for my past interviews at Google, NASA, etc.</p>
+<p>Hopefully you find them useful, and please open an issue or submit a PR if you find incorrect or missing information!</p>
+<p>P.S. - I didn’t get the job at Google :wink:</p>
+<section id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h3>
+<p>Many thanks to the following for their contributions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/B1Z0N">B1Z0N</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dichen001">dichen001</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tsaoyu">tsaoyu</a></p></li>
+<li><p><a class="reference external" href="https://github.com/srashee">srashee</a></p></li>
+<li><p><a class="reference external" href="https://github.com/emadpres">emadpres</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AurelienLourot">AurelienLourot</a></p></li>
+<li><p><a class="reference external" href="https://github.com/josephharrington">josephharrington</a></p></li>
+<li><p><a class="reference external" href="https://github.com/MuruganViswanathan">MuruganViswanathan</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Damercy">Damercy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mgoutham">mgoutham</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../tips_for_success.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tips for Success</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../add_rss.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Additional Resources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
