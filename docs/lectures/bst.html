@@ -1,0 +1,1595 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Binary Search Tree &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 10" href="lec_w_10.html" />
+    <link rel="prev" title="Priority Queues" href="priority_q_heap.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cpp_cc.html">
+   C++ Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../add_rss.html">
+   Additional Resources
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="big-o.html">
+     Big-O Notiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_08.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="lec_w_09.html">
+   Week 9
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_12.html">
+   Week 12
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lec_w_13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="presentations.html">
+     Presentations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a2/readme.html">
+   A2: Practical I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/read_write.html">
+     Read / Write
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/a4/readme.html">
+   A4: Practical II
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lectures/bst.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lectures/bst.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/lectures/bst.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-ary-trees">
+   <span class="math notranslate nohighlight">
+    \(k\)
+   </span>
+   -ary trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   examples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-tree">
+   Binary Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementing-binary-trees">
+   Implementing binary trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search-trees">
+   Binary Search Trees
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bst-classes">
+     BST Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search">
+     Search
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert">
+     insert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-it">
+     Try it…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-from-bsts">
+   Remove from BSTs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traversals">
+   Traversals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implications">
+     Implications
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-case-analysis">
+     Average-case analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collections-dictionaries">
+   Collections / Dictionaries
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Binary Search Tree</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-ary-trees">
+   <span class="math notranslate nohighlight">
+    \(k\)
+   </span>
+   -ary trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   examples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-tree">
+   Binary Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementing-binary-trees">
+   Implementing binary trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search-trees">
+   Binary Search Trees
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bst-classes">
+     BST Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search">
+     Search
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert">
+     insert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-it">
+     Try it…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-from-bsts">
+   Remove from BSTs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traversals">
+   Traversals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implications">
+     Implications
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-case-analysis">
+     Average-case analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collections-dictionaries">
+   Collections / Dictionaries
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="binary-search-tree">
+<h1>Binary Search Tree<a class="headerlink" href="#binary-search-tree" title="Permalink to this headline">#</a></h1>
+<div class="full-width docutils">
+<img alt="https://cdn.slidesharecdn.com/ss_thumbnails/binarysearchtreebst-140928072705-phpapp01-thumbnail-4.jpg?cb=1411889704" class="align-center" src="https://cdn.slidesharecdn.com/ss_thumbnails/binarysearchtreebst-140928072705-phpapp01-thumbnail-4.jpg?cb=1411889704" />
+</div>
+<section id="k-ary-trees">
+<h2><a class="reference external" href="https://www.geeksforgeeks.org/k-ary-heap/?ref=gcse"><span class="math notranslate nohighlight">\(k\)</span>-ary trees</a><a class="headerlink" href="#k-ary-trees" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In a <b class="blue"><span class="math notranslate nohighlight">\(k\)</span>-ary tree</b>, every node has between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(k\)</span> children</p>
+<p class="sd-card-text">In a <b class="red">full (proper)</b> <span class="math notranslate nohighlight">\(k\)</span>-ary tree, every node has exactly <span class="math notranslate nohighlight">\(0\)</span>  or <span class="math notranslate nohighlight">\(k\)</span> children</p>
+<p class="sd-card-text">In a <b class="red">complete</b> <span class="math notranslate nohighlight">\(k\)</span>-ary tree, every level is entirely filled,  except possibly the deepest, where all nodes are as far left as possible</p>
+<p class="sd-card-text">In a <b class="red">perfect</b> <span class="math notranslate nohighlight">\(k\)</span>-ary tree, every leaf has the same depth and the tree is full</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<img alt="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7TSf_YpdLyF0uIfW0Rm_GgHaHa%26pid%3DApi&amp;f=1&amp;ipt=1187f0ed9de515a480afca769ea805a6e4e566d0faeae559c7cf2c0b42873442&amp;ipo=images" class="align-center" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7TSf_YpdLyF0uIfW0Rm_GgHaHa%26pid%3DApi&amp;f=1&amp;ipt=1187f0ed9de515a480afca769ea805a6e4e566d0faeae559c7cf2c0b42873442&amp;ipo=images" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ![](https://miro.medium.com/max/1104/1*WEIGkEtQndEvPVwHAh4aSA.png) -->
+</section>
+<section id="examples">
+<h2><a class="reference external" href="https://towardsdatascience.com/5-types-of-binary-tree-with-cool-illustrations-9b335c430254">examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+full</div>
+<img alt="https://miro.medium.com/max/1400/1*fh2By4u-SxTlt6u2xHqnCg.png" src="https://miro.medium.com/max/1400/1*fh2By4u-SxTlt6u2xHqnCg.png" />
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+complete</div>
+<img alt="https://miro.medium.com/max/1400/1*M1qfRR59TR9-i4pmI-_Clg.png" src="https://miro.medium.com/max/1400/1*M1qfRR59TR9-i4pmI-_Clg.png" />
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+perfect</div>
+<img alt="https://miro.medium.com/max/1400/1*EgcvwUHXnmdOpbHQwgCknA.png" src="https://miro.medium.com/max/1400/1*EgcvwUHXnmdOpbHQwgCknA.png" />
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+degenerate</div>
+<img alt="https://miro.medium.com/max/1400/1*m5BjLJeSrSGH4US-QXj4aA.png" src="https://miro.medium.com/max/1400/1*m5BjLJeSrSGH4US-QXj4aA.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ![](https://mathworld.wolfram.com/images/eps-gif/BinaryTrees_800.gif) -->
+</section>
+<section id="binary-tree">
+<h2>Binary Tree<a class="headerlink" href="#binary-tree" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Binary_tree_v2.svg/1920px-Binary_tree_v2.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Binary_tree_v2.svg/1920px-Binary_tree_v2.svg.png" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Binary_tree_v2.svg/1920px-Binary_tree_v2.svg.png" style="width: 50%;" /></a>
+<div class="math notranslate nohighlight">
+\[bin\_tree = \{1, 7, 9, 2, 6, 9, 5, 11, 5 \}\]</div>
+</div>
+</div>
+</div>
+</section>
+<section id="implementing-binary-trees">
+<h2><a class="reference external" href="https://www.geeksforgeeks.org/applications-priority-queue/">Implementing binary trees</a><a class="headerlink" href="#implementing-binary-trees" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-3 sd-col-xs-3 sd-col-sm-3 sd-col-md-3 sd-col-lg-3 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>Node</dt><dd><p class="sd-card-text"><span class="math notranslate nohighlight">\(data\)</span></p>
+</dd>
+<dd><p class="sd-card-text"><span class="math notranslate nohighlight">\(left\)</span> child</p>
+</dd>
+<dd><p class="sd-card-text"><span class="math notranslate nohighlight">\(right\)</span> child</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-9 sd-col-xs-9 sd-col-sm-9 sd-col-md-9 sd-col-lg-9 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<img alt="../_images/15_s7.png" src="../_images/15_s7.png" />
+<p class="sd-card-text">Tree<br />
+<span class="math notranslate nohighlight">\(bst= \{a, b, c, d, e, f\}\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="binary-search-trees">
+<h2>Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-3 sd-col-xs-3 sd-col-sm-3 sd-col-md-3 sd-col-lg-3 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A BST is a <var class="rd">binary tree</var></p>
+<p class="sd-card-text">A BST has <var class="rd">symmetric order</var></p>
+<ul class="simple">
+<li><p class="sd-card-text">each node <span class="math notranslate nohighlight">\(x\)</span> in a BST has a key</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[key(x)\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">for all nodes <span class="math notranslate nohighlight">\(y\)</span> in the left subtree of <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[key(y) &lt; key(x)^{**}\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">for all nodes <span class="math notranslate nohighlight">\(y\)</span> in the right subtree of <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[key(y) &gt; key(x)^{**}\]</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-9 sd-col-xs-9 sd-col-sm-9 sd-col-md-9 sd-col-lg-9 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="https://i.pinimg.com/originals/4e/5a/00/4e5a00c98d5b46ed4cbf224ac11dc115.png"><img alt="https://i.pinimg.com/originals/4e/5a/00/4e5a00c98d5b46ed4cbf224ac11dc115.png" class="align-center" src="https://i.pinimg.com/originals/4e/5a/00/4e5a00c98d5b46ed4cbf224ac11dc115.png" style="height: 600px;" /></a>
+<p class="sd-card-text">(**) assume that the keys of a BST are pairwise distinct</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-12 sd-col-xs-12 sd-col-sm-12 sd-col-md-12 sd-col-lg-12 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tree Parts</div>
+<p class="sd-card-text"><img alt="" src="https://codestandard.net/articles/en/images/binary-search-tree_0.jpg#article_image" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 10 -->
+<section id="bst-classes">
+<h3>BST Classes<a class="headerlink" href="#bst-classes" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+BSTNode</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">BSTNode</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="linenos"> 2</span><span class="w">  </span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"> </span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">BSTNode</span><span class="w"> </span><span class="o">*</span><span class="n">left</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">BSTNode</span><span class="w"> </span><span class="o">*</span><span class="n">right</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="w">  </span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">BSTNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">    </span><span class="o">~</span><span class="n">BSTNode</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">  </span>
+<span class="linenos">12</span><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BSTree</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+BSTree</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">BSTree</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 2</span><span class="w">  </span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="n">BSTNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">destroy</span><span class="p">(</span><span class="n">BSTNode</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="w">    </span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">BSTree</span><span class="p">();</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="o">~</span><span class="n">BSTree</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">  </span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">BSTNode</span><span class="w"> </span><span class="o">*</span><span class="nf">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="search">
+<h3>Search<a class="headerlink" href="#search" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<ol class="simple">
+<li><p class="sd-card-text">Start at root node</p></li>
+<li><p class="sd-card-text">If the search key:<br />
+a. matches the current node’s key<br />
+* then <span class="green">found</span><br />
+b. If search key <span class="math notranslate nohighlight">\(&gt;\)</span> current node’s key<br />
+* <span class="red">search</span> on <span class="math notranslate nohighlight">\(right\)</span> child<br />
+c. If search key is less than current node’s<br />
+* <span class="red">search</span> on <span class="math notranslate nohighlight">\(left\)</span> child</p></li>
+<li><p class="sd-card-text">Stop when current node is NULL (<span class="rrd">not found</span>)</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<img alt="https://www.happycoders.eu/wp-content/uploads/2021/06/binary-search-tree-insertion-800x467.png" class="align-center" src="https://www.happycoders.eu/wp-content/uploads/2021/06/binary-search-tree-insertion-800x467.png" />
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(Search\ for\ \ 8\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="insert">
+<h3><a class="reference external" href="https://www.geeksforgeeks.org/height-complete-binary-tree-heap-n-nodes/">insert</a><a class="headerlink" href="#insert" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>Perform a Search operation</dt><dd><p class="sd-card-text">If <var class="grn">found</var>, no need to insert (may increase counter)</p>
+</dd>
+<dd><p class="sd-card-text">If <var class="rd">not found</var>, insert node where Search stopped</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="" src="https://blog.penjee.com/wp-content/uploads/2015/11/binary-search-tree-insertion-animation.gif" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="try-it">
+<h3>Try it…<a class="headerlink" href="#try-it" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="" src="https://external-preview.redd.it/bV2UoE-3zHRu97yghkNj0z9hWHRx-JNPh9YZcXLoiGg.jpg?auto=webp&amp;s=fbcb59d31dd335e897ae53e4b1d968f544d7a408" /></p>
+<div class="math notranslate nohighlight">
+\[Serach...\ 23, 67, 18...\]</div>
+<div class="math notranslate nohighlight">
+\[Insert...\ 65, 27, 90, 11, 51...\]</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="remove-from-bsts">
+<h2>Remove from BSTs<a class="headerlink" href="#remove-from-bsts" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+remove</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="5361132c-2bb7-4e6c-b628-e5457309c4c9" name="644b9c5d-c5c2-41db-8962-8e8b38fdddce" type="radio">
+</input><label class="sd-tab-label" for="5361132c-2bb7-4e6c-b628-e5457309c4c9">
+leaf</label><div class="sd-tab-content docutils">
+<p class="sd-card-text"><img alt="remove : leaf" src="https://mycloudology.com/algorithm-binary-tree-search/algorithm-binary-tree-search_4.JPG" /></p>
+</div>
+<input id="11f52428-2afe-4840-95da-6cae046e46e6" name="644b9c5d-c5c2-41db-8962-8e8b38fdddce" type="radio">
+</input><label class="sd-tab-label" for="11f52428-2afe-4840-95da-6cae046e46e6">
+1 child</label><div class="sd-tab-content docutils">
+<p class="sd-card-text"><img alt="" src="https://mycloudology.com/algorithm-binary-tree-search/algorithm-binary-tree-search_5.JPG" /></p>
+</div>
+<input id="278c11a1-725e-42a6-8531-0d021df0f846" name="644b9c5d-c5c2-41db-8962-8e8b38fdddce" type="radio">
+</input><label class="sd-tab-label" for="278c11a1-725e-42a6-8531-0d021df0f846">
+2 children</label><div class="sd-tab-content docutils">
+<p class="sd-card-text"><img alt="" src="https://mycloudology.com/algorithm-binary-tree-search/algorithm-binary-tree-search_6.JPG" /></p>
+</div>
+<input id="a6c9bc8b-fd88-42fd-a250-c8a493d4eed2" name="644b9c5d-c5c2-41db-8962-8e8b38fdddce" type="radio">
+</input><label class="sd-tab-label" for="a6c9bc8b-fd88-42fd-a250-c8a493d4eed2">
+trivial</label><div class="sd-tab-content docutils">
+<p class="sd-card-text"><img alt="$$" src="https://mycloudology.com/algorithm-binary-tree-search/algorithm-binary-tree-search_7.JPG" /></p>
+</div>
+<input id="90019f3f-f64a-4e58-9ebb-ece0ee8cb951" name="644b9c5d-c5c2-41db-8962-8e8b38fdddce" type="radio">
+</input><label class="sd-tab-label" for="90019f3f-f64a-4e58-9ebb-ece0ee8cb951">
+find / copy/ delete successor</label><div class="sd-tab-content docutils">
+<p class="sd-card-text"><img alt="$$" src="https://mycloudology.com/algorithm-binary-tree-search/algorithm-binary-tree-search_8.JPG" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="traversals">
+<h2><a class="reference external" href="https://www.geeksforgeeks.org/binary-search-tree-traversal-inorder-preorder-post-order/">Traversals</a><a class="headerlink" href="#traversals" title="Permalink to this headline">#</a></h2>
+<section id="implications">
+<h3>Implications<a class="headerlink" href="#implications" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">preorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">postorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">inorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="" src="https://www.bogotobogo.com/GoLang/images/BinarySearchTree_BST/print_functions.png" /></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>How would we:</dt><dd><p class="sd-card-text">Destroy a binary tree</p>
+</dd>
+<dd><p class="sd-card-text">Print all elements ascending order</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="533221dc-6fa4-4c13-b392-63bbc2d3e9cc" name="5957ee1c-9279-4748-92fc-42289b003f5b" type="radio">
+</input><label class="sd-tab-label" for="533221dc-6fa4-4c13-b392-63bbc2d3e9cc">
+preorder</label><div class="sd-tab-content docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">preorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week08.html#preorder-traversals" src="https://sbme-tutorials.github.io/2020/data-structure-FALL/images/Tree06.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="c7c1073f-9c13-4a26-b9c8-9afc8d1371ba" name="5957ee1c-9279-4748-92fc-42289b003f5b" type="radio">
+</input><label class="sd-tab-label" for="c7c1073f-9c13-4a26-b9c8-9afc8d1371ba">
+postorder</label><div class="sd-tab-content docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">postorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week08.html#postorder-traversals" src="https://sbme-tutorials.github.io/2020/data-structure-FALL/images/Tree07.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="aae85276-f63b-4ea8-a977-d003d30385a2" name="5957ee1c-9279-4748-92fc-42289b003f5b" type="radio">
+</input><label class="sd-tab-label" for="aae85276-f63b-4ea8-a977-d003d30385a2">
+inorder</label><div class="sd-tab-content docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">algorithm</span><span class="w"> </span><span class="nf">inorder</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">inorder</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week08.html#inorder-traversals" src="https://sbme-tutorials.github.io/2020/data-structure-FALL/images/Tree08.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="2e56a129-5212-4157-a806-0d4fceed7f2e" name="c8f336a7-7f3a-4bc5-b9a5-dafc108fa3fd" type="radio">
+</input><label class="sd-tab-label" for="2e56a129-5212-4157-a806-0d4fceed7f2e">
+before</label><div class="sd-tab-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">best-case</p></th>
+<th class="head"><p class="sd-card-text">worst-case</p></th>
+<th class="head"><p class="sd-card-text">average-case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">search</p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">insert</p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">remove</p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+<td><p class="sd-card-text"><span contenteditable></span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="math notranslate nohighlight">
+\[Cost\ of\ basic\ operations??\]</div>
+</div>
+<input id="3385ee9b-d8c5-4467-a32b-e292b20ea6b6" name="c8f336a7-7f3a-4bc5-b9a5-dafc108fa3fd" type="radio">
+</input><label class="sd-tab-label" for="3385ee9b-d8c5-4467-a32b-e292b20ea6b6">
+after</label><div class="sd-tab-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">best-case</p></th>
+<th class="head"><p class="sd-card-text">worst-case</p></th>
+<th class="head"><p class="sd-card-text">average-case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">search</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">insert</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">remove</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="math notranslate nohighlight">
+\[Cost\ of\ basic\ operations??\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="average-case-analysis">
+<h3>Average-case analysis<a class="headerlink" href="#average-case-analysis" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">If <strong><span class="math notranslate nohighlight">\(n\)</span></strong> <strong>distinct keys</strong> are inserted into a BST in random  order, expected number of compares for basic  operations is</p>
+<div class="math notranslate nohighlight">
+\[\sim2\ ln\ n \approx 1.39\ log\ n\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">proof: 1-1 correspondence with quick-so</p></li>
+</ul>
+<p class="sd-card-text"><img alt="" src="../_images/15_s32.png" /></p>
+<div class="math notranslate nohighlight">
+\[h = O(log\ n)\]</div>
+</div>
+</div>
+</div>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+inserting n keys in a random order</div>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(n=255\)</span></p>
+<figure class="align-default" id="id1">
+<img alt="https://algs4.cs.princeton.edu/32bst/media/bst-255random.mov" src="https://algs4.cs.princeton.edu/32bst/media/bst-255random.mov" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><a class="reference external" href="https://algs4.cs.princeton.edu/32bst/">https://algs4.cs.princeton.edu/32bst/</a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="collections-dictionaries">
+<h2>Collections / Dictionaries<a class="headerlink" href="#collections-dictionaries" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p class="sd-card-text">What?</p></th>
+<th class="head"><p class="sd-card-text">Sequential (unordered)</p></th>
+<th class="head"><p class="sd-card-text">Sequential (ordered)</p></th>
+<th class="head"><p class="sd-card-text">BST</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">search</p></td>
+<td><p class="sd-card-text">search for a key</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">insert</p></td>
+<td><p class="sd-card-text">insert a key</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">delete</p></td>
+<td><p class="sd-card-text">delete a key</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">min/max</p></td>
+<td><p class="sd-card-text">smallest/largest key</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">floor/ceiling</p></td>
+<td><p class="sd-card-text">predecessor / successor</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">rank</p></td>
+<td><p class="sd-card-text"># of keys less than key</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(log\ n)\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(O(h)\)</span>**</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>(**) requires the use of ‘size’ at every node)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="priority_q_heap.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Priority Queues</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lec_w_10.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 10</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
