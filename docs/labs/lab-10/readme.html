@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab-10 Hash Tables &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    <title>Lab 10 : Hash Tables &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -107,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Course Overview
+                    Start Here
                 </a>
             </li>
         </ul>
@@ -118,16 +120,6 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../test.html">
-   test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../start_here.html">
-   Start Here
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../../syllabus.html">
    Syllabus
   </a>
@@ -135,6 +127,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../tips_for_success.html">
    Tips for Success
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/cpp_cc.html">
+   C++ Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../add_rss.html">
+   Additional Resources
   </a>
  </li>
 </ul>
@@ -160,8 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../lectures/cpp_cc.html">
-     C++ Review
+    <a class="reference internal" href="../../lectures/algo_analysis.html">
+     Analysis of Algorithms
     </a>
    </li>
   </ul>
@@ -177,18 +179,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../lectures/algo_analysis.html">
-     Analysis of Algorithms
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/computational_cost.html">
      Computational Cost
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/big-o.html">
-     Big-O Notation
+     Big-O Notiation
     </a>
    </li>
   </ul>
@@ -298,9 +295,14 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="../../lectures/lec_w_08.html">
    Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../lectures/lec_w_09.html">
+   Week 9
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -313,18 +315,6 @@ const thebe_selector_output = ".output, .cell_output"
      Priority Queues
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../lectures/lec_w_09.html">
-   Week 9
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/bst.html">
      Binary Search Tree
@@ -336,8 +326,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../lectures/lec_w_10.html">
    Week 10
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -347,18 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
      2-3 Trees
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../lectures/lec_w_11.html">
-   Week 11
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/left_lean_red-black_tree.html">
      Left-Leaning Red-Black Trees
@@ -367,11 +345,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../lectures/lec_w_12.html">
-   Week 12
+  <a class="reference internal" href="../../lectures/lec_w_11.html">
+   Week 11
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -381,38 +359,36 @@ const thebe_selector_output = ".output, .cell_output"
      Hash Tables
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../lectures/lec_w_13.html">
-   Week 13
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/graphs.html">
-     Introduction to Graphs
+     Graphs
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lec_w_12.html">
+   Week 12
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lec_w_13.html">
+   Week 13
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../lectures/lec_w_14.html">
    Week 14
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../lectures/depth_first_search.html">
-     Depth-First Search
+    <a class="reference internal" href="../../lectures/presentations.html">
+     Presentations
     </a>
    </li>
   </ul>
@@ -425,32 +401,20 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../assignments/a1/readme.html">
-   A1: Binarization &amp; Thresholding
+  <a class="reference internal" href="../../assignments/a2/readme.html">
+   A2: Practical I
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/a1/examples/readme.html">
-     Examples
+    <a class="reference internal" href="../../assignments/a2/read_write.html">
+     Read / Write
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../assignments/a2/readme.html">
-   A2: Maze Generation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../assignments/a2/conversion/readme.html">
      Converting from a text file into a
@@ -467,8 +431,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../assignments/a3/readme.html">
    A3: Conceptualization I
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-  <label for="toctree-checkbox-17">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -482,15 +446,15 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../assignments/a4/readme.html">
-   A4: Recursion &amp; Stacks
+   A4: Practical II
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../assignments/a5/readme.html">
    A5: Conceptualization II
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -553,6 +517,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/labs/lab-10/readme.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -567,51 +560,6 @@ title="Fullscreen mode"
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flabs/lab-10/readme.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
       aria-label="Download this page">
@@ -619,6 +567,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../_sources/labs/lab-10/readme.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../_sources/labs/lab-10/readme.md"
    class="headerbtn"
@@ -734,7 +699,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lab-10 Hash Tables</h1>
+                <h1>Lab 10 : Hash Tables</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -801,7 +766,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lab-10-hash-tables">
-<h1>Lab-10 Hash Tables<a class="headerlink" href="#lab-10-hash-tables" title="Permalink to this headline">#</a></h1>
+<h1>Lab 10 : Hash Tables<a class="headerlink" href="#lab-10-hash-tables" title="Permalink to this headline">#</a></h1>
 <section id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <section id="hash-tables">
@@ -836,108 +801,154 @@ title="Print to PDF"
 </table>
 <p>But how do we store values? We need a Hash Function!</p>
 <p>A Hash Function is (surprise) a function that generates some Hash out of the value to be stored. This is an entire field of research, so we’ll keep it simple for now. Let’s use the following function:</p>
-<center>f(x) = x % n </center>
+<div class="math notranslate nohighlight">
+\[f(x) = x \% n\]</div>
 <p>Let’s use it to store the following values: 1, 14, 13, 16</p>
-<p>1 % 5 = 1</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Index</p></th>
-<th class="head"><p>Value</p></th>
-</tr>
-</thead>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="952fa811-eeed-43c7-b0f9-0e45e9e38f72" name="2cad3d18-ac12-4029-860d-08368be5cb5e" type="radio">
+</input><label class="sd-tab-label" for="952fa811-eeed-43c7-b0f9-0e45e9e38f72">
+1</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(1 \% 5 = 1\)</span></p>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
+<tr class="row-odd"><td><p>Index</p></td>
+<td><p>0</p></td>
 <td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>Value</p></td>
+<td></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>14 % 5 = 4</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Index</p></th>
-<th class="head"><p>Value</p></th>
-</tr>
-</thead>
+</div>
+<input id="4cf0c7e9-9427-4425-acfc-2f2ec4f58e07" name="2cad3d18-ac12-4029-860d-08368be5cb5e" type="radio">
+</input><label class="sd-tab-label" for="4cf0c7e9-9427-4425-acfc-2f2ec4f58e07">
+14</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<div class="sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[14 \% 5 = 4\]</div>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
+<tr class="row-odd"><td><p>Index</p></td>
+<td><p>0</p></td>
 <td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
+<tr class="row-even"><td><p>Value</p></td>
+<td></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
 <td><p>14</p></td>
 </tr>
 </tbody>
 </table>
-<p>13 % 5 = 3</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Index</p></th>
-<th class="head"><p>Value</p></th>
-</tr>
-</thead>
+</div>
+<input id="64a6d4a9-f3aa-4112-9eaa-4b55a64d2e2a" name="2cad3d18-ac12-4029-860d-08368be5cb5e" type="radio">
+</input><label class="sd-tab-label" for="64a6d4a9-f3aa-4112-9eaa-4b55a64d2e2a">
+13</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<div class="sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[13 \% 5 = 3\]</div>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
+<tr class="row-odd"><td><p>Index</p></td>
+<td><p>0</p></td>
 <td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
+<tr class="row-even"><td><p>Value</p></td>
+<td></td>
+<td><p>1</p></td>
+<td></td>
 <td><p>13</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
 <td><p>14</p></td>
 </tr>
 </tbody>
 </table>
-<p>16 % 5 = 1</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Index</p></th>
-<th class="head"><p>Value</p></th>
-</tr>
-</thead>
+</div>
+<input id="3c6a20de-3e85-4f46-90c9-30be87d5576b" name="2cad3d18-ac12-4029-860d-08368be5cb5e" type="radio">
+</input><label class="sd-tab-label" for="3c6a20de-3e85-4f46-90c9-30be87d5576b">
+16</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<div class="sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[16 \% 5 = 1\]</div>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>Index</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>1 &lt;– already a value!</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
+<tr class="row-even"><td><p>Value</p></td>
+<td></td>
+<td><p>1 <br> already a value!</p></td>
+<td></td>
 <td><p>13</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
 <td><p>14</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <p>We’ve found an issue with our new Data Structure! This is known as a Hash Collision. Let’s look at methods to combat this.</p>
 </section>
 </section>
@@ -976,13 +987,18 @@ title="Print to PDF"
 <section id="double-hashing">
 <h3>Double Hashing<a class="headerlink" href="#double-hashing" title="Permalink to this headline">#</a></h3>
 <p>Another open addressing method is to use double hashing. In this strategy, a second hash function is utilized to re-hash a value that has collisions. Let’s view that example from above again using this new definition:</p>
-<center>f(x, i) = [(x % n) + (i * f'(x))] % n</center>
-<center>f'(x) = x+3</center>
-<center>Where i is the number of collisions so far</center>
-<p>At the first attempt there are no recorded collisions yet for the input 16 so i is 0
-f(16, 0) = [(16 % n) + (0 * 19)] % n = 1</p>
-<p>After encountering a collision on the first pass, i will now be 1
-f(16, 1) = [(16 % n) + (1 * 19)] % n = [(1) + 19] % n = 0</p>
+<div class="math notranslate nohighlight">
+\[f(x, i) = [(x % n) + (i * f'(x))] % n\]</div>
+<div class="math notranslate nohighlight">
+\[f'(x) = x+3\]</div>
+<div class="math notranslate nohighlight">
+\[Where `i` is the number of collisions so far\]</div>
+<p>At the first attempt there are no recorded collisions yet for the input 16 so <code class="docutils literal notranslate"><span class="pre">i</span></code> is 0</p>
+<div class="math notranslate nohighlight">
+\[f(16, 0) = [(16 % n) + (0 * 19)] % n = 1\]</div>
+<p>After encountering a collision on the first pass, <code class="docutils literal notranslate"><span class="pre">i</span></code> will now be 1</p>
+<div class="math notranslate nohighlight">
+\[f(16, 1) = [(16 % n) + (1 * 19)] % n = [(1) + 19] % n = 0\]</div>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Index</p></th>
