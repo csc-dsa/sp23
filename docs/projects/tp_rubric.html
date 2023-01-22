@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Term Project &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/URI Brandmark 282.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CSC 212 <br>Data Structures & Algorithms</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Start Here
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Needful Things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tips_for_success.html">
+   Tips for Success
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/cpp_cc.html">
+   C++ Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../add_rss.html">
+   Additional Resources
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_01.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/algo_analysis.html">
+     Analysis of Algorithms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_02.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/computational_cost.html">
+     Computational Cost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/big-o.html">
+     Big-O Notiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_03.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/basic_sorts.html">
+     Basic Sorts (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/dynamic_arrays.html">
+     Dynamic Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_04.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/linked_lists.html">
+     Linked Lists
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_05.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/stacks_queues.html">
+     Stacks and Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/binary_search.html">
+     Binary Search
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_06.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/recurrences.html">
+     Recurrences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_07.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/mergesort.html">
+     Mergesort
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/quicksort.html">
+     Quicksort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/lec_w_08.html">
+   Week 8
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_09.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/priority_q_heap.html">
+     Priority Queues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/bst.html">
+     Binary Search Tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_10.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/2-3_trees.html">
+     2-3 Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/left_lean_red-black_tree.html">
+     Left-Leaning Red-Black Trees
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_11.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/hash_tables.html">
+     Hash Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/graphs.html">
+     Graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/lec_w_12.html">
+   Week 12
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/lec_w_13.html">
+   Week 13
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/lec_w_14.html">
+   Week 14
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/presentations.html">
+     Presentations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a2/readme.html">
+   A2: Practical I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/read_write.html">
+     Read / Write
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/a2/conversion/readme.html">
+     Converting from a text file into a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PDF
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a3/readme.html">
+   A3: Conceptualization I
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+     assignment-3.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/a4/readme.html">
+   A4: Practical II
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/a5/readme.html">
+   A5: Conceptualization II
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-5/ps-02.pdf">
+     assignment-5.pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/projects/tp_rubric.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breakdown">
+   Breakdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-code">
+   Source Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#presentation">
+   Presentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#report">
+   Report
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   Submission
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading">
+   Grading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics">
+   Topics
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Term Project</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breakdown">
+   Breakdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-code">
+   Source Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#presentation">
+   Presentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#report">
+   Report
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   Submission
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading">
+   Grading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics">
+   Topics
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="term-project">
+<h1>Term Project<a class="headerlink" href="#term-project" title="Permalink to this headline">#</a></h1>
+<section id="breakdown">
+<h2>Breakdown<a class="headerlink" href="#breakdown" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">In groups of 3-4 members you will research and evaluate a data structure / algorithm not covered in the course material. It will be your task to find a meaningful, unique application for your project.</p>
+<p class="sd-card-text">The project is broken out into three separate aspects:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Source Code</p></li>
+<li><p class="sd-card-text">Class Presentation</p></li>
+<li><p class="sd-card-text">Project Report</p></li>
+</ul>
+<p class="sd-card-text">Each aspect will have specific requirements to meet to successfully complete the project overall.</p>
+</div>
+</div>
+</section>
+<section id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Code Repository</div>
+<ul class="simple">
+<li><p class="sd-card-text">Your code from start to finish will live on GitHub.</p>
+<ul>
+<li><p class="sd-card-text">Each group member must be connect via their own github account to a primary account which will be used for submission.</p></li>
+<li><p class="sd-card-text">Individual contributions must be clear within the ‘<a class="reference external" href="https://docs.github.com/en/rest/commits?apiVersion=2022-11-28">commits</a>’ of the repo.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Code Organization</div>
+<ul class="simple">
+<li><p class="sd-card-text">Your code must adhere to a <a class="reference external" href="https://codesigningstore.com/ultimate-programming-best-practices-guide">best practice standard of programming</a>…</p></li>
+<li><p class="sd-card-text">All code to be evaluated must be included in the repo prior to final submission and saved with appropriate file extentions.</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Code Compiliation</div>
+<ul class="simple">
+<li><p class="sd-card-text">EXPLICIT DEPENDENCIES AND INSTRUCTIONS HOW TO COMPILE YOUR CODE ARE REQUIRED!! Your code will not be graded without these directly outlined in a README within your repo</p></li>
+<li><p class="sd-card-text">Incomplete and or non-working project code may still earn partial credit</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="presentation">
+<h2>Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+~15 Minutes</div>
+<ul class="simple">
+<li><p class="sd-card-text">Each group will be alotted 15 minutes to present. Working as a group it will be your responsibility to keep track of your time. Groups will be cut off at exactly 15 minutes. So please practice your presentations to maximize your time. A possible breakout of time may be:</p>
+<ul>
+<li><p class="sd-card-text">explain your topic, structure / algorithm {~8 mins}</p></li>
+<li><p class="sd-card-text">review source code (compiling and plots) {~4 mins}</p></li>
+<li><p class="sd-card-text">answer questions {~3min}</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Slides should be used to express key points and give the audience a focal point for conceptual information</p></li>
+<li><p class="sd-card-text">Your project code should be used for practical demostration</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Partial Credit</div>
+<ul class="simple">
+<li><p class="sd-card-text">May be recieved for incomplete/non-working projects where deep understanding of the data structure / algorithm is proven</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="report">
+<h2>Report<a class="headerlink" href="#report" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Substance</div>
+<p class="sd-card-text">Must include the following:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Title Page</p>
+<ul>
+<li><p class="sd-card-text">group members</p></li>
+<li><p class="sd-card-text">project topic with concentration</p></li>
+<li><p class="sd-card-text">date</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Table of Contents</p>
+<ul>
+<li><p class="sd-card-text">headings</p></li>
+<li><p class="sd-card-text">subheadings</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Body (things to include, not necessarily in this order…)</p>
+<ul>
+<li><p class="sd-card-text">introduction to your topic</p>
+<ul>
+<li><p class="sd-card-text">context &amp; purpose</p></li>
+<li><p class="sd-card-text">surface level detail</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">introduction to your project</p>
+<ul>
+<li><p class="sd-card-text">what is it</p></li>
+<li><p class="sd-card-text">why did you choose it</p></li>
+<li><p class="sd-card-text">how does it mesh with your topic</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">methods</p>
+<ul>
+<li><p class="sd-card-text">explain the data structure / algorithm in depth</p>
+<ul>
+<li><p class="sd-card-text">deeper thinking details</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="sd-card-text">implementation</p>
+<ul>
+<li><p class="sd-card-text">describe your work</p></li>
+<li><p class="sd-card-text">highlight portions of code to address</p></li>
+<li><p class="sd-card-text">proofs (if you code is working)</p>
+<ul>
+<li><p class="sd-card-text">include input scenarios</p></li>
+<li><p class="sd-card-text">actual outputs from your code</p></li>
+<li><p class="sd-card-text">detailed descriptions</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="sd-card-text">contributions</p>
+<ul>
+<li><p class="sd-card-text">create a table with each members contributions</p></li>
+<li><p class="sd-card-text"><em>note: contributions should be verifiable via GitHub</em></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="sd-card-text">Conclusion</p>
+<ul>
+<li><p class="sd-card-text">wrap up findings from research</p></li>
+<li><p class="sd-card-text">wrap up findings from your programming</p></li>
+<li><p class="sd-card-text">formalize any other conclusions or predictions you can make relative to the topic and ways it may be used in the world</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Partial Credit</div>
+<ul class="simple">
+<li><p class="sd-card-text">May be granted to incomplete projects if the report includes sound, relevant information regardless of progress</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<dl class="simple myst">
+<dt>Source Code</dt><dd><p class="sd-card-text">Gradescope: submit only the link to your group’s primary project repository</p>
+</dd>
+<dt>Presentation</dt><dd><p class="sd-card-text">Gradescope: slides (must be converted to PDF prior to submission)</p>
+</dd>
+<dt>Report</dt><dd><p class="sd-card-text">Gradescope: submit as a PDF</p>
+</dd>
+</dl>
+<p class="sd-card-text"><strong><em>Note: any portion missing from the Gradescope submission will not be graded…</em></strong></p>
+</div>
+</div>
+</section>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Rubric</div>
+<p class="sd-card-text">Presentation</p>
+<p class="sd-card-text">Group #</p>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p class="sd-card-text">0: No Credit</p></td>
+<td><p class="sd-card-text">2: Poor</p></td>
+<td><p class="sd-card-text">4: Acceptable</p></td>
+<td><p class="sd-card-text">7: Good</p></td>
+<td><p class="sd-card-text">10: Exceptional</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><em>Subject Knowledge</em></p></td>
+<td></td>
+<td><p class="sd-card-text">Goal of research unclear, information included that does not support research claims in any way.</p></td>
+<td><p class="sd-card-text">There is a great deal of information that is not clearly integrated or connected to the research.</p></td>
+<td><p class="sd-card-text">Sufficient information with many good points made, uneven balance and little consistency.</p></td>
+<td><p class="sd-card-text">An abundance of material clearly related to the research is presented. Points are clearly made and evidence is used to support claims</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><em>Organization</em></p></td>
+<td></td>
+<td><p class="sd-card-text">Audience cannot understand presentation because there is no sequence of information.</p></td>
+<td><p class="sd-card-text">Audience has difficulty following presentation because the presentation jumps around and lacks clear transitions.</p></td>
+<td><p class="sd-card-text">Information is presented in logical sequence which audience can follow.</p></td>
+<td><p class="sd-card-text">Information is presented in a logical and interesting sequence which audience can follow. Flows well.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><em>Communication</em></p></td>
+<td><p class="sd-card-text">Presentation could not be followed</p></td>
+<td><p class="sd-card-text">Information is unclear/muddied but engaging</p></td>
+<td><p class="sd-card-text">X</p></td>
+<td><p class="sd-card-text">Communicates subject matter well but fails to engage the audience</p></td>
+<td><p class="sd-card-text">Connects and engages the audience to bring subject to life</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><em>Length</em></p></td>
+<td><p class="sd-card-text">Too long or too short; ten or more minutes above or below allotted time.</p></td>
+<td><p class="sd-card-text">Within six minutes of allotted time +/-</p></td>
+<td><p class="sd-card-text">Within four minutes of allotted time +/-.</p></td>
+<td><p class="sd-card-text">X</p></td>
+<td><p class="sd-card-text">Within two minutes of allotted time +/-.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Sorting Algorithms</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 3\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the following algorithms</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">sort</span></code></p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">mergesort</span></code></p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">quicksort</span></code></p></li>
+<li><p class="sd-card-text">1 additional algorithm not present in class</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Benchmark all algorithms recording their runtime</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">use different sequence sizes</p></li>
+<li><p class="sd-card-text">use different types of sequences:</p>
+<ul>
+<li><p class="sd-card-text">sorted, reversed, random, partially sorted</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Left-leaning red-black BSTs</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p>
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">search</span></code> must also return/print the count</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Store the words of an input text file</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">for the word (<span class="math notranslate nohighlight">\(node\)</span>) in the tree, a count with the number of repeats must also be stored</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>B-Tree</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p>
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">search</span></code> must also return/print the count</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Store the words of an input text file</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">for the word (<span class="math notranslate nohighlight">\(node\)</span>) in the tree, a count with the number of repeats must also be stored</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Trie</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p>
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">search</span></code> must also return/print the count</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Store the words of an input text file</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">for the word (<span class="math notranslate nohighlight">\(node\)</span>) in the tree, a count with the number of repeats must also be stored</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Splay Tree</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p>
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">search</span></code> must also return/print the count</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Store the words of an input text file</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">for the word (<span class="math notranslate nohighlight">\(node\)</span>) in the tree, a count with the number of repeats must also be stored</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Segment Tree</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">must read intervals from an input text file</p></li>
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p></li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>k-d Tree</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">must read intervals from an input text file</p></li>
+<li><p class="sd-card-text">ensure at least <code class="docutils literal notranslate"><span class="pre">insert</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">serach</span></code> methods are correct</p></li>
+<li><p class="sd-card-text">generate a DOT file for visualization</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Sparse Matrices with Linked Lists</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 3\)</span></div>
+<p class="sd-card-text"><strong><em>Implement the Data Structure (using classes)</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">at least matrix addition and matrix multiplication</p></li>
+<li><p class="sd-card-text">load sparce matrices from files</p></li>
+<li><p class="sd-card-text">design a class for representing a matrix using linked lists</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>String Search I</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement algorithms</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">rabin-karp</p></li>
+<li><p class="sd-card-text">boyer-moore</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Benchmark all algorithms recording their runtime</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">generate plots of running time of multiple sizes</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>String Search II</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement algorithms</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">knuth-morris-pratt</p></li>
+<li><p class="sd-card-text">boyer-moore</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Benchmark all algorithms recording their runtime</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">generate plots of running time of multiple sizes</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Recursive Graphics</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement recursive fractals</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Sierpinski Triangle</p></li>
+<li><p class="sd-card-text">Hilbert Curve</p></li>
+<li><p class="sd-card-text">Koch snowflake</p></li>
+</ul>
+<p class="sd-card-text"><strong><em>Save each output to a PDF or image file</em></strong></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Convex Hull</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="math notranslate nohighlight">\(limit\ = 2\)</span></div>
+<p class="sd-card-text"><strong><em>Implement Graham’s Scan algorithm</em></strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">find a way to save a visualization</p>
+<ul>
+<li><p class="sd-card-text">can generate a DOT file</p></li>
+</ul>
+</li>
+</ul>
+<p class="sd-card-text"><strong><em>Read a set of points from a file</em></strong></p>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan Schrader<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
