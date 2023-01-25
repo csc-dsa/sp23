@@ -1,0 +1,8 @@
+Dog 20 40
+Dog 30 50
+Cat 10 10
+Snake 30 50
+Hamster 5 5
+Dog 60 70
+Bird 40 60
+Dog 75 75
