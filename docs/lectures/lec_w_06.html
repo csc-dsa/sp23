@@ -425,6 +425,11 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://ijchen.github.io/uri-csc212-mazeviz/">
+     Maze Visualizer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -559,6 +564,19 @@ title="Fullscreen mode"
   </span>
 
 </button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/lec_w_06.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -648,51 +666,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="week-6">
 <h1>Week 6<a class="headerlink" href="#week-6" title="Permalink to this headline">#</a></h1>
-<div class="attention admonition">
-<p class="admonition-title">Agenda</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Tuesday</p></th>
-<th class="head"><p>Thursday</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="recursive_algo_analysis.html"><span class="doc std std-doc">Analyzing Recursive Algorithms</span></a></p></td>
-<td><p><a class="reference internal" href="recurrences.html"><span class="doc std std-doc">Recurrences</span></a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="warning admonition">
-<p class="admonition-title">Action Items</p>
-<table class="table">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Lab</p></th>
-<th class="head"><p>Assignment</p></th>
-<th class="head"><p>Project</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="../labs/lab-06/readme.html"><span class="doc std std-doc">Backtracking</span></a><br><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar sd-text-info" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5h8.5a.25.25 0 01.25.25V6h-11V3.75a.25.25 0 01.25-.25h2zm-2.25 4v6.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V7.5h-11z"></path></svg> Due before next lab…</p></td>
-<td><p><a class="reference internal" href="../assignments/a3/readme.html"><span class="doc std std-doc">A3: Conceptualization I</span></a><br><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar sd-text-info" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5h8.5a.25.25 0 01.25.25V6h-11V3.75a.25.25 0 01.25-.25h2zm-2.25 4v6.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V7.5h-11z"></path></svg> <em>Week 7</em></p></td>
-<td><p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">Due</span> <span class="xref myst">Gradebook</span><br><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar sd-text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5h8.5a.25.25 0 01.25.25V6h-11V3.75a.25.25 0 01.25-.25h2zm-2.25 4v6.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V7.5h-11z"></path></svg> <em>Monday, 11:59p</em></p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p><a class="reference internal" href="../projects/tp_rubric.html"><span class="doc std std-doc">DSA</span></a><br><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar sd-text-info" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5h8.5a.25.25 0 01.25.25V6h-11V3.75a.25.25 0 01.25-.25h2zm-2.25 4v6.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V7.5h-11z"></path></svg>  <em>Week 14</em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
