@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/big-o.html">
-     Big-O Notiation
+     Big-O Notation
     </a>
    </li>
   </ul>
@@ -425,6 +425,11 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://ijchen.github.io/uri-csc212-mazeviz/">
+     Maze Visualizer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -438,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+    <a class="reference external" href="https://github.com/csc-dsa/sp23/blob/main/assignment-3.pdf">
      assignment-3.pdf
     </a>
    </li>
@@ -530,6 +535,19 @@ title="Fullscreen mode"
   </span>
 
 </button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flabs/lab-03/readme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -599,19 +617,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arrays">
-   Arrays
+  <a class="reference internal nav-link" href="#background-info">
+   Background Info
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dynamic-arrays-resizable-arrays">
-   Dynamic Arrays (Resizable Arrays)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amortized-analysis">
-   Amortized Analysis
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arrays">
+     Arrays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dynamic-arrays-resizable-arrays">
+       Dynamic Arrays (Resizable Arrays)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amortized-analysis">
+     Amortized Analysis
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#your-task">
@@ -622,6 +649,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#requirements">
    Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -643,19 +677,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arrays">
-   Arrays
+  <a class="reference internal nav-link" href="#background-info">
+   Background Info
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dynamic-arrays-resizable-arrays">
-   Dynamic Arrays (Resizable Arrays)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amortized-analysis">
-   Amortized Analysis
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arrays">
+     Arrays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dynamic-arrays-resizable-arrays">
+       Dynamic Arrays (Resizable Arrays)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amortized-analysis">
+     Amortized Analysis
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#your-task">
@@ -666,6 +709,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#requirements">
    Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -679,21 +729,23 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lab-03-dynamic-arrays">
 <h1>Lab 03: Dynamic Arrays<a class="headerlink" href="#lab-03-dynamic-arrays" title="Permalink to this headline">#</a></h1>
+<section id="background-info">
+<h2>Background Info<a class="headerlink" href="#background-info" title="Permalink to this headline">#</a></h2>
 <section id="arrays">
-<h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h2>
-<p>Arrays are one of the most common and versatile data structures and are essential to almost any useful <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">C++</span></code> program. They allow us to store hundreds, or even thousands, of elements inside of memory while providing random access in <span class="math notranslate nohighlight">\(O(1)\)</span> to all of them. While these helpful structures provide us with near-instant access to our data whenever we need it, they are not without weakness. When using regular C-style arrays, you must declare a fixed size for them at the time of their creation and, once this size is declared, it cannot be changed.</p>
+<h3>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h3>
+<p>Arrays are one of the most common and versatile data structures and are essential to almost any useful C or C++ program. They allow us to store hundreds, or even thousands, of elements inside of memory while providing random access in <code class="docutils literal notranslate"><span class="pre">O(1)</span></code> to all of them. While these helpful structures provide us with near-instant access to our data whenever we need it, they are not without weakness. When using regular C-style arrays, you must declare a fixed size for them at the time of their creation and, once this size is declared, it cannot be changed.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// this array is limited to a maximum of 100 elements, it CANNOT hold more</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+
 <span class="c1">// this array is dynamically *allocated* but its size is still static</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">myOtherArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This presents an obvious problem: What if you don’t know how much space you need in your array at compile time? On one hand, if you declare an array with too little space, you will have nowhere to store additional values. On the other hand, if you always declare an array with maximum capacity (e.g. <code class="docutils literal notranslate"><span class="pre">ULLONG_MAX</span></code> equal to 18446744073709551615) you will almost certainly have enough space, but you will be wasting huge amounts of unused memory in almost any situation.</p>
 <p>As it turns out, the solution to the problem of capacity is to use <em>Dynamic Arrays</em>.</p>
-</section>
 <section id="dynamic-arrays-resizable-arrays">
-<h2>Dynamic Arrays (Resizable Arrays)<a class="headerlink" href="#dynamic-arrays-resizable-arrays" title="Permalink to this headline">#</a></h2>
-<p>Dynamic Arrays are similar to regular <code class="docutils literal notranslate"><span class="pre">C++</span></code> arrays in that they still provide random access in constant time to to elements. However, Dynamic Arrays have the advantage of being <strong>dynamically resizable</strong>. This means that they can grow as you add more elements to them and shrink as you no longer need space. Using a Dynamic Array, you don’t need to know the size of a list at compile time.</p>
+<h4>Dynamic Arrays (Resizable Arrays)<a class="headerlink" href="#dynamic-arrays-resizable-arrays" title="Permalink to this headline">#</a></h4>
+<p>Dynamic Arrays are similar to regular C++ arrays in that they still provide random access in constant time to to elements. However, Dynamic Arrays have the advantage of being <strong>dynamically resizable</strong>. This means that they can grow as you add more elements to them and shrink as you no longer need space. Using a Dynamic Array, you don’t need to know the size of a list at compile time.</p>
 <p>The way a Dynamic Array works is to begin with a starting size (often 0). For every insert, we do one of two things depending on the current state of the array:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Array</span> <span class="ow">is</span> <span class="n">NOT</span> <span class="n">full</span><span class="p">:</span>
 	<span class="n">insert</span> <span class="n">into</span> <span class="n">our</span> <span class="n">array</span> 
@@ -706,15 +758,17 @@ title="Print to PDF"
 <blockquote>
 <div><p>If you have programmed previously, chances are you are already familiar with data structures that implement the same idea as dynamic arrays in one language or another. C++ provides an implementation <code class="docutils literal notranslate"><span class="pre">std::vector&lt;&gt;</span></code>. Java’s implementation is called an <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;&gt;</span></code>.</p>
 </div></blockquote>
-<p>The goal of this assignment is to implement your own Dynamic Array Class in <code class="docutils literal notranslate"><span class="pre">C++</span></code>.</p>
+<p>The goal of this assignment is to implement your own Dynamic Array Class in C++.</p>
+</section>
 </section>
 <section id="amortized-analysis">
-<h2>Amortized Analysis<a class="headerlink" href="#amortized-analysis" title="Permalink to this headline">#</a></h2>
-<p>For arrays, it is a simple task to see that an <strong>insert</strong> operation runs in <span class="math notranslate nohighlight">\(O(1)\)</span> time. We have random memory access, and all of the space we need is already allocated. It does not matter if we are inserting into index 0, or index 10,000; both operations will take the same amount of time. Most functions are also fairly simple to calculate Big-Oh; just count the instructions.</p>
-<p>But what about for a Dynamic Array? Some inserts will take <span class="math notranslate nohighlight">\(O(1)\)</span> time, but others will require the above steps to resize of the array <span class="math notranslate nohighlight">\(O(n)\)</span>. Observe the following series of inserts:</p>
+<h3>Amortized Analysis<a class="headerlink" href="#amortized-analysis" title="Permalink to this headline">#</a></h3>
+<p>For arrays, it is a simple task to see that an <strong>insert</strong> operation runs in <span class="math notranslate nohighlight">\(O(1)\)</span> time. We have random memory access, and all of the space we need is already allocated. It does not matter if we are inserting into index <code class="docutils literal notranslate"><span class="pre">0</span></code>, or index <code class="docutils literal notranslate"><span class="pre">10,000</span></code>; both operations will take the same amount of time. Most functions are also fairly simple to calculate <span class="math notranslate nohighlight">\(Big-O\)</span>; just count the instructions.</p>
+<p>But what about for a Dynamic Array? Some inserts will take <span class="math notranslate nohighlight">\(O(1)\)</span> time, but others will require the above steps to resize of the array (<span class="math notranslate nohighlight">\(O(n)\)</span>). Observe the following series of inserts:</p>
 <p><img alt="image" src="../../_images/Dynamic-Table.png" /></p>
-<p>Any time there is the (Overflow) label, that is saying the array must be resized. How can we calculate the run time for a function (insert) for a function that is sometimes O(1), and sometimes O(n)? Well, we essentially just take the average:</p>
+<p>Any time there is the (<code class="docutils literal notranslate"><span class="pre">Overflow</span></code>) label, that is saying the array must be resized. How can we calculate the run time for a function (<code class="docutils literal notranslate"><span class="pre">insert</span></code>) for a function that is sometimes <span class="math notranslate nohighlight">\(O(1)\)</span>, and sometimes <span class="math notranslate nohighlight">\(O(n)\)</span>? Well, we essentially just take the average:</p>
 <p><img alt="image" src="../../_images/AmortizedAnalysis.png" /></p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="your-task">
@@ -729,50 +783,65 @@ title="Print to PDF"
 <span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// the number of items currently in the array</span>
 <span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m_length</span><span class="p">;</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// the number of available spaces in the array</span>
 <span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m_capacity</span><span class="p">;</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// the scaling factor when resizing the array (always &gt; 1)</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">m_scaling_factor</span><span class="p">;</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// pointer to the array of integers</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">m_data</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">m_data</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// default constructor, capacity = 0, no need to allocate an internal array yet</span>
 <span class="w">        </span><span class="n">DynamicArray</span><span class="p">();</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// default constructor with a scaling factor, creates an array with capacity = capacity</span>
 <span class="w">        </span><span class="n">DynamicArray</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">scaling_factor</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">);</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// fill constructor, creates an array of capacity = length, and set all values to `default_value`</span>
-<span class="w">        </span><span class="n">DynamicArray</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">scaling_factor</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">default_value</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">DynamicArray</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">scaling_factor</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">default_value</span><span class="p">);</span><span class="w"></span>
+
 <span class="w">        </span><span class="c1">// copy constructor</span>
 <span class="w">        </span><span class="n">DynamicArray</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// default destructor, free memory of the array here</span>
 <span class="w">        </span><span class="o">~</span><span class="n">DynamicArray</span><span class="p">();</span><span class="w"> </span>
 
 <span class="w">        </span><span class="c1">// get the number of elements in the array</span>
-<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getLength</span><span class="p">();</span><span class="w"> </span>
-<span class="w">        </span><span class="c1">// get the capacity of the array</span>
-<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCapacity</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// get scaling factor Needed by GUI </span>
-<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">getScalingFactor</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// set the scaling factor of the array</span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">setScalingFactor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span>
-<span class="w">        </span><span class="c1">// convert the vector into a printable string in the format &quot;{x x x x}&quot; where x is data in the array</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">toString</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_length</span><span class="p">();</span><span class="w"></span>
 
-<span class="w">    	</span><span class="c1">// add a value to the end of the array (resize if necessary)</span>
+<span class="w">        </span><span class="c1">// get the capacity of the array</span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_capacity</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// get scaling factor Needed by GUI </span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_scaling_factor</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// set the scaling factor of the array</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_scaling_factor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// convert the vector into a printable string </span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">to_string</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// find the first occurrence of &quot;value&quot; in the array. Return false if the value is not found</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">find_first_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// find the last occurrence of &quot;value&quot; in the array. Return false if the value is not found</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">find_last_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// add a value to the end of the array (resize if necessary)</span>
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// add a value to the beginning of the array (resize if necessary)</span>
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">prepend</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span>
-<span class="w">        </span><span class="c1">// find the first occurrence of &quot;value&quot; in the array. Return false if the value is not found</span>
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">findFirstOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// find the last occurrence of &quot;value&quot; in the array. Return false if the value is not found</span>
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">findLastOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"> </span>
 
 <span class="w">        </span><span class="c1">// remove the last value from the array</span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeLast</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove_last</span><span class="p">();</span><span class="w"></span>
+
 <span class="w">        </span><span class="c1">// remove the first value from the array </span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeFirst</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove_first</span><span class="p">();</span><span class="w"></span>
+
 <span class="w">        </span><span class="c1">// remove all elements from the array </span>
 <span class="w">        </span><span class="c1">// allocated memory should be deleted and the array pointer should now point to NULL</span>
 <span class="w">        </span><span class="c1">// capacity and length should be reset to zero</span>
@@ -780,6 +849,7 @@ title="Print to PDF"
 
 <span class="w">        </span><span class="c1">// overloading the [] operator for read/write access</span>
 <span class="w">        </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"> </span>
+
 <span class="w">        </span><span class="c1">// assignment operator</span>
 <span class="w">        </span><span class="n">DynamicArray</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">DynamicArray</span><span class="w"> </span><span class="o">&amp;</span><span class="n">other</span><span class="p">);</span><span class="w"> </span>
 <span class="p">};</span><span class="w"></span>
@@ -790,8 +860,10 @@ title="Print to PDF"
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DynamicArray.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
 
+<span class="c1">// &quot;Fancy&quot; way to write a default constructor.</span>
+<span class="c1">// Note: The other constructors can *NOT* be written this way!</span>
 <span class="n">DynamicArray</span><span class="o">::</span><span class="n">DynamicArray</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">m_length</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">m_capacity</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">m_scaling_factor</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span><span class="w"> </span><span class="n">m_data</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">m_length</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">m_capacity</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">m_scaling_factor</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span><span class="w"> </span><span class="n">m_data</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="n">DynamicArray</span><span class="o">::</span><span class="n">DynamicArray</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">scaling_factor</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -812,32 +884,52 @@ title="Print to PDF"
 <span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">;</span><span class="w"> </span>
 <span class="p">}</span><span class="w"></span>
 
+<span class="c1">// Destructor: destroys the dynamically allocated array on the heap</span>
 <span class="n">DynamicArray</span><span class="o">::~</span><span class="n">DynamicArray</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">m_data</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">getLength</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">get_length</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_length</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">getCapacity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">get_capacity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_capacity</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">double</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">getScalingFactor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">get_scaling_factor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_scaling_factor</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">setScalingFactor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">set_scaling_factor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">m_scaling_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="s">&quot;{&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">to_string</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// Initialize an empty string</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span>
+<span class="w">	</span><span class="c1">//..............</span>
+<span class="w">    </span><span class="c1">// TODO</span>
+<span class="w">    </span><span class="c1">//..............</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">find_first_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="w">    </span><span class="c1">// TODO</span>
 <span class="w">    </span><span class="c1">//..............</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">find_last_of</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//..............</span>
+<span class="w">    </span><span class="c1">// TODO</span>
+<span class="w">    </span><span class="c1">//..............</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">append</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -852,29 +944,13 @@ title="Print to PDF"
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">bool</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">findFirstOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//..............</span>
-<span class="w">    </span><span class="c1">// TODO</span>
-<span class="w">    </span><span class="c1">//..............</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">bool</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">findLastOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//..............</span>
-<span class="w">    </span><span class="c1">// TODO</span>
-<span class="w">    </span><span class="c1">//..............</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">removeLast</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">remove_last</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="w">    </span><span class="c1">// TODO</span>
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">removeFirst</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="n">remove_first</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="w">    </span><span class="c1">// TODO</span>
 <span class="w">    </span><span class="c1">//..............</span>
@@ -886,6 +962,7 @@ title="Print to PDF"
 <span class="w">    </span><span class="c1">//..............</span>
 <span class="p">}</span><span class="w"></span>
 
+<span class="c1">// Examples of &quot;operator overloading&quot;</span>
 <span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">DynamicArray</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_data</span><span class="p">[</span><span class="n">index</span><span class="p">];</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -896,6 +973,7 @@ title="Print to PDF"
 <span class="w">    </span><span class="n">m_scaling_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">m_scaling_factor</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">m_capacity</span><span class="p">];</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">m_data</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">m_data</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_length</span><span class="p">);</span><span class="w"></span>
+
 <span class="w">    </span><span class="c1">// this allows statements such as (a = b = c) assuming a, b, and c are all the DynamicArray type</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span><span class="w"> </span>
 <span class="p">}</span><span class="w"></span>
@@ -909,19 +987,38 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
-<blockquote>
-<div><p>We <strong>strongly recommend</strong> you complete <code class="docutils literal notranslate"><span class="pre">toString()</span></code> so it’s easier to test and visualize your code.</p>
-</div></blockquote>
 <ol class="simple">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">append()</span></code> and <code class="docutils literal notranslate"><span class="pre">prepend()</span></code></p></li>
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">findFirstOf()</span></code> and <code class="docutils literal notranslate"><span class="pre">findLastOf()</span></code></p></li>
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">removeLast()</span></code>, <code class="docutils literal notranslate"><span class="pre">removeFirst()</span></code>, and <code class="docutils literal notranslate"><span class="pre">clear()</span></code></p></li>
-<li><p>Create test cases for each of your functions that prove they work. Note: The array should <strong>grow/shrink accordingly</strong> with the data!</p>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">to_string()</span></code>, <code class="docutils literal notranslate"><span class="pre">append()</span></code>, and <code class="docutils literal notranslate"><span class="pre">prepend()</span></code></p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">find_first_of()</span></code> and <code class="docutils literal notranslate"><span class="pre">find_last_of()</span></code></p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">remove_last()</span></code>, <code class="docutils literal notranslate"><span class="pre">remove_first()</span></code>, and <code class="docutils literal notranslate"><span class="pre">clear()</span></code></p></li>
+</ol>
+<p>You must create your own <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> file to test your implemented functions. You must use CLAs to control how your program runs. The CLAs given to your program will determine which constructor will be used. e.g. if I run <code class="docutils literal notranslate"><span class="pre">./prog</span> <span class="pre">input.txt</span> <span class="pre">2.5</span> <span class="pre">10</span></code> then I will create a DynamicArray with <code class="docutils literal notranslate"><span class="pre">scaling_factor</span></code> of <code class="docutils literal notranslate"><span class="pre">2.5</span></code> and an initial <code class="docutils literal notranslate"><span class="pre">capacity</span></code> of <code class="docutils literal notranslate"><span class="pre">10</span></code>. However, if I run it with no additional CLAs other than the input file then it will use the default constructor.</p>
+<p>The first test case will use the following input file, the other two test cases are hidden from you:</p>
+<p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6</span> <span class="pre">7</span> <span class="pre">8</span></code></p>
+<p>Your program should perform the following tasks once the <code class="docutils literal notranslate"><span class="pre">DynamicArray</span></code> object is created:</p>
 <ul class="simple">
-<li><p>Please <strong>print or check your length and capacity</strong> with each test so you can confirm correct functionality.</p></li>
+<li><p>Read an unknown number of integers from a file (it is fine to use the <code class="docutils literal notranslate"><span class="pre">vector</span></code> class to hold these temporarily)</p>
+<ul>
+<li><p>You’ll need to use the <code class="docutils literal notranslate"><span class="pre">fstream</span></code>, <code class="docutils literal notranslate"><span class="pre">sstream</span></code>, and <code class="docutils literal notranslate"><span class="pre">string</span></code> libraries to parse this file</p></li>
 </ul>
 </li>
-</ol>
+<li><p>Instantiate an instance of DynamicArray</p></li>
+<li><p>Perform the following actions, displaying the results of <code class="docutils literal notranslate"><span class="pre">to_string</span></code> after each:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">append</span></code> the first 1/2 of the integers to your DynamicArray (integer division for odd length collections)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prepend</span></code> the second 1/2 of the integers to your DynamicArray</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_first_of</span></code> the value 1/3 of the way through the original list (use a tab to seperate the true/false and the index)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_last_of</span></code> the value 1/3 of the way through the original list (use a tab to seperate the true/false and the index)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_last</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_first</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear</span></code></p></li>
+</ul>
+</li>
+</ul>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://github.com/csc-dsa/sp23/tree/main/lab_03_scaffolding">Lab 3 Scaffolding</a></p>
+</section>
 </section>
 </section>
 
