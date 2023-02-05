@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/big-o.html">
-     Big-O Notiation
+     Big-O Notation
     </a>
    </li>
   </ul>
@@ -443,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+    <a class="reference external" href="https://github.com/csc-dsa/sp23/blob/main/assignment-3.pdf">
      assignment-3.pdf
     </a>
    </li>
@@ -617,6 +617,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-week-4-monday-by-11-59p">
+   Due Week 4, Monday by 11:59p
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-a-maze">
    What is a Maze?
   </a>
@@ -668,6 +673,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-week-4-monday-by-11-59p">
+   Due Week 4, Monday by 11:59p
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-a-maze">
    What is a Maze?
   </a>
@@ -711,11 +721,14 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="a2-practical-i">
 <h1>A2: Practical I<a class="headerlink" href="#a2-practical-i" title="Permalink to this headline">#</a></h1>
+<section id="due-week-4-monday-by-11-59p">
+<h2>Due Week 4, Monday by 11:59p<a class="headerlink" href="#due-week-4-monday-by-11-59p" title="Permalink to this headline">#</a></h2>
 <p>The goal of this assignment is to review the use of <em>classes</em> and <em>dynamic arrays</em> in <code class="docutils literal notranslate"><span class="pre">C++</span></code>, both in the context of a <em>maze generation</em> application.  The assignment is worth a total of 100 points. If you have any questions or need any help, please visit us during office hours and/or post questions on EdStem.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you need to post any of your actual source code on EdStem for any reason, <strong>please</strong> be sure to tag the post as being <em>visible to instructors only</em>, so that you don’t inadvertently share code with others and violate class rules on <em>plagiarism</em>.</p>
 </div>
+</section>
 <section id="what-is-a-maze">
 <h2>What is a Maze?<a class="headerlink" href="#what-is-a-maze" title="Permalink to this headline">#</a></h2>
 <p>A maze is a puzzle, with starting and ending points, in which a player is tasked to find a path connecting an starting point to an ending point.  Many algorithms for automatically generating random mazes have been proposed.  In this assignment we will implement a <em>randomized depth-first search</em> approach that uses <em>dynamic arrays</em>.  For the context of this assignment, every maze is two-dimensional and it only contains 1 starting and 1 ending cell.  There should be exactly one path connecting both cells.  The example below illustrates a random maze of dimensions <code class="docutils literal notranslate"><span class="pre">n=6,</span> <span class="pre">m=12</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code> rows and <code class="docutils literal notranslate"><span class="pre">m</span></code> columns.  Note that the starting point always happens at cell <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">0</span></code> and the ending point at <code class="docutils literal notranslate"><span class="pre">n-1,</span> <span class="pre">m-1</span></code>.</p>
@@ -726,7 +739,7 @@ title="Print to PDF"
 <p>A data structure for representing a maze in memory may be a two dimensional array in which every cell encodes whether each of the 4 walls is closed or open.  We can assume each cell has 4 walls: <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code>, and <code class="docutils literal notranslate"><span class="pre">west</span></code>.</p>
 <p>The algorithm for generating a maze starts with a grid where only 2 walls are removed, <code class="docutils literal notranslate"><span class="pre">north</span></code> for the starting position, and <code class="docutils literal notranslate"><span class="pre">south</span></code> for the ending position, as illustrated in the 6x6 grid below.</p>
 <!-- <img src="./start-6-6.png" width="350"> -->
-<img alt="../../_images/start-6-6.png" src="../../_images/start-6-6.png" />
+<img alt="../../_images/start-6-6.png" class="align-center" src="../../_images/start-6-6.png" />
 <p>A common approach for maze generation involves removing interior walls iteratively.  At each iteration a wall is removed to connect two adjacent cells.  This iterative process must follow these rules:</p>
 <ul class="simple">
 <li><p>walls to be removed should be selected randomly. Use <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random/rand"><code class="docutils literal notranslate"><span class="pre">std::rand()</span></code></a> to generate random numbers and <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random/srand"><code class="docutils literal notranslate"><span class="pre">std::srand()</span></code></a> to provide a seed to the random number generator</p></li>
@@ -790,7 +803,7 @@ endwhile
 <h3>Maze file format<a class="headerlink" href="#maze-file-format" title="Permalink to this headline">#</a></h3>
 <p>The file format for saving the maze is just a two dimensional array of integers, where each integer is used to represent a cell and its walls.  Each integer in the matrix ranges from 0 to 16.  The idea behind this representation is that the walls are encoded using 4 bits, and the ingeters are just their corresponding values in decimal notation.  The figure below illustrates the encoding:</p>
 <p><img alt="Two-dimensional maze" src="../../_images/walls.jpg" /></p>
-<p>When saving the grid, the output file must be a <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">file</span></code> in which cell values are separated by a single whitespace, and organized in <code class="docutils literal notranslate"><span class="pre">n</span></code> rows and <code class="docutils literal notranslate"><span class="pre">m</span></code> columns (the grid dimensions).  For example, the image below shows one grid with 5 rows and 5 columns.  The text file representation of the grid appears on the left, and the corresponding maze appears on the right.  Note how each number maps into a cell encoding its walls.  We prepared a script that can help you test your program by creating a visualization of your grid, for more details please refer to <span class="xref myst">this document</span>.</p>
+<p>When saving the grid, the output file must be a <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">file</span></code> in which cell values are separated by a single whitespace, and organized in <code class="docutils literal notranslate"><span class="pre">n</span></code> rows and <code class="docutils literal notranslate"><span class="pre">m</span></code> columns (the grid dimensions).  For example, the image below shows one grid with 5 rows and 5 columns.  The text file representation of the grid appears on the left, and the corresponding maze appears on the right.  Note how each number maps into a cell encoding its walls.  We prepared a script that can help you test your program by creating a visualization of your grid, for more details please refer to <a class="reference internal" href="conversion/readme.html"><span class="doc std std-doc">this document</span></a>.</p>
 <p><img alt="Two-dimensional maze" src="../../_images/example.png" /></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
