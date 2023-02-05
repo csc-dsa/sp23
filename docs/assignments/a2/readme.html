@@ -764,7 +764,7 @@ while `A` is not empty
         mark `neigh` as visited
         insert `neigh` at the end of `A`
     endif
-endwhile
+end while
 </pre></div>
 </div>
 <div class="admonition important">
@@ -801,7 +801,7 @@ endwhile
 </section>
 <section id="maze-file-format">
 <h3>Maze file format<a class="headerlink" href="#maze-file-format" title="Permalink to this headline">#</a></h3>
-<p>The file format for saving the maze is just a two dimensional array of integers, where each integer is used to represent a cell and its walls.  Each integer in the matrix ranges from 0 to 16.  The idea behind this representation is that the walls are encoded using 4 bits, and the ingeters are just their corresponding values in decimal notation.  The figure below illustrates the encoding:</p>
+<p>The file format for saving the maze is just a two dimensional array of integers, where each integer is used to represent a cell and its walls.  Each integer in the matrix ranges from 0 to 16.  The idea behind this representation is that the walls are encoded using 4 bits, and the integers are just their corresponding values in decimal notation.  The figure below illustrates the encoding:</p>
 <p><img alt="Two-dimensional maze" src="../../_images/walls.jpg" /></p>
 <p>When saving the grid, the output file must be a <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">file</span></code> in which cell values are separated by a single whitespace, and organized in <code class="docutils literal notranslate"><span class="pre">n</span></code> rows and <code class="docutils literal notranslate"><span class="pre">m</span></code> columns (the grid dimensions).  For example, the image below shows one grid with 5 rows and 5 columns.  The text file representation of the grid appears on the left, and the corresponding maze appears on the right.  Note how each number maps into a cell encoding its walls.  We prepared a script that can help you test your program by creating a visualization of your grid, for more details please refer to <a class="reference internal" href="conversion/readme.html"><span class="doc std std-doc">this document</span></a>.</p>
 <p><img alt="Two-dimensional maze" src="../../_images/example.png" /></p>
