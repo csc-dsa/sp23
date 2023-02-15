@@ -183,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/big-o.html">
-     Big-O Notiation
+     Big-O Notation
     </a>
    </li>
   </ul>
@@ -423,6 +423,11 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://ijchen.github.io/uri-csc212-mazeviz/">
+     Maze Visualizer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -436,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+    <a class="reference external" href="https://github.com/csc-dsa/sp23/blob/main/assignment-3.pdf">
      assignment-3.pdf
     </a>
    </li>
@@ -529,6 +534,51 @@ title="Fullscreen mode"
 
 </button>
 
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/csc-dsa/sp23"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/csc-dsa/sp23/issues/new?title=Issue%20on%20page%20%2Flabs/lab-04/readme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
       aria-label="Download this page">
@@ -600,116 +650,111 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#pointers-references">
    Pointers &amp; References
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linked-lists">
-   Linked Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-node-class">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Node
-    </span>
-   </code>
-   Class
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-linked-list-class">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Linked
-    </span>
-    <span class="pre">
-     List
-    </span>
-   </code>
-   Class
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linked-list-traversal">
-     Linked List Traversal
+    <a class="reference internal nav-link" href="#motivation-why-are-we-doing-this">
+     Motivation (Why are we doing this?)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singly-linked-list">
-     Singly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#doubly-linked-list">
-     Doubly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circularly-singly-linked-list">
-     Circularly Singly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
-     Circularly Doubly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
-     Visualizing Singly-Linked List Operations
+    <a class="reference internal nav-link" href="#background-info">
+     Background Info
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#push-front">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+      <a class="reference internal nav-link" href="#id1">
+       Pointers &amp; References
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linked-lists">
+       Linked Lists
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-node-class">
+         The Node Class
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-linked-list-class">
+         The Linked List Class
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#linked-list-traversal">
+         Linked List Traversal
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#singly-linked-list">
+         Singly Linked List
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#doubly-linked-list">
+           Doubly Linked List
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circularly-singly-linked-list">
+         Circularly Singly Linked List
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
+         Circularly Doubly Linked List
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
+         Visualizing Singly-Linked List Operations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#push-front">
          push_front
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#push-back">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#push-back">
          push_back
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#insert">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#insert">
          insert
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#delete">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#delete">
          delete
-        </span>
-       </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-task">
+     Your Task
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resources">
+       Resources
       </a>
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#your-task-task">
-   Your Task {#task}
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements-reqs">
-   Requirements {#reqs}
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submission">
@@ -739,116 +784,111 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#pointers-references">
    Pointers &amp; References
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linked-lists">
-   Linked Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-node-class">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Node
-    </span>
-   </code>
-   Class
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-linked-list-class">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Linked
-    </span>
-    <span class="pre">
-     List
-    </span>
-   </code>
-   Class
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linked-list-traversal">
-     Linked List Traversal
+    <a class="reference internal nav-link" href="#motivation-why-are-we-doing-this">
+     Motivation (Why are we doing this?)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singly-linked-list">
-     Singly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#doubly-linked-list">
-     Doubly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circularly-singly-linked-list">
-     Circularly Singly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
-     Circularly Doubly Linked List
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
-     Visualizing Singly-Linked List Operations
+    <a class="reference internal nav-link" href="#background-info">
+     Background Info
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#push-front">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+      <a class="reference internal nav-link" href="#id1">
+       Pointers &amp; References
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linked-lists">
+       Linked Lists
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-node-class">
+         The Node Class
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-linked-list-class">
+         The Linked List Class
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#linked-list-traversal">
+         Linked List Traversal
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#singly-linked-list">
+         Singly Linked List
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#doubly-linked-list">
+           Doubly Linked List
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circularly-singly-linked-list">
+         Circularly Singly Linked List
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circularly-doubly-linked-list">
+         Circularly Doubly Linked List
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#visualizing-singly-linked-list-operations">
+         Visualizing Singly-Linked List Operations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#push-front">
          push_front
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#push-back">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#push-back">
          push_back
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#insert">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#insert">
          insert
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#delete">
-       <code class="docutils literal notranslate">
-        <span class="pre">
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#delete">
          delete
-        </span>
-       </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-task">
+     Your Task
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resources">
+       Resources
       </a>
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#your-task-task">
-   Your Task {#task}
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements-reqs">
-   Requirements {#reqs}
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submission">
@@ -869,6 +909,14 @@ title="Print to PDF"
 <h1>Lab 04: Linked Lists<a class="headerlink" href="#lab-04-linked-lists" title="Permalink to this headline">#</a></h1>
 <section id="pointers-references">
 <h2>Pointers &amp; References<a class="headerlink" href="#pointers-references" title="Permalink to this headline">#</a></h2>
+<section id="motivation-why-are-we-doing-this">
+<h3>Motivation (Why are we doing this?)<a class="headerlink" href="#motivation-why-are-we-doing-this" title="Permalink to this headline">#</a></h3>
+<p>The goal of this lab is to provide a <strong>review of pointers</strong> while giving you an under-the-hood introduction to the <code class="docutils literal notranslate"><span class="pre">Linked</span> <span class="pre">List</span></code> data structure.</p>
+</section>
+<section id="background-info">
+<h3>Background Info<a class="headerlink" href="#background-info" title="Permalink to this headline">#</a></h3>
+<section id="id1">
+<h4>Pointers &amp; References<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <p>Pointers &amp; references can be a bit confusing at first in C++ as the language uses the same symbols for multiple operations. For example, the <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol can be used to create a pointer, or to de-reference a pointer. Similarly, the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> symbol can be used to create a reference or to obtain the memory address of an existing variable. Hopefully by the end of this lab we will de-mystify this concept and will all be comfortable with using them.</p>
 <p>To be more efficient, the code we’ll be writing passes the vector of elements to be sorted by <strong>reference</strong>. This makes it so we do not need to make multiple copies of the vector (a mistake some of you made on assignment one), as copying a vector is an expensive operation. There are three ways in C++ to pass by reference:</p>
 <ul class="simple">
@@ -974,20 +1022,20 @@ title="Print to PDF"
 <p>Take a look at <a class="reference external" href="https://www.geeksforgeeks.org/pointers-vs-references-cpp/">this article</a> for a little more reading on pointers and references, then answer these questions.</p>
 </section>
 <section id="linked-lists">
-<h2>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h2>
+<h4>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h4>
 <p>We’ll start with a brief introduction to Linked Lists &amp; a brief description of the types of Linked Lists.</p>
-</section>
 <section id="the-node-class">
-<h2>The <code class="docutils literal notranslate"><span class="pre">Node</span></code> Class<a class="headerlink" href="#the-node-class" title="Permalink to this headline">#</a></h2>
+<h5>The Node Class<a class="headerlink" href="#the-node-class" title="Permalink to this headline">#</a></h5>
 <p>Linked Lists are your first introduction to a dynamically resizing data structure that does <strong>not</strong> involve a copy operation. A Linked List is only ever as large as it needs to be. Unlike an array, data does not get stored directly into any primitive storage container. Instead, we utilize a second concept called the <code class="docutils literal notranslate"><span class="pre">Node</span></code>. Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> contains the data it is storing, as well as a pointer(s) to neighboring nodes, with the amount of pointers depending on the type of Linked List being implemented. This class is meant to be very simple: each <code class="docutils literal notranslate"><span class="pre">Node</span></code> object holds: the datum and pointer(s) to other <code class="docutils literal notranslate"><span class="pre">Node</span></code> objects. Aside from constructors, getters, and setters are all you need to add to the <code class="docutils literal notranslate"><span class="pre">Node</span></code> class.</p>
 <p><img alt="image" src="../../_images/node.png" /></p>
 </section>
 <section id="the-linked-list-class">
-<h2>The <code class="docutils literal notranslate"><span class="pre">Linked</span> <span class="pre">List</span></code> Class<a class="headerlink" href="#the-linked-list-class" title="Permalink to this headline">#</a></h2>
+<h5>The Linked List Class<a class="headerlink" href="#the-linked-list-class" title="Permalink to this headline">#</a></h5>
 <p>In a Linked List,<code class="docutils literal notranslate"><span class="pre">Nodes</span></code> are <em>linked</em> together to form a data structure, hence the name. The primary goals of the LinkedList class are to provide an entry point into the data structure (the <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">pointer</span></code>) and facilitate traversal, insertion, deletion, etc. The Linked List class contains a <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">pointer</span></code>, as well as any utility functions that should operate on the structure (some are listed below.)</p>
 <p><img alt="image" src="../../_images/linked-list.png" /></p>
+</section>
 <section id="linked-list-traversal">
-<h3>Linked List Traversal<a class="headerlink" href="#linked-list-traversal" title="Permalink to this headline">#</a></h3>
+<h5>Linked List Traversal<a class="headerlink" href="#linked-list-traversal" title="Permalink to this headline">#</a></h5>
 <p>For many operations, we will be required to traverse the Linked List in order to get to the location we plan to perform an operation on. A quick reminder on going about this task; <strong>you cannot move the head pointer!</strong> If you do, you will lose access to all of the data in your list. Instead, we make use of a temporary pointer.</p>
 <p><img alt="image" src="../../_images/linked-list-traversal-1.png" /></p>
 <p>We start by creating a temporary pointer and making the assignment <code class="docutils literal notranslate"><span class="pre">temp</span> <span class="pre">=</span> <span class="pre">head</span></code>, so both <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code> point to the same location in memory (the first <code class="docutils literal notranslate"><span class="pre">Node</span></code>.)</p>
@@ -997,15 +1045,14 @@ title="Print to PDF"
 <p>This process repeats until some terminating condition is met. This condition will depend on the operation you are performing.</p>
 </section>
 <section id="singly-linked-list">
-<h3>Singly Linked List<a class="headerlink" href="#singly-linked-list" title="Permalink to this headline">#</a></h3>
+<h5>Singly Linked List<a class="headerlink" href="#singly-linked-list" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/singly-linked-list.png" /></p>
 <ul class="simple">
 <li><p>Each node (pair of boxes) contains data (in this case integers), and a pointer to the next node.</p></li>
 <li><p>There is also a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer, which should always point to the first node in the linked list as long as operations are not currently being performed on it (i.e, “the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer points to the first node” is an <em>invariant</em> of a singly linked list).</p></li>
 </ul>
-</section>
 <section id="doubly-linked-list">
-<h3>Doubly Linked List<a class="headerlink" href="#doubly-linked-list" title="Permalink to this headline">#</a></h3>
+<h6>Doubly Linked List<a class="headerlink" href="#doubly-linked-list" title="Permalink to this headline">#</a></h6>
 <p><img alt="image" src="../../_images/doubly-linked-list.png" /></p>
 <ul class="simple">
 <li><p>Each node (triad of boxes) contains data (in this case integers), a pointer to the next node, <em>and</em> a pointer to the previous node.</p></li>
@@ -1015,8 +1062,9 @@ title="Print to PDF"
 <div><p><strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">head</span></code> node’s <code class="docutils literal notranslate"><span class="pre">prev</span></code> points to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
 </div></blockquote>
 </section>
+</section>
 <section id="circularly-singly-linked-list">
-<h3>Circularly Singly Linked List<a class="headerlink" href="#circularly-singly-linked-list" title="Permalink to this headline">#</a></h3>
+<h5>Circularly Singly Linked List<a class="headerlink" href="#circularly-singly-linked-list" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/circularly-singly-linked-list.png" /></p>
 <ul class="simple">
 <li><p>Each node (pair of boxes) contains data (in this case integers), and a pointer to the next node. This time, the final node points back to the head node.</p></li>
@@ -1024,7 +1072,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="circularly-doubly-linked-list">
-<h3>Circularly Doubly Linked List<a class="headerlink" href="#circularly-doubly-linked-list" title="Permalink to this headline">#</a></h3>
+<h5>Circularly Doubly Linked List<a class="headerlink" href="#circularly-doubly-linked-list" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/circularly-double-linked-list.png" /></p>
 <ul class="simple">
 <li><p>Each node (triad of boxes) contains data (in this case integers), a pointer to the next node, <em>and</em> a pointer to the previous node.</p></li>
@@ -1033,63 +1081,63 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="visualizing-singly-linked-list-operations">
-<h3>Visualizing Singly-Linked List Operations<a class="headerlink" href="#visualizing-singly-linked-list-operations" title="Permalink to this headline">#</a></h3>
+<h5>Visualizing Singly-Linked List Operations<a class="headerlink" href="#visualizing-singly-linked-list-operations" title="Permalink to this headline">#</a></h5>
 <p>To begin our journey of fully understanding the inner-workings of linked lists, we will start by coding the simplest of the bunch: the singly linked list. Below are some visual representations for basic operations.</p>
+</section>
 <section id="push-front">
-<h4><code class="docutils literal notranslate"><span class="pre">push_front</span></code><a class="headerlink" href="#push-front" title="Permalink to this headline">#</a></h4>
+<h5>push_front<a class="headerlink" href="#push-front" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/linked-list-push-front.png" /></p>
 <p>As we already have access to the head of the list, push_front is rather easy to implement. Simply create a new node, assign its ‘next’ to head, and assign head to the new node!</p>
 </section>
 <section id="push-back">
-<h4><code class="docutils literal notranslate"><span class="pre">push_back</span></code><a class="headerlink" href="#push-back" title="Permalink to this headline">#</a></h4>
+<h5>push_back<a class="headerlink" href="#push-back" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/linked-list-push-back.png" /></p>
 <p>We’ll need to do a bit more work to insert at the end of the list. Seeing as we only have access to ‘head’, we’ll need to create a temp pointer that points to ‘head’, then traverse until we reach the end of the list.</p>
 </section>
 <section id="insert">
-<h4><code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#insert" title="Permalink to this headline">#</a></h4>
+<h5>insert<a class="headerlink" href="#insert" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/linked-list-insert.png" /></p>
 <p>Similar to push_back, we need to traverse the list until we arrive at a particular location. Except this time, we don’t just traverse until the end; we need to keep count of what “index” we are at in order for the function to work as intended.</p>
 </section>
 <section id="delete">
-<h4><code class="docutils literal notranslate"><span class="pre">delete</span></code><a class="headerlink" href="#delete" title="Permalink to this headline">#</a></h4>
+<h5>delete<a class="headerlink" href="#delete" title="Permalink to this headline">#</a></h5>
 <p><img alt="image" src="../../_images/linked-list-deletion.png" /></p>
 <p>Deletion is a trickier operation than any of the inserts, as you’ll need to use <em>two temp pointers</em> to complete this operation. Their final state is given above if ‘C’ were being deleted. You’ll need to move the pointers together, and <code class="docutils literal notranslate"><span class="pre">prev</span></code> should trail <code class="docutils literal notranslate"><span class="pre">tmp</span></code></p>
 </section>
 </section>
 </section>
-<hr class="docutils" />
-<section id="your-task-task">
-<h2>Your Task {#task}<a class="headerlink" href="#your-task-task" title="Permalink to this headline">#</a></h2>
+<section id="your-task">
+<h3>Your Task<a class="headerlink" href="#your-task" title="Permalink to this headline">#</a></h3>
 <p>Your task is to create both a <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class that utilizes a <code class="docutils literal notranslate"><span class="pre">Node</span></code> class that stores integers, and performs the following tasks:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">push_front</span></code></p>
 <ul>
-<li><p>Adds an integer to the front of the list</p></li>
+<li><p>Adds an integer to the front of the list.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">push_back</span></code></p>
 <ul>
-<li><p>Adds an integer to the end of the list</p></li>
+<li><p>Adds an integer to the end of the list.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">insert</span></code></p>
 <ul>
-<li><p>Adds an integer to the list at a specific index</p></li>
+<li><p>Adds an integer to the list at a specific index.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">delete</span></code></p>
 <ul>
-<li><p>Searches for &amp; removes a specific element in the list</p></li>
+<li><p>Searches for &amp; removes a specific element in the list.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">contains</span></code></p>
 <ul>
-<li><p>Returns true if the given value exists in the list. False otherwise.</p></li>
+<li><p>Returns true if the given value exists in the list, false otherwise.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p>
 <ul>
-<li><p>Returns the # of elements in the list</p></li>
+<li><p>Returns the # of elements in the list.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">to_string</span></code></p>
@@ -1099,31 +1147,69 @@ The list 5 -&gt; 3 -&gt; 4 -&gt; 2 would return “5 3 4 2”</p></li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<div><p>You’re welcome to either make a Node class (in which case, the <a class="reference external" href="https://www.educative.io/edpresso/what-is-the-friend-keyword-in-cpp">friend keyword</a> might come in handy) or make your Node a <a class="reference external" href="https://www.educative.io/edpresso/what-is-a-cpp-struct">struct</a>.</p>
-</div></blockquote>
+<section id="resources">
+<h4>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://github.com/csc-dsa/sp23/tree/main/lab_04_scaffolding">lab_04_scaffolding</a></p>
 </section>
-<hr class="docutils" />
-<section id="requirements-reqs">
-<h2>Requirements {#reqs}<a class="headerlink" href="#requirements-reqs" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>Implement <code class="docutils literal notranslate"><span class="pre">to_string</span></code>, <code class="docutils literal notranslate"><span class="pre">push_front</span></code>, and <code class="docutils literal notranslate"><span class="pre">push_back</span></code></p></li>
-<li><p>Implement <code class="docutils literal notranslate"><span class="pre">contains</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code></p></li>
-<li><p>Implement <code class="docutils literal notranslate"><span class="pre">insert</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code></p></li>
-</ol>
 </section>
-<hr class="docutils" />
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h3>
+<p>Your program will read in the name of a file via CLA.</p>
+<p>The first line in the file will control which constructor will be used (similar to Lab 3). Examine the constructor declarations to determine the possible cases you will need to check for.</p>
+<p>After the first line is read, the rest of the file will contain a series of commands, 1 per line, that must be followed:</p>
+<ul class="simple">
+<li><p>An integer</p>
+<ul>
+<li><p>odd integers get prepending to the list</p></li>
+<li><p>even integers get appended to the list</p></li>
+</ul>
+</li>
+<li><p>A pair of integers</p>
+<ul>
+<li><p>val, idx to be inserted</p></li>
+</ul>
+</li>
+<li><p>A negative integer</p>
+<ul>
+<li><p>the integer to be deleted from the list</p></li>
+<li><p>Note: You’ll need to remove the ‘-’ before passing the value to the function!</p></li>
+</ul>
+</li>
+<li><p>An integer with a question mark</p>
+<ul>
+<li><p>the integer to search for in the list</p></li>
+<li><p>Note: Again, you’ll need to remove the ‘?’ before passing the value to your function!</p></li>
+</ul>
+</li>
+</ul>
+<p>After each command is read and executed, print out the list <strong>if there have been any changes</strong>.</p>
+<p>This is the output for <strong>test1.txt</strong> that you have been given:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span> <span class="mi">3</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">22</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span>
+<span class="mi">45</span> <span class="mi">3</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">22</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">70</span>
+<span class="mi">45</span> <span class="mi">3</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">22</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span>
+<span class="mi">21</span> <span class="mi">45</span> <span class="mi">3</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">22</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span>
+<span class="mi">21</span> <span class="mi">45</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">22</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span>
+<span class="mi">21</span> <span class="mi">45</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">7</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">21</span> <span class="mi">45</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span>
+<span class="mi">21</span> <span class="mi">45</span> <span class="mi">37</span> <span class="mi">79</span> <span class="mi">97</span> <span class="mi">25</span> <span class="mi">19</span> <span class="mi">83</span> <span class="mi">10</span> <span class="mi">70</span> <span class="mi">1</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="submission">
-<h2><a class="reference external" href="#1-introduction">Submission</a><a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
 <p>You should submit the following files:</p>
 <ul class="simple">
-<li><p>linked-list.h</p></li>
-<li><p>linked-list.cpp</p></li>
-<li><p>node.hp</p></li>
+<li><p>linked_list.h</p></li>
+<li><p>linked_list.cpp</p></li>
+<li><p>node.h</p></li>
 <li><p>node.cpp</p></li>
 <li><p>main.cpp</p></li>
-<li><p>answers.txt (this file contains any answers to non-coding questions in this lab)</p></li>
 </ul>
+<p>Original assignment by <a class="reference external" href="https://homepage.cs.uri.edu/~malvarez/">Dr. Marco Alvarez</a>, used and modified with permission.</p>
 </section>
 </section>
 
