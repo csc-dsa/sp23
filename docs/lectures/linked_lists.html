@@ -537,10 +537,36 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/csc-dsa/sp23/issues/new?title=Issue%20on%20page%20%2Flectures/linked_lists.html&body=Your%20issue%20content%20here."
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/csc-dsa/sp23"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="bottom"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/csc-dsa/sp23/issues/new?title=Issue%20on%20page%20%2Flectures/linked_lists.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
 title="Open an issue"
 >
   
@@ -548,8 +574,14 @@ title="Open an issue"
 <span class="headerbtn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-
+<span class="headerbtn__text-container">open issue</span>
 </a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -921,11 +953,22 @@ title="Print to PDF"
 </div>
 <p class="sd-card-text"><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">link: cppreference</a></p>
 </div>
-<div class="admonition-array-v-vector admonition">
+<div class="dropdown tip admonition">
 <p class="admonition-title">array v. vector</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
 <figure class="align-default">
-<img alt="https://miro.medium.com/max/3572/1*Lnb0IARMGORn_c-gYf-24g.png" src="https://miro.medium.com/max/3572/1*Lnb0IARMGORn_c-gYf-24g.png" />
+<img alt="https://www.educba.com/academy/wp-content/uploads/2018/09/C-Vector-vs-Array.jpg" src="https://www.educba.com/academy/wp-content/uploads/2018/09/C-Vector-vs-Array.jpg" />
 </figure>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<figure class="align-default">
+<img alt="https://cdn.educba.com/academy/wp-content/uploads/2020/12/C-vector-vs-array-info.jpg" src="https://cdn.educba.com/academy/wp-content/uploads/2020/12/C-vector-vs-array-info.jpg" />
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="admonition-forward-list-https-en-cppreference-com-w-cpp-container-forward-list admonition">
 <p class="admonition-title"><a class="reference external" href="https://en.cppreference.com/w/cpp/container/forward_list">forward-list</a></p>
@@ -977,6 +1020,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p class="sd-card-text"><a class="reference external" href="https://en.cppreference.com/w/cpp/container/list">link: cppreference</a></p>
+</div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">array v. linked list</p>
+<figure class="align-default">
+<img alt="https://miro.medium.com/max/3572/1*Lnb0IARMGORn_c-gYf-24g.png" src="https://miro.medium.com/max/3572/1*Lnb0IARMGORn_c-gYf-24g.png" />
+</figure>
 </div>
 <p class="sd-card-text"><a class="reference external" href="https://learn.microsoft.com/en-us/cpp/standard-library/stl-containers?view=msvc-170">https://learn.microsoft.com/en-us/cpp/standard-library/stl-containers?view=msvc-170</a></p>
 <div class="tip admonition">
@@ -1273,49 +1322,49 @@ Linked lists in C++</div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="1527680c-99bd-4c46-99b7-4ddc70f27435" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="1527680c-99bd-4c46-99b7-4ddc70f27435">
+<input checked="checked" id="2ad3f87e-7984-4150-917d-4b2380816047" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="2ad3f87e-7984-4150-917d-4b2380816047">
 insert {&#64;tail}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_last.png"><img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_last.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_last.png" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_ins_tail.gif"><img alt="../_images/ll_ins_tail.gif" class="align-center" src="../_images/ll_ins_tail.gif" style="width: 600px;" /></a>
 </div>
-<input id="0d60d354-afdc-48b2-8931-5624b891ae17" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="0d60d354-afdc-48b2-8931-5624b891ae17">
+<input id="03930377-b71a-4217-93f1-040a55cb6309" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="03930377-b71a-4217-93f1-040a55cb6309">
 insert {&#64;head}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_at_start.png"><img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_at_start.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_at_start.png" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_ins_head.gif"><img alt="../_images/ll_ins_head.gif" class="align-center" src="../_images/ll_ins_head.gif" style="width: 600px;" /></a>
 </div>
-<input id="ab91b930-3c77-433b-a3b7-ba1a280b7b7c" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="ab91b930-3c77-433b-a3b7-ba1a280b7b7c">
+<input id="4550eeb3-c2f1-4719-afa0-6b1f94384ab9" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="4550eeb3-c2f1-4719-afa0-6b1f94384ab9">
 insert {&#64;index}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_middle.png"><img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_middle.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_middle.png" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_ins_index.gif"><img alt="../_images/ll_ins_index.gif" class="align-center" src="../_images/ll_ins_index.gif" style="width: 600px;" /></a>
 </div>
-<input id="005d0d66-3288-4d4c-a0b4-3ce7aed9269c" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="005d0d66-3288-4d4c-a0b4-3ce7aed9269c">
+<input id="4a9b3e15-c09d-450a-965d-9dc33b0f3298" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="4a9b3e15-c09d-450a-965d-9dc33b0f3298">
 remove {&#64;tail}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://static.javatpoint.com/ds/images/deleting-a-node-from-the-last.png"><img alt="https://static.javatpoint.com/ds/images/deleting-a-node-from-the-last.png" class="align-center" src="https://static.javatpoint.com/ds/images/deleting-a-node-from-the-last.png" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_rmv_tail.gif"><img alt="../_images/ll_rmv_tail.gif" class="align-center" src="../_images/ll_rmv_tail.gif" style="width: 600px;" /></a>
 </div>
-<input id="388f5174-901f-47aa-b5de-2391d320d547" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="388f5174-901f-47aa-b5de-2391d320d547">
+<input id="115dd983-977c-4165-8d4a-3440016cd6df" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="115dd983-977c-4165-8d4a-3440016cd6df">
 remove {&#64;head}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://iq.opengenus.org/content/images/2018/08/delete_first_ll.jpg"><img alt="https://iq.opengenus.org/content/images/2018/08/delete_first_ll.jpg" class="align-center" src="https://iq.opengenus.org/content/images/2018/08/delete_first_ll.jpg" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_rmv_head.gif"><img alt="../_images/ll_rmv_head.gif" class="align-center" src="../_images/ll_rmv_head.gif" style="width: 600px;" /></a>
 </div>
-<input id="3191fd02-515b-4671-bec8-8cd719a8151d" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="3191fd02-515b-4671-bec8-8cd719a8151d">
+<input id="75564f1f-94dd-4e16-aa9e-2b2698ae537c" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="75564f1f-94dd-4e16-aa9e-2b2698ae537c">
 remove {&#64;index}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/05/Linkedlist_deletion.png"><img alt="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/05/Linkedlist_deletion.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/05/Linkedlist_deletion.png" style="width: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/ll_rmv_index.gif"><img alt="../_images/ll_rmv_index.gif" class="align-center" src="../_images/ll_rmv_index.gif" style="width: 600px;" /></a>
 </div>
-<input id="ccdede00-f106-4b09-9851-be59a1729cd2" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="ccdede00-f106-4b09-9851-be59a1729cd2">
+<input id="79a4ba9c-b439-4941-9eb7-2d4460d64cbc" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="79a4ba9c-b439-4941-9eb7-2d4460d64cbc">
 search {value not found}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="../_images/ll_srch_val_nf.gif"><img alt="../_images/ll_srch_val_nf.gif" class="align-center" src="../_images/ll_srch_val_nf.gif" style="width: 600px;" /></a>
 </div>
-<input id="84282a5a-2665-4c27-bf49-f517981507f7" name="86e497eb-8673-4723-9591-70340d6602e5" type="radio">
-</input><label class="sd-tab-label" for="84282a5a-2665-4c27-bf49-f517981507f7">
+<input id="949ac436-c484-4834-abc2-b0cc17cddaf3" name="6c1ed7d9-d385-45c9-aea1-13753ddb657c" type="radio">
+</input><label class="sd-tab-label" for="949ac436-c484-4834-abc2-b0cc17cddaf3">
 search {value found}</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="../_images/ll_srch_val_f.gif"><img alt="../_images/ll_srch_val_f.gif" class="align-center" src="../_images/ll_srch_val_f.gif" style="width: 600px;" /></a>
 </div>
