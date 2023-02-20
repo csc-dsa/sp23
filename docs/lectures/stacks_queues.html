@@ -927,6 +927,20 @@ push<div class="sd-summary-down docutils">
 <ul class="simple">
 <li><p class="sd-card-text">inserts one element onto the stack</p></li>
 </ul>
+<figure class="align-default">
+<img alt="https://algorithmtutor.com/images/stack_push.png" src="https://algorithmtutor.com/images/stack_push.png" />
+</figure>
+<blockquote>
+<div><dl class="simple myst">
+<dt>A new item can be pushed into a stack using the following steps</dt><dd><p class="sd-card-text">Check if the stack is full. If it is, then you can not insert the item. Raise “Stack Overflow” error.</p>
+</dd>
+<dd><p class="sd-card-text">If the stack is not full, insert the item at the top of the stack.</p>
+</dd>
+<dd><p class="sd-card-text">Make this item a new top of the stack.</p>
+</dd>
+</dl>
+<p class="sd-card-text">– <a class="reference external" href="https://algorithmtutor.com/Data-Structures/Basic/Stacks/">https://algorithmtutor.com/Data-Structures/Basic/Stacks/</a></p>
+</div></blockquote>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -938,6 +952,29 @@ pop<div class="sd-summary-down docutils">
 <ul class="simple">
 <li><p class="sd-card-text">returns the element at the top of the stack (and removes it)</p></li>
 </ul>
+<figure class="align-default">
+<img alt="https://algorithmtutor.com/images/stack_pop.png" src="https://algorithmtutor.com/images/stack_pop.png" />
+</figure>
+<blockquote>
+<div><dl class="simple myst">
+<dt>An item on the top of the stack can be removed (popped) using following steps.</dt><dd><p class="sd-card-text">Check if the stack is empty. If it is, then you can not remove the item. Raise “Stack Underflow” error.</p>
+</dd>
+<dd><p class="sd-card-text">If the stack is not empty, remove the item at the top of the stack.</p>
+</dd>
+<dd><p class="sd-card-text">Update the top of the stack.</p>
+</dd>
+</dl>
+<p class="sd-card-text">– <a class="reference external" href="https://algorithmtutor.com/Data-Structures/Basic/Stacks/">https://algorithmtutor.com/Data-Structures/Basic/Stacks/</a></p>
+</div></blockquote>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+push-pop<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><img alt="push-pop" src="https://i5.walmartimages.com/asr/086c29e7-6a57-4e3b-866e-5acb0a55a20f.ce63df4e7d8951e80eef82640705f104.jpeg?odnWidth=400&amp;odnHeight=400&amp;odnBg=ffffff" /></p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -949,6 +986,9 @@ isEmpty<div class="sd-summary-down docutils">
 <ul class="simple">
 <li><p class="sd-card-text">not necessary, but sometimes useful</p></li>
 </ul>
+<blockquote>
+<div><p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">top</span></code> operation returns the item at the top of the stack. Don’t be confused this operation with the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation. The <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation removes the top item whereas the <code class="docutils literal notranslate"><span class="pre">top</span></code> operation only reads the value of the top item. As in the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation, we need to check if the stack is empty before reading the value.</p>
+</div></blockquote>
 </div>
 </details></div>
 </div>
@@ -1047,8 +1087,8 @@ isEmpty<div class="sd-summary-down docutils">
 <div class="admonition-stack-ll-sample admonition">
 <p class="admonition-title">Stack: LL Sample</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="9bf76115-e513-4dd4-a85c-da84ce2e9788" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="9bf76115-e513-4dd4-a85c-da84ce2e9788">
+<input checked="checked" id="0d01b358-0ccd-40a6-a692-c1f9ffdfceea" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="0d01b358-0ccd-40a6-a692-c1f9ffdfceea">
 Altogether</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -1100,8 +1140,8 @@ Altogether</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="4df6dce1-9418-4c19-a462-6f14c813c77c" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="4df6dce1-9418-4c19-a462-6f14c813c77c">
+<input id="3b686578-ddc5-428c-837e-04606025c6e2" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="3b686578-ddc5-428c-837e-04606025c6e2">
 Node</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -1115,8 +1155,8 @@ Node</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a522a768-c53f-431a-b036-38727e50e075" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="a522a768-c53f-431a-b036-38727e50e075">
+<input id="14273f85-b696-4ec4-aa6c-7621ba658132" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="14273f85-b696-4ec4-aa6c-7621ba658132">
 Stack</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
@@ -1130,8 +1170,8 @@ Stack</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="63cc843d-edd2-4598-92b8-209fa54f25ee" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="63cc843d-edd2-4598-92b8-209fa54f25ee">
+<input id="e32aee9f-ec03-4dc3-9769-f451ab18d9db" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="e32aee9f-ec03-4dc3-9769-f451ab18d9db">
 push()</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
@@ -1141,8 +1181,8 @@ push()</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5b1c0f21-8d80-47a9-999c-4ce125c747ae" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="5b1c0f21-8d80-47a9-999c-4ce125c747ae">
+<input id="ee54a605-72cf-403b-a4ee-a2ebcc49aef3" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="ee54a605-72cf-403b-a4ee-a2ebcc49aef3">
 pop()</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1157,8 +1197,8 @@ pop()</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a5164551-71a8-415c-a06e-1c5748e00682" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="a5164551-71a8-415c-a06e-1c5748e00682">
+<input id="4d14707c-c9b8-4346-96fe-98ad3ac5f353" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="4d14707c-c9b8-4346-96fe-98ad3ac5f353">
 peek()</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1169,8 +1209,8 @@ peek()</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b6354a10-7299-407c-a51d-58c322be6f83" name="5d91b6a5-5091-4ab7-8017-ed7ed8e55267" type="radio">
-</input><label class="sd-tab-label" for="b6354a10-7299-407c-a51d-58c322be6f83">
+<input id="56f895ca-416d-4f98-b709-4955abd69436" name="c9f1871f-89a6-4155-81c5-3c66ccb7ad07" type="radio">
+</input><label class="sd-tab-label" for="56f895ca-416d-4f98-b709-4955abd69436">
 isEmpty()</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
@@ -1217,7 +1257,7 @@ Underflow<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">error can be thrown when calling <em><em>pop</em></em> on an empty stack</p>
+<p class="sd-card-text">error can be thrown when calling <code class="docutils literal notranslate"><span class="pre">pop</span></code> on an empty stack</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -1226,7 +1266,8 @@ Overflow<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">error can be thrown when calling <em><em>push</em></em> on a full stack  (especially in fixed-length implementations)</p>
+<p class="sd-card-text">error can be thrown when calling <code class="docutils literal notranslate"><span class="pre">push</span></code> on a full stack  (especially in fixed-length implementations)</p>
+<img alt="https://thecodinglove.com/content/036/glass_stackoverflow_tw.png" class="align-center" src="https://thecodinglove.com/content/036/glass_stackoverflow_tw.png" />
 </div>
 </details></div>
 </div>
@@ -1260,6 +1301,9 @@ Overflow<div class="sd-summary-down docutils">
 <figure class="align-default">
 <img alt="https://airpix.io/assets/images/queue-management/airport-queue.png" src="https://airpix.io/assets/images/queue-management/airport-queue.png" />
 </figure>
+<figure class="align-default">
+<img alt="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" src="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" />
+</figure>
 </div>
 </div>
 </div>
@@ -1270,13 +1314,13 @@ Overflow<div class="sd-summary-down docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-default">
-<img alt="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" src="https://assets.interviewbit.com/assets/skill_interview_questions/data-structure/queue-2c61774234ac435fa7c5edb2867d269f7b22159a72c5e871a2d7c94b5f945831.png.gz" />
+<img alt="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprepinsta.com%2Fwp-content%2Fuploads%2F2020%2F06%2FHow-Queue-in-C-Programming-works-1024x646.png&amp;f=1&amp;nofb=1&amp;ipt=8cf09d53e7476f452a2830dd8ffa4b288d2acf75bda0780f1c01bfa005e1d4f1&amp;ipo=images" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprepinsta.com%2Fwp-content%2Fuploads%2F2020%2F06%2FHow-Queue-in-C-Programming-works-1024x646.png&amp;f=1&amp;nofb=1&amp;ipt=8cf09d53e7476f452a2830dd8ffa4b288d2acf75bda0780f1c01bfa005e1d4f1&amp;ipo=images" />
+</figure>
+<figure class="align-default">
+<img alt="https://algorithmtutor.com/images/queue_operations.png" src="https://algorithmtutor.com/images/queue_operations.png" />
 </figure>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" src="https://miro.medium.com/max/814/0*pdhOeAK6wSh8ipTW.png" />
-</figure>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 enqueue<div class="sd-summary-down docutils">
@@ -1284,7 +1328,14 @@ enqueue<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">inserts one element onto the queue</p>
+<ul class="simple">
+<li><p class="sd-card-text">inserts one element onto the queue</p></li>
+</ul>
+<img alt="https://algorithmtutor.com/images/enqueue.png" class="align-center" src="https://algorithmtutor.com/images/enqueue.png" />
+<blockquote>
+<div><p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> operation inserts a new item at the rear end of the <code class="docutils literal notranslate"><span class="pre">queue</span></code>. After the <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> operation, the value of rear is increased by 1.</p>
+<p class="sd-card-text">– <a class="reference external" href="https://algorithmtutor.com/Data-Structures/Basic/Queues/">https://algorithmtutor.com/Data-Structures/Basic/Queues/</a></p>
+</div></blockquote>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -1293,7 +1344,14 @@ dequeue<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">returns the element at the top of the queue (and removes it)</p>
+<ul class="simple">
+<li><p class="sd-card-text">returns the element at the top of the queue (and removes it)</p></li>
+</ul>
+<img alt="https://algorithmtutor.com/images/dequeue.png" class="align-center" src="https://algorithmtutor.com/images/dequeue.png" />
+<blockquote>
+<div><p class="sd-card-text">The dequeue operation removes the item at the front of the queue. When we remove the item at the front, we increase the value of front.</p>
+<p class="sd-card-text">– <a class="reference external" href="https://algorithmtutor.com/Data-Structures/Basic/Queues/">https://algorithmtutor.com/Data-Structures/Basic/Queues/</a></p>
+</div></blockquote>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -1410,8 +1468,8 @@ isEmpty<div class="sd-summary-down docutils">
 </div>
 <a class="sd-stretched-link reference external" href="https://pythontutor.com/iframe-embed.html#code=//%20CPP%20program%20for%20array%0A//%20implementation%20of%20queue%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0A//%20A%20structure%20to%20represent%20a%20queue%0Aclass%20Queue%20%7B%0Apublic%3A%0A%20%20%20%20int%20front,%20rear,%20size%3B%0A%20%20%20%20unsigned%20capacity%3B%0A%20%20%20%20int*%20array%3B%0A%7D%3B%0A%0A//%20function%20to%20create%20a%20queue%0A//%20of%20given%20capacity.%0A//%20It%20initializes%20size%20of%20queue%20as%200%0AQueue*%20createQueue%28unsigned%20capacity%29%0A%7B%0A%20%20%20%20Queue*%20queue%20%3D%20new%20Queue%28%29%3B%0A%20%20%20%20queue-%3Ecapacity%20%3D%20capacity%3B%0A%20%20%20%20queue-%3Efront%20%3D%20queue-%3Esize%20%3D%200%3B%0A%0A%20%20%20%20//%20This%20is%20important,%20see%20the%20enqueue%0A%20%20%20%20queue-%3Erear%20%3D%20capacity%20-%201%3B%0A%20%20%20%20queue-%3Earray%20%3D%20new%20int%5Bqueue-%3Ecapacity%5D%3B%0A%20%20%20%20return%20queue%3B%0A%7D%0A%0A//%20Queue%20is%20full%20when%20size%0A//%20becomes%20equal%20to%20the%20capacity%0Aint%20isFull%28Queue*%20queue%29%0A%7B%0A%20%20%20%20return%20%28queue-%3Esize%20%3D%3D%20queue-%3Ecapacity%29%3B%0A%7D%0A%0A//%20Queue%20is%20empty%20when%20size%20is%200%0Aint%20isEmpty%28Queue*%20queue%29%0A%7B%0A%20%20%20%20return%20%28queue-%3Esize%20%3D%3D%200%29%3B%0A%7D%0A%0A//%20Function%20to%20add%20an%20item%20to%20the%20queue.%0A//%20It%20changes%20rear%20and%20size%0Avoid%20enqueue%28Queue*%20queue,%20int%20item%29%0A%7B%0A%20%20%20%20if%20%28isFull%28queue%29%29%0A%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20queue-%3Erear%20%3D%20%28queue-%3Erear%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%25%20queue-%3Ecapacity%3B%0A%20%20%20%20queue-%3Earray%5Bqueue-%3Erear%5D%20%3D%20item%3B%0A%20%20%20%20queue-%3Esize%20%3D%20queue-%3Esize%20%2B%201%3B%0A%20%20%20%20cout%20%3C%3C%20item%20%3C%3C%20%22%20enqueued%20to%20queue%5Cn%22%3B%0A%7D%0A%0A//%20Function%20to%20remove%20an%20item%20from%20queue.%0A//%20It%20changes%20front%20and%20size%0Aint%20dequeue%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20int%20item%20%3D%20queue-%3Earray%5Bqueue-%3Efront%5D%3B%0A%20%20%20%20queue-%3Efront%20%3D%20%28queue-%3Efront%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%25%20queue-%3Ecapacity%3B%0A%20%20%20%20queue-%3Esize%20%3D%20queue-%3Esize%20-%201%3B%0A%20%20%20%20return%20item%3B%0A%7D%0A%0A//%20Function%20to%20get%20front%20of%20queue%0Aint%20front%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20return%20queue-%3Earray%5Bqueue-%3Efront%5D%3B%0A%7D%0A%0A//%20Function%20to%20get%20rear%20of%20queue%0Aint%20rear%28Queue*%20queue%29%0A%7B%0A%20%20%20%20if%20%28isEmpty%28queue%29%29%0A%20%20%20%20%20%20%20%20return%20INT_MIN%3B%0A%20%20%20%20return%20queue-%3Earray%5Bqueue-%3Erear%5D%3B%0A%7D%0A%0A//%20Driver%20code%0Aint%20main%28%29%0A%7B%0A%20%20%20%20Queue*%20queue%20%3D%20createQueue%285%29%3B%0A%0A%20%20%20%20enqueue%28queue,%2010%29%3B%0A%20%20%20%20enqueue%28queue,%2020%29%3B%0A%20%20%20%20enqueue%28queue,%2030%29%3B%0A%20%20%20%20enqueue%28queue,%2040%29%3B%0A%0A%20%20%20%20cout%20%3C%3C%20dequeue%28queue%29%0A%20%20%20%20%20%20%20%20%3C%3C%20%22%20dequeued%20from%20queue%5Cn%22%3B%0A%0A%20%20%20%20cout%20%3C%3C%20%22Front%20item%20is%20%22%0A%20%20%20%20%20%20%20%20%3C%3C%20front%28queue%29%20%3C%3C%20endl%3B%0A%20%20%20%20cout%20%3C%3C%20%22Rear%20item%20is%20%22%0A%20%20%20%20%20%20%20%20%3C%3C%20rear%28queue%29%20%3C%3C%20endl%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A%0A//%20This%20code%20is%20contributed%20by%20rathbhupendra&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false"></a></div>
 </div>
-<div class="admonition-arrays-linked-lists admonition">
-<p class="admonition-title">Arrays Linked Lists</p>
+<div class="admonition-queues-linked-lists admonition">
+<p class="admonition-title">Queues : Linked Lists</p>
 <ul class="simple">
 <li><p class="sd-card-text"><strong>enqueue</strong> and <strong>dequeue</strong> at <u>different</u> ends</p></li>
 </ul>
@@ -1494,6 +1552,7 @@ Overflow<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">error can be thrown when calling <strong>enqueue</strong> on a full queue (especially in fixed-length implementations)</p>
+<img alt="https://user-images.githubusercontent.com/5148166/27678605-b48b3f24-5cad-11e7-9417-ab05449fecb9.PNG" class="align-center" src="https://user-images.githubusercontent.com/5148166/27678605-b48b3f24-5cad-11e7-9417-ab05449fecb9.PNG" />
 </div>
 </details></div>
 </div>
