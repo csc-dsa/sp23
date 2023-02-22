@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 05 Lab = (Lab + Recursion(4)) &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
+    <title>Lab 5 - Priority Queues! &#8212; CSC 212 &lt;br&gt;Data Structures &amp; Algorithms</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -183,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../lectures/big-o.html">
-     Big-O Notiation
+     Big-O Notation
     </a>
    </li>
   </ul>
@@ -243,8 +243,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../lectures/binary_search.html">
-     Binary Search
+    <a class="reference internal" href="../../lectures/priority_q_heap.html">
+     Priority Queues
     </a>
    </li>
   </ul>
@@ -309,8 +309,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../lectures/priority_q_heap.html">
-     Priority Queues
+    <a class="reference internal" href="../../lectures/binary_search.html">
+     Binary Search
     </a>
    </li>
    <li class="toctree-l2">
@@ -423,6 +423,11 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://ijchen.github.io/uri-csc212-mazeviz/">
+     Maze Visualizer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -436,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/js-uri/csc-212-fa22/blob/master/homeworks/homework-3/assignment-3.pdf">
+    <a class="reference external" href="https://github.com/csc-dsa/sp23/blob/main/assignment-3.pdf">
      assignment-3.pdf
     </a>
    </li>
@@ -529,6 +534,51 @@ title="Fullscreen mode"
 
 </button>
 
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/csc-dsa/sp23"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/csc-dsa/sp23/issues/new?title=Issue%20on%20page%20%2Flabs/lab-05/readme.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
       aria-label="Download this page">
@@ -597,67 +647,42 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-quick-review-of-recursion">
-   A Quick Review of Recursion
+  <a class="reference internal nav-link" href="#background-info">
+   Background Info
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-think-about-recursive-function-calls">
-     How to think about recursive function calls
+    <a class="reference internal nav-link" href="#linked-list">
+     Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#queue">
+     Queue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#priority-queue">
+     Priority Queue
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sum-of-numbers">
-   1. Sum of Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#upping-the-difficulty">
-   2. Upping the difficulty
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fractals">
-   3. Fractals
+  <a class="reference internal nav-link" href="#your-task">
+   Your Task
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sierpinski-triangle">
-     Sierpinski Triangle
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#koch-snowflake">
-     Koch Snowflake
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#l-systems">
-     L-systems
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#task">
-     Task
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes">
-     Notes
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submission">
-   5. Submission
+   Submission
   </a>
  </li>
 </ul>
@@ -669,7 +694,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lab 05 Lab = (Lab + Recursion(4))</h1>
+                <h1>Lab 5 - Priority Queues!</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -680,67 +705,42 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-quick-review-of-recursion">
-   A Quick Review of Recursion
+  <a class="reference internal nav-link" href="#background-info">
+   Background Info
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-think-about-recursive-function-calls">
-     How to think about recursive function calls
+    <a class="reference internal nav-link" href="#linked-list">
+     Linked List
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#queue">
+     Queue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#priority-queue">
+     Priority Queue
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sum-of-numbers">
-   1. Sum of Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#upping-the-difficulty">
-   2. Upping the difficulty
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fractals">
-   3. Fractals
+  <a class="reference internal nav-link" href="#your-task">
+   Your Task
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sierpinski-triangle">
-     Sierpinski Triangle
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#koch-snowflake">
-     Koch Snowflake
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#l-systems">
-     L-systems
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#task">
-     Task
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes">
-     Notes
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submission">
-   5. Submission
+   Submission
   </a>
  </li>
 </ul>
@@ -753,137 +753,185 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-05-lab-lab-recursion-4">
-<h1>Lab 05 Lab = (Lab + Recursion(4))<a class="headerlink" href="#lab-05-lab-lab-recursion-4" title="Permalink to this headline">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<p>Recursion is the practice of breaking a complicated problem down into small, trivially solvable pieces, and then merging those pieces together to solve the full problem completely. Today you will be implementing a few recursive algorithms. The neat thing about recursion is that you can solve problems with a relatively small amount of well thought out code.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-priority-queues">
+<h1>Lab 5 - Priority Queues!<a class="headerlink" href="#lab-5-priority-queues" title="Permalink to this headline">#</a></h1>
+<section id="background-info">
+<h2>Background Info<a class="headerlink" href="#background-info" title="Permalink to this headline">#</a></h2>
+<p>Priority Queues are a special form of queue that allow for “cutting in line”. This is beneficial when you want to want to enforce a FIFO (first in first out) ordering schema while also allowing more important entries to have priority.</p>
+<section id="linked-list">
+<h3>Linked List<a class="headerlink" href="#linked-list" title="Permalink to this headline">#</a></h3>
+<p>We’ll be using Linked Lists as our base today. We are familiar with the Node &amp; LinkedList classes as well as how they behave together from Lab 4.</p>
+<p>Node objects store Data &amp; a reference to the next Node in the list. The LinkedList maintains a pointer to the first Node in the list (“head”) and contains all of the operations that can be performed on the list. LinkedLists can also contain a “tail” pointer that points to the last element in the list.</p>
+<img alt="https://lh3.googleusercontent.com/-IypOlVgxKfM/YJH5hSShQVI/AAAAAAAAATk/KfjrbvbLe_cgOz7zAW1oOAsOAwlU0rPcACLcBGAsYHQ/w1200-h630-p-k-no-nu/image.png" class="align-center" src="https://lh3.googleusercontent.com/-IypOlVgxKfM/YJH5hSShQVI/AAAAAAAAATk/KfjrbvbLe_cgOz7zAW1oOAsOAwlU0rPcACLcBGAsYHQ/w1200-h630-p-k-no-nu/image.png" />
 </section>
-<section id="a-quick-review-of-recursion">
-<h2>A Quick Review of Recursion<a class="headerlink" href="#a-quick-review-of-recursion" title="Permalink to this headline">#</a></h2>
-<p>In its simplest form, recursion is simply when a function calls itself within its own body. When a recursive function calls itself, a new stack frame is pushed onto the call stack with a slightly different set of parameters (if the parameters do not change it may recurse forever!). Calling itself allows the function to start again from the first line using the new parameters. The function call associated with this new stack frame will likely reach a point where it calls itself again, creating yet another stack frame with, again, with slightly different parameters. This process repeats until the base case is reached.</p>
-<p>At first, this may seem like an infinite loop of sorts, but if the function is implemented correctly, the input should be modified at each call such that the parameters get closer to triggering the base case. In the base case, some non-recursive code is executed, and the function is able to return to whichever stack frame came before it, picking up where it left off. One by one, each call to the recursive function will complete, having done some processing on the input, and return its own result. If the function is implemented without a base case, or continually recurses without reaching one, the program will instead crash with a stack overflow error.</p>
-<section id="how-to-think-about-recursive-function-calls">
-<h3>How to think about recursive function calls<a class="headerlink" href="#how-to-think-about-recursive-function-calls" title="Permalink to this headline">#</a></h3>
-<p><img alt="image" src="../../_images/recursive_example.png" /></p>
-<p>In the above diagram, each box is a call to the recursive function <code class="docutils literal notranslate"><span class="pre">foo</span></code>. In the base case, simple, often times even trivial, steps are taken for some special case of the input. After returning from the base case, each call to <code class="docutils literal notranslate"><span class="pre">foo</span></code> may <em>use</em> the result returned to it and return to its caller.</p>
-<p><strong>Note:</strong> Each deeper level of recursion is solving a smaller problem, so when you think of a recursive algorithm, you will often ask yourself three questions: “How can I make this input smaller?”, “What is the base case I am working towards?” and “How do I use solutions to the smaller problem to solve the bigger problem?”</p>
-</section>
-</section>
-<section id="sum-of-numbers">
-<h2>1. Sum of Numbers<a class="headerlink" href="#sum-of-numbers" title="Permalink to this headline">#</a></h2>
-<p>Before you begin implementing recursive algorithms for yourself, you’ll be guided through each step of a recursive implementation of the sum from 1 to n. Along the way, you will see which part of the algorithm corresponds to which concept, and hopefully you will get a better understanding of how to think about a recursive algorithm.</p>
-<p>First, open the file <code class="docutils literal notranslate"><span class="pre">sum.cpp</span></code> that came with this lab (or copy it in if you’re not using git). All you have is a small <code class="docutils literal notranslate"><span class="pre">main</span></code> and an empty function <code class="docutils literal notranslate"><span class="pre">sum</span></code> which presently returns 0. Enter each of the following lines after reading the description for each, starting at line <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>For most recursive algorithms, the best place to start is the base case, and since it’s so important (and allows you to end your function early with a <code class="docutils literal notranslate"><span class="pre">return</span></code>) it will often be at the top. The base case should be a small sub-problem which can be solved easily. In this case, <code class="docutils literal notranslate"><span class="pre">sum(0)</span></code> should sum no numbers from 1 to n, so it is defined to be 0, which will be a useful value when we consider the recursive step. Thus, you should note there are two important things going on here: we are <em>checking for the base case</em> with <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">0</span></code>, and we are <em>solving the base case</em> by returning 0.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sub_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>To reach this line, the base case must be false <code class="docutils literal notranslate"><span class="pre">(n</span> <span class="pre">!=</span> <span class="pre">0)</span></code>, and so we must now recurse. We have already solved the question asking “what is the base case?” so now we address “how can the input size be reduced?”. Observe that the sum of all numbers from 1 to n uses the sum of all numbers from 1 to n-1 in the result, so we can get that sum by calling <code class="docutils literal notranslate"><span class="pre">sum(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> and storing it in a variable. Now we should have the solution to a smaller problem, which we can use in the solution to the whole problem.</p>
+<section id="queue">
+<h3>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">#</a></h3>
+<p>As a refresher, a Queue is a Linked List with an enforced add/remove order: first-in first-out (FIFO). Elements added to the Queue (enqueued) are placed at the back, and we can only ever remove (dequeue) from the front.</p>
+<img alt="https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png" class="align-center" src="https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png" />
+<p>How is this different from a stack? Remember stacks function like a stack of pancakes where to eat a pancake the top one is pulled off - not the bottom pancake - not the middle one. To add more pancakes on the stack, you place them on the top.</p>
 <blockquote>
-<div><p>Note: Often times instead of storing the value of the recursive call in a variable we will use it directly, either in some other computation to be stored in a variable or right in the return statement itself.</p>
+<div><p>If you don’t eat your pancakes this way please disregard this analogy; and maybe seek help.</p>
 </div></blockquote>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sub_sum</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Finally, we address the third question: “how can the solution to the smaller problem be used to solve the whole problem?”. In this case it is fairly trivial, in that since we’re summing the numbers from 1 to n, and we have the sum from 1 to n-1, we can just add n to the sum from 1 to n-1 to obtain our solution. However, in many algorithms this question is not so trivially answered, and sometimes this part, which is sometimes called the <em>combination step</em>, requires a whole separate algorithm to solve. This what is meant by the “use” part of “use and return” in the diagram at the beginning of the lab.</p>
-<blockquote>
-<div><p>Note: In some recursive problems, such as fibonacci, there will be more than one sub-problem needing to be solved, requiring multiple recursive calls, typically with different inputs. In such cases, the combination step requires combining the solutions to <em>all</em> the sub-problems to solve the whole problem. On the other hand, sometimes there is no combination step required, despite there being recursive calls. This is often the case with recursive functions with side-effects.</p>
-</div></blockquote>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The final problem to address is that <code class="docutils literal notranslate"><span class="pre">sum</span></code> is still returning 0, so we will now have it return <code class="docutils literal notranslate"><span class="pre">total</span></code>. Keep in mind that if some function other than <code class="docutils literal notranslate"><span class="pre">sum</span></code> is being returned to, then <code class="docutils literal notranslate"><span class="pre">total</span></code> represents the final solution: the sum from 1 to the original input n. However, if it is returning to another call to <code class="docutils literal notranslate"><span class="pre">sum</span></code>, then <code class="docutils literal notranslate"><span class="pre">total</span></code> represents the sum from 1 to n-1 from the perspective of the call it is returning to.</p>
-<p>At this point you can compile and run <code class="docutils literal notranslate"><span class="pre">sum.cpp</span></code>. Since <code class="docutils literal notranslate"><span class="pre">sum</span></code> is called on 10 and on 100, you should get 55 and 5050 respectively. For the case of 10, you can see that the algorithm will give you the following</p>
-<p>sum(10) = 10 + sum(9) = 10 + 9 + sum(8) = … = 10 + 9 + … + 2 + 1 + sum(0) = 55.</p>
-<p>You should now take a moment to consider what the time complexity (big O) of this function is. Despite not having analyzed recursive functions before, you should still be able to come up with an answer and a good reason for it based on what you have seen in this section. Write your answer as a comment above the declaration of <code class="docutils literal notranslate"><span class="pre">sum()</span></code>.</p>
+<p>Try to come up with a real world example of a queue with your group and write it as a comment on the top of your main file.</p>
 </section>
-<section id="upping-the-difficulty">
-<h2>2. Upping the difficulty<a class="headerlink" href="#upping-the-difficulty" title="Permalink to this headline">#</a></h2>
-<p>You are tasked with implementing a recursive Un-ordered Permutation Algorithm.</p>
-<p>Given the value of N, output all permutations of numbers from 1 to N.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="nl">Input</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="nl">Output</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">         </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-
-<span class="nl">Input</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="nl">Output</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="w">         </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">         </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="w">         </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">         </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Note: There are many ways to generate all unordered permutations of a given set. Your output does <em>not</em> need to match this example exactly.</p>
-</section>
-<section id="fractals">
-<h2>3. Fractals<a class="headerlink" href="#fractals" title="Permalink to this headline">#</a></h2>
-<p>Fractals are geometric figures in which each part has the same statistical character as the entire figure. In other words, the same patterns repeated at varying scales. Here are a few!
-<strong>Can you find the repeating patterns in each of these fractals?</strong></p>
-<div class="attention admonition">
-<p class="admonition-title">Sierpinski Triangle</p>
-<p><img alt="image" src="../../_images/sierpinski_triangle.png" /></p>
-</div>
-<section id="sierpinski-triangle">
-<h3>Sierpinski Triangle<a class="headerlink" href="#sierpinski-triangle" title="Permalink to this headline">#</a></h3>
-<video width="800" height="600" controls>
-  <source src="images/sierpinski-triangle-3.mp4" type="video/mp4">
-</video>
-<div class="attention admonition">
-<p class="admonition-title">Koch Snowflake</p>
-<p><img alt="image" src="../../_images/koch_snowflake.png" /></p>
-</div>
-</section>
-<section id="koch-snowflake">
-<h3>Koch Snowflake<a class="headerlink" href="#koch-snowflake" title="Permalink to this headline">#</a></h3>
-<video width="960" height="540" controls>
-  <source src=".images/koch-snowflake-3.mp4" type="video/mp4">
-</video>
-<p>We can quickly see the repeating patterns in both of these fractals. Your job is to implement them! To this effect, we will be utilizing ‘L-systems’.</p>
-</section>
-<section id="l-systems">
-<h3>L-systems<a class="headerlink" href="#l-systems" title="Permalink to this headline">#</a></h3>
-<p>An ‘L-system’ is an alphabet of symbols that form strings, which represent a collection of production rules. In this case, we will be the following ‘L-system’:</p>
-<p>F : Move forward</p>
-<p>- : Turn left by some degree</p>
-<p>+: Turn right by some degree</p>
-<p>So, a valid string for this system could be “F + F + F + F”. If this is run with a turn degree of 90, what shape would we have generated?</p>
-<p>Similarly, what shape does the following string with a turn degree of 60 generate? “F - F - F”?</p>
-</section>
-<section id="task">
-<h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h3>
-<p>You will implement both of the fractal shapes above by utilizing an ‘L-system’. Your task is to create recursive functions to solve each that generate the string necessary to draw the shape. You have been supplied with some skeleton code to get you started, as well as a python script to convert a generated string into a .png image representation.</p>
-<p>Here are some animations to help you in determining the rules for your strings:</p>
-<p><img alt="image" src="../../_images/sierpinski_triangle_animation.gif" /></p>
-<p><img alt="image" src="../../_images/koch_snowflake_animation.gif" /></p>
-</section>
-<section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<section id="priority-queue">
+<h3>Priority Queue<a class="headerlink" href="#priority-queue" title="Permalink to this headline">#</a></h3>
+<p>As you may suspect, a priority queue’s roots lies in the Queue data structure, which we have previously seen as a special Linked List.</p>
+<img alt="https://mulesoftonlinelearninghome.files.wordpress.com/2019/12/priority-queue-data-structure.jpg" class="align-center" src="https://mulesoftonlinelearninghome.files.wordpress.com/2019/12/priority-queue-data-structure.jpg" />
+<p>The Priority Queue has the same properties as the Queue in addition to the following:</p>
 <ul class="simple">
-<li><p>Get a feeling for the string you should be generating BEFORE you start coding.</p></li>
-<li><p>You may code your solutions on <a class="reference external" href="https://repl.it/&#64;ChristianEsteve/CSC212-Lab-6">this repl.it page</a>.</p>
-<ul>
-<li><p>When you run your code, the python script will be run automatically on your outputted string!</p></li>
+<li><p>Every element has an associated priority</p></li>
+<li><p>Elements with a high priority are dequeued before an element with a lower priority</p></li>
+<li><p>Any elements with matching priorities are dequeued in the order they arrived</p></li>
 </ul>
-</li>
-<li><p>Utilize <a class="reference external" href="https://trinket.io/python/ac4e46dc05">this website</a> to see your L-System drawn slowly.</p></li>
-<li><p>To use the python file locally: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">l-system-plotter.py</span> <span class="pre">l-system.txt</span> <span class="pre">&lt;output</span> <span class="pre">file</span> <span class="pre">name&gt;</span> <span class="pre">&lt;degree</span> <span class="pre">for</span> <span class="pre">turns&gt;</span>&#160; </code></p>
-<ul>
-<li><p>If you’re not using the <a class="reference external" href="http://repl.it">repl.it</a>, you can download and use the python script locally.</p></li>
-<li><p>The degree argument should be 60 for both of these problems!</p></li>
-</ul>
-</li>
-</ul>
+<p>Lets compare the performance of a Queue with a Priority Queue:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p>Queue</p></th>
+<th class="text-align:center head"><p>Enqueue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Enqueue</p></td>
+<td class="text-align:center"><p>O(1)</p></td>
+<td class="text-align:center"><p>O(n)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Dequeue</p></td>
+<td class="text-align:center"><p>O(1)</p></td>
+<td class="text-align:center"><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Peek</p></td>
+<td class="text-align:center"><p>O(1)</p></td>
+<td class="text-align:center"><p>O(1)</p></td>
+</tr>
+</tbody>
+</table>
+<p>They are very similar, but Enqueue jumps from a constant time operation to a linear time operation. Yikes!</p>
+<p><strong>Why might this be?</strong></p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Click here to reveal the answer!</p>
+<p>To insert elements into a P-Queue, we must iterate over the queue until we find the proper location. Worst cast would be adding an element with the lowest priority, so we would need to traverse the entire list.</p>
+</div>
+<p>But fret not, there is a better way to implement a Priority Queue! But we’ll learn about those next week.</p>
 </section>
 </section>
+<section id="your-task">
+<h2>Your Task<a class="headerlink" href="#your-task" title="Permalink to this headline">#</a></h2>
+<p>You are given code for a working Linked List in the “lab 4 solution” folder and are tasked with modifying it to be a Queue, then a Priority Queue.</p>
+<p>Hint: Add a <code class="docutils literal notranslate"><span class="pre">tail</span></code> pointer to your Queue in order to make the <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> operation more efficient! This is not needed for PriorityQueue, however.</p>
+<ol class="simple">
+<li><p>Go through <strong>all</strong> of the classes &amp; functions you will need to change and write comments explaining what needs changing for both problems below.</p>
+<ul class="simple">
+<li><p>Reading through the code first and modifying it second will save you lots of time and confusion! See what you are working with before totally rewriting functions that are already there.</p></li>
+<li><p><strong>If you ask a TA for help with a function that has not been commented with proposed changes, we will not help you.</strong></p></li>
+</ul>
+</li>
+<li><p>Convert the Linked List code into a Queue class (you will not need every linked list member function reimplemented in the queue class!)</p>
+<ul class="simple">
+<li><p>The bulk of the work will be in ensuring you have an <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> function that will push a new element to the back of the queue, a <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> function that will remove an element from the front of the queue, as well as a <code class="docutils literal notranslate"><span class="pre">peek</span></code> function that returns the element at the front of the queue.</p></li>
+</ul>
+</li>
+<li><p>Copy the code for your Queue program into another project and convert it into a Priority Queue.</p>
+<ul class="simple">
+<li><p>The hint for adding the priority queue functionality is to add a priority variable to the node class. This way the queue can check each Node object’s priority value for comparisons when enqueing elements.</p></li>
+</ul>
+</li>
+</ol>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h3>
+<p>Your program will read in the name of a file via CLA.</p>
+<p>The first line in the file will control which constructor will be used (similar to Lab 4). Examine the constructor declarations to determine the possible cases you will need to check for.</p>
+<p>After the first line is read, the rest of the file will contain a series of commands, 1 per line, that must be followed:</p>
+<ul class="simple">
+<li><p>An integer ([-99, 99])</p>
+<ul>
+<li><p>Triggers an <code class="docutils literal notranslate"><span class="pre">enqueue</span></code></p></li>
+</ul>
+</li>
+<li><p>A minus sign (‘-’)</p>
+<ul>
+<li><p>Triggers a <code class="docutils literal notranslate"><span class="pre">dequeue</span></code></p></li>
+</ul>
+</li>
+<li><p>A question mark (‘?’)</p>
+<ul>
+<li><p>Triggers a <code class="docutils literal notranslate"><span class="pre">peek</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>After each command is read and executed, print out the list <strong>if there have been any changes</strong>. For <code class="docutils literal notranslate"><span class="pre">peek</span></code> calls, print the value the function returns.</p>
+<p>Here are the file contents for <strong>text1.txt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-19 -28 -1 18 -50 -43 18 41 18 -86
+-83
+-25
+-
+-
+31
+-96
+-97
+?
+-82
+-
+</pre></div>
+</div>
+<p>This is the output for <strong>test1.txt</strong> with the <strong>Queue</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">19</span> <span class="o">-</span><span class="mi">28</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span>
+<span class="o">-</span><span class="mi">19</span> <span class="o">-</span><span class="mi">28</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span>
+<span class="o">-</span><span class="mi">19</span> <span class="o">-</span><span class="mi">28</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span>
+<span class="o">-</span><span class="mi">28</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span> <span class="mi">31</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span> <span class="mi">31</span> <span class="o">-</span><span class="mi">96</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span> <span class="mi">31</span> <span class="o">-</span><span class="mi">96</span> <span class="o">-</span><span class="mi">97</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span> <span class="mi">31</span> <span class="o">-</span><span class="mi">96</span> <span class="o">-</span><span class="mi">97</span> <span class="o">-</span><span class="mi">82</span>
+<span class="mi">18</span> <span class="o">-</span><span class="mi">50</span> <span class="o">-</span><span class="mi">43</span> <span class="mi">18</span> <span class="mi">41</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">86</span> <span class="o">-</span><span class="mi">83</span> <span class="o">-</span><span class="mi">25</span> <span class="mi">31</span> <span class="o">-</span><span class="mi">96</span> <span class="o">-</span><span class="mi">97</span> <span class="o">-</span><span class="mi">82</span>
+</pre></div>
+</div>
+<p>Here are the file contents for <strong>test7.txt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>0 76 -32 -73 -64 -8 38 -97 99 5
+-30 2
+61 3
+5 3
+-98 0
+-57 8
+-
+-60 7
+-
+-75 2
+?
+</pre></div>
+</div>
+<p>This is the output for <strong>PriorityQueue</strong> with <strong>test7.txt</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">73</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">61</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
 <section id="submission">
-<h2>5. Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
-<p>Submit all of your source code created to solve all problems.</p>
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h2>
+<p>Submit the following files to Gradescope:</p>
+<ul class="simple">
+<li><p>main.cpp</p></li>
+<li><p>queue.cpp</p></li>
+<li><p>node.cpp</p></li>
+<li><p>main_2.cpp</p></li>
+<li><p>priority_queue.cpp</p></li>
+<li><p>priority_node.cpp</p></li>
+</ul>
+<p><strong>Note: You must submit all 6 files every time in order for Gradescope to run.</strong></p>
 </section>
 </section>
 
