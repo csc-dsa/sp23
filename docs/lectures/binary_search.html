@@ -524,35 +524,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/csc-dsa/sp23/master?urlpath=tree/docs/lectures/binary_search.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -619,23 +590,6 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="../_sources/lectures/binary_search.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
       <li>
         <a href="../_sources/lectures/binary_search.md"
    class="headerbtn"
@@ -894,7 +848,7 @@ Sequential Search<div class="sd-summary-down docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text"><strong>Best-case <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(1)\)</span></strong></p>
 <div class="math notranslate nohighlight">
-\[target = A[0] = 1\ comparison\]</div>
+\[target = A_0 = 1\ comparison\]</div>
 </div>
 </div>
 </div>
@@ -903,7 +857,7 @@ Sequential Search<div class="sd-summary-down docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text"><strong>Worst-case <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(n)\)</span></strong></p>
 <div class="math notranslate nohighlight">
-\[target = A[n - 1] = n\ comparisons\]</div>
+\[target = A_{n - 1} = n\ comparisons\]</div>
 </div>
 </div>
 </div>
@@ -912,7 +866,7 @@ Sequential Search<div class="sd-summary-down docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text"><strong>Average-case <em>(in a successful search)</em> <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(n)\)</span></strong></p>
 <div class="math notranslate nohighlight">
-\[\frac{1 + 2 + ... + n}{n} = \frac{1}{n}*\frac{n(n - 1)}{2} = \frac{n - 1}{n}\]</div>
+\[\frac{1 + 2 + ... + n}{n} = \frac{1}{n}*\frac{n(n + 1)}{2} = \frac{n + 1}{n}\]</div>
 </div>
 </div>
 </div>
@@ -927,41 +881,35 @@ Sequential Search<div class="sd-summary-down docutils">
 <section id="pseudocode">
 <h3>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h3>
 <div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Iterative Approach</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="14e2cddd-ed76-4801-963a-eed2759b2565" name="94e782b1-2143-41bc-9616-d4347295ffdd" type="radio">
+</input><label class="sd-tab-label" for="14e2cddd-ed76-4801-963a-eed2759b2565">
+Iterative Approach</label><div class="sd-tab-content docutils">
 <ul class="simple">
-<li><p class="sd-card-text">Consider start index to be at <span class="math notranslate nohighlight">\(0\)</span> and last index to be <span class="math notranslate nohighlight">\(n-1^{th}\)</span> index at starting</p>
+<li><p>Consider start index to be at <span class="math notranslate nohighlight">\(0\)</span> and last index to be <code class="docutils literal notranslate"><span class="pre">n-1</span></code> index at starting</p>
 <ul>
-<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(n \rightarrow length\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n \rightarrow length\)</span></p></li>
 </ul>
 </li>
-<li><p class="sd-card-text">Find middle <span class="math notranslate nohighlight">\(index(mid)\)</span> of the array</p></li>
-<li><p class="sd-card-text">If <span class="math notranslate nohighlight">\(key\)</span> is found to be less than <span class="math notranslate nohighlight">\(mid\ index\ element\)</span> then update last index of the array to <span class="math notranslate nohighlight">\(mid\ -1\)</span></p></li>
-<li><p class="sd-card-text">Else if <span class="math notranslate nohighlight">\(key\)</span> is found to be greater than <span class="math notranslate nohighlight">\(mid\ index\ element\$ then update start index of the array to \)</span>mid\ + 1$</p></li>
-<li><p class="sd-card-text">Else check for <span class="math notranslate nohighlight">\(mid\ index\ element\)</span> with <span class="math notranslate nohighlight">\(key\)</span> if not match repeat the above steps til start index is less than end index</p></li>
+<li><p>Find middle index <code class="docutils literal notranslate"><span class="pre">mid</span></code> of the array</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">key</span></code> is found to be less than <code class="docutils literal notranslate"><span class="pre">mid</span></code> index element then update last index of the array to <code class="docutils literal notranslate"><span class="pre">mid</span></code> - 1</p></li>
+<li><p>Else if <code class="docutils literal notranslate"><span class="pre">key</span></code> is found to be greater than <code class="docutils literal notranslate"><span class="pre">mid</span></code> index element then update start index of the array to <code class="docutils literal notranslate"><span class="pre">mid</span></code> + 1</p></li>
+<li><p>Else check for <code class="docutils literal notranslate"><span class="pre">mid</span></code> index element with <code class="docutils literal notranslate"><span class="pre">key</span></code> if not match repeat the above steps til <code class="docutils literal notranslate"><span class="pre">start</span></code> index is less than <code class="docutils literal notranslate"><span class="pre">end</span></code> index</p></li>
 </ul>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Recursive Approach</div>
+<input id="8c2a0278-05ea-413d-ade3-5b3c019df426" name="94e782b1-2143-41bc-9616-d4347295ffdd" type="radio">
+</input><label class="sd-tab-label" for="8c2a0278-05ea-413d-ade3-5b3c019df426">
+Recursive Approach</label><div class="sd-tab-content docutils">
 <ul class="simple">
-<li><p class="sd-card-text">If <span class="math notranslate nohighlight">\(start\)</span> is less than <span class="math notranslate nohighlight">\(end\)</span> perform Binary search else terminate the algorithm.</p></li>
-<li><p class="sd-card-text">If the element at the <span class="math notranslate nohighlight">\(middle\ index\)</span> is equal to the <span class="math notranslate nohighlight">\(key\)</span> then return the index as it found the key</p></li>
-<li><p class="sd-card-text">Else if the <span class="math notranslate nohighlight">\(key\ \)</span> is less than the element at the <span class="math notranslate nohighlight">\(middle\ index\)</span> then call the function by passing end as <span class="math notranslate nohighlight">\(mid\ - 1\)</span> (as the key will be less than mid element)</p></li>
-<li><p class="sd-card-text">Else if the <span class="math notranslate nohighlight">\(key\)</span> is greater than the element at the <span class="math notranslate nohighlight">\(middle\ index\)</span> then call the function by passing start as <span class="math notranslate nohighlight">\(mid + 1\)</span> (as the key will be greater than mid)</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">start</span></code> is less than <code class="docutils literal notranslate"><span class="pre">end</span></code> perform Binary search else terminate the algorithm.</p></li>
+<li><p>If the element at <code class="docutils literal notranslate"><span class="pre">mid</span></code> (middle index) is equal to the <code class="docutils literal notranslate"><span class="pre">key</span></code> then return the index as it found the key</p></li>
+<li><p>Else if the <code class="docutils literal notranslate"><span class="pre">key</span></code> is less than <code class="docutils literal notranslate"><span class="pre">mid</span></code> (the element middle index) then call the function by passing end as <code class="docutils literal notranslate"><span class="pre">mid</span></code> - 1 (as <code class="docutils literal notranslate"><span class="pre">key</span></code> will be less than <code class="docutils literal notranslate"><span class="pre">mid</span></code> element)</p></li>
+<li><p>Else if the <code class="docutils literal notranslate"><span class="pre">key</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">mid</span></code> then call the function by passing start as <code class="docutils literal notranslate"><span class="pre">mid</span></code> + 1 (as <code class="docutils literal notranslate"><span class="pre">key</span></code> will be greater than <code class="docutils literal notranslate"><span class="pre">mid</span></code>)</p></li>
 </ul>
 </div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/?ref=rp">https://www.geeksforgeeks.org/linear-search-vs-binary-search/?ref=rp</a></p>
-<p class="sd-card-text"><a class="reference external" href="https://takeuforward.org/data-structure/binary-search-explained/">https://takeuforward.org/data-structure/binary-search-explained/</a></p>
-</div>
-</div>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/?ref=rp">https://www.geeksforgeeks.org/linear-search-vs-binary-search/?ref=rp</a></p>
+<p><a class="reference external" href="https://takeuforward.org/data-structure/binary-search-explained/">https://takeuforward.org/data-structure/binary-search-explained/</a></p>
 </div>
 </section>
 <section id="id2">
@@ -1018,11 +966,10 @@ Recursive Approach</div>
 <div class="tip admonition">
 <p class="admonition-title">Rules</p>
 <ul class="simple">
-<li><p class="sd-card-text">Break down the problem into subproblems</p></li>
+<li><p class="sd-card-text">Break down the problem into sub-problems</p></li>
 <li><p class="sd-card-text">Solve the sub problems</p></li>
 <li><p class="sd-card-text">Merge the sub problems to get desired Output</p></li>
 <li><p class="sd-card-text"><em><em>Note: Must be sorted</em></em></p></li>
-<li></li>
 </ul>
 </div>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -1030,7 +977,7 @@ Recursive Approach</div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Best-case <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(1)\)</span></p>
+<p class="sd-card-text"><strong>Best-case</strong> <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(1)\)</span></p>
 <div class="math notranslate nohighlight">
 \[target\ is\ first\ comparison\]</div>
 </div>
@@ -1039,7 +986,7 @@ Recursive Approach</div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Worst-case <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(log\ n)\)</span></p>
+<p class="sd-card-text"><strong>Worst-case</strong> <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(log\ n)\)</span></p>
 <div class="math notranslate nohighlight">
 \[target\ is\ last\ comparison\]</div>
 </div>
@@ -1048,7 +995,7 @@ Recursive Approach</div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Average-case <em>(in a successful search)</em> <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(log\ n)\)</span></p>
+<p class="sd-card-text"><strong>Average-case</strong> <em>(in a successful search)</em> <span class="math notranslate nohighlight">\( \Rightarrow T(n) = O(log\ n)\)</span></p>
 <div class="math notranslate nohighlight">
 \[target\ is\ neither first\ nor\ last\ comparison\]</div>
 </div>
