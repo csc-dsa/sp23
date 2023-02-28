@@ -247,8 +247,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="binary_search.html">
-     Binary Search
+    <a class="reference internal" href="priority_q_heap.html">
+     Priority Queues
     </a>
    </li>
   </ul>
@@ -313,8 +313,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="priority_q_heap.html">
-     Priority Queues
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
     </a>
    </li>
    <li class="toctree-l2">
@@ -524,35 +524,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/csc-dsa/sp23/master?urlpath=tree/docs/lectures/recursive_algo_analysis.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -619,23 +590,6 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="../_sources/lectures/recursive_algo_analysis.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
       <li>
         <a href="../_sources/lectures/recursive_algo_analysis.md"
    class="headerbtn"
@@ -714,16 +668,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binary-search">
-   Binary Search
+  <a class="reference internal nav-link" href="#recursion-tree-call">
+   Recursion Tree Call
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recursion-tree-call">
-     Recursion Tree Call
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unimodal-arrays">
@@ -779,16 +726,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binary-search">
-   Binary Search
+  <a class="reference internal nav-link" href="#recursion-tree-call">
+   Recursion Tree Call
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recursion-tree-call">
-     Recursion Tree Call
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unimodal-arrays">
@@ -852,12 +792,11 @@ title="Print to PDF"
 <div class="sd-col sd-d-flex-column sd-col-12 sd-col-xs-12 sd-col-sm-12 sd-col-md-12 sd-col-lg-12 docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">base_case</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="c1">// calculate trival solution       </span>
+<span class="w">        </span><span class="c1">// calculate trivialSolution       </span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// break task into subtasks</span>
 <span class="w">        </span><span class="c1">// solve each task recursively</span>
 <span class="w">        </span><span class="c1">// merge solutions if necessary</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">someFunction</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -927,12 +866,12 @@ Why recursion?</div>
 <section id="recursive-call-tree">
 <h3>Recursive Call Tree<a class="headerlink" href="#recursive-call-tree" title="Permalink to this headline">#</a></h3>
 <div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
 <div class="admonition-sum-array admonition">
 <p class="admonition-title">Sum Array</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="40f58c42-1ee0-4d82-8e8b-c6332d21d954" name="a0b05a47-0418-4239-881c-13227ba3c4ce" type="radio">
+</input><label class="sd-tab-label" for="40f58c42-1ee0-4d82-8e8b-c6332d21d954">
+Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="c1">//basecase  </span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
@@ -946,16 +885,16 @@ Why recursion?</div>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-cases &amp; calls</div>
+</div>
+<input id="74613987-aad0-4eb8-9858-d5884f406fed" name="a0b05a47-0418-4239-881c-13227ba3c4ce" type="radio">
+</input><label class="sd-tab-label" for="74613987-aad0-4eb8-9858-d5884f406fed">
+Base &amp; Recursive Cases</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T(n) =
 \begin{cases}
-sum = A[0],  &amp; \text{if $n\ = 1$},  &amp; \text{// base case}  \\[2ex]
-A(n - 1), &amp; \text{if $n \gt 1$ },  &amp; \text{// recursive calls}
+A[0],  &amp; \text{if $n\ = 1$},  &amp; \text{// base case}  \\[2ex]
+A[n - 1], &amp; \text{if $n \gt 1$ },  &amp; \text{// recursive calls}
 \end{cases}
 \end{split}\]</div>
 </div>
@@ -963,27 +902,18 @@ A(n - 1), &amp; \text{if $n \gt 1$ },  &amp; \text{// recursive calls}
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-visualize</div>
+<a class="reference external" href="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%0A%0Aint%20sum_array%28int%20*A,%20int%20n%29%20%7B%0A%20%20//basecase%20%20%0A%20%20if%20%28n%20%3D%3D%201%29%0A%20%20%20%20return%20A%5B0%5D%3B%0A%0A%20%20//solve%20sub-task%0A%20%20int%20sum%20%3D%20sum_array%28A,%20n%20-%201%29%3B%0A%0A%20%20//return%0A%20%20return%20A%5Bn%20-%201%5D%20%2B%20sum%3B%0A%7D%0A%0Aint%20main%20%28%29%20%7B%0A%20%20%20%20int%20arr%5B%5D%20%3D%20%7B%2010,%2020,%2030,%2040%7D%3B%0A%20%20%20%20sum_array%28arr,%204%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Visualize</a></div>
 <iframe allow="fullscreen" width="675" height="675" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%0A%0Aint%20sum_array%28int%20*A,%20int%20n%29%20%7B%0A%20%20//basecase%20%20%0A%20%20if%20%28n%20%3D%3D%201%29%0A%20%20%20%20return%20A%5B0%5D%3B%0A%0A%20%20//solve%20sub-task%0A%20%20int%20sum%20%3D%20sum_array%28A,%20n%20-%201%29%3B%0A%0A%20%20//return%0A%20%20return%20A%5Bn%20-%201%5D%20%2B%20sum%3B%0A%7D%0A%0Aint%20main%20%28%29%20%7B%0A%20%20%20%20int%20arr%5B%5D%20%3D%20%7B%2010,%2020,%2030,%2040%7D%3B%0A%20%20%20%20sum_array%28arr,%204%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=cpp_g%2B%2B9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="../_images/09_sum_array_drawio.png" src="../_images/09_sum_array_drawio.png" />
-</figure>
 </div>
 </div>
 </div>
 <div class="admonition-largest admonition">
 <p class="admonition-title">Largest</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-pseudocode</div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>To find the largest element in list[a]...list[b]  
+<div class="sd-tab-set docutils">
+<input checked="checked" id="98abd01a-52a8-4671-a125-c1459ed754c7" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
+</input><label class="sd-tab-label" for="98abd01a-52a8-4671-a125-c1459ed754c7">
+Pseudocode</label><div class="sd-tab-content docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To find the largest element in list[a]...list[b]  
 
 a. Find the largest element in `list[a + 1]...list[b]` 
     and call it max
@@ -995,11 +925,9 @@ b. Compare the elements `list[a]` and `max`
 </pre></div>
 </div>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-code</div>
+<input id="9b54ec02-302b-4e0b-8063-ea30e09e1867" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
+</input><label class="sd-tab-label" for="9b54ec02-302b-4e0b-8063-ea30e09e1867">
+Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">largest</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">list</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lowerIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">upperIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lowerIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">upperIndex</span><span class="p">)</span><span class="w"> </span><span class="c1">//size of the sublist is one </span>
@@ -1015,11 +943,9 @@ code</div>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-base case &amp; recursive calls</div>
+<input id="44332b9c-c92d-4b92-ad7d-691c49c08420" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
+</input><label class="sd-tab-label" for="44332b9c-c92d-4b92-ad7d-691c49c08420">
+Base &amp; Recursive Cases</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T(n) =
@@ -1030,16 +956,13 @@ size\ of\ list\ is\ \gt 1, &amp; \text{// recursive calls}
 \end{split}\]</div>
 </div>
 </div>
-<figure class="align-default">
-<img alt="../_images/09_largest_drawio.png" src="../_images/09_largest_drawio.png" />
-</figure>
 </div>
-<div class="admonition-serpinski admonition">
-<p class="admonition-title">Serpinski</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-code</div>
+<div class="admonition-serpinski-https-www-geeksforgeeks-org-sierpinski-triangle admonition">
+<p class="admonition-title"><a class="reference external" href="https://www.geeksforgeeks.org/sierpinski-triangle/">Serpinski</a></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="41b7885b-ef58-4ae9-a34c-73e670f74867" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
+</input><label class="sd-tab-label" for="41b7885b-ef58-4ae9-a34c-73e670f74867">
+Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">printSierpinski</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1057,36 +980,27 @@ code</div>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/sierpinski-triangle/">https://www.geeksforgeeks.org/sierpinski-triangle/</a></p>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Visualize: structure</div>
+<input id="e45d81f3-cc34-444d-a674-b480d54eef13" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
+</input><label class="sd-tab-label" for="e45d81f3-cc34-444d-a674-b480d54eef13">
+Visualize : Structure</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://runestone.academy/ns/books/published/pythonds/_images/stCallTree.png" src="https://runestone.academy/ns/books/published/pythonds/_images/stCallTree.png" />
 </figure>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Example: Triangle</div>
+<input id="11b596bb-3364-45f8-9fec-13d0c3b3b0f8" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
+</input><label class="sd-tab-label" for="11b596bb-3364-45f8-9fec-13d0c3b3b0f8">
+Ex : Triangle</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://www.researchgate.net/profile/Askander-Kaka/publication/264872595/figure/fig4/AS:669568435494921&#64;1536648963162/First-four-steps-to-configure-Sierpinski-triangle.png" src="https://www.researchgate.net/profile/Askander-Kaka/publication/264872595/figure/fig4/AS:669568435494921&#64;1536648963162/First-four-steps-to-configure-Sierpinski-triangle.png" />
 </figure>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Example: Pyramid</div>
+<input id="823113d6-7795-4712-a49f-901048d0137d" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
+</input><label class="sd-tab-label" for="823113d6-7795-4712-a49f-901048d0137d">
+Ex : Pyramid</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://upload.wikimedia.org/wikipedia/commons/b/b4/Sierpinski_pyramid.png" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Sierpinski_pyramid.png" />
 </figure>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1104,13 +1018,13 @@ Example: Pyramid</div>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-recusive</div>
+recursive</div>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">power</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">//basecase  </span>
+<span class="w">  </span><span class="c1">// base case  </span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">//recursive call</span>
+<span class="w">  </span><span class="c1">// recursive call</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -1141,25 +1055,16 @@ iterative</div>
 </div>
 </div>
 </div>
-<div class="sd-card-footer docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="../_images/09_recur_v_iter_drawio.png" src="../_images/09_recur_v_iter_drawio.png" />
-</figure>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
-<section id="binary-search">
-<h2>Binary Search<a class="headerlink" href="#binary-search" title="Permalink to this headline">#</a></h2>
+<section id="recursion-tree-call">
+<h2>Recursion Tree Call<a class="headerlink" href="#recursion-tree-call" title="Permalink to this headline">#</a></h2>
 <div class="full-width docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="admonition-code admonition">
-<p class="admonition-title">code</p>
+<div class="admonition-binary-search-https-www-geeksforgeeks-org-binary-search admonition">
+<p class="admonition-title"><a class="reference external" href="https://www.geeksforgeeks.org/binary-search/">binary search</a></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">bsearch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="c1">//base case</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"></span>
@@ -1178,59 +1083,18 @@ iterative</div>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/binary-search/">https://www.geeksforgeeks.org/binary-search/</a></p>
 </div>
 <div class="tip admonition">
-<p class="admonition-title">visuzalize: general form</p>
+<p class="admonition-title">Visualize: General Form</p>
 <p class="sd-card-text"><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Search.html">https://www.cs.usfca.edu/~galles/visualization/Search.html</a></p>
 </div>
 </div>
 </div>
-</div>
-<section id="recursion-tree-call">
-<h3>Recursion Tree Call<a class="headerlink" href="#recursion-tree-call" title="Permalink to this headline">#</a></h3>
-<div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="admonition-binary-search admonition">
-<p class="admonition-title">binary search</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">bsearch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">//base case</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">NOT_FOUND</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// calculate mid point index</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// key found?</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// key in upper subarray?</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">bsearch</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// key is in lower subarray?</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">bsearch</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<figure class="align-default">
-<img alt="../_images/09_bin_search_drawio.png" src="../_images/09_bin_search_drawio.png" />
-</figure>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-visualize: in memory</div>
+<div class="admonition-visualize-in-memory-https-pythontutor-com-iframe-embed-html-code-20c-2b-2b-20program-20to-20implement-20recursive-20binary-20search-0a-23include-20-3cbits-stdc-2b-2b-h-3e-0ausing-20namespace-20std-3b-0a-0a-20a-20recursive-20binary-20search-20function-20it-20returns-0a-20location-20of-20x-20in-20given-20array-20arr-5bl-r-5d-20is-20present-0a-20otherwise-20-1-0aint-20binarysearch-28int-20arr-5b-5d-20int-20l-20int-20r-20int-20x-29-0a-7b-0a-20-20-20-20if-20-28r-20-3e-3d-20l-29-20-7b-0a-20-20-20-20-20-20-20-20int-20mid-20-3d-20l-20-2b-20-28r-20-20l-29-20-202-3b-0a-0a-20-20-20-20-20-20-20-20-20if-20the-20element-20is-20present-20at-20the-20middle-0a-20-20-20-20-20-20-20-20-20itself-0a-20-20-20-20-20-20-20-20if-20-28arr-5bmid-5d-20-3d-3d-20x-29-0a-20-20-20-20-20-20-20-20-20-20-20-20return-20mid-3b-0a-0a-20-20-20-20-20-20-20-20-20if-20element-20is-20smaller-20than-20mid-20then-0a-20-20-20-20-20-20-20-20-20it-20can-20only-20be-20present-20in-20left-20subarray-0a-20-20-20-20-20-20-20-20if-20-28arr-5bmid-5d-20-3e-20x-29-0a-20-20-20-20-20-20-20-20-20-20-20-20return-20binarysearch-28arr-20l-20mid-20-201-20x-29-3b-0a-0a-20-20-20-20-20-20-20-20-20else-20the-20element-20can-20only-20be-20present-0a-20-20-20-20-20-20-20-20-20in-20right-20subarray-0a-20-20-20-20-20-20-20-20return-20binarysearch-28arr-20mid-20-2b-201-20r-20x-29-3b-0a-20-20-20-20-7d-0a-0a-20-20-20-20-20we-20reach-20here-20when-20element-20is-20not-0a-20-20-20-20-20present-20in-20array-0a-20-20-20-20return-20-1-3b-0a-7d-0a-0aint-20main-28void-29-0a-7b-0a-20-20-20-20int-20arr-5b-5d-20-3d-20-7b-202-203-204-2010-2040-20-7d-3b-0a-20-20-20-20int-20x-20-3d-2010-3b-0a-20-20-20-20int-20n-20-3d-20sizeof-28arr-29-20-20sizeof-28arr-5b0-5d-29-3b-0a-20-20-20-20int-20result-20-3d-20binarysearch-28arr-200-20n-20-201-20x-29-3b-0a-20-20-20-20-28result-20-3d-3d-20-1-29-0a-20-20-20-20-20-20-20-20-3f-20cout-20-3c-3c-20-22element-20is-20not-20present-20in-20array-22-0a-20-20-20-20-20-20-20-20-3a-20cout-20-3c-3c-20-22element-20is-20present-20at-20index-20-22-20-3c-3c-20result-3b-0a-20-20-20-20return-200-3b-0a-7d-codedivheight-400-codedivwidth-350-cppshowmemaddrs-true-cumulative-false-curinstr-0-heapprimitives-nevernest-origin-opt-frontend-js-py-cpp-g-2b-2b9-3-0-rawinputlstjson-5b-5d-textreferences-false admonition">
+<p class="admonition-title"><a class="reference external" href="https://pythontutor.com/iframe-embed.html#code=//%20C%2B%2B%20program%20to%20implement%20recursive%20Binary%20Search%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0A//%20A%20recursive%20binary%20search%20function.%20It%20returns%0A//%20location%20of%20x%20in%20given%20array%20arr%5Bl..r%5D%20is%20present,%0A//%20otherwise%20-1%0Aint%20binarySearch%28int%20arr%5B%5D,%20int%20l,%20int%20r,%20int%20x%29%0A%7B%0A%20%20%20%20if%20%28r%20%3E%3D%20l%29%20%7B%0A%20%20%20%20%20%20%20%20int%20mid%20%3D%20l%20%2B%20%28r%20-%20l%29%20/%202%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20the%20element%20is%20present%20at%20the%20middle%0A%20%20%20%20%20%20%20%20//%20itself%0A%20%20%20%20%20%20%20%20if%20%28arr%5Bmid%5D%20%3D%3D%20x%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20mid%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20element%20is%20smaller%20than%20mid,%20then%0A%20%20%20%20%20%20%20%20//%20it%20can%20only%20be%20present%20in%20left%20subarray%0A%20%20%20%20%20%20%20%20if%20%28arr%5Bmid%5D%20%3E%20x%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20binarySearch%28arr,%20l,%20mid%20-%201,%20x%29%3B%0A%0A%20%20%20%20%20%20%20%20//%20Else%20the%20element%20can%20only%20be%20present%0A%20%20%20%20%20%20%20%20//%20in%20right%20subarray%0A%20%20%20%20%20%20%20%20return%20binarySearch%28arr,%20mid%20%2B%201,%20r,%20x%29%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20//%20We%20reach%20here%20when%20element%20is%20not%0A%20%20%20%20//%20present%20in%20array%0A%20%20%20%20return%20-1%3B%0A%7D%0A%0Aint%20main%28void%29%0A%7B%0A%20%20%20%20int%20arr%5B%5D%20%3D%20%7B%202,%203,%204,%2010,%2040%20%7D%3B%0A%20%20%20%20int%20x%20%3D%2010%3B%0A%20%20%20%20int%20n%20%3D%20sizeof%28arr%29%20/%20sizeof%28arr%5B0%5D%29%3B%0A%20%20%20%20int%20result%20%3D%20binarySearch%28arr,%200,%20n%20-%201,%20x%29%3B%0A%20%20%20%20%28result%20%3D%3D%20-1%29%0A%20%20%20%20%20%20%20%20%3F%20cout%20%3C%3C%20%22Element%20is%20not%20present%20in%20array%22%0A%20%20%20%20%20%20%20%20%3A%20cout%20%3C%3C%20%22Element%20is%20present%20at%20index%20%22%20%3C%3C%20result%3B%0A%20%20%20%20return%200%3B%0A%7D&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cppShowMemAddrs=true&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=cpp_g%2B%2B9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Visualize: in memory</a></p>
 <iframe allow="fullscreen" width="675" height="675" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=//%20C%2B%2B%20program%20to%20implement%20recursive%20Binary%20Search%0A%23include%20%3Cbits/stdc%2B%2B.h%3E%0Ausing%20namespace%20std%3B%0A%0A//%20A%20recursive%20binary%20search%20function.%20It%20returns%0A//%20location%20of%20x%20in%20given%20array%20arr%5Bl..r%5D%20is%20present,%0A//%20otherwise%20-1%0Aint%20binarySearch%28int%20arr%5B%5D,%20int%20l,%20int%20r,%20int%20x%29%0A%7B%0A%20%20%20%20if%20%28r%20%3E%3D%20l%29%20%7B%0A%20%20%20%20%20%20%20%20int%20mid%20%3D%20l%20%2B%20%28r%20-%20l%29%20/%202%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20the%20element%20is%20present%20at%20the%20middle%0A%20%20%20%20%20%20%20%20//%20itself%0A%20%20%20%20%20%20%20%20if%20%28arr%5Bmid%5D%20%3D%3D%20x%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20mid%3B%0A%0A%20%20%20%20%20%20%20%20//%20If%20element%20is%20smaller%20than%20mid,%20then%0A%20%20%20%20%20%20%20%20//%20it%20can%20only%20be%20present%20in%20left%20subarray%0A%20%20%20%20%20%20%20%20if%20%28arr%5Bmid%5D%20%3E%20x%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20binarySearch%28arr,%20l,%20mid%20-%201,%20x%29%3B%0A%0A%20%20%20%20%20%20%20%20//%20Else%20the%20element%20can%20only%20be%20present%0A%20%20%20%20%20%20%20%20//%20in%20right%20subarray%0A%20%20%20%20%20%20%20%20return%20binarySearch%28arr,%20mid%20%2B%201,%20r,%20x%29%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20//%20We%20reach%20here%20when%20element%20is%20not%0A%20%20%20%20//%20present%20in%20array%0A%20%20%20%20return%20-1%3B%0A%7D%0A%0Aint%20main%28void%29%0A%7B%0A%20%20%20%20int%20arr%5B%5D%20%3D%20%7B%202,%203,%204,%2010,%2040%20%7D%3B%0A%20%20%20%20int%20x%20%3D%2010%3B%0A%20%20%20%20int%20n%20%3D%20sizeof%28arr%29%20/%20sizeof%28arr%5B0%5D%29%3B%0A%20%20%20%20int%20result%20%3D%20binarySearch%28arr,%200,%20n%20-%201,%20x%29%3B%0A%20%20%20%20%28result%20%3D%3D%20-1%29%0A%20%20%20%20%20%20%20%20%3F%20cout%20%3C%3C%20%22Element%20is%20not%20present%20in%20array%22%0A%20%20%20%20%20%20%20%20%3A%20cout%20%3C%3C%20%22Element%20is%20present%20at%20index%20%22%20%3C%3C%20result%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cppShowMemAddrs=true&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=cpp_g%2B%2B9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 </div>
 </div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="unimodal-arrays">
 <h2>Unimodal arrays<a class="headerlink" href="#unimodal-arrays" title="Permalink to this headline">#</a></h2>
@@ -1240,7 +1104,7 @@ visualize: in memory</div>
 <div class="admonition-define admonition">
 <p class="admonition-title">Define</p>
 <p class="sd-card-text">An array is (<span class="blue">strongly</span>) <strong>unimodal</strong> if it can be split into an increasing part followed by a decreasing part</p>
-<p class="sd-card-text">An array is (<span class="blue">weakly</span>) <strong>unimodal</strong> if it can be split into a nondecreasing part followed by a nonincreasing part</p>
+<p class="sd-card-text">An array is (<span class="blue">weakly</span>) <strong>unimodal</strong> if it can be split into a non-decreasing part followed by a non-increasing part</p>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -1342,7 +1206,7 @@ Various modalities </div>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-default">
-<img alt="../_images/09_unimodal_weak.png" src="../_images/09_unimodal_weak.png" />
+<a class="reference internal image-reference" href="../_images/09_unimodal_weak.png"><img alt="../_images/09_unimodal_weak.png" src="../_images/09_unimodal_weak.png" style="width: 100%;" /></a>
 </figure>
 </div>
 </div>
