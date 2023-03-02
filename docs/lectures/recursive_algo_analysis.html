@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Recurrences" href="recurrences.html" />
-    <link rel="prev" title="Week 6" href="lec_w_06.html" />
+    <link rel="next" title="Week 7" href="lec_w_07.html" />
+    <link rel="prev" title="Binary Search" href="binary_search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,6 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../add_rss.html">
    Additional Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sigma.html">
+   Sigma Notation
   </a>
  </li>
 </ul>
@@ -263,14 +268,14 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="binary_search.html">
+     Binary Search
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Recursive Algorithms (Analysis)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="recurrences.html">
-     Recurrences
     </a>
    </li>
   </ul>
@@ -286,13 +291,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="mergesort.html">
-     Mergesort
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="quicksort.html">
-     Quicksort
+    <a class="reference internal" href="mergesort.html">
+     Mergesort
     </a>
    </li>
   </ul>
@@ -313,8 +318,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="binary_search.html">
-     Binary Search
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
     </a>
    </li>
    <li class="toctree-l2">
@@ -869,8 +874,8 @@ Why recursion?</div>
 <div class="admonition-sum-array admonition">
 <p class="admonition-title">Sum Array</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="40f58c42-1ee0-4d82-8e8b-c6332d21d954" name="a0b05a47-0418-4239-881c-13227ba3c4ce" type="radio">
-</input><label class="sd-tab-label" for="40f58c42-1ee0-4d82-8e8b-c6332d21d954">
+<input checked="checked" id="29e2ce2e-6c4a-4a6b-973f-48edae84e9f1" name="0c0ac104-1946-4d35-bd62-35df6427d9bc" type="radio">
+</input><label class="sd-tab-label" for="29e2ce2e-6c4a-4a6b-973f-48edae84e9f1">
 Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="c1">//basecase  </span>
@@ -886,8 +891,8 @@ Code</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="74613987-aad0-4eb8-9858-d5884f406fed" name="a0b05a47-0418-4239-881c-13227ba3c4ce" type="radio">
-</input><label class="sd-tab-label" for="74613987-aad0-4eb8-9858-d5884f406fed">
+<input id="cde6aab1-a181-42d4-914d-729f7d323a88" name="0c0ac104-1946-4d35-bd62-35df6427d9bc" type="radio">
+</input><label class="sd-tab-label" for="cde6aab1-a181-42d4-914d-729f7d323a88">
 Base &amp; Recursive Cases</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -910,8 +915,8 @@ A[n - 1], &amp; \text{if $n \gt 1$ },  &amp; \text{// recursive calls}
 <div class="admonition-largest admonition">
 <p class="admonition-title">Largest</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="98abd01a-52a8-4671-a125-c1459ed754c7" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
-</input><label class="sd-tab-label" for="98abd01a-52a8-4671-a125-c1459ed754c7">
+<input checked="checked" id="7f8f031d-38c6-4cf9-a065-6587e7ecd700" name="0bdf6c54-bf31-4e69-aa31-d8afeab907c4" type="radio">
+</input><label class="sd-tab-label" for="7f8f031d-38c6-4cf9-a065-6587e7ecd700">
 Pseudocode</label><div class="sd-tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To find the largest element in list[a]...list[b]  
 
@@ -925,8 +930,8 @@ b. Compare the elements `list[a]` and `max`
 </pre></div>
 </div>
 </div>
-<input id="9b54ec02-302b-4e0b-8063-ea30e09e1867" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
-</input><label class="sd-tab-label" for="9b54ec02-302b-4e0b-8063-ea30e09e1867">
+<input id="7399f4bf-9b13-425f-b76c-14a62bf12d45" name="0bdf6c54-bf31-4e69-aa31-d8afeab907c4" type="radio">
+</input><label class="sd-tab-label" for="7399f4bf-9b13-425f-b76c-14a62bf12d45">
 Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">largest</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">list</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lowerIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">upperIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
@@ -943,8 +948,8 @@ Code</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="44332b9c-c92d-4b92-ad7d-691c49c08420" name="87c977c3-232e-4703-ac56-62f23653c154" type="radio">
-</input><label class="sd-tab-label" for="44332b9c-c92d-4b92-ad7d-691c49c08420">
+<input id="d937fb92-0e80-4427-ab98-03fd5b475181" name="0bdf6c54-bf31-4e69-aa31-d8afeab907c4" type="radio">
+</input><label class="sd-tab-label" for="d937fb92-0e80-4427-ab98-03fd5b475181">
 Base &amp; Recursive Cases</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -960,8 +965,8 @@ size\ of\ list\ is\ \gt 1, &amp; \text{// recursive calls}
 <div class="admonition-serpinski-https-www-geeksforgeeks-org-sierpinski-triangle admonition">
 <p class="admonition-title"><a class="reference external" href="https://www.geeksforgeeks.org/sierpinski-triangle/">Serpinski</a></p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="41b7885b-ef58-4ae9-a34c-73e670f74867" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
-</input><label class="sd-tab-label" for="41b7885b-ef58-4ae9-a34c-73e670f74867">
+<input checked="checked" id="dfa24209-e5a9-4f02-863b-13ff91c9bf84" name="eb32cbe2-e7c8-4654-9c5a-8014632a5ad3" type="radio">
+</input><label class="sd-tab-label" for="dfa24209-e5a9-4f02-863b-13ff91c9bf84">
 Code</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">printSierpinski</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -981,22 +986,22 @@ Code</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e45d81f3-cc34-444d-a674-b480d54eef13" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
-</input><label class="sd-tab-label" for="e45d81f3-cc34-444d-a674-b480d54eef13">
+<input id="55f9b05a-02ef-4f94-b518-b63584798afb" name="eb32cbe2-e7c8-4654-9c5a-8014632a5ad3" type="radio">
+</input><label class="sd-tab-label" for="55f9b05a-02ef-4f94-b518-b63584798afb">
 Visualize : Structure</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://runestone.academy/ns/books/published/pythonds/_images/stCallTree.png" src="https://runestone.academy/ns/books/published/pythonds/_images/stCallTree.png" />
 </figure>
 </div>
-<input id="11b596bb-3364-45f8-9fec-13d0c3b3b0f8" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
-</input><label class="sd-tab-label" for="11b596bb-3364-45f8-9fec-13d0c3b3b0f8">
+<input id="bef501d2-dfa3-4828-a21f-6521621529f4" name="eb32cbe2-e7c8-4654-9c5a-8014632a5ad3" type="radio">
+</input><label class="sd-tab-label" for="bef501d2-dfa3-4828-a21f-6521621529f4">
 Ex : Triangle</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://www.researchgate.net/profile/Askander-Kaka/publication/264872595/figure/fig4/AS:669568435494921&#64;1536648963162/First-four-steps-to-configure-Sierpinski-triangle.png" src="https://www.researchgate.net/profile/Askander-Kaka/publication/264872595/figure/fig4/AS:669568435494921&#64;1536648963162/First-four-steps-to-configure-Sierpinski-triangle.png" />
 </figure>
 </div>
-<input id="823113d6-7795-4712-a49f-901048d0137d" name="4c54d36a-f830-4959-b28f-a08fed2dbb8b" type="radio">
-</input><label class="sd-tab-label" for="823113d6-7795-4712-a49f-901048d0137d">
+<input id="668f8e6c-d34d-4329-8352-6d1b3d772123" name="eb32cbe2-e7c8-4654-9c5a-8014632a5ad3" type="radio">
+</input><label class="sd-tab-label" for="668f8e6c-d34d-4329-8352-6d1b3d772123">
 Ex : Pyramid</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="https://upload.wikimedia.org/wikipedia/commons/b/b4/Sierpinski_pyramid.png" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Sierpinski_pyramid.png" />
@@ -1247,17 +1252,17 @@ Various modalities </div>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lec_w_06.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="binary_search.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 6</p>
+            <p class="prev-next-title">Binary Search</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="recurrences.html" title="next page">
+    <a class='right-next' id="next-link" href="lec_w_07.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Recurrences</p>
+        <p class="prev-next-title">Week 7</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

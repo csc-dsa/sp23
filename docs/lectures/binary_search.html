@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary Search Tree" href="bst.html" />
-    <link rel="prev" title="Week 9" href="lec_w_09.html" />
+    <link rel="next" title="Recursive Algorithms (Analysis)" href="recursive_algo_analysis.html" />
+    <link rel="prev" title="Week 6" href="lec_w_06.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,6 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../add_rss.html">
    Additional Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sigma.html">
+   Sigma Notation
   </a>
  </li>
 </ul>
@@ -253,24 +258,24 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="lec_w_06.html">
    Week 6
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="recursive_algo_analysis.html">
-     Recursive Algorithms (Analysis)
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Binary Search
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="recurrences.html">
-     Recurrences
+    <a class="reference internal" href="recursive_algo_analysis.html">
+     Recursive Algorithms (Analysis)
     </a>
    </li>
   </ul>
@@ -286,13 +291,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="mergesort.html">
-     Mergesort
+    <a class="reference internal" href="recurrences.html">
+     Recurrences
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="quicksort.html">
-     Quicksort
+    <a class="reference internal" href="mergesort.html">
+     Mergesort
     </a>
    </li>
   </ul>
@@ -302,19 +307,19 @@ const thebe_selector_output = ".output, .cell_output"
    Week 8
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="lec_w_09.html">
    Week 9
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Binary Search
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quicksort.html">
+     Quicksort
     </a>
    </li>
    <li class="toctree-l2">
@@ -882,8 +887,8 @@ Sequential Search<div class="sd-summary-down docutils">
 <h3>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h3>
 <div class="full-width docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="14e2cddd-ed76-4801-963a-eed2759b2565" name="94e782b1-2143-41bc-9616-d4347295ffdd" type="radio">
-</input><label class="sd-tab-label" for="14e2cddd-ed76-4801-963a-eed2759b2565">
+<input checked="checked" id="cb945862-5df6-44b3-a2d1-52433e1e2132" name="a1e33b95-bf02-487b-b4d3-d55c93bc92fd" type="radio">
+</input><label class="sd-tab-label" for="cb945862-5df6-44b3-a2d1-52433e1e2132">
 Iterative Approach</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p>Consider start index to be at <span class="math notranslate nohighlight">\(0\)</span> and last index to be <code class="docutils literal notranslate"><span class="pre">n-1</span></code> index at starting</p>
@@ -897,8 +902,8 @@ Iterative Approach</label><div class="sd-tab-content docutils">
 <li><p>Else check for <code class="docutils literal notranslate"><span class="pre">mid</span></code> index element with <code class="docutils literal notranslate"><span class="pre">key</span></code> if not match repeat the above steps til <code class="docutils literal notranslate"><span class="pre">start</span></code> index is less than <code class="docutils literal notranslate"><span class="pre">end</span></code> index</p></li>
 </ul>
 </div>
-<input id="8c2a0278-05ea-413d-ade3-5b3c019df426" name="94e782b1-2143-41bc-9616-d4347295ffdd" type="radio">
-</input><label class="sd-tab-label" for="8c2a0278-05ea-413d-ade3-5b3c019df426">
+<input id="ad69df48-7b1f-4c91-a382-9a7eddffaf91" name="a1e33b95-bf02-487b-b4d3-d55c93bc92fd" type="radio">
+</input><label class="sd-tab-label" for="ad69df48-7b1f-4c91-a382-9a7eddffaf91">
 Recursive Approach</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">start</span></code> is less than <code class="docutils literal notranslate"><span class="pre">end</span></code> perform Binary search else terminate the algorithm.</p></li>
@@ -1080,17 +1085,17 @@ Recursive Approach</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lec_w_09.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="lec_w_06.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 9</p>
+            <p class="prev-next-title">Week 6</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bst.html" title="next page">
+    <a class='right-next' id="next-link" href="recursive_algo_analysis.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Binary Search Tree</p>
+        <p class="prev-next-title">Recursive Algorithms (Analysis)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
