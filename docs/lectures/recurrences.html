@@ -702,6 +702,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mth-180-review">
+   MTH 180 Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequences">
+     Sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summation-notation">
+     Summation Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#factorial-of-n-formula">
    Factorial of n (formula)
   </a>
@@ -752,6 +769,23 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mth-180-review">
+   MTH 180 Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequences">
+     Sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summation-notation">
+     Summation Notation
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#factorial-of-n-formula">
    Factorial of n (formula)
@@ -807,8 +841,166 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="recurrences">
 <h1>Recurrences<a class="headerlink" href="#recurrences" title="Permalink to this headline">#</a></h1>
 <div class="full-width docutils">
-<img alt="https://cdn-images-1.medium.com/max/1200/1*3Kti9X9KAL0_XCk1cdjbDw.jpeg" src="https://cdn-images-1.medium.com/max/1200/1*3Kti9X9KAL0_XCk1cdjbDw.jpeg" />
+<img alt="https://cdn-images-1.medium.com/max/1200/1*3Kti9X9KAL0_XCk1cdjbDw.jpeg" class="align-center" src="https://cdn-images-1.medium.com/max/1200/1*3Kti9X9KAL0_XCk1cdjbDw.jpeg" />
 </div>
+<section id="mth-180-review">
+<h2>MTH 180 Review<a class="headerlink" href="#mth-180-review" title="Permalink to this headline">#</a></h2>
+<section id="sequences">
+<h3>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="admonition-definition-1 admonition">
+<p class="admonition-title">Definition 1</p>
+<blockquote>
+<div><p>A <em>sequence</em> is a function from a subset of the set of integers (usually either the set <span class="math notranslate nohighlight">\(\{0, 1, 2,… \}\)</span>
+or the set <span class="math notranslate nohighlight">\(\{1, 2, 3,… \}\)</span>) to a set <span class="math notranslate nohighlight">\(S\)</span>. We use the notation <span class="math notranslate nohighlight">\(a_n\)</span> to denote the image of the integer <span class="math notranslate nohighlight">\(n\)</span>.
+We call <span class="math notranslate nohighlight">\(a_n\)</span> a term of the sequence.</p>
+<p>– <em>Discrete Mathematics and Its Applications</em></p>
+</div></blockquote>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<p class="sd-card-text">Consider the sequence <span class="math notranslate nohighlight">\(\{a_n\}\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{n}\]</div>
+<p class="sd-card-text">The list of the terms of this sequence, beginning with <span class="math notranslate nohighlight">\(a_1\)</span>, namely, <span class="math notranslate nohighlight">\(\{a1, a2, a3, a4,… \}\)</span>
+starts with</p>
+<div class="math notranslate nohighlight">
+\[ 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots \]</div>
+</div>
+</div>
+</div>
+<div class="admonition-definition-2 admonition">
+<p class="admonition-title">Definition 2</p>
+<blockquote>
+<div><p>A <em>geometric progression</em> is a sequence of the form
+<span class="math notranslate nohighlight">\(a, ar, ar^2, \dots, ar^n, \dots \)</span>
+where the initial term <span class="math notranslate nohighlight">\(a\)</span> and the common ratio <span class="math notranslate nohighlight">\(r\)</span> are real numbers.</p>
+<p>– <em>Discrete Mathematics and Its Applications</em></p>
+</div></blockquote>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<p class="sd-card-text">The sequences</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{b_n\}\)</span> with <span class="math notranslate nohighlight">\(b_n = (−1)^n\)</span>,<br />
+<span class="math notranslate nohighlight">\(\{c_n\}\)</span> with <span class="math notranslate nohighlight">\(c^n = 2 ⋅ 5^n\)</span>,<br />
+<span class="math notranslate nohighlight">\(\{d_n\}\)</span> with <span class="math notranslate nohighlight">\(d_n = 6 ⋅ (\frac{1}{3})^n\)</span></p>
+<p class="sd-card-text">…are geometric progressions with initial term and common ratio equal to</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(−1\)</span>,<br />
+<span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(5\)</span>,<br />
+<span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p>
+<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span>. The list of terms <span class="math notranslate nohighlight">\(b_0, b_1, b_2, b_3, b_4, \dots \)</span> begins with</p>
+<div class="math notranslate nohighlight">
+\[1, −1, 1, −1, 1, \dots\]</div>
+<p class="sd-card-text">the list of terms <span class="math notranslate nohighlight">\(c_0, c_1, c_2, c_3, c_4, \dots \)</span> begins with</p>
+<div class="math notranslate nohighlight">
+\[ 2, 10, 50, 250, 1250, \dots\]</div>
+<p class="sd-card-text">and the list of terms <span class="math notranslate nohighlight">\(d_0, d_1, d_2, d_3, d_4, \dots\)</span> begins with</p>
+<div class="math notranslate nohighlight">
+\[6, 2, \frac{2}{3}, \frac{2}{9}, \frac{2}{27}, \dots \]</div>
+</div>
+</div>
+</div>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<blockquote>
+<div><p>An <em>arithmetic progression</em> is a sequence of the form
+<span class="math notranslate nohighlight">\(a, a + d, a + 2d, \dots , a + nd, \dots\)</span>
+where the initial term <span class="math notranslate nohighlight">\(a\)</span> and the common difference <span class="math notranslate nohighlight">\(d\)</span> are real numbers.</p>
+<p>– <em>Discrete Mathematics and Its Applications</em></p>
+</div></blockquote>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Example</div>
+<p class="sd-card-text">The sequences</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{s_n\}\)</span> with <span class="math notranslate nohighlight">\(s_n = −1 + 4n\)</span><br />
+<span class="math notranslate nohighlight">\(\{t_n\}\)</span> with <span class="math notranslate nohighlight">\(t_n = 7 − 3n\)</span></p>
+<p class="sd-card-text">…are both arithmetic progressions with initial terms and common differences equal to</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(−1\)</span> and <span class="math notranslate nohighlight">\(4\)</span><br />
+<span class="math notranslate nohighlight">\(7\)</span> and <span class="math notranslate nohighlight">\(−3\)</span></p>
+<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span>. The list of terms <span class="math notranslate nohighlight">\(s_0, s_1, s_2, s_3, \dots \)</span> begins with</p>
+<div class="math notranslate nohighlight">
+\[ −1, 3, 7, 11, \dots \]</div>
+<p class="sd-card-text">and the list of terms <span class="math notranslate nohighlight">\(t_0, t_1, t_2, t_3, \dots \)</span> begins with</p>
+<div class="math notranslate nohighlight">
+\[7, 4, 1, −2, \dots \]</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summation-notation">
+<h3>Summation Notation<a class="headerlink" href="#summation-notation" title="Permalink to this headline">#</a></h3>
+<div class="full-width docutils">
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers and <span class="math notranslate nohighlight">\(m \le n\)</span>, the symbol <span class="math notranslate nohighlight">\(\Sigma_{k = m}^{n} a_k\)</span><br />
+read the <strong>summation from <span class="math notranslate nohighlight">\(k\)</span> equals <span class="math notranslate nohighlight">\(m\)</span> to <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(a_k\)</span></strong>,
+is the sum of all the terms <span class="math notranslate nohighlight">\(a_m, a_{m+1}, a_{m+2}, \dots , a_n\)</span>.
+We say that <span class="math notranslate nohighlight">\(a_m, a_{m+1}, a_{m+2}, \dots , a_n\)</span> is the expanded form of the sum, and
+we write</p>
+<div class="math notranslate nohighlight">
+\[\Sigma_{k=m}^{n} a_k = a_m + a_{m+1}, a_{m+2}, \dots , a_n\]</div>
+<p>We call <span class="math notranslate nohighlight">\(k\)</span> the <strong>index</strong> of the summation, <span class="math notranslate nohighlight">\(m\)</span> the <strong>lower limit</strong> of the summation, and <span class="math notranslate nohighlight">\(n\)</span>
+the <strong>upper limit</strong> of the summation.</p>
+<p>– <em>Discrete Mathematics with Applications, 4th</em></p>
+</div></blockquote>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Examples</div>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(a1 = −2,\ a2 = −1,\ a3 = 0,\ a4 = 1,\ and\ a5 = 2\)</span>. Compute the following:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\Sigma_{k=1}^{5} a_k\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\Sigma_{k=1}^{5} a_k &amp; = a1 + a2 + a3 + a4 + a5 \\
+&amp; = (−2) + (−1) + 0 + 1 + 2 \\
+&amp; = 0
+\end{align}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\Sigma_{k=2}^{2} a_k\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\Sigma_{k=2}^{2} a_k &amp; = a2 \\
+&amp; = −1 \\
+\end{align}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\Sigma_{k=1}^{2} a_{2k}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\Sigma_{k=1}^{2} a_{2k} &amp; = a_{2*1} + a_{2*2} \\
+&amp; = a_2 + a_4 \\
+&amp; = -1 + 1 \\
+&amp; = 0
+\end{align}\end{split}\]</div>
+</div>
+</details></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="factorial-of-n-formula">
 <h2>Factorial of n (formula)<a class="headerlink" href="#factorial-of-n-formula" title="Permalink to this headline">#</a></h2>
 <div class="full-width docutils">
@@ -816,6 +1008,64 @@ title="Print to PDF"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 <span class="math notranslate nohighlight">\(n!\)</span></div>
+<blockquote>
+<div><p class="sd-card-text">For each positive integer <span class="math notranslate nohighlight">\(n\)</span>, the quantity <strong><span class="math notranslate nohighlight">\(n\)</span> factorial</strong> denoted <span class="math notranslate nohighlight">\(n!\)</span>, is defined to be the
+product of all the integers from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[n! = n · (n − 1) \dots 3·2·1\]</div>
+<p class="sd-card-text"><strong>Zero factorial</strong>, denoted 0!, is defined to be 1:</p>
+<div class="math notranslate nohighlight">
+\[0! = 1\]</div>
+<p class="sd-card-text">– <em>Discrete Mathematics with Applications, 4th</em></p>
+</div></blockquote>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Examples</div>
+<p class="sd-card-text">Simplify the following expressions:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\frac{8!}{7!}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\frac{8!}{7!} &amp; = \frac{8 * 7!}{7!} \\
+&amp; = 8 \\
+\end{align}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\frac{5!}{2!*3!}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\frac{5!}{2!*3!} &amp; = \frac{5 * 4 * 3!}{2! *3!} \\
+&amp; = \frac{5 * 4}{2 * 1} \\
+&amp; = 10 \\
+\end{align}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\frac{(n)!}{(n - 3)!}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\frac{(n)!}{(n - 3)!} &amp; = \frac{n * (n - 1) * (n - 2) * (n - 3)!}{(n - 3)!} \\
+&amp; = n * (n - 1) * (n - 2) \\
+&amp; = n^3 - 3n^2 + 2n
+\end{align}\end{split}\]</div>
+</div>
+</details></div>
+</div>
 <div class="admonition-code admonition">
 <p class="admonition-title">code</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -827,12 +1077,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/factorial-formula/">https://www.geeksforgeeks.org/factorial-formula/</a></p>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[n! = n × (n-1) × (n-2) × (n-3) × … × 3 × 2 × 1\]</div>
-</div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -850,9 +1094,16 @@ Use Cases</div>
 <div class="sd-card-title sd-font-weight-bold docutils">
 Example</div>
 <p class="sd-card-text">Three different fruits are to be distributed among a group of 10 people. Find the total number of ways this can be possible.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(n = 10,\ r = 3 \dots =\ ^{10}P_3\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-n = 10,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{10}P_3 \\
+n = 10,\ r = 3...\ &amp;=\ ^{10}P_3 \\
 &amp;= \frac{10!}{(10 – 3)!} \\
 &amp;= \frac{10!}{7!} \\ 
 &amp;= \frac{10 × 9 × 8 × 7!}{7!} \\
@@ -860,6 +1111,7 @@ n = 10,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{10}P_3 \\
 &amp;= 720
 \end {align}\end{split}\]</div>
 </div>
+</details></div>
 </div>
 </div>
 <div class="admonition-combination admonition">
@@ -874,15 +1126,23 @@ n = 10,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{10}P_3 \\
 <div class="sd-card-title sd-font-weight-bold docutils">
 Example</div>
 <p class="sd-card-text">Find the number of ways 3 students can be selected from a class of 50 students.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(n = 50,\ r = 3 \dots =\ ^{50}C_3\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin {align}
-n = 50,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{50}C_3 \\
+\[\begin{split}\begin {align} 
+n = 50,\ r = 3...\ &amp;=\ ^{50}C_3 \\
 &amp;= \frac{50!}{3! × 47!} \\
 &amp;= \frac{50 × 49 × 48 × 47!}{3! × 47!} \\
 &amp;= \frac{50 ×49 × 48}{6} \\
 &amp;= 19,600
 \end {align}\end{split}\]</div>
 </div>
+</details></div>
 </div>
 </div>
 </div>
@@ -894,10 +1154,7 @@ n = 50,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{50}C_3 \\
 <section id="analysis-of-binary-search">
 <h2>Analysis of Binary Search<a class="headerlink" href="#analysis-of-binary-search" title="Permalink to this headline">#</a></h2>
 <div class="full-width docutils">
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">int</span><span class="w"> </span><span class="nf">bsearch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 2</span><span class="w">  </span>
@@ -923,17 +1180,7 @@ n = 50,\ r = 3...\ =&gt;\ total\ number\ of\ ways\ &amp;=\ ^{50}C_3 \\
 <div class="sd-card-title sd-font-weight-bold docutils">
 cases</div>
 <div class="math notranslate nohighlight">
-\[t(n) = {1\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space if\ n = 1 \brace T(n / 2) + n\space\space\space\space if\ n &gt; 1}\]</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<img alt="../_images/09_bin_search_drawio.png" src="../_images/09_bin_search_drawio.png" />
-</div>
+\[T(n) = {1\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space if\ n = 1 \brace T(\frac{n}{2}) + n\space\space\space\space\space\space\space if\ n &gt; 1}\]</div>
 </div>
 </div>
 </div>
@@ -1008,14 +1255,63 @@ Recursion Tree</div>
 <div class="full-width docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
+<div class="admonition-binary-search-recursive-method-https-youtu-be-ueuxgcc2vxm admonition">
+<p class="admonition-title"><a class="reference external" href="https://youtu.be/uEUXGcc2VXM">Binary Search Recursive Method</a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">RBinSearch</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                </span><span class="c1">// = T(n)</span>
+</span><span class="hll"><span class="linenos"> 2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                             </span><span class="c1">// = 1</span>
+</span><span class="linenos"> 3</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">                                    </span>
+<span class="hll"><span class="linenos"> 7</span><span class="w">    </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w">                                        </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w">                          </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">RBinSearch</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w">   </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos">10</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">RBinSearch</span><span class="p">(</span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w">                </span><span class="c1">// = T(n/2)</span>
+</span><span class="linenos">11</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">12</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T(n) =
 \begin{cases}
-1,  &amp; \text{$if\ n\ = 1$}  \\[2ex]
-T(n / 2) + n, &amp; \text{$if\ n\ \ge 1$}
+1,  &amp; \text{$n = 0$}  \\[2ex]
+T(\frac{n}{2}) + 1, &amp; \text{$n \gt 0$}
 \end{cases}
 \end{split}\]</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Recurrence Relations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="admonition-recurrence-relation-dividing-function-https-youtu-be-8gt0d0iqu5w admonition">
+<p class="admonition-title"><a class="reference external" href="https://youtu.be/8gt0D0IqU5w">Recurrence Relation: Dividing Function</a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// = T(n)</span>
+</span><span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="linenos">3</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;/d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">     </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos">4</span><span class="w">    </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w">           </span><span class="c1">// = T(n/2) </span>
+</span><span class="linenos">5</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">6</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T(n) =
+\begin{cases}
+1,  &amp; \text{$n = 0$}  \\[2ex]
+T(\frac{n}{2}) + 1, &amp; \text{$n \gt 0$}
+\end{cases}
+\end{split}\]</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tree Method</div>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1030,12 +1326,65 @@ T(n / 2) + n, &amp; \text{$if\ n\ \ge 1$}
 <div class="sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-T(n) &amp;= n + \frac{n}{2} + \frac{n}{2^2} + \frac{n}{2^3} + \frac{n}{2^k} \\
-&amp;= \bigg[1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{2^k}\bigg] \\
-\sum_{i=0}^k \frac{1}{2^i} &amp;= 1 \\
-&amp; = n * 1 \\
-T(n) &amp;= n \\
-&amp;= \Theta(n)
+For \dots \frac{n}{2^k} &amp; = 1 \\
+Assume \dots n &amp; = 2^k \\
+Then \dots k &amp; = log\ n \\
+&amp; = \Theta(log\ n) \\
+\end {align} \end{split}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Substitution Method</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+T(n) &amp; = T(\frac{n}{2}) + 1 \\
+&amp; = [T(\frac{n}{n^2}) + 1] + 1 \\
+&amp; = T(\frac{n}{n^2}) + 2 \\
+&amp; = T(\frac{n}{n^3}) + 3 \\
+&amp; • \\
+&amp; • \\
+&amp; • \\
+&amp; = T(\frac{n}{n^k}) + k \\
+\end {align} \end{split}\]</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">What to sub in…</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+T(n) &amp; = T(\frac{n}{2}) + 1 \\
+T(\frac{n}{2}) &amp; = T(\frac{n}{2^2}) + 1 \\
+\end {align} \end{split}\]</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+For \dots \frac{n}{2^k} &amp; = 1 \\
+Assume \dots n &amp; = 2^k \\
+Then \dots k &amp; = log\ n \\
+\\
+T(n) &amp; = T(1) + log\ n \\
+&amp; = 1 + log\ n \\
+&amp; = \Theta(log\ n) \\
 \end {align} \end{split}\]</div>
 </div>
 </div>
@@ -1045,22 +1394,24 @@ T(n) &amp;= n \\
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="id1">
-<h2>Recurrence Relations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
 <div class="admonition-recurrence-relation-linear-https-youtu-be-4v30r3i1vli admonition">
 <p class="admonition-title"><a class="reference external" href="https://youtu.be/4V30R3I1vLI">Recurrence Relation: Linear</a></p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">3</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">4</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fact</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">5</span><span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// = T(n)</span>
+</span><span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="linenos">3</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;/d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">     </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos">4</span><span class="w">    </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">         </span><span class="c1">// = T(n - 1) </span>
+</span><span class="linenos">5</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">6</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T(n) =
+\begin{cases}
+1,  &amp; \text{$n\ = 0$}  \\[2ex]
+T(n - 1) + 1, &amp; \text{$n\ \gt 0$}
+\end{cases}
+\end{split}\]</div>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Can you write (and solve) the recurrence?</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -1070,12 +1421,12 @@ Breakdown</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
 T(n) &amp;= T(n - 1) + 1 \\
-T(n - 1) &amp;= T(n - 2) + 2(1) \\
-T(n - 2) &amp;= T(n - 3) + 3(1) \\ 
+T(n - 1) &amp;= T(n - 2) + 1 \\
+T(n - 2) &amp;= T(n - 3) + 1 \\ 
 • \\
 • \\
 • \\
-T(n - k) &amp;= T(n - k) + k \\
+T(n - k) &amp;= T(n - k) + 1 \\
 \end {align}\end{split}\]</div>
 </div>
 </div>
@@ -1085,10 +1436,14 @@ T(n - k) &amp;= T(n - k) + k \\
 Substitution <span class="math notranslate nohighlight">\(T(n - 1)\)</span></div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-T(n) &amp;= \bigg[T(n - 1) - 1 + n\bigg] + n \\ 
-T(n) &amp;= T(n - 2) + 2n \\
-T(n) &amp;= \bigg[T(n - 2) - 1 + n\bigg] + 2n \\
-T(n) &amp;= T(n - 3) + 3n \\
+T(n) &amp;= \bigg[T(n - 2) + 1 \bigg] + 1 \\ 
+&amp;= T(n - 2) + 2 \\
+&amp;= \bigg[T(n - 3) + 1 \bigg] + 2 \\
+&amp;= T(n - 3) + 3 \\
+• \\
+• \\
+• \\
+&amp;= T(n - k) + k \\
 \end {align}\end{split}\]</div>
 </div>
 </div>
@@ -1098,9 +1453,9 @@ T(n) &amp;= T(n - 3) + 3n \\
 For <span class="math notranslate nohighlight">\(k\)</span> times</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-\text{For: } &amp; T(n) &amp; = T(n - k) + k \\
-\text{Assume: } &amp; n\ - k\ &amp; = 0 \\
-&amp; n\ &amp; = k \\
+\text{For : } &amp; T(n) = T(n - k) + k \\
+\text{Assume : } &amp; n\ - k\ = 0 \\
+\text{Therefore : } &amp; n\ = k \\
 \end {align}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
@@ -1114,65 +1469,42 @@ T(n) &amp;= \Theta(n) \\
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}
-T(n) =
-\begin{cases}
-1,  &amp; \text{$if\ n\ = 0$}  \\[2ex]
-T(n - 1) + 1, &amp; \text{$if\ n\ \ge 0$}
-\end{cases}
-\end{split}\]</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin {align}
-T(n) &amp;= n + \frac{n}{2} + \frac{n}{2^2} + \frac{n}{2^3} + \frac{n}{2^k} \\
-&amp;= \bigg[1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{2^k}\bigg] \\
-\sum_{i=0}^k \frac{1}{2^i} &amp;= 1 \\
-&amp; = n * 1 \\
-T(n) &amp;= n \\
-&amp;= \Theta(n) \\
-\end {align} \end{split}\]</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p class="sd-card-text"><a class="reference external" href="https://youtu.be/4V30R3I1vLI">2.1.1 Recurrence Relation (T(n)= T(n-1) + 1) #1</a></p>
 </div>
 <div class="admonition-recurrence-relation-divide-conquer-https-youtu-be-1k9ebqjosvo admonition">
 <p class="admonition-title"><a class="reference external" href="https://youtu.be/1K9ebQJosvo">Recurrence Relation: Divide &amp; Conquer</a></p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="c1">// = T(n)</span>
+</span><span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="linenos">3</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// = n</span>
+</span><span class="linenos">4</span><span class="w">      </span><span class="c1">// some statement</span>
+<span class="linenos">5</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="hll"><span class="linenos">6</span><span class="w">    </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w">                  </span><span class="c1">// = T(n/2)</span>
+</span><span class="hll"><span class="linenos">7</span><span class="w">    </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w">                  </span><span class="c1">// = T(n/2)</span>
+</span><span class="linenos">8</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">9</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T(n) =
 \begin{cases}
-1,  &amp; \text{$if\ n\ = 0$}  \\[2ex]
-2T(\frac{n}{2}) + n, &amp; \text{$if\ n\ \gt 0$}
+1,  &amp; \text{$if\ n\ = 1$}  \\[2ex]
+2T(\frac{n}{2}) + n, &amp; \text{$if\ n\ \gt 1$}
 \end{cases}
 \end{split}\]</div>
-</div>
-</div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Can you write (and solve) the recurrence?</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Tree Method</div>
-<img alt="../_images/10_ex_2.png" src="../_images/10_ex_2.png" />
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/10_ex_2.png"><img alt="../_images/10_ex_2.png" src="../_images/10_ex_2.png" style="width: 100%;" /></a>
+</figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 For\ k\ times\ = \frac{n}{2^k}\ \Rightarrow\ n = 2^k \\
 Hence,\ k\ = log\ n \\
-T(n) = O(n\ log\ n)
+T(n) = \Theta(n\ log\ n)
 \end{split}\]</div>
 </div>
 </div>
@@ -1186,18 +1518,20 @@ Substitution Method</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
 T(n) &amp;= 2T(\frac{n}{2}) + n \\
-T(\frac{n}{2}) &amp;= 2T(\frac{n}{2^2}) + \frac{n}{2} \\
 &amp;= 2\bigg[2T(\frac{n}{2^2}) + \frac{n}{2}\bigg] + n \\
 &amp;= 2^2T(\frac{n}{2^2} + n + n) \\
+&amp;= 2^2\bigg[2T(\frac{n}{2^3}) + \frac{n}{2^2}\bigg] + 2n \\
+&amp;= 2^3T(\frac{n}{2^3}) + 3n \\
+&amp;= 2^kT(\frac{n}{2^k}) + kn \\
 \end {align}\end{split}\]</div>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><em>What to sub in…</em></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
+T(n) &amp;= 2T(\frac{n}{2}) + n \\
+T(\frac{n}{2}) &amp;= 2T(\frac{n}{n^2}) + \frac{n}{2^2} \\
 T(\frac{n}{2^2}) &amp;= 2T(\frac{n}{2^3}) + \frac{n}{2^2} \\
-&amp;= 2\bigg[2T(\frac{n}{2^3}) + \frac{n}{2^2}\bigg] + 2n \\
-T(n) &amp;= 2^3T(\frac{n}{2^3}) + 3n \\
-T(n) &amp;= 2^kT(\frac{n}{2^k}) + kn \\
 \end {align}\end{split}\]</div>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
@@ -1226,12 +1560,17 @@ T(n) &amp;= 2^kT(1) + kn \\
 </div>
 </div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://youtu.be/1K9ebQJosvo">2.3.3 Recurrence Relation [ T(n)= 2T(n/2) +n] #3</a></p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
+</div>
+<div class="admonition-recurrence-relation-tower-of-hanoi-https-youtu-be-1k9ebqjosvo admonition">
+<p class="admonition-title"><a class="reference external" href="https://youtu.be/1K9ebQJosvo">Recurrence Relation: Tower of Hanoi</a> </p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// = T(n)</span>
+</span><span class="hll"><span class="linenos">2</span><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;/d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">    </span><span class="c1">// = 1</span>
+</span><span class="hll"><span class="linenos">3</span><span class="w">  </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">        </span><span class="c1">// = T(n - 1)</span>
+</span><span class="hll"><span class="linenos">4</span><span class="w">  </span><span class="n">Test</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">        </span><span class="c1">// = T(n - 1)</span>
+</span><span class="linenos">5</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T(n) =
@@ -1240,32 +1579,28 @@ T(n) =
 2T(n - 1) + 1, &amp; \text{$if\ n\ \gt 0$}
 \end{cases}
 \end{split}\]</div>
-</div>
-</div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Can you write (and solve) the recurrence?</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Tree Method</div>
+<figure class="align-default">
 <img alt="../_images/10_ex_3.png" src="../_images/10_ex_3.png" />
+</figure>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Breakdown</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-1 + 2 + 2^2 + 2^3 ... + 2^k &amp;= 2^{k + 1} - 1 \\
-ar + ar + ar^2 + ar^3 ... + ar^k &amp;= \frac{a(r^{k + 1} - 1)}{r - 1} \\
-\end {align} \end{split}\]</div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Where</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin {align}
-a = 1,\ r = 2 \\
-\frac{1(2^{k + 1}1)}{2 - 1} = 2^{k + 1} - 1
+1 + 2 + 2^2 + 2^3 ... + 2^k &amp; = 2^{k + 1} - 1 \\
+\\
+ar + ar + ar^2 + ar^3 ... + ar^k &amp; = \frac{a(r^{k + 1} - 1)}{r - 1} \\
+\\
+Where \dots a = 1,  r = 2,  &amp; = \frac{1(2^{k + 1}1)}{2 - 1} \\
+\\
+&amp; = 2^{k + 1} - 1
 \end {align} \end{split}\]</div>
 </div>
 </div>
@@ -1275,10 +1610,11 @@ a = 1,\ r = 2 \\
 Assume</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
-n - k &amp; = 0 \\
-&amp; = k \\
+if \dots n - k &amp; = 0 \\
+\\
+then \dots n &amp; = k \\
 &amp; = 2^{k + 1} - 1 =&gt; 2^{n + 1} - 1 \\
-&amp; = O(2^n) \\
+&amp; = \Theta(2^n) \\
 \end {align}\end{split}\]</div>
 </div>
 </div>
@@ -1294,23 +1630,28 @@ Substitution</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
 T(n) &amp;= 2T(n - 1) + 1 \\
-&amp;= 2\bigg[2T(n - 2) + 1 \bigg] + 1 \\
-&amp;= 2^2T(n - 2) + 2 + 1 \\
-&amp;= 2^2 \bigg[2T(n - 3) + 1 \bigg] + 2 + 1 \\
-&amp;= 2^3T(n - 3) + 2^2 + 2 + 1 \\
+&amp; = 2\bigg[2T(n - 2) + 1 \bigg] + 1 \\
+&amp; = 2^2T(n - 2) + 2 + 1 \\
+&amp; = 2^2 \bigg[2T(n - 3) + 1 \bigg] + 2 + 1 \\
+&amp; = 2^3T(n - 3) + 2^2 + 2 + 1 \\
+&amp; • \\
+&amp; • \\
+&amp; • \\
+&amp; = 2^kT(n - k) + 2^k-1 + 2^k-2 + ... 2^2 + 2 + 1 \\
 \end {align}\end{split}\]</div>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">For <span class="math notranslate nohighlight">\(k\)</span> times… $<span class="math notranslate nohighlight">\(T(n) = 2^kT(n - k) + 2^k-1 + 2^k-2 + ... 2^2 + 2 + 1\)</span><span class="math notranslate nohighlight">\(
-Assume \)</span>n - k = 0$</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin {align}
+Assume \dots n - k = 0 \\
+\\
 n = k \\
-2^nT(0) + 1 + 2 + 2^2\ + \dots\ 2^k-1 \\
-2^n - 1 + 2^k - 1 \\
-2^n + 2^n - 1 \\
-2^n+1 - 1 \\
-\Theta(2^n) \\
+\\
+T(n) &amp; = 2^nT(0) + 1 + 2 + 2^2\ + \dots\ 2^k-1 \\
+&amp; = 2^n - 1 + 2^k - 1 \\
+&amp; = 2^n + 2^n - 1 \\
+&amp; = 2^n+1 - 1 \\
+&amp; = \Theta(2^n) \\
 \end {align}\end{split}\]</div>
 </div>
 </div>
@@ -1318,8 +1659,7 @@ n = k \\
 </div>
 </div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://youtu.be/JvcqtZk2mng">2.1.1 Recurrence Relation (T(n)= T(n-1) + 1) #1</a>
-<a class="reference external" href="https://youtu.be/1K9ebQJosvo">Recurrence Relation: Tower of Hanoi</a></p>
+</div>
 </div>
 </div>
 </div>
