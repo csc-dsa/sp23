@@ -1275,8 +1275,8 @@ Recursion Tree</div>
 \[\begin{split}
 T(n) =
 \begin{cases}
-1,  &amp; \text{$n = 0$}  \\[2ex]
-T(\frac{n}{2}) + 1, &amp; \text{$n \gt 0$}
+1,  &amp; \text{$n = 1$}  \\[2ex]
+T(\frac{n}{2}) + 1, &amp; \text{$n \gt 1$}
 \end{cases}
 \end{split}\]</div>
 </div>
@@ -1304,8 +1304,8 @@ T(\frac{n}{2}) + 1, &amp; \text{$n \gt 0$}
 \[\begin{split}
 T(n) =
 \begin{cases}
-1,  &amp; \text{$n = 0$}  \\[2ex]
-T(\frac{n}{2}) + 1, &amp; \text{$n \gt 0$}
+1,  &amp; \text{$n = 1$}  \\[2ex]
+T(\frac{n}{2}) + 1, &amp; \text{$n \gt 1$}
 \end{cases}
 \end{split}\]</div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -1663,8 +1663,8 @@ T(n) &amp; = 2^nT(0) + 1 + 2 + 2^2\ + \dots\ 2^k-1 \\
 <div class="admonition-master-theorem-https-youtu-be-2h0gkdriowu admonition">
 <p class="admonition-title"><a class="reference external" href="https://youtu.be/2H0GKdrIowU">Master Theorem</a></p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="64f071bb-6cf6-4070-9e17-021bf11f2db3" name="24200a83-2e01-4fd2-963b-2011bbc28bc7" type="radio">
-</input><label class="sd-tab-label" for="64f071bb-6cf6-4070-9e17-021bf11f2db3">
+<input checked="checked" id="36068587-64bc-4252-99f6-4992ec106cfa" name="0dc38f4a-f761-447d-8f29-0539157bb797" type="radio">
+</input><label class="sd-tab-label" for="36068587-64bc-4252-99f6-4992ec106cfa">
 Cases</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">If <span class="math notranslate nohighlight">\(T(n) = aT(\frac{n}{b}) + O(n^d)\)</span> (for constants <span class="math notranslate nohighlight">\(a \gt 0, b \gt 1, d \ge 0\)</span>), then:</p>
 <div class="math notranslate nohighlight">
@@ -1677,8 +1677,8 @@ O(n^{log_b\ a}),  &amp; \text{$if\ d\ \lt log_b\ a$}, &amp;&amp; Case 3 \\
 \end{cases}
 \end{split}\]</div>
 </div>
-<input id="671286a5-94a3-48b0-b389-d6309bde0b09" name="24200a83-2e01-4fd2-963b-2011bbc28bc7" type="radio">
-</input><label class="sd-tab-label" for="671286a5-94a3-48b0-b389-d6309bde0b09">
+<input id="9d0171d9-f63c-435d-b114-2fad1420a5df" name="0dc38f4a-f761-447d-8f29-0539157bb797" type="radio">
+</input><label class="sd-tab-label" for="9d0171d9-f63c-435d-b114-2fad1420a5df">
 Case 1</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[T(n) = 2T(\frac{n}{2}) + O(n^2)\]</div>
@@ -1691,8 +1691,8 @@ c &amp; = 2 \\
 \end{align}\end{split}\]</div>
 <p class="sd-card-text">Since <span class="math notranslate nohighlight">\(d \gt log_b\ a\)</span>, <span class="math notranslate nohighlight">\(T(n) = O(n^d) = O(n^2)\)</span></p>
 </div>
-<input id="2f0ea7d8-820e-40a0-b75a-25634f10f976" name="24200a83-2e01-4fd2-963b-2011bbc28bc7" type="radio">
-</input><label class="sd-tab-label" for="2f0ea7d8-820e-40a0-b75a-25634f10f976">
+<input id="642d9c8a-3af9-40ab-9db5-8dc9d5f6cecb" name="0dc38f4a-f761-447d-8f29-0539157bb797" type="radio">
+</input><label class="sd-tab-label" for="642d9c8a-3af9-40ab-9db5-8dc9d5f6cecb">
 Case 2</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[T(n) = T(\frac{n}{2}) + O(1)\]</div>
@@ -1711,8 +1711,8 @@ T(n) &amp; = O(n^d\ log\ n) \\
 &amp; = O(log\ n) \\
 \end{align}\end{split}\]</div>
 </div>
-<input id="37bab315-0b2a-4fe3-bbde-386bd581dd7d" name="24200a83-2e01-4fd2-963b-2011bbc28bc7" type="radio">
-</input><label class="sd-tab-label" for="37bab315-0b2a-4fe3-bbde-386bd581dd7d">
+<input id="9e6c8de6-d966-42a8-85a8-63da4bbad372" name="0dc38f4a-f761-447d-8f29-0539157bb797" type="radio">
+</input><label class="sd-tab-label" for="9e6c8de6-d966-42a8-85a8-63da4bbad372">
 Case 3</label><div class="sd-tab-content docutils">
 <div class="math notranslate nohighlight">
 \[T(n) = 4T(\frac{n}{2}) + O(n)\]</div>
