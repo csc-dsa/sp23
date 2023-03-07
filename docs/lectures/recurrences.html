@@ -529,35 +529,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/csc-dsa/sp23/master?urlpath=tree/docs/lectures/recurrences.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -624,23 +595,6 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="../_sources/lectures/recurrences.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
       <li>
         <a href="../_sources/lectures/recurrences.md"
    class="headerbtn"
@@ -863,7 +817,7 @@ Example</div>
 <p class="sd-card-text">Consider the sequence <span class="math notranslate nohighlight">\(\{a_n\}\)</span>, where</p>
 <div class="math notranslate nohighlight">
 \[a_n = \frac{1}{n}\]</div>
-<p class="sd-card-text">The list of the terms of this sequence, beginning with <span class="math notranslate nohighlight">\(a_1\)</span>, namely, <span class="math notranslate nohighlight">\(\{a1, a2, a3, a4,… \}\)</span>
+<p class="sd-card-text">The list of the terms of this sequence, beginning with <span class="math notranslate nohighlight">\(a_1\)</span>, namely, <span class="math notranslate nohighlight">\(\{a_1, a_2, a_3, a_4,… \}\)</span>
 starts with</p>
 <div class="math notranslate nohighlight">
 \[ 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots \]</div>
@@ -890,16 +844,38 @@ Example</div>
 <p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(−1\)</span>,<br />
 <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(5\)</span>,<br />
 <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p>
-<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span>. The list of terms <span class="math notranslate nohighlight">\(b_0, b_1, b_2, b_3, b_4, \dots \)</span> begins with</p>
+<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span> for the following lists of terms…what will each begin with?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(b_0, b_1, b_2, b_3, b_4, \dots \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[1, −1, 1, −1, 1, \dots\]</div>
-<p class="sd-card-text">the list of terms <span class="math notranslate nohighlight">\(c_0, c_1, c_2, c_3, c_4, \dots \)</span> begins with</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(c_0, c_1, c_2, c_3, c_4, \dots \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[ 2, 10, 50, 250, 1250, \dots\]</div>
-<p class="sd-card-text">and the list of terms <span class="math notranslate nohighlight">\(d_0, d_1, d_2, d_3, d_4, \dots\)</span> begins with</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(d_0, d_1, d_2, d_3, d_4, \dots\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[6, 2, \frac{2}{3}, \frac{2}{9}, \frac{2}{27}, \dots \]</div>
 </div>
+</details></div>
 </div>
 </div>
 <div class="admonition-definition admonition">
@@ -920,13 +896,28 @@ Example</div>
 <p class="sd-card-text">…are both arithmetic progressions with initial terms and common differences equal to</p>
 <p class="sd-card-text"><span class="math notranslate nohighlight">\(−1\)</span> and <span class="math notranslate nohighlight">\(4\)</span><br />
 <span class="math notranslate nohighlight">\(7\)</span> and <span class="math notranslate nohighlight">\(−3\)</span></p>
-<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span>. The list of terms <span class="math notranslate nohighlight">\(s_0, s_1, s_2, s_3, \dots \)</span> begins with</p>
+<p class="sd-card-text">If we start at <span class="math notranslate nohighlight">\(n = 0\)</span> for the following lists of terms…what will each begin with?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(s_0, s_1, s_2, s_3, \dots \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[ −1, 3, 7, 11, \dots \]</div>
-<p class="sd-card-text">and the list of terms <span class="math notranslate nohighlight">\(t_0, t_1, t_2, t_3, \dots \)</span> begins with</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(t_0, t_1, t_2, t_3, \dots \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[7, 4, 1, −2, \dots \]</div>
 </div>
+</details></div>
 </div>
 </div>
 </div>
@@ -952,7 +943,7 @@ the <strong>upper limit</strong> of the summation.</p>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Examples</div>
-<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(a1 = −2,\ a2 = −1,\ a3 = 0,\ a4 = 1,\ and\ a5 = 2\)</span>. Compute the following:</p>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(a_1 = −2,\ a_2 = −1,\ a_3 = 0,\ a_4 = 1,\ and\ a_5 = 2\)</span>. Compute the following:</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="math notranslate nohighlight">\(\Sigma_{k=1}^{5} a_k\)</span><div class="sd-summary-down docutils">
@@ -962,7 +953,7 @@ Examples</div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
-\Sigma_{k=1}^{5} a_k &amp; = a1 + a2 + a3 + a4 + a5 \\
+\Sigma_{k=1}^{5} a_k &amp; = a_1 + a_2 + a_3 + a_4 + a_5 \\
 &amp; = (−2) + (−1) + 0 + 1 + 2 \\
 &amp; = 0
 \end{align}\end{split}\]</div>
@@ -976,7 +967,7 @@ Examples</div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
-\Sigma_{k=2}^{2} a_k &amp; = a2 \\
+\Sigma_{k=2}^{2} a_k &amp; = a_2 \\
 &amp; = −1 \\
 \end{align}\end{split}\]</div>
 </div>
@@ -1018,6 +1009,8 @@ product of all the integers from <span class="math notranslate nohighlight">\(1\
 \[0! = 1\]</div>
 <p class="sd-card-text">– <em>Discrete Mathematics with Applications, 4th</em></p>
 </div></blockquote>
+</div>
+</div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
@@ -1047,6 +1040,7 @@ Examples</div>
 \[\begin{split}\begin{align}
 \frac{5!}{2!*3!} &amp; = \frac{5 * 4 * 3!}{2! *3!} \\
 &amp; = \frac{5 * 4}{2 * 1} \\
+&amp; = \frac{20}{2} \\
 &amp; = 10 \\
 \end{align}\end{split}\]</div>
 </div>
@@ -1076,12 +1070,15 @@ Examples</div>
 <span class="linenos">6</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/factorial-formula/">https://www.geeksforgeeks.org/factorial-formula/</a></p>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/factorial-formula/">https://www.geeksforgeeks.org/factorial-formula/</a></p>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Use Cases</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
 <div class="admonition-permutation admonition">
 <p class="admonition-title">Permutation</p>
 <ul class="simple">
@@ -1114,6 +1111,8 @@ n = 10,\ r = 3...\ &amp;=\ ^{10}P_3 \\
 </details></div>
 </div>
 </div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
 <div class="admonition-combination admonition">
 <p class="admonition-title">Combination</p>
 <ul class="simple">
@@ -1143,6 +1142,7 @@ n = 50,\ r = 3...\ &amp;=\ ^{50}C_3 \\
 \end {align}\end{split}\]</div>
 </div>
 </details></div>
+</div>
 </div>
 </div>
 </div>
@@ -1194,7 +1194,7 @@ cases</div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">By itself, a recurrence does not describe the running time of an algorithm</p>
 <ul class="simple">
-<li><p class="sd-card-text">need a <em>closed-form</em> solution (non-recursive description)\</p></li>
+<li><p class="sd-card-text">need a <em>closed-form</em> solution (non-recursive description)</p></li>
 <li><p class="sd-card-text">exact closed-form solution may not exist, or may be too difficult to find</p></li>
 </ul>
 <p class="sd-card-text">For most recurrences, an asymptotic solution of the form <span class="math notranslate nohighlight">\(\Theta()\)</span> is acceptable</p>
@@ -1657,6 +1657,73 @@ T(n) &amp; = 2^nT(0) + 1 + 2 + 2^2\ + \dots\ 2^k-1 \\
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="admonition-master-theorem admonition">
+<p class="admonition-title">Master Theorem</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="734bd4ea-f904-4e7a-9728-c16f4a187fa8" name="969a076b-5977-45df-893e-37fae91ddc2d" type="radio">
+</input><label class="sd-tab-label" for="734bd4ea-f904-4e7a-9728-c16f4a187fa8">
+Cases</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(T(n) = aT(\frac{n}{b}) + O(n^d)\)</span> (for constants <span class="math notranslate nohighlight">\(a \gt 0, b \gt 1, d \ge 0\)</span>), then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T(n) =
+\begin{cases}
+O(n^d),  &amp; \text{$if\ d\ \gt log_b\ a$}, &amp;&amp; Case 1 \\[2ex]
+O(n^d\ log\ n),  &amp; \text{$if\ d\ = log_b\ a$}, &amp;&amp; Case 2 \\[2ex]
+O(n^{log_b\ a}),  &amp; \text{$if\ d\ \lt log_b\ a$}, &amp;&amp; Case 3 \\
+\end{cases}
+\end{split}\]</div>
+</div>
+<input id="822d24be-34c5-456d-8ae1-83331eb549af" name="969a076b-5977-45df-893e-37fae91ddc2d" type="radio">
+</input><label class="sd-tab-label" for="822d24be-34c5-456d-8ae1-83331eb549af">
+Case 1</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[T(n) = 2T(\frac{n}{2}) + O(n^2)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+a &amp; = 2 \\
+b &amp; = 2 \\
+c &amp; = 2 \\
+\\
+\end{align}\end{split}\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(d \gt log_b\ a\)</span>, <span class="math notranslate nohighlight">\(T(n) = O(n^d) = O(n^2)\)</span></p>
+</div>
+<input id="3d83e813-3293-4188-9337-06c4a87625b1" name="969a076b-5977-45df-893e-37fae91ddc2d" type="radio">
+</input><label class="sd-tab-label" for="3d83e813-3293-4188-9337-06c4a87625b1">
+Case 2</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[T(n) = T(\frac{n}{2}) + O(1)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+a &amp; = 1 \\
+b &amp; = 2 \\
+c &amp; = 0 \\
+\\
+\end{align}\end{split}\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(d = log_b\ a\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+T(n) &amp; = O(n^d\ log\ n) \\
+&amp; = O(n^0\ log\ n) \\
+&amp; = O(log\ n) \\
+\end{align}\end{split}\]</div>
+</div>
+<input id="067aff6d-acc9-4bb9-b58f-9327b49f580c" name="969a076b-5977-45df-893e-37fae91ddc2d" type="radio">
+</input><label class="sd-tab-label" for="067aff6d-acc9-4bb9-b58f-9327b49f580c">
+Case 3</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[T(n) = 4T(\frac{n}{2}) + O(n)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin {align}
+a &amp; = 4 \\
+b &amp; = 2 \\
+c &amp; = 1 \\
+\\
+\end{align}\end{split}\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(d \lt log_b\ a\)</span>, <span class="math notranslate nohighlight">\(T(n) = O(n^{log_b\ a}) = O(n^2)\)</span></p>
 </div>
 </div>
 </div>
