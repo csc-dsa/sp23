@@ -529,35 +529,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/csc-dsa/sp23/master?urlpath=tree/docs/lectures/mergesort.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -624,23 +595,6 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="../_sources/lectures/mergesort.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
       <li>
         <a href="../_sources/lectures/mergesort.md"
    class="headerbtn"
@@ -717,11 +671,6 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Merge Sort
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#merging-two-sorted-arrays">
      Merging two sorted arrays
     </a>
@@ -771,6 +720,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sorting-algorithms">
    Sorting Algorithms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-yourself">
+   Test Yourself…
   </a>
  </li>
 </ul>
@@ -808,11 +762,6 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Merge Sort
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#merging-two-sorted-arrays">
      Merging two sorted arrays
     </a>
@@ -864,6 +813,11 @@ title="Print to PDF"
    Sorting Algorithms
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-yourself">
+   Test Yourself…
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -888,7 +842,7 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="mergesort">
 <h1>Mergesort<a class="headerlink" href="#mergesort" title="Permalink to this headline">#</a></h1>
 <div class="full-width docutils">
-<img alt="https://gifimage.net/wp-content/uploads/2017/10/merge-sort-gif-5.gif" class="align-center" src="https://gifimage.net/wp-content/uploads/2017/10/merge-sort-gif-5.gif" />
+<img alt="https://deutranium.github.io/Turing/assets/images/merge-sort-meme.jpeg" class="align-center" src="https://deutranium.github.io/Turing/assets/images/merge-sort-meme.jpeg" />
 </div>
 <section id="divide-conquer">
 <h2><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms">Divide &amp; Conquer</a><a class="headerlink" href="#divide-conquer" title="Permalink to this headline">#</a></h2>
@@ -909,29 +863,21 @@ title="Print to PDF"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Example</div>
-<img alt="../_images/11_s04_1.png" src="../_images/11_s04_1.png" />
 <ul class="simple">
 <li><p class="sd-card-text">sorting with insertion sort is <span class="math notranslate nohighlight">\(n^2\)</span></p></li>
 <li><p class="sd-card-text">we can divide the array into two halves and sort them separately</p></li>
 </ul>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
-<img alt="../_images/11_s04_2.png" src="../_images/11_s04_2.png" />
-</div>
-<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
-<img alt="../_images/11_s04_3.png" src="../_images/11_s04_3.png" />
-</div>
-</div>
-</div>
-</div>
-</div>
+<figure class="align-default">
+<img alt="https://www.kirupa.com/sorts/images/mergesort_1st_div_300.png" src="https://www.kirupa.com/sorts/images/mergesort_1st_div_300.png" />
+</figure>
 <ul class="simple">
 <li><p class="sd-card-text">each subproblem could be sorted in <span class="math notranslate nohighlight">\(≈\frac{n^2}{4}\)</span></p></li>
 <li><p class="sd-card-text">sorting both halves will require <span class="math notranslate nohighlight">\(≈2\frac{n^2}{4}\)</span> 🤔</p></li>
 <li><p class="sd-card-text">we need an additional operation to combine both solutions</p></li>
 </ul>
-<p class="sd-card-text"><em><em>Time “reduced” from <span class="math notranslate nohighlight">\(≈n^2\)</span> to\ <span class="math notranslate nohighlight">\(≈\frac{n^2}{2}+n\)</span></em></em></p>
+<p class="sd-card-text"><em><em>Time “reduced” from <span class="math notranslate nohighlight">\(≈n^2\)</span> to <span class="math notranslate nohighlight">\(≈\frac{n^2}{2}+n\)</span></em></em></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -953,38 +899,9 @@ Example</div>
 <ul class="simple">
 <li><p class="sd-card-text">after both calls are finished, proceed to <em><em>merge</em></em> the solutions</p></li>
 </ul>
-</div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h2>Divide &amp; Conquer<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Consider how this breaks out…</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<img alt="image" src="../_images/11_s06_before.png" /><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<img alt="../_images/11_s06_after.png" src="../_images/11_s06_after.png" />
-<img alt="../_images/11_s06_2.png" src="../_images/11_s06_2.png" />
-</div>
-</details></div>
-</div>
-</div>
-<section id="id2">
-<h3><a class="reference external" href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="ec53e4d5-d2f0-4d1d-9eec-85ed300d4ad5" name="a86acff1-bb41-4f3b-ae37-ab7f596080d1" type="radio">
-</input><label class="sd-tab-label" for="ec53e4d5-d2f0-4d1d-9eec-85ed300d4ad5">
+<input checked="checked" id="d10f619d-8666-4bfb-b2c2-3e03aee6e535" name="5605b725-88ee-42d7-8639-91b530667a5e" type="radio">
+</input><label class="sd-tab-label" for="d10f619d-8666-4bfb-b2c2-3e03aee6e535">
 pseudocode</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">2</span>
@@ -999,8 +916,8 @@ pseudocode</label><div class="sd-tab-content docutils">
 </div>
 <p class="sd-card-text"><a class="reference external" href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort: pseudocode</a></p>
 </div>
-<input id="ca49f5ae-6405-45ae-8e28-bb37649779b9" name="a86acff1-bb41-4f3b-ae37-ab7f596080d1" type="radio">
-</input><label class="sd-tab-label" for="ca49f5ae-6405-45ae-8e28-bb37649779b9">
+<input id="4019fe92-183f-4ce9-9570-d6fd05869cd7" name="5605b725-88ee-42d7-8639-91b530667a5e" type="radio">
+</input><label class="sd-tab-label" for="4019fe92-183f-4ce9-9570-d6fd05869cd7">
 mergesort</label><div class="sd-tab-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos">2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">  </span>
@@ -1010,9 +927,14 @@ mergesort</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9176c037-cfcc-4a60-a9c4-91ec1f8a6f22" name="a86acff1-bb41-4f3b-ae37-ab7f596080d1" type="radio">
-</input><label class="sd-tab-label" for="9176c037-cfcc-4a60-a9c4-91ec1f8a6f22">
+<input id="381f1ab0-d03e-4179-9c15-e7af10c0517d" name="5605b725-88ee-42d7-8639-91b530667a5e" type="radio">
+</input><label class="sd-tab-label" for="381f1ab0-d03e-4179-9c15-e7af10c0517d">
 r_mergesort</label><div class="sd-tab-content docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">r_mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 2</span><span class="w">  </span>
 <span class="linenos"> 3</span><span class="w">    </span><span class="c1">//basecase(single element or empty list)</span>
@@ -1031,9 +953,28 @@ r_mergesort</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="95e98381-a068-4aa3-aa6b-ecc0a21f59b5" name="a86acff1-bb41-4f3b-ae37-ab7f596080d1" type="radio">
-</input><label class="sd-tab-label" for="95e98381-a068-4aa3-aa6b-ecc0a21f59b5">
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://algs4.cs.princeton.edu/22mergesort/images/merge.png"><img alt="https://algs4.cs.princeton.edu/22mergesort/images/merge.png" src="https://algs4.cs.princeton.edu/22mergesort/images/merge.png" style="width: 100%;" /></a>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="7bc1c3d7-d5ff-4d08-8128-684f709508ff" name="5605b725-88ee-42d7-8639-91b530667a5e" type="radio">
+</input><label class="sd-tab-label" for="7bc1c3d7-d5ff-4d08-8128-684f709508ff">
 merge</label><div class="sd-tab-content docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="w">    </span><span class="c1">// copy array</span>
@@ -1058,17 +999,211 @@ merge</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD-bars.png"><img alt="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD-bars.png" src="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD-bars.png" style="width: 300px;" /></a>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
+<section id="id1">
+<h2><a class="reference external" href="https://www.kirupa.com/sorts/mergesort.htm">Divide &amp; Conquer</a><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Consider how this breaks out…</strong></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="e37c220a-e8b6-4fc8-9e20-f30f31827cbd" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="e37c220a-e8b6-4fc8-9e20-f30f31827cbd">
+Unsorted</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/mergesort_numbers_300.png"><img alt="https://www.kirupa.com/sorts/images/mergesort_numbers_300.png" src="https://www.kirupa.com/sorts/images/mergesort_numbers_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Collection Unsorted</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="66113899-f7c1-4171-8e57-ce201ed8c68f" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="66113899-f7c1-4171-8e57-ce201ed8c68f">
+Divide</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/mergesort_1st_div_300.png"><img alt="https://www.kirupa.com/sorts/images/mergesort_1st_div_300.png" src="https://www.kirupa.com/sorts/images/mergesort_1st_div_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">First Division</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/mergesort_2nd_div_300.png"><img alt="https://www.kirupa.com/sorts/images/mergesort_2nd_div_300.png" src="https://www.kirupa.com/sorts/images/mergesort_2nd_div_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Second Division</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/mergesort_3rd_div_300.png"><img alt="https://www.kirupa.com/sorts/images/mergesort_3rd_div_300.png" src="https://www.kirupa.com/sorts/images/mergesort_3rd_div_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Third Division</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="aac7626a-e178-49d5-ba00-9231ba4b9614" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="aac7626a-e178-49d5-ba00-9231ba4b9614">
+Conquer Setup</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_setup_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_setup_300.png" src="https://www.kirupa.com/sorts/images/merge_setup_300.png" style="width: 100%;" /></a>
+</figure>
+</div>
+</div>
+</div>
+<input id="4bfee04a-d7a3-48dc-aedb-f9f35198390d" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="4bfee04a-d7a3-48dc-aedb-f9f35198390d">
+First Row</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_one_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_one_300.png" src="https://www.kirupa.com/sorts/images/merge_step_one_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Step 1</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_two_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_two_300.png" src="https://www.kirupa.com/sorts/images/merge_step_two_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Step 2</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_first_row_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_first_row_300.png" src="https://www.kirupa.com/sorts/images/merge_step_first_row_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Completed First Row</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="7e09c928-e341-4fb9-b44a-01ff4aa8f449" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="7e09c928-e341-4fb9-b44a-01ff4aa8f449">
+Second Row</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_2nd_row_3_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_2nd_row_3_300.png" src="https://www.kirupa.com/sorts/images/merge_step_2nd_row_3_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Step 3</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="1154231e-4786-4271-bb77-a6fadff7c8cb" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="1154231e-4786-4271-bb77-a6fadff7c8cb">
+Third Row</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_3rd_row_1_300.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_3rd_row_1_300.png" src="https://www.kirupa.com/sorts/images/merge_step_3rd_row_1_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Step 1</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/merge_step_3rd_row_2.png"><img alt="https://www.kirupa.com/sorts/images/merge_step_3rd_row_2.png" src="https://www.kirupa.com/sorts/images/merge_step_3rd_row_2.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Step 2</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="2a41ba80-f776-4559-8ccc-f10b3216c4dc" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="2a41ba80-f776-4559-8ccc-f10b3216c4dc">
+Sorted</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/everything_sorted_merge_300.png"><img alt="https://www.kirupa.com/sorts/images/everything_sorted_merge_300.png" src="https://www.kirupa.com/sorts/images/everything_sorted_merge_300.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Sort Complete</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<input id="f394af4c-9b94-424b-a95f-d905772345b2" name="d5abe4d1-5960-4d78-841f-b2fee38af19a" type="radio">
+</input><label class="sd-tab-label" for="f394af4c-9b94-424b-a95f-d905772345b2">
+Try It!</label><div class="sd-tab-content docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<iframe src="https://opendsa-server.cs.vt.edu/embed/mergesortAV" height="650" width="100%" scrolling="no"></iframe>
+<ul class="simple">
+<li><p class="sd-card-text">Add the collection values to <em>Your Values</em></p>
+<ul>
+<li><p class="sd-card-text">Collection values : 5, 12, 4, 1, 2, 8, 2, 6, 10</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Change the <em>List Size</em> to <em>9</em></p></li>
+<li><p class="sd-card-text">Press <kbd>run</kbd> and click through the steps…</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="merging-two-sorted-arrays">
 <h3><a class="reference external" href="https://www.geeksforgeeks.org/merge-two-sorted-arrays/">Merging two sorted arrays</a><a class="headerlink" href="#merging-two-sorted-arrays" title="Permalink to this headline">#</a></h3>
 <div class="full-width docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<img alt="../_images/11_s09.png" src="../_images/11_s09.png" />
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://www.baeldung.com/wp-content/uploads/2019/12/Merge-Sorted-Arrays.png"><img alt="https://www.baeldung.com/wp-content/uploads/2019/12/Merge-Sorted-Arrays.png" src="https://www.baeldung.com/wp-content/uploads/2019/12/Merge-Sorted-Arrays.png" style="width: 100%;" /></a>
+</figure>
 <p class="sd-card-text"><em><em>A secondary array is necessary</em></em></p>
 <p class="sd-card-text"><em><em>to guarantee a</em></em> <strong><a class="reference external" href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/linear-time-merging">lineartime</a></strong> <em><em>operation</em></em></p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Visualize…</p>
+<iframe src="https://opendsa-server.cs.vt.edu/embed/mergesortCON" height="300" width="100%"></iframe>
+</div>
 </div>
 </div>
 </div>
@@ -1107,9 +1242,9 @@ Breakdown (generalization)</div>
 <p class="sd-card-text"><span class="math notranslate nohighlight">\(1^{st}\)</span> Pass: merges segments of size 1<br />
 <span class="math notranslate nohighlight">\(2^{nd}\)</span> Pass: merges segments of size 2<br />
 <span class="math notranslate nohighlight">\(i^{th}\)</span> Pass: merges segments of size <span class="math notranslate nohighlight">\(2^{i-1}\)</span>.<br />
-Total number of passes: <span class="math notranslate nohighlight">\(log_2 n\)</span></p>
+Total number of passes: <span class="math notranslate nohighlight">\(log\ n\)</span></p>
 <p class="sd-card-text">As merge showed, we can merge two sorted segments in linear time, which means that each pass takes <span class="math notranslate nohighlight">\(O(n)\)</span> time.
-Since there are <span class="math notranslate nohighlight">\(log_2\ n\)</span> passes, the total computing time is <span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span>, or expressed as:</p>
+Since there are <span class="math notranslate nohighlight">\(log\ n\)</span> passes, the total computing time is <span class="math notranslate nohighlight">\(O(n\ log\ n)\)</span>, or expressed as:</p>
 <div class="math notranslate nohighlight">
 \[T(n) = 2T(\frac{n}{2}) + O(n)\]</div>
 </div>
@@ -1122,36 +1257,11 @@ Since there are <span class="math notranslate nohighlight">\(log_2\ n\)</span> p
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <figure class="align-default">
-<img alt="https://cdn.kastatic.org/ka-perseus-images/5fcbebf66560d8fc490de2a0d8a0e5b1d65c5c54.png" src="https://cdn.kastatic.org/ka-perseus-images/5fcbebf66560d8fc490de2a0d8a0e5b1d65c5c54.png" />
+<a class="reference internal image-reference" href="https://www.kirupa.com/sorts/images/running_complexity_300.png"><img alt="https://www.kirupa.com/sorts/images/running_complexity_300.png" src="https://www.kirupa.com/sorts/images/running_complexity_300.png" style="width: 100%;" /></a>
 </figure>
-<div class="admonition-code admonition">
-<p class="admonition-title">code</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="7802795b-8a69-4220-98c2-cced8a87979d" name="3c3b8771-1d4c-446e-821b-75472da0d783" type="radio">
-</input><label class="sd-tab-label" for="7802795b-8a69-4220-98c2-cced8a87979d">
-mergesort</label><div class="sd-tab-content docutils">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">  </span>
-<span class="linenos">3</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">4</span><span class="w">  </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">aux</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">5</span><span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<input id="b30a644a-a07c-43ff-8bc3-41713df9e279" name="3c3b8771-1d4c-446e-821b-75472da0d783" type="radio">
-</input><label class="sd-tab-label" for="b30a644a-a07c-43ff-8bc3-41713df9e279">
-r_mergesort</label><div class="sd-tab-content docutils">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">r_mergesort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">     </span>
-<span class="linenos">2</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">3</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">4</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">5</span><span class="w">  </span><span class="n">r_mergesort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">6</span><span class="w">  </span><span class="n">merge</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">7</span><span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Try It!</p>
+<iframe src="https://opendsa-server.cs.vt.edu/embed/MergeSortAnalysisCON" height="200" width="100%"></iframe>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -1162,12 +1272,12 @@ r_mergesort</label><div class="sd-tab-content docutils">
 For total time, we end up with:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[cn(log_2 n + 1)\]</div>
+\[cn(log\ n + 1)\]</div>
 <ul class="simple">
 <li><p class="sd-card-text">Discard the low-order term (constant) and the coefficient</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[O(n\ log_2\ n)\]</div>
+\[O(n\ log\ n)\]</div>
 </div>
 </div>
 </div>
@@ -1177,13 +1287,11 @@ For total time, we end up with:</p></li>
 <section id="sorting-visualizer">
 <h2><a class="reference external" href="https://clementmihailescu.github.io/Sorting-Visualizer/">Sorting Visualizer</a><a class="headerlink" href="#sorting-visualizer" title="Permalink to this headline">#</a></h2>
 <div class="full-width docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><em>Click to open in new tab/window</em></p>
-<img alt="../_images/w7_mergesort.png" src="../_images/w7_mergesort.png" />
-<p class="sd-card-text">KEY: Blue - element, Green - Sequential, Red - Swap, Purple - placed</p>
+<iframe src="https://www.sortvisualizer.com/mergesort/" height="650" width="100%"></iframe>
 </div>
-<a class="sd-stretched-link reference external" href="https://clementmihailescu.github.io/Sorting-Visualizer/"></a></div>
+</div>
 </div>
 </section>
 <section id="comments-on-merge-sort">
@@ -1232,26 +1340,32 @@ Improvements</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Think about reversing an array or string</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<em><em>solution 1:</em></em> use an additional array of equal size</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+solution 1 <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Use an additional array of equal size</strong></p>
 <ul class="simple">
 <li><p class="sd-card-text">what is the required extra memory?</p></li>
 </ul>
 </div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<em><em>solution 2:</em></em> exchange first and last and work recursively on the inner part</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+solution 2<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Exchange first and last and work recursively on the inner part</strong></p>
 <ul class="simple">
 <li><p class="sd-card-text">can do it iteratively as well</p></li>
 <li><p class="sd-card-text">what is the required extra memory?</p></li>
 </ul>
 </div>
-</div>
-</div>
+</details></div>
 </div>
 </div>
 </section>
@@ -1266,8 +1380,12 @@ Think about reversing an array or string</div>
 <p class="sd-card-text">Are selection and insertion sorts <em><em>in-place</em></em>?</p>
 </div>
 </div>
-<div class="admonition-selection-sort admonition">
-<p class="admonition-title">selection sort</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>selection sort</strong></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 2</span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">min_idx</span><span class="p">;</span><span class="w"></span>
@@ -1289,8 +1407,12 @@ Think about reversing an array or string</div>
 </pre></div>
 </div>
 </div>
-<div class="admonition-insertion-sort admonition">
-<p class="admonition-title">insertion sort</p>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>insertion sort</strong></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
 <span class="linenos"> 2</span><span class="p">{</span><span class="w"> </span>
 <span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span>
@@ -1318,6 +1440,10 @@ Think about reversing an array or string</div>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="stable-sorting">
 <h2>Stable Sorting<a class="headerlink" href="#stable-sorting" title="Permalink to this headline">#</a></h2>
@@ -1329,18 +1455,28 @@ Think about reversing an array or string</div>
 <p class="sd-card-text">A sorting algorithm is <em><em>stable</em></em> if it preserves the order of equal elements</p>
 <p class="sd-card-text">Consider sorting (in ascending order) a list <span class="math notranslate nohighlight">\(A\)</span> into a sorted list <span class="math notranslate nohighlight">\(B\)</span>. Let <span class="math notranslate nohighlight">\(f(i)\)</span> be the index of element <span class="math notranslate nohighlight">\(A[i]\)</span> in <span class="math notranslate nohighlight">\(B\)</span>. The sorting algorithm is stable if:</p>
 <p class="sd-card-text">for any pair <span class="math notranslate nohighlight">\((i,j)\)</span> such that <span class="math notranslate nohighlight">\(A[i] = A[j]\)</span> and <span class="math notranslate nohighlight">\(i &lt; j\)</span>, then <span class="math notranslate nohighlight">\(f(i) &lt; f(j)\)</span></p>
-<a class="reference internal image-reference" href="../_images/11_s19.png"><img alt="../_images/11_s19.png" src="../_images/11_s19.png" style="width: 92%;" /></a>
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://cdn.emre.me/2019-08-31-stable-unstable.png"><img alt="https://cdn.emre.me/2019-08-31-stable-unstable.png" src="https://cdn.emre.me/2019-08-31-stable-unstable.png" style="width: 50%;" /></a>
+</figure>
 </div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="b0d73ed6-d21d-426b-921a-128d39ce8587" name="62bf70e3-1a9d-4ef7-b87d-edc70b968a5b" type="radio">
+</input><label class="sd-tab-label" for="b0d73ed6-d21d-426b-921a-128d39ce8587">
+Stable?</label><div class="sd-tab-content docutils">
 <div class="tip admonition">
 <p class="admonition-title">Stable?</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../_images/11_s20_1.png"><img alt="../_images/11_s20_1.png" src="../_images/11_s20_1.png" style="width: 375px;" /></a>
+</figure>
 <p class="sd-card-text">unsorted</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../_images/11_s20_2.png"><img alt="../_images/11_s20_2.png" src="../_images/11_s20_2.png" style="width: 375px;" /></a>
+</figure>
 <p class="sd-card-text">sorted</p>
 </div>
 </div>
@@ -1355,16 +1491,24 @@ Stable?<div class="sd-summary-down docutils">
 <p class="sd-card-text"><b class="red">NOT STABLE</b></p>
 </div>
 </details></div>
+</div>
+<input id="8c8af5bc-e9a2-4f71-a213-c03d39ef27ff" name="62bf70e3-1a9d-4ef7-b87d-edc70b968a5b" type="radio">
+</input><label class="sd-tab-label" for="8c8af5bc-e9a2-4f71-a213-c03d39ef27ff">
+Stable?</label><div class="sd-tab-content docutils">
 <div class="tip admonition">
 <p class="admonition-title">How about now?</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../_images/11_s20_1.png"><img alt="../_images/11_s20_1.png" src="../_images/11_s20_1.png" style="width: 400px;" /></a>
+</figure>
 <p class="sd-card-text">unsorted</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../_images/11_s20_3.png"><img alt="../_images/11_s20_3.png" src="../_images/11_s20_3.png" style="width: 400px;" /></a>
+</figure>
 <p class="sd-card-text">sorted</p>
 </div>
 </div>
@@ -1379,6 +1523,8 @@ Stable?<div class="sd-summary-down docutils">
 <p class="sd-card-text"><b class="green">STABLE</b></p>
 </div>
 </details></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1443,8 +1589,8 @@ Is insertion sort stable?<div class="sd-summary-down docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="16065223-2e28-4d2c-b39a-a879e13d8800" name="7460d84f-5a77-4de3-9a2f-3ade40771305" type="radio">
-</input><label class="sd-tab-label" for="16065223-2e28-4d2c-b39a-a879e13d8800">
+<input checked="checked" id="fb5ca24e-cd64-4499-8d25-036fe88ec73e" name="83c469d0-e5e1-4fac-84f5-b47d2ea2fffc" type="radio">
+</input><label class="sd-tab-label" for="fb5ca24e-cd64-4499-8d25-036fe88ec73e">
 incomplete</label><div class="sd-tab-content docutils">
 <table class="table">
 <colgroup>
@@ -1489,8 +1635,8 @@ incomplete</label><div class="sd-tab-content docutils">
 </tbody>
 </table>
 </div>
-<input id="44f72c7a-d568-4e45-aed3-49682f387ed5" name="7460d84f-5a77-4de3-9a2f-3ade40771305" type="radio">
-</input><label class="sd-tab-label" for="44f72c7a-d568-4e45-aed3-49682f387ed5">
+<input id="1c14a76e-9a16-444c-91e4-e7f412e9b600" name="83c469d0-e5e1-4fac-84f5-b47d2ea2fffc" type="radio">
+</input><label class="sd-tab-label" for="1c14a76e-9a16-444c-91e4-e7f412e9b600">
 complete</label><div class="sd-tab-content docutils">
 <table class="table">
 <colgroup>
@@ -1537,6 +1683,19 @@ complete</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="test-yourself">
+<h2>Test Yourself…<a class="headerlink" href="#test-yourself" title="Permalink to this headline">#</a></h2>
+<div class="full-width docutils">
+<div class="dropdown danger admonition">
+<p class="admonition-title">Mergesort Merging Proficiency Exercise</p>
+<iframe src="https://opendsa-server.cs.vt.edu/embed/mergesortPRO" height="950" width="100%" scrolling="no"></iframe>
+</div>
+<div class="dropdown danger admonition">
+<p class="admonition-title">Mergesort Proficiency Exercise</p>
+<iframe src="https://opendsa-server.cs.vt.edu/embed/mergesortPRO" height="950" width="100%" scrolling="no"></iframe>
 </div>
 </div>
 </section>
